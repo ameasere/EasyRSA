@@ -1,0 +1,28 @@
+VSVersionInfo(
+  ffi=FixedFileInfo(
+    filevers=(0, 0, 9, 0),
+    prodvers=(0, 0, 9, 0),
+    mask=0x3f,
+    flags=0x0,
+    OS=0x40004,
+    fileType=0x1,
+    subtype=0x0,
+    date=(0, 0)
+    ),
+  kids=[
+    StringFileInfo(
+      [
+      StringTable(
+        u'040904B0',
+        [StringStruct(u'CompanyName', u'The Enigma Project'),
+        StringStruct(u'FileDescription', u'Data Vault'),
+        StringStruct(u'FileVersion', u'0.0.9'),
+        StringStruct(u'InternalName', u'salvation'),
+        StringStruct(u'LegalCopyright', u'The Enigma Project 2022'),
+        StringStruct(u'OriginalFilename', u'Salvation.exe'),
+        StringStruct(u'ProductName', u'Salvation: Data Vault'),
+        StringStruct(u'ProductVersion', u'0.0.9.0')])
+      ]), 
+    VarFileInfo([VarStruct(u'Translation', [1033, 1200])])
+  ]
+)
