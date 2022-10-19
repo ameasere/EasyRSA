@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'main.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.4
+## Created by: Qt User Interface Compiler version 6.4.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -18,10 +18,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplication, QCheckBox,
     QComboBox, QCommandLinkButton, QFrame, QGridLayout,
     QHBoxLayout, QHeaderView, QLabel, QLineEdit,
-    QMainWindow, QPlainTextEdit, QPushButton, QRadioButton,
-    QScrollArea, QScrollBar, QSizePolicy, QSlider,
-    QStackedWidget, QTableWidget, QTableWidgetItem, QTextEdit,
-    QVBoxLayout, QWidget)
+    QMainWindow, QPlainTextEdit, QProgressBar, QPushButton,
+    QRadioButton, QScrollArea, QScrollBar, QSizePolicy,
+    QSlider, QStackedWidget, QTableWidget, QTableWidgetItem,
+    QTextEdit, QTreeView, QVBoxLayout, QWidget)
 from .resources_rc import *
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -676,17 +676,17 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_home)
 
-        self.btn_drive = QPushButton(self.topMenu)
-        self.btn_drive.setObjectName(u"btn_drive")
-        sizePolicy.setHeightForWidth(self.btn_drive.sizePolicy().hasHeightForWidth())
-        self.btn_drive.setSizePolicy(sizePolicy)
-        self.btn_drive.setMinimumSize(QSize(0, 45))
-        self.btn_drive.setFont(font)
-        self.btn_drive.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_drive.setLayoutDirection(Qt.LeftToRight)
-        self.btn_drive.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-input.png);")
+        self.btn_filespace = QPushButton(self.topMenu)
+        self.btn_filespace.setObjectName(u"btn_filespace")
+        sizePolicy.setHeightForWidth(self.btn_filespace.sizePolicy().hasHeightForWidth())
+        self.btn_filespace.setSizePolicy(sizePolicy)
+        self.btn_filespace.setMinimumSize(QSize(0, 45))
+        self.btn_filespace.setFont(font)
+        self.btn_filespace.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_filespace.setLayoutDirection(Qt.LeftToRight)
+        self.btn_filespace.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-file.png);")
 
-        self.verticalLayout_8.addWidget(self.btn_drive)
+        self.verticalLayout_8.addWidget(self.btn_filespace)
 
         self.btn_passwords = QPushButton(self.topMenu)
         self.btn_passwords.setObjectName(u"btn_passwords")
@@ -1049,6 +1049,123 @@ class Ui_MainWindow(object):
         self.home.setStyleSheet(u"/*background-image: url(:/images/images/images/salvation_inverted.png);*/\n"
 "background-position: center;\n"
 "background-repeat: no-repeat;")
+        self.dashboardTitle = QLabel(self.home)
+        self.dashboardTitle.setObjectName(u"dashboardTitle")
+        self.dashboardTitle.setGeometry(QRect(0, 0, 1171, 51))
+        self.dashboardTitle.setStyleSheet(u"color: rgb(189, 147, 249);\n"
+"font: 18pt \"Segoe UI\" bold;")
+        self.dashboardTitle.setLineWidth(1)
+        self.dashboardTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.publicKeySA = QScrollArea(self.home)
+        self.publicKeySA.setObjectName(u"publicKeySA")
+        self.publicKeySA.setGeometry(QRect(0, 90, 361, 211))
+        self.publicKeySA.setStyleSheet(u" QScrollBar:vertical {\n"
+"    background: rgb(52, 59, 72);\n"
+" }\n"
+" QScrollBar:horizontal {\n"
+"    background: rgb(52, 59, 72);\n"
+" }")
+        self.publicKeySA.setFrameShape(QFrame.NoFrame)
+        self.publicKeySA.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.publicKeySA.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.publicKeySA.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_2 = QWidget()
+        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 361, 218))
+        self.scrollAreaWidgetContents_2.setStyleSheet(u" QScrollBar:vertical {\n"
+"	border: none;\n"
+"    background: rgb(52, 59, 72);\n"
+"    width: 14px;\n"
+"    margin: 21px 0 21px 0;\n"
+"	border-radius: 0px;\n"
+" }")
+        self.horizontalLayout_13 = QHBoxLayout(self.scrollAreaWidgetContents_2)
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.publicKeyDisplay = QPlainTextEdit(self.scrollAreaWidgetContents_2)
+        self.publicKeyDisplay.setObjectName(u"publicKeyDisplay")
+        self.publicKeyDisplay.setMinimumSize(QSize(200, 200))
+        self.publicKeyDisplay.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.publicKeyDisplay.setReadOnly(True)
+
+        self.horizontalLayout_13.addWidget(self.publicKeyDisplay)
+
+        self.publicKeySA.setWidget(self.scrollAreaWidgetContents_2)
+        self.privateKeySA = QScrollArea(self.home)
+        self.privateKeySA.setObjectName(u"privateKeySA")
+        self.privateKeySA.setGeometry(QRect(400, 90, 361, 211))
+        self.privateKeySA.setStyleSheet(u" QScrollBar:vertical {\n"
+"    background: rgb(52, 59, 72);\n"
+" }\n"
+" QScrollBar:horizontal {\n"
+"    background: rgb(52, 59, 72);\n"
+" }")
+        self.privateKeySA.setFrameShape(QFrame.NoFrame)
+        self.privateKeySA.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.privateKeySA.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.privateKeySA.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_3 = QWidget()
+        self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 361, 218))
+        self.scrollAreaWidgetContents_3.setStyleSheet(u" QScrollBar:vertical {\n"
+"	border: none;\n"
+"    background: rgb(52, 59, 72);\n"
+"    width: 14px;\n"
+"    margin: 21px 0 21px 0;\n"
+"	border-radius: 0px;\n"
+" }")
+        self.horizontalLayout_14 = QHBoxLayout(self.scrollAreaWidgetContents_3)
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.privateKeyDisplay = QPlainTextEdit(self.scrollAreaWidgetContents_3)
+        self.privateKeyDisplay.setObjectName(u"privateKeyDisplay")
+        self.privateKeyDisplay.setMinimumSize(QSize(200, 200))
+        self.privateKeyDisplay.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.privateKeyDisplay.setReadOnly(True)
+
+        self.horizontalLayout_14.addWidget(self.privateKeyDisplay)
+
+        self.privateKeySA.setWidget(self.scrollAreaWidgetContents_3)
+        self.publicKeyTitle = QLabel(self.home)
+        self.publicKeyTitle.setObjectName(u"publicKeyTitle")
+        self.publicKeyTitle.setGeometry(QRect(10, 64, 331, 21))
+        sizePolicy2.setHeightForWidth(self.publicKeyTitle.sizePolicy().hasHeightForWidth())
+        self.publicKeyTitle.setSizePolicy(sizePolicy2)
+        self.publicKeyTitle.setMaximumSize(QSize(16777215, 45))
+        self.publicKeyTitle.setFont(font)
+        self.publicKeyTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.privateKeyTitle = QLabel(self.home)
+        self.privateKeyTitle.setObjectName(u"privateKeyTitle")
+        self.privateKeyTitle.setGeometry(QRect(410, 60, 331, 21))
+        sizePolicy2.setHeightForWidth(self.privateKeyTitle.sizePolicy().hasHeightForWidth())
+        self.privateKeyTitle.setSizePolicy(sizePolicy2)
+        self.privateKeyTitle.setMaximumSize(QSize(16777215, 45))
+        self.privateKeyTitle.setFont(font)
+        self.privateKeyTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.warningMessage = QLabel(self.home)
+        self.warningMessage.setObjectName(u"warningMessage")
+        self.warningMessage.setGeometry(QRect(410, 310, 331, 51))
+        sizePolicy2.setHeightForWidth(self.warningMessage.sizePolicy().hasHeightForWidth())
+        self.warningMessage.setSizePolicy(sizePolicy2)
+        self.warningMessage.setMaximumSize(QSize(16777215, 100))
+        self.warningMessage.setFont(font)
+        self.warningMessage.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.warningMessage.setWordWrap(True)
+        self.privateKeyCheckbox = QCheckBox(self.home)
+        self.privateKeyCheckbox.setObjectName(u"privateKeyCheckbox")
+        self.privateKeyCheckbox.setGeometry(QRect(410, 370, 131, 31))
+        self.privateKeyCheckbox.setAutoFillBackground(False)
+        self.privateKeyCheckbox.setStyleSheet(u"")
+        self.privateKeyCheckbox.setChecked(False)
+        self.privateKeyCheckbox.setTristate(False)
+        self.copyPrivateKeyButton = QPushButton(self.home)
+        self.copyPrivateKeyButton.setObjectName(u"copyPrivateKeyButton")
+        self.copyPrivateKeyButton.setGeometry(QRect(590, 370, 150, 30))
+        self.copyPrivateKeyButton.setMinimumSize(QSize(150, 30))
+        self.copyPrivateKeyButton.setFont(font)
+        self.copyPrivateKeyButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.copyPrivateKeyButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        icon5 = QIcon()
+        icon5.addFile(u":/icons/images/icons/cil-clone.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.copyPrivateKeyButton.setIcon(icon5)
         self.stackedWidget.addWidget(self.home)
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
@@ -1107,9 +1224,9 @@ class Ui_MainWindow(object):
         self.pushButton.setFont(font)
         self.pushButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.pushButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
-        icon5 = QIcon()
-        icon5.addFile(u":/icons/images/icons/cil-folder-open.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon5)
+        icon6 = QIcon()
+        icon6.addFile(u":/icons/images/icons/cil-folder-open.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton.setIcon(icon6)
 
         self.gridLayout.addWidget(self.pushButton, 0, 1, 1, 1)
 
@@ -1239,9 +1356,9 @@ class Ui_MainWindow(object):
         self.commandLinkButton.setObjectName(u"commandLinkButton")
         self.commandLinkButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.commandLinkButton.setStyleSheet(u"")
-        icon6 = QIcon()
-        icon6.addFile(u":/icons/images/icons/cil-link.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.commandLinkButton.setIcon(icon6)
+        icon7 = QIcon()
+        icon7.addFile(u":/icons/images/icons/cil-link.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.commandLinkButton.setIcon(icon7)
 
         self.gridLayout_2.addWidget(self.commandLinkButton, 1, 6, 1, 1)
 
@@ -1383,9 +1500,107 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.row_3)
 
         self.stackedWidget.addWidget(self.widgets)
-        self.page2 = QWidget()
-        self.page2.setObjectName(u"page2")
-        self.stackedWidget.addWidget(self.page2)
+        self.filespace = QWidget()
+        self.filespace.setObjectName(u"filespace")
+        self.filespaceTitle = QLabel(self.filespace)
+        self.filespaceTitle.setObjectName(u"filespaceTitle")
+        self.filespaceTitle.setGeometry(QRect(0, 0, 1171, 51))
+        self.filespaceTitle.setStyleSheet(u"color: rgb(189, 147, 249);\n"
+"font: 18pt \"Segoe UI\" bold;")
+        self.filespaceTitle.setLineWidth(1)
+        self.filespaceTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.openFilepathButton = QPushButton(self.filespace)
+        self.openFilepathButton.setObjectName(u"openFilepathButton")
+        self.openFilepathButton.setGeometry(QRect(420, 90, 150, 30))
+        self.openFilepathButton.setMinimumSize(QSize(150, 30))
+        self.openFilepathButton.setFont(font)
+        self.openFilepathButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.openFilepathButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.openFilepathButton.setIcon(icon6)
+        self.filepathBox = QLineEdit(self.filespace)
+        self.filepathBox.setObjectName(u"filepathBox")
+        self.filepathBox.setGeometry(QRect(0, 90, 411, 30))
+        self.filepathBox.setMinimumSize(QSize(0, 30))
+        self.filepathBox.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.fileBrowserTree = QTreeView(self.filespace)
+        self.fileBrowserTree.setObjectName(u"fileBrowserTree")
+        self.fileBrowserTree.setGeometry(QRect(0, 90, 951, 281))
+        self.goToDefault = QPushButton(self.filespace)
+        self.goToDefault.setObjectName(u"goToDefault")
+        self.goToDefault.setGeometry(QRect(760, 470, 191, 30))
+        self.goToDefault.setMinimumSize(QSize(150, 30))
+        self.goToDefault.setFont(font)
+        self.goToDefault.setCursor(QCursor(Qt.PointingHandCursor))
+        self.goToDefault.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        icon8 = QIcon()
+        icon8.addFile(u"../../../PycharmProjects/Salvation/UI/images/icons/cil-arrow-right.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.goToDefault.setIcon(icon8)
+        self.openDirectory = QPushButton(self.filespace)
+        self.openDirectory.setObjectName(u"openDirectory")
+        self.openDirectory.setGeometry(QRect(760, 390, 191, 30))
+        self.openDirectory.setMinimumSize(QSize(150, 30))
+        self.openDirectory.setFont(font)
+        self.openDirectory.setCursor(QCursor(Qt.PointingHandCursor))
+        self.openDirectory.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.openDirectory.setIcon(icon6)
+        self.defaultLocation = QPushButton(self.filespace)
+        self.defaultLocation.setObjectName(u"defaultLocation")
+        self.defaultLocation.setGeometry(QRect(760, 430, 191, 30))
+        self.defaultLocation.setMinimumSize(QSize(150, 30))
+        self.defaultLocation.setFont(font)
+        self.defaultLocation.setCursor(QCursor(Qt.PointingHandCursor))
+        self.defaultLocation.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        icon9 = QIcon()
+        icon9.addFile(u":/icons/images/icons/cil-star.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.defaultLocation.setIcon(icon9)
+        self.driveInfo = QLabel(self.filespace)
+        self.driveInfo.setObjectName(u"driveInfo")
+        self.driveInfo.setGeometry(QRect(960, 210, 211, 161))
+        self.driveInfo.setStyleSheet(u"color: rgb(113, 126, 149);")
+        self.driveInfo.setLineWidth(1)
+        self.driveInfo.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.driveInfo.setWordWrap(False)
+        self.parentDriveTitle = QLabel(self.filespace)
+        self.parentDriveTitle.setObjectName(u"parentDriveTitle")
+        self.parentDriveTitle.setGeometry(QRect(960, 120, 131, 21))
+        self.parentDriveTitle.setStyleSheet(u"color: rgb(113, 126, 149);")
+        self.parentDriveTitle.setLineWidth(1)
+        self.parentDriveTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.driveInfoTitle = QLabel(self.filespace)
+        self.driveInfoTitle.setObjectName(u"driveInfoTitle")
+        self.driveInfoTitle.setGeometry(QRect(960, 180, 131, 19))
+        self.driveInfoTitle.setStyleSheet(u"color: rgb(113, 126, 149);")
+        self.driveInfoTitle.setLineWidth(1)
+        self.driveInfoTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.parentDriveSpace = QProgressBar(self.filespace)
+        self.parentDriveSpace.setObjectName(u"parentDriveSpace")
+        self.parentDriveSpace.setGeometry(QRect(960, 150, 211, 16))
+        self.parentDriveSpace.setStyleSheet(u"QProgressBar {\n"
+"background-color: rgb(98, 114, 164);\n"
+"color: rgb(200, 200, 200);\n"
+"border-style: none;\n"
+"border-radius: 10px;\n"
+"text-align: center;\n"
+"}\n"
+"QProgressBar::chunk{\n"
+"border-radius: 10px;\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(189, 147, 249, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"}")
+        self.parentDriveSpace.setValue(0)
+        self.parentDrive = QLabel(self.filespace)
+        self.parentDrive.setObjectName(u"parentDrive")
+        self.parentDrive.setGeometry(QRect(960, 90, 131, 19))
+        self.parentDrive.setStyleSheet(u"color: rgb(113, 126, 149);")
+        self.parentDrive.setLineWidth(1)
+        self.parentDrive.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.multiviewCheckbox = QCheckBox(self.filespace)
+        self.multiviewCheckbox.setObjectName(u"multiviewCheckbox")
+        self.multiviewCheckbox.setGeometry(QRect(0, 40, 131, 31))
+        self.multiviewCheckbox.setAutoFillBackground(False)
+        self.multiviewCheckbox.setStyleSheet(u"")
+        self.multiviewCheckbox.setChecked(False)
+        self.multiviewCheckbox.setTristate(False)
+        self.stackedWidget.addWidget(self.filespace)
         self.page3 = QWidget()
         self.page3.setObjectName(u"page3")
         self.stackedWidget.addWidget(self.page3)
@@ -1444,17 +1659,17 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_14.addWidget(self.btn_help)
 
-        self.btn_donate = QPushButton(self.topMenus)
-        self.btn_donate.setObjectName(u"btn_donate")
-        sizePolicy.setHeightForWidth(self.btn_donate.sizePolicy().hasHeightForWidth())
-        self.btn_donate.setSizePolicy(sizePolicy)
-        self.btn_donate.setMinimumSize(QSize(0, 45))
-        self.btn_donate.setFont(font)
-        self.btn_donate.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_donate.setLayoutDirection(Qt.LeftToRight)
-        self.btn_donate.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-heart.png);")
+        self.btn_report = QPushButton(self.topMenus)
+        self.btn_report.setObjectName(u"btn_report")
+        sizePolicy.setHeightForWidth(self.btn_report.sizePolicy().hasHeightForWidth())
+        self.btn_report.setSizePolicy(sizePolicy)
+        self.btn_report.setMinimumSize(QSize(0, 45))
+        self.btn_report.setFont(font)
+        self.btn_report.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_report.setLayoutDirection(Qt.LeftToRight)
+        self.btn_report.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-speech.png);")
 
-        self.verticalLayout_14.addWidget(self.btn_donate)
+        self.verticalLayout_14.addWidget(self.btn_report)
 
         self.btn_logout = QPushButton(self.topMenus)
         self.btn_logout.setObjectName(u"btn_logout")
@@ -1530,19 +1745,19 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"HSM Control", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"EasyRSA", None))
         self.titleLeftApp.setText(QCoreApplication.translate("MainWindow", u"EasyRSA", None))
         self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"Dashboard", None))
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
-        self.btn_drive.setText(QCoreApplication.translate("MainWindow", u"Drive", None))
+        self.btn_filespace.setText(QCoreApplication.translate("MainWindow", u"Drive", None))
         self.btn_passwords.setText(QCoreApplication.translate("MainWindow", u"Passwords", None))
         self.btn_account.setText(QCoreApplication.translate("MainWindow", u"Account", None))
         self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Log out", None))
@@ -1583,6 +1798,15 @@ class Ui_MainWindow(object):
         self.closeAppBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
+        self.dashboardTitle.setText(QCoreApplication.translate("MainWindow", u"Dashboard", None))
+        self.publicKeyTitle.setText(QCoreApplication.translate("MainWindow", u"Public Key", None))
+        self.privateKeyTitle.setText(QCoreApplication.translate("MainWindow", u"Private Key", None))
+#if QT_CONFIG(whatsthis)
+        self.warningMessage.setWhatsThis("")
+#endif // QT_CONFIG(whatsthis)
+        self.warningMessage.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ff0000;\">DANGER:</span><span style=\" color:#ff0000;\">Your private key is not to be shared. Doing so will allow </span><span style=\" font-weight:600; text-decoration: underline; color:#ff0000;\">anybody</span><span style=\" color:#ff0000;\"> to decrypt your data. Use this feature is at your own risk.</span></p></body></html>", None))
+        self.privateKeyCheckbox.setText(QCoreApplication.translate("MainWindow", u"Show Private Key", None))
+        self.copyPrivateKeyButton.setText(QCoreApplication.translate("MainWindow", u"Copy Key", None))
         self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Open", None))
         self.labelVersion_3.setText(QCoreApplication.translate("MainWindow", u"Label description", None))
@@ -1649,8 +1873,20 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Line", None));
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
+        self.filespaceTitle.setText(QCoreApplication.translate("MainWindow", u"Filespace", None))
+        self.openFilepathButton.setText(QCoreApplication.translate("MainWindow", u"Open", None))
+        self.filepathBox.setText("")
+        self.filepathBox.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
+        self.goToDefault.setText(QCoreApplication.translate("MainWindow", u"Go To Default Location", None))
+        self.openDirectory.setText(QCoreApplication.translate("MainWindow", u"Open Directory", None))
+        self.defaultLocation.setText(QCoreApplication.translate("MainWindow", u"Change Default Location", None))
+        self.driveInfo.setText("")
+        self.parentDriveTitle.setText(QCoreApplication.translate("MainWindow", u"Drive Usage:", None))
+        self.driveInfoTitle.setText(QCoreApplication.translate("MainWindow", u"Drive Information:", None))
+        self.parentDrive.setText(QCoreApplication.translate("MainWindow", u"Parent Drive:", None))
+        self.multiviewCheckbox.setText(QCoreApplication.translate("MainWindow", u"Multiview", None))
         self.btn_help.setText(QCoreApplication.translate("MainWindow", u"Help", None))
-        self.btn_donate.setText(QCoreApplication.translate("MainWindow", u"Donate", None))
+        self.btn_report.setText(QCoreApplication.translate("MainWindow", u"Report Issue", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"Group Number", None))
         self.version.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.1</p></body></html>", None))

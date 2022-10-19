@@ -27,13 +27,14 @@ systemLabel = platform.system()
 GLOBAL_STATE = False
 GLOBAL_TITLE_BAR = True
 
+
 class UIFunctions(MainWindow):
     # MAXIMIZE/RESTORE
     # ///////////////////////////////////////////////////////////////
     def maximize_restore(self):
         global GLOBAL_STATE
         status = GLOBAL_STATE
-        if status == False:
+        if not status:
             self.showMaximized()
             GLOBAL_STATE = True
             if platform.system() != "Darwin":
@@ -48,7 +49,7 @@ class UIFunctions(MainWindow):
         else:
             GLOBAL_STATE = False
             self.showNormal()
-            self.resize(self.width()+1, self.height()+1)
+            self.resize(self.width() + 1, self.height() + 1)
             if platform.system() == "Windows":
                 self.ui.appMargins.setContentsMargins(10, 10, 10, 10)
             self.ui.maximizeRestoreAppBtn.setToolTip("Maximize")
@@ -224,10 +225,11 @@ class UIFunctions(MainWindow):
             # IF DOUBLE CLICK CHANGE STATUS
             if event.type() == QEvent.MouseButtonDblClick:
                 QTimer.singleShot(250, lambda: UIFunctions.maximize_restore(self))
+
         self.ui.titleRightInfo.mouseDoubleClickEvent = dobleClickMaximizeRestore
 
         if Settings.ENABLE_CUSTOM_TITLE_BAR:
-            #STANDARD TITLE BAR
+            # STANDARD TITLE BAR
             self.setWindowFlags(Qt.FramelessWindowHint)
             self.setAttribute(Qt.WA_TranslucentBackground)
 
@@ -241,6 +243,7 @@ class UIFunctions(MainWindow):
                     self.move(self.pos() + event.globalPos() - self.dragPos)
                     self.dragPos = event.globalPos()
                     event.accept()
+
             self.ui.titleRightInfo.mouseMoveEvent = moveWindow
 
             # CUSTOM GRIPS
@@ -277,6 +280,7 @@ class UIFunctions(MainWindow):
 
         # CLOSE APPLICATION
         self.ui.closeAppBtn.clicked.connect(lambda: self.close())
+
     def resize_grips(self):
         if Settings.ENABLE_CUSTOM_TITLE_BAR:
             self.left_grip.setGeometry(0, 10, 10, self.height())

@@ -31,3 +31,9 @@ from . app_functions import *
 
 # PyToggle
 from . pytoggle import *
+
+# FileStatistics
+from . FileStatistics import *
+
+# EmulatedMultithreading
+from . EmulatedMultithreading import *
