@@ -81,6 +81,7 @@ class MainWindow(QMainWindow):
         widgets.btn_passwords.clicked.connect(self.buttonClick)
         widgets.btn_account.clicked.connect(self.buttonClick)
         widgets.btn_exit.clicked.connect(self.buttonClick)
+        widgets.closeAppBtn.clicked.connect(self.buttonClick)
         widgets.extraLabel.setText("Bartosz/Leighton")
 
         # EXTRA LEFT BOX
@@ -184,6 +185,16 @@ class MainWindow(QMainWindow):
         btnName = btn.objectName()
         match btnName:
             # SHOW NEW PAGE
+            case "closeAppBtn":
+                try:
+                    self.rt.stop()
+                    self.close()
+                    sys.exit(0)
+                except AttributeError:
+                    self.close()
+                    sys.exit(0)
+                except Exception as e:
+                    print(repr(e))
             case "btn_home":
                 self.ui.titleLeftDescription.setText("Dashboard")  # SET PAGE
                 self.ui.stackedWidget.setCurrentWidget(self.ui.home)  # RESET ANOTHERS BUTTONS SELECTED
