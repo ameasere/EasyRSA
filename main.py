@@ -144,7 +144,7 @@ class MainWindow(QMainWindow):
         # Main Page functionality
 
         # Generate Key Pair
-        (self.__publicKey, self.__privateKey) = rsa.newkeys(2048)
+        (self.__publicKey, self.__privateKey) = rsa.newkeys(512)
         self.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
         self.ui.privateKeyDisplay.setPlainText("PrivateKey(***********)")
 
@@ -274,6 +274,8 @@ class MainWindow(QMainWindow):
                     self.ui.fileBrowserTree.doubleClicked.connect(self.openFile)
                     self.ui.fileBrowserTree.setAlternatingRowColors(False)  # Set the alternating row colors
                     self.ui.fileBrowserTree.setSortingEnabled(True)  # Set the sorting
+                    # Default sort by name
+                    self.ui.fileBrowserTree.sortByColumn(0, Qt.AscendingOrder)
                     self.ui.fileBrowserTree.setColumnWidth(0, 200)
                     self.ui.fileBrowserTree.setColumnWidth(1, 150)
                     self.ui.fileBrowserTree.setColumnWidth(2, 200)
@@ -306,14 +308,17 @@ class MainWindow(QMainWindow):
                     self.ui.parentDriveTitle.hide()
                     self.ui.filepathBox.show()
                     self.ui.openFilepathButton.show()
-
             case "openFilepathButton":
                 self.filepath = QFileDialog.getOpenFileName(self, "Select File", os.getcwd(), "All Files (*)")[0]
                 self.ui.filepathBox.setText(self.filepath)
                 with open(self.filepath, 'rb') as f:
-                    # Read every 2048 bits
-                    pass
-
+                    # Read file in 2048 bit chunks, encrypt them and print them
+                    while True:
+                        chunk = f.read(round((512/8)-11))
+                        if len(chunk) == 0:
+                            break
+                        print(rsa.encrypt(chunk, self.__publicKey))
+                    f.close()
             case "openDirectory":
                 self.filepath = QFileDialog.getExistingDirectory(self, "Select Directory", os.getcwd())
                 self.ui.fileBrowserTree.setRootIndex(self.model.index(self.filepath))
