@@ -34,6 +34,8 @@ import webbrowser
 import pyperclip
 # noinspection PyUnresolvedReferences
 import rsa
+import time
+import ntpath
 # noinspection PyUnresolvedReferences
 from PySide6 import QtGui, QtWidgets, QtCore
 # noinspection PyUnresolvedReferences
@@ -294,6 +296,7 @@ class MainWindow(QMainWindow):
                     self.ui.filepathBox.show()
                     self.ui.openFilepathButton.show()
 
+
     # Multiview drive statistics
     def driveStatistics(self):
         """
@@ -317,6 +320,26 @@ class MainWindow(QMainWindow):
 
     # Custom Context Menu
     def contextMenu(self):
+        def renameFile():
+            # Check if the file is a directory
+            if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(self.ui.fileBrowserTree.currentIndex()):
+                index = self.ui.fileBrowserTree.currentIndex()
+                file_path = self.model.filePath(index)
+                self.rename = RenameFileWindow(file_path)
+                self.rename.show()
+            else:
+                # Set the window title
+                self.setWindowTitle("EasyRSA - No file selected")
+        def deleteFile():
+            # Check if the file is a directory
+            if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(self.ui.fileBrowserTree.currentIndex()):
+                index = self.ui.fileBrowserTree.currentIndex()
+                file_path = self.model.filePath(index)
+                self.delete = DeleteConfirm(file_path)
+                self.delete.show()
+            else:
+                # Set the window title
+                self.setWindowTitle("EasyRSA - No file selected")
         """
         Custom Context Menu
         :return:
@@ -328,17 +351,16 @@ class MainWindow(QMainWindow):
             "solid; border-radius: 4px;} "
             "QMenu::item {color: rgb(254, 120, 198); background-color: rgb(40, 44, 52; border-style: solid; "
             "border-radius: 4px;}")
+        renameAction = QAction("Rename File")
+        deleteAction = QAction("Delete File")
         encrypt = menu.addAction("Encrypt File")
         decrypt = menu.addAction("Decrypt File")
-        rename = menu.addAction("Rename File")
+        rename = menu.addAction(renameAction)
         move = menu.addAction("Move File")
-        delete = menu.addAction("Delete File")
-        """
-        encrypt.triggered.connect(self.encryptFile)
-        decrypt.triggered.connect(self.decryptFile)
-        rename.triggered.connect(self.renameFile)
-        delete.triggered.connect(self.deleteFile)
-        """
+        delete = menu.addAction(deleteAction)
+        # Connect context menu buttons to functions
+        renameAction.triggered.connect(renameFile)
+        deleteAction.triggered.connect(deleteFile)
         cursor = QtGui.QCursor()
         menu.exec_(cursor.pos())
 
@@ -360,6 +382,174 @@ class MainWindow(QMainWindow):
         """
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
+
+
+class RenameFileWindow(QMainWindow):
+    def __init__(self, filepath):
+        QMainWindow.__init__(self)
+        # SET AS GLOBAL WIDGETS
+        # ///////////////////////////////////////////////////////////////
+        self.ui = Ui_RenameWindow()
+        self.ui.setupUi(self)
+        self.filepath = filepath
+        self.newName: str | None = None
+        widgets = self.ui
+        # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
+        # ///////////////////////////////////////////////////////////////
+        match platform.system():
+            case "Windows":
+                titleBarFlag = True
+            case _:
+                titleBarFlag = False
+        Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
+
+        # TOGGLE MENU
+        # ///////////////////////////////////////////////////////////////
+        # widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
+        # SET UI DEFINITIONS
+        # ///////////////////////////////////////////////////////////////
+        UIFunctions.uiDefinitions(self)
+        # SHOW APP
+        # ///////////////////////////////////////////////////////////////
+        self.show()
+        widgets.confirmButton.clicked.connect(self.confirm)
+        widgets.cancelButton.clicked.connect(self.fade)
+        # SET CUSTOM THEME
+        # ///////////////////////////////////////////////////////////////
+        useCustomTheme = False
+        themeFile = "themes\py_dracula_light.qss"
+
+        # SET THEME AND HACKS
+        if useCustomTheme:
+            # LOAD AND APPLY STYLE
+            UIFunctions.theme(self, themeFile, True)
+
+            # SET HACKS
+            AppFunctions.setThemeHack(self)
+
+        # SET HOME PAGE AND SELECT MENU
+        # ///////////////////////////////////////////////////////////////
+        widgets.stackedWidget.setCurrentWidget(widgets.home)
+        # widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
+
+    def confirm(self):
+        """
+        The function takes the filepath of the file to be renamed and renames it to the new name.
+
+        """
+        self.newName = self.ui.fileNameBox.text()
+
+        def path_leaf(path):  # Splits path names into tails and heads
+            head, tail = ntpath.split(path)
+            return head
+
+        stem = path_leaf(self.filepath)
+        if systemLabel == "Darwin" or systemLabel == "Linux":
+            self.newName = stem + "/" + self.newName
+        else:
+            self.newName = stem + "\\" + self.newName
+        if len(self.newName) < 1:
+            self.ui.responseTitle.setText("Blank file names don't exist!")
+        else:
+            try:
+                os.rename(self.filepath, self.newName)
+                self.fade()
+            except Exception as e:
+                self.ui.responseTitle.setText("Error: %s" % e)
+
+    def fade(self):
+        for i in range(10):
+            i = i / 10
+            self.setWindowOpacity(1 - i)
+            time.sleep(0.02)
+        self.close()
+
+    # RESIZE EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def resizeEvent(self, event):
+        # Update Size Grips
+        UIFunctions.resize_grips(self)
+
+    # MOUSE CLICK EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def mousePressEvent(self, event):
+        # SET DRAG POS WINDOW
+        self.dragPos = event.globalPos()
+
+    def exitHandler(self):
+        self.fade()
+
+
+class DeleteConfirm(QMainWindow):
+    def __init__(self, index):
+        QMainWindow.__init__(self)
+        # SET AS GLOBAL WIDGETS
+        # ///////////////////////////////////////////////////////////////
+        self.ui = Ui_ConfirmDeleteWindow()
+        self.ui.setupUi(self)
+        self.index = index
+        widgets = self.ui
+        # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
+        # ///////////////////////////////////////////////////////////////
+        Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
+
+        # TOGGLE MENU
+        # ///////////////////////////////////////////////////////////////
+        # widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
+        # SET UI DEFINITIONS
+        # ///////////////////////////////////////////////////////////////
+        UIFunctions.uiDefinitions(self)
+        # SHOW APP
+        # ///////////////////////////////////////////////////////////////
+        self.show()
+        widgets.yesButton.clicked.connect(self.yes)
+        widgets.noButton.clicked.connect(self.fade)
+        # SET CUSTOM THEME
+        # ///////////////////////////////////////////////////////////////
+        useCustomTheme = False
+        themeFile = "themes\py_dracula_light.qss"
+
+        # SET THEME AND HACKS
+        if useCustomTheme:
+            # LOAD AND APPLY STYLE
+            UIFunctions.theme(self, themeFile, True)
+
+            # SET HACKS
+            AppFunctions.setThemeHack(self)
+
+        # SET HOME PAGE AND SELECT MENU
+        # ///////////////////////////////////////////////////////////////
+        widgets.stackedWidget.setCurrentWidget(widgets.home)
+        # widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
+
+    def yes(self):
+        try:
+            os.remove(self.index)
+        except Exception as e:
+            self.close()
+        self.fade()
+
+    def fade(self):
+        for i in range(10):
+            i = i / 10
+            self.setWindowOpacity(1 - i)
+            time.sleep(0.02)
+        self.close()
+
+    # RESIZE EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def resizeEvent(self, event):
+        # Update Size Grips
+        UIFunctions.resize_grips(self)
+
+    # MOUSE CLICK EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def mousePressEvent(self, event):
+        # SET DRAG POS WINDOW
+        self.dragPos = event.globalPos()
+
+    def exitHandler(self):
+        self.fade()
 
 
 if __name__ == "__main__":

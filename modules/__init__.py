@@ -19,6 +19,8 @@ from PySide6.QtWidgets import *
 
 # GUI FILE
 from . ui_main import Ui_MainWindow
+from . ui_rename import Ui_RenameWindow
+from . ui_confirmDelete import Ui_ConfirmDeleteWindow
 
 # APP SETTINGS
 from . app_settings import Settings
