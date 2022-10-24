@@ -261,14 +261,14 @@ class MainWindow(QMainWindow):
                     self.model = QFileSystemModel()
                     self.model.setRootPath(os.getcwd())
                     self.ui.fileBrowserTree.setModel(self.model)  # Set the model
-                    try:
+                    if os.path.exists(self.configArray["defaultLocation"]):
                         self.ui.fileBrowserTree.setRootIndex(
                             self.model.index(self.configArray['defaultSDLocation']) if self.configArray[
                                                                                            'defaultSDLocation'] != "" else
                             self.model.index(
                                 os.getcwd()))  # Set the first displaying directory
                     # If directory in defaultSDLocation doesn't exist on the current machine, use current directory
-                    except FileNotFoundError:
+                    else:
                         self.ui.fileBrowserTree.setRootIndex(self.model.index(os.getcwd()))
                         self.model.index(os.getcwd())
                     self.ui.fileBrowserTree.doubleClicked.connect(self.openFile)
