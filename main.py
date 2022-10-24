@@ -129,7 +129,7 @@ class MainWindow(QMainWindow):
                 f.close()
         else:
             with open(stem, "r") as f:
-                config = json.load(f)
+                self.configArray = json.load(f)
                 f.close()
 
         # SET HOME PAGE AND SELECT MENU
