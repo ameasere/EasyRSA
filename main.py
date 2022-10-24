@@ -314,6 +314,20 @@ class MainWindow(QMainWindow):
                     # Read every 2048 bits
                     pass
 
+            case "openDirectory":
+                self.filepath = QFileDialog.getExistingDirectory(self, "Select Directory", os.getcwd())
+                self.ui.fileBrowserTree.setRootIndex(self.model.index(self.filepath))
+
+            case "defaultLocation":
+                self.filepath = QFileDialog.getExistingDirectory(self, "Select Directory", os.getcwd())
+                self.ui.fileBrowserTree.setRootIndex(self.model.index(self.filepath))
+                self.configArray["defaultSDLocation"] = self.filepath
+                with open("config\\config.json", "w") as f:
+                    json.dump(self.configArray, f)
+                    f.close()
+
+            case "goToDefault":
+                self.ui.fileBrowserTree.setRootIndex(self.model.index(self.configArray['defaultSDLocation']))
 
 
     # Multiview drive statistics
