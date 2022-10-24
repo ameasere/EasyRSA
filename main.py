@@ -61,9 +61,6 @@ class MainWindow(QMainWindow):
         self.rt: RepeatedTimer | None = None
         self.model: QtWidgets.QFileSystemModel | None = None
         self.dragPos = None
-        with open("config\\config.json", "r") as config:
-            self.configArray = json.loads(config.read())
-            config.close()
         Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
         # APPLY TEXTS
         self.setWindowTitle(title)
@@ -121,6 +118,19 @@ class MainWindow(QMainWindow):
         UIFunctions.theme(self, themeFile, True)
         AppFunctions.setThemeHack(self)
         """
+        # Search for config file
+        stem = os.getcwd()
+        stem += "\\config\\config.json"
+        if not os.path.exists(stem):
+            # Create JSON object
+            data = {"defaultSDLocation": os.getcwd()}
+            with open(stem, "w") as f:
+                json.dump(data, f)
+                f.close()
+        else:
+            with open(stem, "r") as f:
+                config = json.load(f)
+                f.close()
 
         # SET HOME PAGE AND SELECT MENU
         widgets.stackedWidget.setCurrentWidget(widgets.home)
@@ -145,6 +155,10 @@ class MainWindow(QMainWindow):
 
         # Multiview Checkbox Tick
         self.ui.multiviewCheckbox.stateChanged.connect(self.buttonClick)
+        self.ui.openDirectory.clicked.connect(self.buttonClick)
+        self.ui.defaultLocation.clicked.connect(self.buttonClick)
+        self.ui.goToDefault.clicked.connect(self.buttonClick)
+
 
         # Multiview disabled by default
         self.ui.defaultLocation.hide()
@@ -224,11 +238,16 @@ class MainWindow(QMainWindow):
                     self.model = QFileSystemModel()
                     self.model.setRootPath(os.getcwd())
                     self.ui.fileBrowserTree.setModel(self.model)  # Set the model
-                    self.ui.fileBrowserTree.setRootIndex(
-                        self.model.index(self.configArray['defaultSDLocation']) if self.configArray[
-                                                                                       'defaultSDLocation'] != "" else
-                        self.model.index(
-                            os.getcwd()))  # Set the first displaying directory
+                    try:
+                        self.ui.fileBrowserTree.setRootIndex(
+                            self.model.index(self.configArray['defaultSDLocation']) if self.configArray[
+                                                                                           'defaultSDLocation'] != "" else
+                            self.model.index(
+                                os.getcwd()))  # Set the first displaying directory
+                    # If directory in defaultSDLocation doesn't exist on the current machine, use current directory
+                    except FileNotFoundError:
+                        self.ui.fileBrowserTree.setRootIndex(self.model.index(os.getcwd()))
+                        self.model.index(os.getcwd())
                     self.ui.fileBrowserTree.setAlternatingRowColors(False)  # Set the alternating row colors
                     self.ui.fileBrowserTree.setSortingEnabled(True)  # Set the sorting
                     self.ui.fileBrowserTree.setColumnWidth(0, 200)
