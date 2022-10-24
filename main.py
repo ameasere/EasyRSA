@@ -1,12 +1,11 @@
 """
 Main Driver Code for EasyRSA
 """
-
 # ///////////////////////////////////////////////////////////////
 #
 # BY: WANDERSON M.PIMENTA
 # PROJECT MADE WITH: Qt Designer and PySide6
-# V: 1.0.0
+# V: 0.0.2
 #
 # This project can be used freely for all uses, as long as they maintain the
 # respective credits only in the Python scripts, any information in the visual
@@ -34,8 +33,12 @@ import webbrowser
 import pyperclip
 # noinspection PyUnresolvedReferences
 import rsa
+# noinspection PyUnresolvedReferences
 import time
+# noinspection PyUnresolvedReferences
 import ntpath
+# noinspection PyUnresolvedReferences
+from threading import *
 # noinspection PyUnresolvedReferences
 from PySide6 import QtGui, QtWidgets, QtCore
 # noinspection PyUnresolvedReferences
@@ -149,7 +152,7 @@ class MainWindow(QMainWindow):
         # Main Page functionality
 
         # Generate Key Pair
-        (self.__publicKey, self.__privateKey) = rsa.newkeys(512)
+        (self.__publicKey, self.__privateKey) = rsa.newkeys(2048, poolsize=psutil.cpu_count())
         self.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
         self.ui.privateKeyDisplay.setPlainText("PrivateKey(***********)")
 
@@ -188,8 +191,83 @@ class MainWindow(QMainWindow):
         else:
             import subprocess
             opener = "open" if platform.system() == "Darwin" else "xdg-open"
-            cmd = opener + " " + item
             subprocess.call([opener, item])
+
+    def encrypt(self, index):
+        if index is None or not index.isValid():
+            self.ui.cryptoFeedbackTitle.setText("Encryption failed: No file selected")
+            return
+        self.filepath = index.model().filePath(index)
+        if not os.path.isfile(self.filepath):
+            self.ui.cryptoFeedbackTitle.setText("Encryption failed: Not a file")
+            return
+        self.ui.cryptoWarningTitle.setText("Warning: This can take a while depending on a number of factors.")
+        self.ui.cryptoFeedbackTitle.setText("Encrypting...")
+        with open(self.filepath, 'rb') as f:
+            # Get the file name
+            filename = os.path.basename(self.filepath)
+            # Get the file extension
+            file_extension = os.path.splitext(filename)[1]
+            # New filename
+            new_filename = filename.replace(file_extension, ".enc" + file_extension)
+            # Add this to the path of the original file
+            new_filepath = os.path.join(os.path.dirname(self.filepath), new_filename)
+            # Read file in 2048 bit chunks, encrypt them and print them
+            start = time.perf_counter()
+            for chunk in iter(lambda: f.read(round((2048 / 8) - 11)), b''):
+                # Encrypt chunk
+                rsa.encrypt(chunk, self.__publicKey)
+                with open(new_filepath, 'ab') as e:
+                    e.write(rsa.encrypt(chunk, self.__publicKey))
+                    e.close()
+            end = time.perf_counter()
+            f.close()
+        self.ui.cryptoFeedbackTitle.setText("Encryption Complete!")
+        self.ui.processingTime.setText("Time taken: " + str(round(end - start, 2)) + " seconds")
+        self.ui.processingSize.setText("Filesize: " + str(round(os.path.getsize(self.filepath) / 1000000, 2)) + " MB")
+        self.ui.cryptoWarningTitle.setText("")
+        return True
+
+    def decrypt(self, index):
+        if index is None or not index.isValid():
+            self.ui.cryptoFeedbackTitle.setText("Decryption failed: No file selected")
+            return
+        self.filepath = index.model().filePath(index)
+        if not os.path.isfile(self.filepath):
+            self.ui.cryptoFeedbackTitle.setText("Decryption failed: Not a file")
+            return
+        self.ui.cryptoWarningTitle.setText("Warning: This can take a while depending on a number of factors.")
+        self.ui.cryptoFeedbackTitle.setText("Decrypting...")
+        with open(self.filepath, 'rb') as f:
+            # Get the file name
+            filename = os.path.basename(self.filepath)
+            # Get the file extension
+            file_extension = os.path.splitext(filename)[1]
+            # New filename
+            new_filename = filename.replace(file_extension, ".dec" + file_extension).replace(".enc", "")
+            # Add this to the path of the original file
+            new_filepath = os.path.join(os.path.dirname(self.filepath), new_filename)
+            # Read file in 2048 bit chunks, encrypt them and print them
+            start = time.perf_counter()
+            # Account for padding
+            for chunk in iter(lambda: f.read(2048), b''):
+                # Encrypt chunk
+                try:
+                    with open(new_filepath, 'ab') as d:
+                        d.write(rsa.decrypt(chunk, self.__privateKey))
+                        d.close()
+                except rsa.pkcs1.DecryptionError as e:
+                    self.ui.cryptoFeedbackTitle.setText("Decryption failed!")
+                    # Set the error message into the warning label
+                    self.ui.cryptoWarningTitle.setText(str(e))
+                    return False
+            end = time.perf_counter()
+            f.close()
+        self.ui.cryptoFeedbackTitle.setText("Decryption Complete!")
+        self.ui.processingTime.setText("Time taken: " + str(round(end - start, 2)) + " seconds")
+        self.ui.processingSize.setText("Filesize: " + str(round(os.path.getsize(self.filepath) / 1000000, 2)) + " MB")
+        self.ui.cryptoWarningTitle.setText("")
+        return True
 
     # BUTTON CLICK
     def buttonClick(self):
@@ -273,7 +351,7 @@ class MainWindow(QMainWindow):
                     if os.path.exists(self.configArray["defaultSDLocation"]):
                         self.ui.fileBrowserTree.setRootIndex(
                             self.model.index(self.configArray['defaultSDLocation']) if self.configArray[
-                                'defaultSDLocation'] != "" else
+                                                                                           'defaultSDLocation'] != "" else
                             self.model.index(
                                 os.getcwd()))  # Set the first displaying directory
                     # If directory in defaultSDLocation doesn't exist on the
@@ -333,20 +411,13 @@ class MainWindow(QMainWindow):
                 if self.filepath == "":
                     return
                 self.ui.filepathBox.setText(self.filepath)
-                with open(self.filepath, 'rb') as f:
-                    # Read file in 2048 bit chunks, encrypt them and print them
-                    while True:
-                        chunk = f.read(round((512 / 8) - 11))
-                        if len(chunk) == 0:
-                            break
-                        print(rsa.encrypt(chunk, self.__publicKey))
-                    f.close()
+                p1 = Thread(target=self.encrypt, args=(self.filepath,))
+                p1.start()
             case "openDirectory":
                 self.filepath = QFileDialog.getExistingDirectory(
                     self, "Select Directory", os.getcwd())
                 self.ui.fileBrowserTree.setRootIndex(
                     self.model.index(self.filepath))
-
             case "defaultLocation":
                 self.filepath = QFileDialog.getExistingDirectory(
                     self, "Select Directory", os.getcwd())
@@ -453,8 +524,11 @@ class MainWindow(QMainWindow):
         renameAction.triggered.connect(renameFile)
         deleteAction.triggered.connect(deleteFile)
         moveAction.triggered.connect(moveFile)
-        encryptAction.triggered.connect(encryptFile)
-        decryptAction.triggered.connect(decryptFile)
+        # Include file path of the selected item in the context menu
+        encryptAction.triggered.connect(
+            lambda: Thread(target=self.encrypt, args=(self.ui.fileBrowserTree.currentIndex(),)).start())
+        decryptAction.triggered.connect(
+            lambda: Thread(target=self.decrypt, args=(self.ui.fileBrowserTree.currentIndex(),)).start())
         cursor = QtGui.QCursor()
         menu.exec_(cursor.pos())
 

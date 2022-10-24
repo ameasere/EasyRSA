@@ -836,7 +836,7 @@ background-repeat: no-repeat;</string>
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="../../salvation-main/salvation-main/resources.qrc">
+                   <iconset resource="resources.qrc">
                     <normaloff>:/icons/images/icons/icon_minimize.png</normaloff>:/icons/images/icons/icon_minimize.png</iconset>
                   </property>
                   <property name="iconSize">
@@ -881,7 +881,7 @@ background-repeat: no-repeat;</string>
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="../../salvation-main/salvation-main/resources.qrc">
+                   <iconset resource="resources.qrc">
                     <normaloff>:/icons/images/icons/icon_maximize.png</normaloff>:/icons/images/icons/icon_maximize.png</iconset>
                   </property>
                   <property name="iconSize">
@@ -916,7 +916,7 @@ background-repeat: no-repeat;</string>
                    <string/>
                   </property>
                   <property name="icon">
-                   <iconset resource="../../salvation-main/salvation-main/resources.qrc">
+                   <iconset resource="resources.qrc">
                     <normaloff>:/icons/images/icons/icon_close.png</normaloff>:/icons/images/icons/icon_close.png</iconset>
                   </property>
                   <property name="iconSize">
@@ -1328,7 +1328,7 @@ color: rgb(240, 38, 24);</string>
                 <item>
                  <widget class="QLabel" name="version">
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Version&lt;/span&gt; 0.0.1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Version&lt;/span&gt; 0.0.2&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1373,7 +1373,7 @@ color: rgb(240, 38, 24);</string>
   </widget>
  </widget>
  <resources>
-  <include location="../../salvation-main/salvation-main/resources.qrc"/>
+  <include location="resources.qrc"/>
   <include location="resources.qrc"/>
  </resources>
  <connections/>
