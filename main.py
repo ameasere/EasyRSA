@@ -176,6 +176,16 @@ class MainWindow(QMainWindow):
         self.ui.filepathBox.show()
         self.ui.openFilepathButton.show()
 
+    def openFile(self, index):
+        item = index.model().filePath(self.ui.fileBrowserTree.currentIndex())
+        if platform.system() == "Windows":
+            os.startfile(item)
+        else:
+            import subprocess
+            opener = "open" if platform.system() == "Darwin" else "xdg-open"
+            cmd = opener + " " + item
+            subprocess.call([opener, item])
+
     # BUTTON CLICK
     def buttonClick(self):
         """
@@ -261,6 +271,7 @@ class MainWindow(QMainWindow):
                     except FileNotFoundError:
                         self.ui.fileBrowserTree.setRootIndex(self.model.index(os.getcwd()))
                         self.model.index(os.getcwd())
+                    self.ui.fileBrowserTree.doubleClicked.connect(self.openFile)
                     self.ui.fileBrowserTree.setAlternatingRowColors(False)  # Set the alternating row colors
                     self.ui.fileBrowserTree.setSortingEnabled(True)  # Set the sorting
                     self.ui.fileBrowserTree.setColumnWidth(0, 200)
@@ -340,6 +351,16 @@ class MainWindow(QMainWindow):
             else:
                 # Set the window title
                 self.setWindowTitle("EasyRSA - No file selected")
+        def moveFile():
+            if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(self.ui.fileBrowserTree.currentIndex()):
+                index = self.ui.fileBrowserTree.currentIndex()
+                file_path = self.model.filePath(index)
+                self.move = MoveFile(file_path)
+                self.move.show()
+            else:
+                # Set the window title
+                self.setWindowTitle("EasyRSA - No file selected")
+
         """
         Custom Context Menu
         :return:
@@ -353,14 +374,18 @@ class MainWindow(QMainWindow):
             "border-radius: 4px;}")
         renameAction = QAction("Rename File")
         deleteAction = QAction("Delete File")
-        encrypt = menu.addAction("Encrypt File")
-        decrypt = menu.addAction("Decrypt File")
+        moveAction = QAction("Move File")
+        encryptAction = QAction("Encrypt File")
+        decryptAction = QAction("Decrypt File")
+        encrypt = menu.addAction(encryptAction)
+        decrypt = menu.addAction(decryptAction)
         rename = menu.addAction(renameAction)
-        move = menu.addAction("Move File")
+        move = menu.addAction(moveAction)
         delete = menu.addAction(deleteAction)
         # Connect context menu buttons to functions
         renameAction.triggered.connect(renameFile)
         deleteAction.triggered.connect(deleteFile)
+        moveAction.triggered.connect(moveFile)
         cursor = QtGui.QCursor()
         menu.exec_(cursor.pos())
 
@@ -550,6 +575,80 @@ class DeleteConfirm(QMainWindow):
 
     def exitHandler(self):
         self.fade()
+
+
+class MoveFile(QMainWindow):
+    def __init__(self, index):
+        QMainWindow.__init__(self)
+        # SET AS GLOBAL WIDGETS
+        # ///////////////////////////////////////////////////////////////
+        self.ui = Ui_MoveWindow()
+        self.ui.setupUi(self)
+        self.index = index
+        self.filepath = None
+        widgets = self.ui
+        # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
+        # ///////////////////////////////////////////////////////////////
+        Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
+
+        # TOGGLE MENU
+        # ///////////////////////////////////////////////////////////////
+        # widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
+        # SET UI DEFINITIONS
+        # ///////////////////////////////////////////////////////////////
+        UIFunctions.uiDefinitions(self)
+        # SHOW APP
+        # ///////////////////////////////////////////////////////////////
+        self.show()
+        widgets.confirmButton.clicked.connect(self.yes)
+        widgets.cancelButton.clicked.connect(self.fade)
+        widgets.openFilepathButton.clicked.connect(self.openFile)
+        # SET CUSTOM THEME
+        # ///////////////////////////////////////////////////////////////
+        useCustomTheme = False
+        themeFile = "themes\py_dracula_light.qss"
+
+        # SET THEME AND HACKS
+        if useCustomTheme:
+            # LOAD AND APPLY STYLE
+            UIFunctions.theme(self, themeFile, True)
+
+            # SET HACKS
+            AppFunctions.setThemeHack(self)
+
+        # SET HOME PAGE AND SELECT MENU
+        # ///////////////////////////////////////////////////////////////
+        widgets.stackedWidget.setCurrentWidget(widgets.home)
+        # widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
+
+    def yes(self):
+        pass
+    def openFile(self):
+        # Open file selection window
+        self.filepath = QFileDialog.getExistingDirectory(self, "Select Directory")
+        self.ui.fileNameBox.setText(self.filepath)
+    def fade(self):
+        for i in range(10):
+            i = i / 10
+            self.setWindowOpacity(1 - i)
+            time.sleep(0.02)
+        self.close()
+
+    # RESIZE EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def resizeEvent(self, event):
+        # Update Size Grips
+        UIFunctions.resize_grips(self)
+
+    # MOUSE CLICK EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def mousePressEvent(self, event):
+        # SET DRAG POS WINDOW
+        self.dragPos = event.globalPos()
+
+    def exitHandler(self):
+        self.fade()
+
 
 
 if __name__ == "__main__":
