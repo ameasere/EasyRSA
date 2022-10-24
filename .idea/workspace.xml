@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="Fixed error with self.configArray">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/ui_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_functions.py" afterDir="false" />
-    </list>
+    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="Added group number" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -156,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666609806461</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added group number">
+      <created>1666614875623</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666614875623</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +179,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated config.json checks and initial creation." />
     <MESSAGE value="Fixed error with self.configArray" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed error with self.configArray" />
+    <MESSAGE value="Added group number" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added group number" />
   </component>
 </project>

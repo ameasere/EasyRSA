@@ -275,8 +275,11 @@ class MainWindow(QMainWindow):
                     self.ui.parentDrive.setText("Parent Drive: %s" % drivestats.parentDrive)
                     self.ui.parentDriveSpace.setValue(drivestats.parentDriveSpace)
                     self.ui.driveInfo.setText(drivestats.driveInformation)
-                    self.rt = RepeatedTimer(5, self.driveStatistics)
-                    self.rt.start()
+                    if not self.rt:
+                        self.rt = RepeatedTimer(5, self.driveStatistics)
+                        self.rt.start()
+                    else:
+                        self.rt.start()
                 else:
                     self.rt.stop()
                     self.ui.defaultLocation.hide()
