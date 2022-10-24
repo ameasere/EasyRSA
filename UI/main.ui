@@ -1898,7 +1898,7 @@ p, li { white-space: pre-wrap; }
                     <string notr="true">background: transparent;</string>
                    </property>
                    <property name="currentIndex">
-                    <number>0</number>
+                    <number>2</number>
                    </property>
                    <widget class="QWidget" name="home">
                     <property name="styleSheet">
@@ -3413,6 +3413,95 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523,
                       <bool>false</bool>
                      </property>
                     </widget>
+                    <widget class="QLabel" name="processingTime">
+                     <property name="geometry">
+                      <rect>
+                       <x>10</x>
+                       <y>430</y>
+                       <width>381</width>
+                       <height>19</height>
+                      </rect>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: rgb(113, 126, 149);</string>
+                     </property>
+                     <property name="lineWidth">
+                      <number>1</number>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="cryptoFeedbackTitle">
+                     <property name="geometry">
+                      <rect>
+                       <x>0</x>
+                       <y>380</y>
+                       <width>391</width>
+                       <height>41</height>
+                      </rect>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: rgb(189, 147, 249);
+font: 18pt &quot;Segoe UI&quot; bold;</string>
+                     </property>
+                     <property name="lineWidth">
+                      <number>1</number>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="processingSize">
+                     <property name="geometry">
+                      <rect>
+                       <x>10</x>
+                       <y>460</y>
+                       <width>381</width>
+                       <height>19</height>
+                      </rect>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: rgb(113, 126, 149);</string>
+                     </property>
+                     <property name="lineWidth">
+                      <number>1</number>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="cryptoWarningTitle">
+                     <property name="geometry">
+                      <rect>
+                       <x>0</x>
+                       <y>550</y>
+                       <width>761</width>
+                       <height>19</height>
+                      </rect>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: rgb(255, 0, 0);</string>
+                     </property>
+                     <property name="lineWidth">
+                      <number>1</number>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
                    </widget>
                    <widget class="QWidget" name="page3"/>
                    <widget class="QWidget" name="page4"/>
@@ -3708,7 +3797,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523,
               <item>
                <widget class="QLabel" name="version">
                 <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Version&lt;/span&gt; 0.0.1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Version&lt;/span&gt; 0.0.2&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
