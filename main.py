@@ -144,8 +144,8 @@ class MainWindow(QMainWindow):
         # Main Page functionality
 
         # Generate Key Pair
-        (self.publicKey, self.privateKey) = rsa.newkeys(512)
-        self.ui.publicKeyDisplay.setPlainText(str(self.publicKey))
+        (self.__publicKey, self.__privateKey) = rsa.newkeys(2048)
+        self.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
         self.ui.privateKeyDisplay.setPlainText("PrivateKey(***********)")
 
         # Private Key Checkbox Tick
@@ -333,7 +333,7 @@ class MainWindow(QMainWindow):
         :return:
         """
         if self.ui.privateKeyCheckbox.isChecked():
-            self.ui.privateKeyDisplay.setPlainText(str(self.privateKey))
+            self.ui.privateKeyDisplay.setPlainText(str(self.__privateKey))
         else:
             self.ui.privateKeyDisplay.setPlainText("PrivateKey(***********)")
 
