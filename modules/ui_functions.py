@@ -59,6 +59,12 @@ class UIFunctions(MainWindow):
             self.right_grip.show()
             self.top_grip.show()
             self.bottom_grip.show()
+    def closeApp(self):
+        try:
+            self.close()
+            sys.exit(0)
+        except Exception as e:
+            print(repr(e))
 
     # RETURN STATUS
     # ///////////////////////////////////////////////////////////////
@@ -279,7 +285,7 @@ class UIFunctions(MainWindow):
         self.ui.maximizeRestoreAppBtn.clicked.connect(lambda: UIFunctions.maximize_restore(self))
 
         # CLOSE APPLICATION
-        self.ui.closeAppBtn.clicked.connect(lambda: self.close())
+        self.ui.closeAppBtn.clicked.connect(lambda: self.closeApp())
 
     def resize_grips(self):
         if Settings.ENABLE_CUSTOM_TITLE_BAR:
