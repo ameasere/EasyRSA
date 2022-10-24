@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="RSA Encryption for singleview">
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RSA.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/main.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/FileStatistics.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/FileStatistics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/app_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/app_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/pytoggle.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/pytoggle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/resources_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/resources_rc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui_confirmDelete.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_confirmDelete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui_moveFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_moveFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui_rename.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_rename.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +35,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -66,6 +83,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RenameWindowCTRL.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -87,6 +105,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="C:\Users\light\OneDrive\Desktop\EasyRSA\RenameWindowCTRL.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -164,11 +183,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main (1)" />
-        <item itemvalue="Python.RenameWindowCTRL (1)" />
-        <item itemvalue="Python.RenameWindowCTRL" />
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.ui_functions" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.RenameWindowCTRL" />
+        <item itemvalue="Python.RenameWindowCTRL (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -182,7 +201,10 @@
       <updated>1666101292253</updated>
       <workItem from="1666117615288" duration="6771000" />
       <workItem from="1666128063775" duration="134000" />
-      <workItem from="1666181399285" duration="13571000" />
+      <workItem from="1666181399285" duration="14605000" />
+      <workItem from="1666212172369" duration="27000" />
+      <workItem from="1666639769244" duration="36000" />
+      <workItem from="1666639821288" duration="369000" />
     </task>
     <task id="LOCAL-00001" summary="Updated config.json checks and initial creation.">
       <created>1666609646218</created>

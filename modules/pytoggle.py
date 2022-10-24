@@ -2,8 +2,15 @@ from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 
+
 class PyToggle(QCheckBox):
-    def __init__(self, width = 60, bg_color = "#777", circle_color = "#DDD", active_color="#00BCff", animation_curve = QEasingCurve.OutBounce):
+    def __init__(
+            self,
+            width=60,
+            bg_color="#777",
+            circle_color="#DDD",
+            active_color="#00BCff",
+            animation_curve=QEasingCurve.OutBounce):
         QCheckBox.__init__(self)
 
         # SET DEFAULT PARAMETERS
@@ -19,13 +26,13 @@ class PyToggle(QCheckBox):
         self._circle_position = 3
         self.animation = QPropertyAnimation(self, b"circle_position", self)
         self.animation.setEasingCurve(animation_curve)
-        self.animation.setDuration(500) # Time in MS
+        self.animation.setDuration(500)  # Time in MS
 
         # CONNECT STATE CHANGED
         self.stateChanged.connect(self.start_transition)
-    
+
     # CREATE NEW SET AND GET PROPERTY
-    @Property(float) # Get
+    @Property(float)  # Get
     def circle_position(self):
         return self._circle_position
 
@@ -35,7 +42,7 @@ class PyToggle(QCheckBox):
         self.update()
 
     def start_transition(self, value):
-        self.animation.stop() # Stop animation if running
+        self.animation.stop()  # Stop animation if running
         if value:
             self.animation.setEndValue(self.width() - 26)
         else:
@@ -52,7 +59,7 @@ class PyToggle(QCheckBox):
         # SET PAINTER
         p = QPainter(self)
         p.setRenderHint(QPainter.Antialiasing)
-        
+
         # SET AS NO PEN
 
         # DRAW RECTANGLE
@@ -62,7 +69,13 @@ class PyToggle(QCheckBox):
         if not self.isChecked():
             # DRAW BG
             p.setBrush(QColor(self._bg_color))
-            p.drawRoundedRect(0, 0, rect.width(), self.height(), self.height() / 2, self.height() /2)
+            p.drawRoundedRect(
+                0,
+                0,
+                rect.width(),
+                self.height(),
+                self.height() / 2,
+                self.height() / 2)
 
             # DRAW CIRCLE
             p.setBrush(QColor(self._circle_color))
@@ -70,7 +83,13 @@ class PyToggle(QCheckBox):
         else:
             # DRAW BG
             p.setBrush(QColor(self._active_color))
-            p.drawRoundedRect(0, 0, rect.width(), self.height(), self.height() / 2, self.height() /2)
+            p.drawRoundedRect(
+                0,
+                0,
+                rect.width(),
+                self.height(),
+                self.height() / 2,
+                self.height() / 2)
 
             # DRAW CIRCLE
             p.setBrush(QColor(self._circle_color))
