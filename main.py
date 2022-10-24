@@ -63,6 +63,7 @@ class MainWindow(QMainWindow):
         self.rt: RepeatedTimer | None = None
         self.model: QtWidgets.QFileSystemModel | None = None
         self.dragPos = None
+        self.filepath: str | None = None
         Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
         # APPLY TEXTS
         self.setWindowTitle(title)
@@ -310,6 +311,8 @@ class MainWindow(QMainWindow):
                     self.ui.openFilepathButton.show()
             case "openFilepathButton":
                 self.filepath = QFileDialog.getOpenFileName(self, "Select File", os.getcwd(), "All Files (*)")[0]
+                if self.filepath == "":
+                    return
                 self.ui.filepathBox.setText(self.filepath)
                 with open(self.filepath, 'rb') as f:
                     # Read file in 2048 bit chunks, encrypt them and print them
