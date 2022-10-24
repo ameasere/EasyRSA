@@ -45,7 +45,8 @@ from modules import *
 
 # warnings.filterwarnings('ignore')
 # os.environ['QT_DEBUG_PLUGINS'] = "1"
-os.environ["QT_FONT_DPI"] = "96"  # FIX Problem for High DPI and Scale above 100%
+# FIX Problem for High DPI and Scale above 100%
+os.environ["QT_FONT_DPI"] = "96"
 title = "EasyRSA"
 description = "RSA made simple."
 
@@ -70,7 +71,8 @@ class MainWindow(QMainWindow):
         # widgets.titleRightInfo.setText(description)
 
         # TOGGLE MENU
-        widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
+        widgets.toggleButton.clicked.connect(
+            lambda: UIFunctions.toggleMenu(self, True))
 
         # SET UI DEFINITIONS
         UIFunctions.uiDefinitions(self)
@@ -138,7 +140,9 @@ class MainWindow(QMainWindow):
 
         # SET HOME PAGE AND SELECT MENU
         widgets.stackedWidget.setCurrentWidget(widgets.home)
-        widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
+        widgets.btn_home.setStyleSheet(
+            UIFunctions.selectMenu(
+                widgets.btn_home.styleSheet()))
         # Home Screen
         self.ui.credits.hide()
         self.ui.openFilepathButton.clicked.connect(self.buttonClick)
@@ -150,7 +154,8 @@ class MainWindow(QMainWindow):
         self.ui.privateKeyDisplay.setPlainText("PrivateKey(***********)")
 
         # Private Key Checkbox Tick
-        self.ui.privateKeyCheckbox.stateChanged.connect(self.privateKeyCheckboxTick)
+        self.ui.privateKeyCheckbox.stateChanged.connect(
+            self.privateKeyCheckboxTick)
 
         # Copy Private Key
         self.ui.copyPrivateKeyButton.clicked.connect(self.buttonClick)
@@ -162,7 +167,6 @@ class MainWindow(QMainWindow):
         self.ui.openDirectory.clicked.connect(self.buttonClick)
         self.ui.defaultLocation.clicked.connect(self.buttonClick)
         self.ui.goToDefault.clicked.connect(self.buttonClick)
-
 
         # Multiview disabled by default
         self.ui.defaultLocation.hide()
@@ -210,9 +214,12 @@ class MainWindow(QMainWindow):
                     print(repr(e))
             case "btn_home":
                 self.ui.titleLeftDescription.setText("Dashboard")  # SET PAGE
-                self.ui.stackedWidget.setCurrentWidget(self.ui.home)  # RESET ANOTHERS BUTTONS SELECTED
+                self.ui.stackedWidget.setCurrentWidget(
+                    self.ui.home)  # RESET ANOTHERS BUTTONS SELECTED
                 UIFunctions.resetStyle(self, btnName)
-                btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))  # SELECT MENU
+                btn.setStyleSheet(
+                    UIFunctions.selectMenu(
+                        btn.styleSheet()))  # SELECT MENU
             case "btn_filespace":
                 self.ui.titleLeftDescription.setText("Filespace")
                 self.ui.stackedWidget.setCurrentWidget(self.ui.filespace)
@@ -261,20 +268,26 @@ class MainWindow(QMainWindow):
                     self.ui.parentDriveTitle.show()
                     self.model = QFileSystemModel()
                     self.model.setRootPath(os.getcwd())
-                    self.ui.fileBrowserTree.setModel(self.model)  # Set the model
+                    self.ui.fileBrowserTree.setModel(
+                        self.model)  # Set the model
                     if os.path.exists(self.configArray["defaultSDLocation"]):
                         self.ui.fileBrowserTree.setRootIndex(
                             self.model.index(self.configArray['defaultSDLocation']) if self.configArray[
-                                                                                           'defaultSDLocation'] != "" else
+                                'defaultSDLocation'] != "" else
                             self.model.index(
                                 os.getcwd()))  # Set the first displaying directory
-                    # If directory in defaultSDLocation doesn't exist on the current machine, use current directory
+                    # If directory in defaultSDLocation doesn't exist on the
+                    # current machine, use current directory
                     else:
-                        self.ui.fileBrowserTree.setRootIndex(self.model.index(os.getcwd()))
+                        self.ui.fileBrowserTree.setRootIndex(
+                            self.model.index(os.getcwd()))
                         self.model.index(os.getcwd())
-                    self.ui.fileBrowserTree.doubleClicked.connect(self.openFile)
-                    self.ui.fileBrowserTree.setAlternatingRowColors(False)  # Set the alternating row colors
-                    self.ui.fileBrowserTree.setSortingEnabled(True)  # Set the sorting
+                    self.ui.fileBrowserTree.doubleClicked.connect(
+                        self.openFile)
+                    self.ui.fileBrowserTree.setAlternatingRowColors(
+                        False)  # Set the alternating row colors
+                    self.ui.fileBrowserTree.setSortingEnabled(
+                        True)  # Set the sorting
                     # Default sort by name
                     self.ui.fileBrowserTree.sortByColumn(0, Qt.AscendingOrder)
                     self.ui.fileBrowserTree.setColumnWidth(0, 200)
@@ -282,14 +295,19 @@ class MainWindow(QMainWindow):
                     self.ui.fileBrowserTree.setColumnWidth(2, 200)
                     self.ui.fileBrowserTree.setColumnWidth(3, 200)
                     # Set the context menu
-                    self.ui.fileBrowserTree.setContextMenuPolicy(QtCore.Qt.ContextMenuPolicy.CustomContextMenu)
+                    self.ui.fileBrowserTree.setContextMenuPolicy(
+                        QtCore.Qt.ContextMenuPolicy.CustomContextMenu)
                     # (right clicking)
-                    self.ui.fileBrowserTree.customContextMenuRequested.connect(self.contextMenu)  # Custom right click
+                    self.ui.fileBrowserTree.customContextMenuRequested.connect(
+                        self.contextMenu)  # Custom right click
                     # menu
-                    # self.ui.fileBrowserTree.doubleClicked.connect() # Double-clicking on a file has a special effect
+                    # self.ui.fileBrowserTree.doubleClicked.connect() #
+                    # Double-clicking on a file has a special effect
                     drivestats = DriveStatistics()
-                    self.ui.parentDrive.setText("Parent Drive: %s" % drivestats.parentDrive)
-                    self.ui.parentDriveSpace.setValue(drivestats.parentDriveSpace)
+                    self.ui.parentDrive.setText(
+                        "Parent Drive: %s" % drivestats.parentDrive)
+                    self.ui.parentDriveSpace.setValue(
+                        drivestats.parentDriveSpace)
                     self.ui.driveInfo.setText(drivestats.driveInformation)
                     if not self.rt:
                         self.rt = RepeatedTimer(5, self.driveStatistics)
@@ -310,41 +328,49 @@ class MainWindow(QMainWindow):
                     self.ui.filepathBox.show()
                     self.ui.openFilepathButton.show()
             case "openFilepathButton":
-                self.filepath = QFileDialog.getOpenFileName(self, "Select File", os.getcwd(), "All Files (*)")[0]
+                self.filepath = QFileDialog.getOpenFileName(
+                    self, "Select File", os.getcwd(), "All Files (*)")[0]
                 if self.filepath == "":
                     return
                 self.ui.filepathBox.setText(self.filepath)
                 with open(self.filepath, 'rb') as f:
                     # Read file in 2048 bit chunks, encrypt them and print them
                     while True:
-                        chunk = f.read(round((512/8)-11))
+                        chunk = f.read(round((512 / 8) - 11))
                         if len(chunk) == 0:
                             break
                         print(rsa.encrypt(chunk, self.__publicKey))
                     f.close()
             case "openDirectory":
-                self.filepath = QFileDialog.getExistingDirectory(self, "Select Directory", os.getcwd())
-                self.ui.fileBrowserTree.setRootIndex(self.model.index(self.filepath))
+                self.filepath = QFileDialog.getExistingDirectory(
+                    self, "Select Directory", os.getcwd())
+                self.ui.fileBrowserTree.setRootIndex(
+                    self.model.index(self.filepath))
 
             case "defaultLocation":
-                self.filepath = QFileDialog.getExistingDirectory(self, "Select Directory", os.getcwd())
-                self.ui.fileBrowserTree.setRootIndex(self.model.index(self.filepath))
+                self.filepath = QFileDialog.getExistingDirectory(
+                    self, "Select Directory", os.getcwd())
+                self.ui.fileBrowserTree.setRootIndex(
+                    self.model.index(self.filepath))
                 self.configArray["defaultSDLocation"] = self.filepath
                 with open("config\\config.json", "w") as f:
                     json.dump(self.configArray, f)
                     f.close()
 
             case "goToDefault":
-                self.ui.fileBrowserTree.setRootIndex(self.model.index(self.configArray['defaultSDLocation']))
-
+                self.ui.fileBrowserTree.setRootIndex(
+                    self.model.index(self.configArray['defaultSDLocation']))
 
     # Multiview drive statistics
+
     def driveStatistics(self):
         """
         Drive statistics for multiview, in realtime
         """
         drivestats = DriveStatistics()
-        self.ui.parentDrive.setText("Parent Drive: %s" % drivestats.parentDrive)
+        self.ui.parentDrive.setText(
+            "Parent Drive: %s" %
+            drivestats.parentDrive)
         self.ui.parentDriveSpace.setValue(drivestats.parentDriveSpace)
         self.ui.driveInfo.setText(drivestats.driveInformation)
 
@@ -363,7 +389,8 @@ class MainWindow(QMainWindow):
     def contextMenu(self):
         def renameFile():
             # Check if the file is a directory
-            if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(self.ui.fileBrowserTree.currentIndex()):
+            if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(
+                    self.ui.fileBrowserTree.currentIndex()):
                 index = self.ui.fileBrowserTree.currentIndex()
                 file_path = self.model.filePath(index)
                 self.rename = RenameFileWindow(file_path)
@@ -371,9 +398,11 @@ class MainWindow(QMainWindow):
             else:
                 # Set the window title
                 self.setWindowTitle("EasyRSA - No file selected")
+
         def deleteFile():
             # Check if the file is a directory
-            if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(self.ui.fileBrowserTree.currentIndex()):
+            if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(
+                    self.ui.fileBrowserTree.currentIndex()):
                 index = self.ui.fileBrowserTree.currentIndex()
                 file_path = self.model.filePath(index)
                 self.delete = DeleteConfirm(file_path)
@@ -381,8 +410,10 @@ class MainWindow(QMainWindow):
             else:
                 # Set the window title
                 self.setWindowTitle("EasyRSA - No file selected")
+
         def moveFile():
-            if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(self.ui.fileBrowserTree.currentIndex()):
+            if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(
+                    self.ui.fileBrowserTree.currentIndex()):
                 index = self.ui.fileBrowserTree.currentIndex()
                 file_path = self.model.filePath(index)
                 self.move = MoveFile(file_path)
@@ -390,6 +421,12 @@ class MainWindow(QMainWindow):
             else:
                 # Set the window title
                 self.setWindowTitle("EasyRSA - No file selected")
+
+        def encryptFile():
+            pass
+
+        def decryptFile():
+            pass
 
         """
         Custom Context Menu
@@ -407,15 +444,17 @@ class MainWindow(QMainWindow):
         moveAction = QAction("Move File")
         encryptAction = QAction("Encrypt File")
         decryptAction = QAction("Decrypt File")
-        encrypt = menu.addAction(encryptAction)
-        decrypt = menu.addAction(decryptAction)
-        rename = menu.addAction(renameAction)
-        move = menu.addAction(moveAction)
-        delete = menu.addAction(deleteAction)
+        menu.addAction(encryptAction)
+        menu.addAction(decryptAction)
+        menu.addAction(renameAction)
+        menu.addAction(moveAction)
+        menu.addAction(deleteAction)
         # Connect context menu buttons to functions
         renameAction.triggered.connect(renameFile)
         deleteAction.triggered.connect(deleteFile)
         moveAction.triggered.connect(moveFile)
+        encryptAction.triggered.connect(encryptFile)
+        decryptAction.triggered.connect(decryptFile)
         cursor = QtGui.QCursor()
         menu.exec_(cursor.pos())
 
@@ -472,7 +511,7 @@ class RenameFileWindow(QMainWindow):
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = False
-        themeFile = "themes\py_dracula_light.qss"
+        themeFile = "themes\\py_dracula_light.qss"
 
         # SET THEME AND HACKS
         if useCustomTheme:
@@ -562,7 +601,7 @@ class DeleteConfirm(QMainWindow):
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = False
-        themeFile = "themes\py_dracula_light.qss"
+        themeFile = "themes\\py_dracula_light.qss"
 
         # SET THEME AND HACKS
         if useCustomTheme:
@@ -636,7 +675,7 @@ class MoveFile(QMainWindow):
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = False
-        themeFile = "themes\py_dracula_light.qss"
+        themeFile = "themes\\py_dracula_light.qss"
 
         # SET THEME AND HACKS
         if useCustomTheme:
@@ -653,10 +692,13 @@ class MoveFile(QMainWindow):
 
     def yes(self):
         pass
+
     def openFile(self):
         # Open file selection window
-        self.filepath = QFileDialog.getExistingDirectory(self, "Select Directory")
+        self.filepath = QFileDialog.getExistingDirectory(
+            self, "Select Directory")
         self.ui.fileNameBox.setText(self.filepath)
+
     def fade(self):
         for i in range(10):
             i = i / 10
@@ -680,16 +722,19 @@ class MoveFile(QMainWindow):
         self.fade()
 
 
-
 if __name__ == "__main__":
     match platform.system():  # Check the OS
         case "Windows":  # If Windows
             import ctypes  # Windows exclusive library
 
-            myappid = 'theenigmaproject.crypto.easyRSA.001'  # arbitrary string, can be anything
-            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)  # Set the AppID. Needed for
+            # arbitrary string, can be anything
+            myappid = 'theenigmaproject.crypto.easyRSA.001'
+            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(
+                myappid)  # Set the AppID. Needed for
             # taskbar icon and window icons to work.
-            titleBarFlag = True  # Variable holding the value for if we have a custom titlebar or not. This is broken
+            # Variable holding the value for if we have a custom titlebar or
+            # not. This is broken
+            titleBarFlag = True
             # on any other OS.
         case other:
             titleBarFlag = False

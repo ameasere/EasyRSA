@@ -40,7 +40,8 @@ class UIFunctions(MainWindow):
             if platform.system() != "Darwin":
                 self.ui.appMargins.setContentsMargins(0, 0, 0, 0)
             self.ui.maximizeRestoreAppBtn.setToolTip("Restore")
-            self.ui.maximizeRestoreAppBtn.setIcon(QIcon(u":/icons/images/icons/icon_restore.png"))
+            self.ui.maximizeRestoreAppBtn.setIcon(
+                QIcon(u":/icons/images/icons/icon_restore.png"))
             self.ui.frame_size_grip.hide()
             self.left_grip.hide()
             self.right_grip.hide()
@@ -53,12 +54,14 @@ class UIFunctions(MainWindow):
             if platform.system() == "Windows":
                 self.ui.appMargins.setContentsMargins(10, 10, 10, 10)
             self.ui.maximizeRestoreAppBtn.setToolTip("Maximize")
-            self.ui.maximizeRestoreAppBtn.setIcon(QIcon(u":/icons/images/icons/icon_maximize.png"))
+            self.ui.maximizeRestoreAppBtn.setIcon(
+                QIcon(u":/icons/images/icons/icon_maximize.png"))
             self.ui.frame_size_grip.show()
             self.left_grip.show()
             self.right_grip.show()
             self.top_grip.show()
             self.bottom_grip.show()
+
     def closeApp(self):
         try:
             self.close()
@@ -93,7 +96,8 @@ class UIFunctions(MainWindow):
                 widthExtended = standard
 
             # ANIMATION
-            self.animation = QPropertyAnimation(self.ui.leftMenuBg, b"minimumWidth")
+            self.animation = QPropertyAnimation(
+                self.ui.leftMenuBg, b"minimumWidth")
             self.animation.setDuration(Settings.TIME_ANIMATION)
             self.animation.setStartValue(width)
             self.animation.setEndValue(widthExtended)
@@ -121,7 +125,8 @@ class UIFunctions(MainWindow):
                 self.ui.toggleLeftBox.setStyleSheet(style + color)
                 if widthRightBox != 0:
                     style = self.ui.settingsTopBtn.styleSheet()
-                    self.ui.settingsTopBtn.setStyleSheet(style.replace(Settings.BTN_RIGHT_BOX_COLOR, ''))
+                    self.ui.settingsTopBtn.setStyleSheet(
+                        style.replace(Settings.BTN_RIGHT_BOX_COLOR, ''))
             else:
                 widthExtended = standard
                 # RESET BTN
@@ -150,7 +155,8 @@ class UIFunctions(MainWindow):
                 self.ui.settingsTopBtn.setStyleSheet(style + color)
                 if widthLeftBox != 0:
                     style = self.ui.toggleLeftBox.styleSheet()
-                    self.ui.toggleLeftBox.setStyleSheet(style.replace(Settings.BTN_LEFT_BOX_COLOR, ''))
+                    self.ui.toggleLeftBox.setStyleSheet(
+                        style.replace(Settings.BTN_LEFT_BOX_COLOR, ''))
             else:
                 widthExtended = standard
                 # RESET BTN
@@ -174,14 +180,16 @@ class UIFunctions(MainWindow):
             right_width = 0
 
         # ANIMATION LEFT BOX
-        self.left_box = QPropertyAnimation(self.ui.extraLeftBox, b"minimumWidth")
+        self.left_box = QPropertyAnimation(
+            self.ui.extraLeftBox, b"minimumWidth")
         self.left_box.setDuration(Settings.TIME_ANIMATION)
         self.left_box.setStartValue(left_box_width)
         self.left_box.setEndValue(left_width)
         self.left_box.setEasingCurve(QEasingCurve.InOutQuart)
 
         # ANIMATION RIGHT BOX
-        self.right_box = QPropertyAnimation(self.ui.extraRightBox, b"minimumWidth")
+        self.right_box = QPropertyAnimation(
+            self.ui.extraRightBox, b"minimumWidth")
         self.right_box.setDuration(Settings.TIME_ANIMATION)
         self.right_box.setStartValue(right_box_width)
         self.right_box.setEndValue(right_width)
@@ -230,7 +238,8 @@ class UIFunctions(MainWindow):
         def dobleClickMaximizeRestore(event):
             # IF DOUBLE CLICK CHANGE STATUS
             if event.type() == QEvent.MouseButtonDblClick:
-                QTimer.singleShot(250, lambda: UIFunctions.maximize_restore(self))
+                QTimer.singleShot(
+                    250, lambda: UIFunctions.maximize_restore(self))
 
         self.ui.titleRightInfo.mouseDoubleClickEvent = dobleClickMaximizeRestore
 
@@ -276,13 +285,15 @@ class UIFunctions(MainWindow):
 
         # RESIZE WINDOW
         self.sizegrip = QSizeGrip(self.ui.frame_size_grip)
-        self.sizegrip.setStyleSheet("width: 20px; height: 20px; margin 0px; padding: 0px;")
+        self.sizegrip.setStyleSheet(
+            "width: 20px; height: 20px; margin 0px; padding: 0px;")
 
         # MINIMIZE
         self.ui.minimizeAppBtn.clicked.connect(lambda: self.showMinimized())
 
         # MAXIMIZE/RESTORE
-        self.ui.maximizeRestoreAppBtn.clicked.connect(lambda: UIFunctions.maximize_restore(self))
+        self.ui.maximizeRestoreAppBtn.clicked.connect(
+            lambda: UIFunctions.maximize_restore(self))
 
         # CLOSE APPLICATION
         #self.ui.closeAppBtn.clicked.connect(lambda: self.closeApp())
@@ -290,9 +301,11 @@ class UIFunctions(MainWindow):
     def resize_grips(self):
         if Settings.ENABLE_CUSTOM_TITLE_BAR:
             self.left_grip.setGeometry(0, 10, 10, self.height())
-            self.right_grip.setGeometry(self.width() - 10, 10, 10, self.height())
+            self.right_grip.setGeometry(
+                self.width() - 10, 10, 10, self.height())
             self.top_grip.setGeometry(0, 0, self.width(), 10)
-            self.bottom_grip.setGeometry(0, self.height() - 10, self.width(), 10)
+            self.bottom_grip.setGeometry(
+                0, self.height() - 10, self.width(), 10)
 
     # ///////////////////////////////////////////////////////////////
     # END - GUI DEFINITIONS

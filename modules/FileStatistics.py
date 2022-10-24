@@ -25,7 +25,8 @@ class DriveStatistics:
         # partitions.
         # If it is, the code breaks out of the for loop.
         # If it isn't, the code increments the diskcounter by 1 and continues the for loop.
-        # The part variable is assigned to the disk partition that the parentDrive is in.
+        # The part variable is assigned to the disk partition that the
+        # parentDrive is in.
         for part in psutil.disk_partitions():
             if self.parentDrive in part[0]:
                 part = psutil.disk_partitions()[diskcounter]
