@@ -140,7 +140,7 @@ class MainWindow(QMainWindow):
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
         # Home Screen
         self.ui.credits.hide()
-
+        self.ui.openFilepathButton.clicked.connect(self.buttonClick)
         # Main Page functionality
 
         # Generate Key Pair
@@ -306,6 +306,14 @@ class MainWindow(QMainWindow):
                     self.ui.parentDriveTitle.hide()
                     self.ui.filepathBox.show()
                     self.ui.openFilepathButton.show()
+
+            case "openFilepathButton":
+                self.filepath = QFileDialog.getOpenFileName(self, "Select File", os.getcwd(), "All Files (*)")[0]
+                self.ui.filepathBox.setText(self.filepath)
+                with open(self.filepath, 'rb') as f:
+                    # Read every 2048 bits
+                    pass
+
 
 
     # Multiview drive statistics
