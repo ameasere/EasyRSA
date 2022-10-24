@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="Fixed config clashing">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="RSA Encryption for singleview">
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -248,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666622328074</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="RSA Encryption for singleview">
+      <created>1666624488824</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1666624488824</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,6 +279,7 @@
     <MESSAGE value="Added context menu functions (not complete)" />
     <MESSAGE value="Added partial moving file functionality" />
     <MESSAGE value="Fixed config clashing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed config clashing" />
+    <MESSAGE value="RSA Encryption for singleview" />
+    <option name="LAST_COMMIT_MESSAGE" value="RSA Encryption for singleview" />
   </component>
 </project>
