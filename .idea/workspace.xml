@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="Added context menu functions (not complete)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/version.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="Added partial moving file functionality" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -228,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666620402492</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added partial moving file functionality">
+      <created>1666621968759</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1666621968759</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,6 +254,7 @@
     <MESSAGE value="Added group number" />
     <MESSAGE value="Fixed issue with RT thread being overwritten instead of being stopped/started every time." />
     <MESSAGE value="Added context menu functions (not complete)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added context menu functions (not complete)" />
+    <MESSAGE value="Added partial moving file functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added partial moving file functionality" />
   </component>
 </project>
