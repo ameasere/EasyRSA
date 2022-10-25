@@ -80,9 +80,10 @@ class MainWindow(QMainWindow):
             pass
         else:
             # Check if the directory exists
-            if not os.path.exists(os.getcwd() + "/.keys") or len(os.listdir(os.getcwd() + "/.keys")) == 0:
+            if len(os.listdir(os.getcwd() + "/.keys")) == 0:
                 (self.__publicKey, self.__privateKey) = rsa.newkeys(2048, poolsize=psutil.cpu_count())
-                os.mkdir(os.getcwd() + "/.keys")
+                if not os.path.exists(os.getcwd() + "/.keys"):
+                    os.mkdir(os.getcwd() + "/.keys")
                 # Export the keys to files and place them in ".keys" folder
                 with open(".keys/public.pem", "wb") as f:
                     f.write(self.__publicKey.save_pkcs1())
