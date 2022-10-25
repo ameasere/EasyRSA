@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'renameFile.ui'
+## Form generated from reading UI file 'confirmAnonymous.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.0
 ##
@@ -15,21 +15,21 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QLineEdit, QMainWindow, QPushButton, QSizePolicy,
+from PySide6.QtWidgets import (QApplication, QCheckBox, QFrame, QHBoxLayout,
+    QLabel, QMainWindow, QPushButton, QSizePolicy,
     QStackedWidget, QVBoxLayout, QWidget)
 from .resources_rc import *
 
-class Ui_RenameWindow(object):
-    def setupUi(self, RenameWindow):
-        if not RenameWindow.objectName():
-            RenameWindow.setObjectName(u"RenameWindow")
-        RenameWindow.resize(555, 400)
-        RenameWindow.setMinimumSize(QSize(500, 400))
+class Ui_Anonymous(object):
+    def setupUi(self, Anonymous):
+        if not Anonymous.objectName():
+            Anonymous.setObjectName(u"Anonymous")
+        Anonymous.resize(647, 423)
+        Anonymous.setMinimumSize(QSize(500, 400))
         icon = QIcon()
         icon.addFile(u":/images/images/images/RSA.png", QSize(), QIcon.Normal, QIcon.Off)
-        RenameWindow.setWindowIcon(icon)
-        self.styleSheet = QWidget(RenameWindow)
+        Anonymous.setWindowIcon(icon)
+        self.styleSheet = QWidget(Anonymous)
         self.styleSheet.setObjectName(u"styleSheet")
         font = QFont()
         font.setFamilies([u"Segoe UI"])
@@ -719,54 +719,50 @@ class Ui_RenameWindow(object):
         self.home.setStyleSheet(u"")
         self.logintitle = QLabel(self.home)
         self.logintitle.setObjectName(u"logintitle")
-        self.logintitle.setGeometry(QRect(190, 0, 71, 41))
+        self.logintitle.setGeometry(QRect(0, 0, 541, 41))
         self.logintitle.setStyleSheet(u"font: 14pt \"Segoe UI\"; color: rgb(189, 147, 249); ")
         self.logintitle.setLineWidth(1)
-        self.logintitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.usertitle = QLabel(self.home)
-        self.usertitle.setObjectName(u"usertitle")
-        self.usertitle.setGeometry(QRect(80, 60, 261, 45))
-        sizePolicy1.setHeightForWidth(self.usertitle.sizePolicy().hasHeightForWidth())
-        self.usertitle.setSizePolicy(sizePolicy1)
-        self.usertitle.setMaximumSize(QSize(16777215, 45))
+        self.logintitle.setAlignment(Qt.AlignCenter)
+        self.warning = QLabel(self.home)
+        self.warning.setObjectName(u"warning")
+        self.warning.setGeometry(QRect(0, 50, 541, 150))
+        sizePolicy1.setHeightForWidth(self.warning.sizePolicy().hasHeightForWidth())
+        self.warning.setSizePolicy(sizePolicy1)
+        self.warning.setMaximumSize(QSize(16777215, 150))
         font2 = QFont()
         font2.setFamilies([u"Segoe UI"])
-        font2.setPointSize(11)
+        font2.setPointSize(14)
         font2.setBold(False)
         font2.setItalic(False)
-        self.usertitle.setFont(font2)
-        self.usertitle.setStyleSheet(u"font: 11pt \"Segoe UI\";")
-        self.usertitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.confirmButton = QPushButton(self.home)
-        self.confirmButton.setObjectName(u"confirmButton")
-        self.confirmButton.setGeometry(QRect(140, 230, 150, 30))
-        self.confirmButton.setMinimumSize(QSize(150, 30))
-        self.confirmButton.setFont(font)
-        self.confirmButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.confirmButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
-        self.cancelButton = QPushButton(self.home)
-        self.cancelButton.setObjectName(u"cancelButton")
-        self.cancelButton.setGeometry(QRect(300, 230, 150, 30))
-        self.cancelButton.setMinimumSize(QSize(150, 30))
-        self.cancelButton.setFont(font)
-        self.cancelButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.cancelButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
-        self.fileNameBox = QLineEdit(self.home)
-        self.fileNameBox.setObjectName(u"fileNameBox")
-        self.fileNameBox.setGeometry(QRect(80, 110, 271, 30))
-        self.fileNameBox.setMinimumSize(QSize(0, 30))
-        self.fileNameBox.setStyleSheet(u"background-color: rgb(33, 37, 43);")
-        self.responseTitle = QLabel(self.home)
-        self.responseTitle.setObjectName(u"responseTitle")
-        self.responseTitle.setGeometry(QRect(80, 150, 261, 61))
-        sizePolicy1.setHeightForWidth(self.responseTitle.sizePolicy().hasHeightForWidth())
-        self.responseTitle.setSizePolicy(sizePolicy1)
-        self.responseTitle.setMaximumSize(QSize(16777215, 100))
-        self.responseTitle.setFont(font2)
-        self.responseTitle.setStyleSheet(u"font: 11pt \"Segoe UI\";\n"
-"color: rgb(240, 38, 24);")
-        self.responseTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.responseTitle.setWordWrap(True)
+        self.warning.setFont(font2)
+        self.warning.setStyleSheet(u"font: 14pt \"Segoe UI\";")
+        self.warning.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.warning.setWordWrap(True)
+        self.yesButton = QPushButton(self.home)
+        self.yesButton.setObjectName(u"yesButton")
+        self.yesButton.setGeometry(QRect(310, 270, 101, 30))
+        self.yesButton.setMinimumSize(QSize(50, 30))
+        self.yesButton.setFont(font)
+        self.yesButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.yesButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.responsetitle = QLabel(self.home)
+        self.responsetitle.setObjectName(u"responsetitle")
+        self.responsetitle.setGeometry(QRect(30, 250, 241, 41))
+        self.responsetitle.setStyleSheet(u"font: 8pt \"Segoe UI\"; color: rgb(189, 147, 249); ")
+        self.responsetitle.setLineWidth(1)
+        self.responsetitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.noButton = QPushButton(self.home)
+        self.noButton.setObjectName(u"noButton")
+        self.noButton.setGeometry(QRect(439, 270, 101, 30))
+        self.noButton.setMinimumSize(QSize(50, 30))
+        self.noButton.setFont(font)
+        self.noButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.noButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.acceptBox = QCheckBox(self.home)
+        self.acceptBox.setObjectName(u"acceptBox")
+        self.acceptBox.setGeometry(QRect(0, 220, 541, 21))
+        self.acceptBox.setAutoFillBackground(False)
+        self.acceptBox.setStyleSheet(u"font: 8pt;")
         self.stackedWidget.addWidget(self.home)
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
@@ -845,40 +841,39 @@ class Ui_RenameWindow(object):
 
         self.appMargins.addWidget(self.bgApp)
 
-        RenameWindow.setCentralWidget(self.styleSheet)
+        Anonymous.setCentralWidget(self.styleSheet)
 
-        self.retranslateUi(RenameWindow)
+        self.retranslateUi(Anonymous)
 
         self.stackedWidget.setCurrentIndex(0)
 
 
-        QMetaObject.connectSlotsByName(RenameWindow)
+        QMetaObject.connectSlotsByName(Anonymous)
     # setupUi
 
-    def retranslateUi(self, RenameWindow):
-        RenameWindow.setWindowTitle(QCoreApplication.translate("RenameWindow", u"EasyRSA", None))
-        self.titleRightInfo.setText(QCoreApplication.translate("RenameWindow", u"EasyRSA", None))
+    def retranslateUi(self, Anonymous):
+        Anonymous.setWindowTitle(QCoreApplication.translate("Anonymous", u"EasyRSA", None))
+        self.titleRightInfo.setText(QCoreApplication.translate("Anonymous", u"EasyRSA", None))
 #if QT_CONFIG(tooltip)
-        self.minimizeAppBtn.setToolTip(QCoreApplication.translate("RenameWindow", u"Minimize", None))
+        self.minimizeAppBtn.setToolTip(QCoreApplication.translate("Anonymous", u"Minimize", None))
 #endif // QT_CONFIG(tooltip)
         self.minimizeAppBtn.setText("")
 #if QT_CONFIG(tooltip)
-        self.maximizeRestoreAppBtn.setToolTip(QCoreApplication.translate("RenameWindow", u"Maximize", None))
+        self.maximizeRestoreAppBtn.setToolTip(QCoreApplication.translate("Anonymous", u"Maximize", None))
 #endif // QT_CONFIG(tooltip)
         self.maximizeRestoreAppBtn.setText("")
 #if QT_CONFIG(tooltip)
-        self.closeAppBtn.setToolTip(QCoreApplication.translate("RenameWindow", u"Close", None))
+        self.closeAppBtn.setToolTip(QCoreApplication.translate("Anonymous", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
-        self.logintitle.setText(QCoreApplication.translate("RenameWindow", u"Rename", None))
-        self.usertitle.setText(QCoreApplication.translate("RenameWindow", u"New filename (with extension)", None))
-        self.confirmButton.setText(QCoreApplication.translate("RenameWindow", u"Confirm", None))
-        self.cancelButton.setText(QCoreApplication.translate("RenameWindow", u"Cancel", None))
-        self.fileNameBox.setText("")
-        self.fileNameBox.setPlaceholderText(QCoreApplication.translate("RenameWindow", u"Type here", None))
-        self.responseTitle.setText("")
-        self.label.setText(QCoreApplication.translate("RenameWindow", u"NEW PAGE TEST", None))
-        self.creditsLabel.setText(QCoreApplication.translate("RenameWindow", u"Group 1", None))
-        self.version.setText(QCoreApplication.translate("RenameWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.2</p></body></html>", None))
+        self.logintitle.setText(QCoreApplication.translate("Anonymous", u"Confirm Anonymous Mode", None))
+        self.warning.setText(QCoreApplication.translate("Anonymous", u"<html><head/><body><p><span style=\" font-size:11pt;\">Initialising the app in anonymous mode brings with it various risks: your public and private key are </span><span style=\" font-size:11pt; color:#ff0000;\">both stored on this machine</span><span style=\" font-size:11pt;\"> (vulnerable to interception) which means if someone steals them, </span><span style=\" font-size:11pt; color:#ff0000;\">you may lose your data or privacy</span><span style=\" font-size:11pt;\"> - and if you lose your keys, </span><span style=\" font-size:11pt; color:#ff0000;\">your data will not be recoverable</span><span style=\" font-size:11pt;\">.</span></p><p><span style=\" font-size:11pt;\">Please tick below and continue if you understand this risk. You can </span><span style=\" font-size:11pt; font-weight:600; text-decoration: underline;\">always</span><span style=\" font-size:11pt;\"> register later, however this will not use the same keys. This risk is solely your responsibility, not ours.</span></p></body></html>", None))
+        self.yesButton.setText(QCoreApplication.translate("Anonymous", u"Yes", None))
+        self.responsetitle.setText("")
+        self.noButton.setText(QCoreApplication.translate("Anonymous", u"No", None))
+        self.acceptBox.setText(QCoreApplication.translate("Anonymous", u"I accept this risk and the responsibility that comes with it.", None))
+        self.label.setText(QCoreApplication.translate("Anonymous", u"NEW PAGE TEST", None))
+        self.creditsLabel.setText(QCoreApplication.translate("Anonymous", u"By: enigmapr0ject", None))
+        self.version.setText(QCoreApplication.translate("Anonymous", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.3</p></body></html>", None))
     # retranslateUi
 

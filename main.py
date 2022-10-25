@@ -34,6 +34,7 @@ import shutil
 
 # noinspection PyUnresolvedReferences
 import pyperclip
+import requests
 # noinspection PyUnresolvedReferences
 import rsa
 # noinspection PyUnresolvedReferences
@@ -62,7 +63,7 @@ class MainWindow(QMainWindow):
     Dashboard
     """
 
-    def __init__(self):
+    def __init__(self, anonymous=False, publicKey=None, privateKey=None, newUser=False):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -71,6 +72,32 @@ class MainWindow(QMainWindow):
         self.model: QtWidgets.QFileSystemModel | None = None
         self.dragPos = None
         self.filepath: str | None = None
+        self.anonymous = anonymous
+        if publicKey and privateKey:
+            self.__publicKey = publicKey
+            self.__privateKey = privateKey
+        elif newUser:
+            pass
+        else:
+            # Check if the directory exists
+            if not os.path.exists(os.getcwd() + "/.keys") or len(os.listdir(os.getcwd() + "/.keys")) == 0:
+                (self.__publicKey, self.__privateKey) = rsa.newkeys(2048, poolsize=psutil.cpu_count())
+                os.mkdir(os.getcwd() + "/.keys")
+                # Export the keys to files and place them in ".keys" folder
+                with open(".keys/public.pem", "wb") as f:
+                    f.write(self.__publicKey.save_pkcs1())
+                    f.close()
+                with open(".keys/private.pem", "wb") as f:
+                    f.write(self.__privateKey.save_pkcs1())
+                    f.close()
+            else:
+                # Read the keys
+                with open(".keys/public.pem", "rb") as f:
+                    self.__publicKey = rsa.PublicKey.load_pkcs1(f.read())
+                    f.close()
+                with open(".keys/private.pem", "rb") as f:
+                    self.__privateKey = rsa.PrivateKey.load_pkcs1(f.read())
+                    f.close()
         Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
         # APPLY TEXTS
         self.setWindowTitle(title)
@@ -93,7 +120,10 @@ class MainWindow(QMainWindow):
         widgets.btn_account.clicked.connect(self.buttonClick)
         widgets.btn_exit.clicked.connect(self.buttonClick)
         widgets.closeAppBtn.clicked.connect(self.buttonClick)
-        widgets.extraLabel.setText("Bartosz/Leighton")
+        if self.anonymous:
+            widgets.extraLabel.setText("Anonymous")
+        else:
+            pass
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -157,8 +187,6 @@ class MainWindow(QMainWindow):
         self.ui.decryptButton.clicked.connect(self.buttonClick)
         # Main Page functionality
 
-        # Generate Key Pair
-        (self.__publicKey, self.__privateKey) = rsa.newkeys(2048, poolsize=psutil.cpu_count())
         self.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
         self.ui.privateKeyDisplay.setPlainText("PrivateKey(***********)")
 
@@ -627,6 +655,289 @@ class MainWindow(QMainWindow):
         self.dragPos = event.globalPos()
 
 
+class LoginWindow(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self)
+        # SET AS GLOBAL WIDGETS
+        # ///////////////////////////////////////////////////////////////
+        self.ui = Ui_LoginWindow()
+        self.ui.setupUi(self)
+        widgets = self.ui
+        widgets.passbox.setEchoMode(QtWidgets.QLineEdit.Password)
+        widgets.showpassword.stateChanged.connect(self.showPassword)
+        widgets.loginButton.clicked.connect(self.login)
+        widgets.registerButton.clicked.connect(self.register)
+        widgets.cancelbutton.clicked.connect(self.register)
+        widgets.submitbutton.clicked.connect(self.login)
+        widgets.anonMode.clicked.connect(self.anonymousMode)
+        widgets.closeAppBtn.clicked.connect(self.close)
+        # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
+        # ///////////////////////////////////////////////////////////////
+        Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
+
+        widgets.supportButton.clicked.connect(self.supportButton)
+        widgets.supportButton_2.clicked.connect(self.supportButton)
+        # TOGGLE MENU
+        # ///////////////////////////////////////////////////////////////
+        # widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
+        # SET UI DEFINITIONS
+        # ///////////////////////////////////////////////////////////////
+        UIFunctions.uiDefinitions(self)
+        # SHOW APP
+        # ///////////////////////////////////////////////////////////////
+        self.show()
+
+        # SET CUSTOM THEME
+        # ///////////////////////////////////////////////////////////////
+        useCustomTheme = False
+        themeFile = "themes\py_dracula_light.qss"
+
+        # SET THEME AND HACKS
+        if useCustomTheme:
+            # LOAD AND APPLY STYLE
+            UIFunctions.theme(self, themeFile, True)
+
+            # SET HACKS
+            AppFunctions.setThemeHack(self)
+
+        # SET HOME PAGE AND SELECT MENU
+        # ///////////////////////////////////////////////////////////////
+        widgets.stackedWidget.setCurrentWidget(widgets.home)
+        # widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
+
+    def supportButton(self):
+        webbrowser.get().open("https://github.com/enigmapr0ject/EasyRSA/issues")
+
+    def showPassword(self):
+        if self.ui.showpassword.isChecked():
+            self.ui.passbox.setEchoMode(QtWidgets.QLineEdit.Normal)
+        else:
+            self.ui.passbox.setEchoMode(QtWidgets.QLineEdit.Password)
+
+    def anonymousMode(self):
+        # Check if the ".keys" folder exists and is populated
+        if os.path.exists(os.path.join(os.getcwd(), ".keys")) and len(
+                os.listdir(os.path.join(os.getcwd(), ".keys"))) > 0:
+            self.close()
+            self.main = MainWindow(anonymous=True)
+            self.main.show()
+        else:
+            self.close()
+            self.anonymous = AnonymousWindow()
+            self.anonymous.show()
+
+    def login(self):
+        self.username = self.ui.userbox.text()
+        self.password = self.ui.passbox.text()
+        postData = {"Username": self.username, "Password": self.password}
+        response = requests.post("https://enigmapr0ject.tech/api/easyrsa/login.php",
+                                 data=postData).content.decode('utf-8')
+        if response == "2":
+            self.mainWindow = MainWindow()
+            self.mainWindow.show()
+        else:
+            self.ui.responsetitle.setText(response)
+            print(response)
+
+    def register(self):
+        self.fade()
+        self.main = RegisterWindow()
+        self.main.show()
+
+    def fade(self):
+        for i in range(10):
+            i = i / 10
+            self.setWindowOpacity(1 - i)
+            time.sleep(0.02)
+        self.close()
+
+    def exitHandler(self):
+        self.close()
+
+    # RESIZE EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def resizeEvent(self, event):
+        # Update Size Grips
+        UIFunctions.resize_grips(self)
+
+    # MOUSE CLICK EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def mousePressEvent(self, event):
+        # SET DRAG POS WINDOW
+        self.dragPos = event.globalPos()
+
+
+class RegisterWindow(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self)
+
+        # SET AS GLOBAL WIDGETS
+        # ///////////////////////////////////////////////////////////////
+        self.ui = Ui_RegisterWindow()
+        self.ui.setupUi(self)
+        widgets = self.ui
+        widgets.loginButton.clicked.connect(self.login)
+        widgets.registerButton.clicked.connect(self.register)
+        widgets.closeAppBtn.clicked.connect(self.close)
+        # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
+        # ///////////////////////////////////////////////////////////////
+        Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
+
+        # APP NAME
+        # ///////////////////////////////////////////////////////////////
+        widgets.supportButton.clicked.connect(self.supportButton)
+        # TOGGLE MENU
+        # ///////////////////////////////////////////////////////////////
+        # widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
+
+        # SET UI DEFINITIONS
+        # ///////////////////////////////////////////////////////////////
+        UIFunctions.uiDefinitions(self)
+
+        # SHOW APP
+        # ///////////////////////////////////////////////////////////////
+        self.show()
+
+        # SET CUSTOM THEME
+        # ///////////////////////////////////////////////////////////////
+        useCustomTheme = False
+        themeFile = "themes\py_dracula_light.qss"
+
+        # SET THEME AND HACKS
+        if useCustomTheme:
+            # LOAD AND APPLY STYLE
+            UIFunctions.theme(self, themeFile, True)
+
+            # SET HACKS
+            AppFunctions.setThemeHack(self)
+
+        # SET HOME PAGE AND SELECT MENU
+        # ///////////////////////////////////////////////////////////////
+        widgets.stackedWidget.setCurrentWidget(widgets.home)
+        # widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
+
+    # BUTTONS CLICK
+    # Post here your functions for clicked buttons
+    def supportButton(self):
+        webbrowser.get().open("https://github.com/enigmapr0ject/EasyRSA/issues")
+
+    def login(self):
+        self.fade()
+        self.login = LoginWindow()
+        self.login.show()
+
+    def register(self):
+        username = self.ui.userbox.text()
+        emailaddress = self.ui.emailbox.text()
+        postData = {"Username": username, "Email": emailaddress}
+        response = requests.post("https://enigmapr0ject.tech/api/easyrsa/register.php", data=postData).content.decode(
+            'utf-8')
+        self.ui.responsetitle.setText(response)
+
+    def fade(self):
+        for i in range(10):
+            i = i / 10
+            self.setWindowOpacity(1 - i)
+            time.sleep(0.02)
+        self.close()
+
+    def exitHandler(self):
+        self.close()
+
+    # RESIZE EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def resizeEvent(self, event):
+        # Update Size Grips
+        UIFunctions.resize_grips(self)
+
+    # MOUSE CLICK EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def mousePressEvent(self, event):
+        # SET DRAG POS WINDOW
+        self.dragPos = event.globalPos()
+
+
+class AnonymousWindow(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self)
+        # SET AS GLOBAL WIDGETS
+        # ///////////////////////////////////////////////////////////////
+        self.ui = Ui_Anonymous()
+        self.ui.setupUi(self)
+        widgets = self.ui
+        # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
+        # ///////////////////////////////////////////////////////////////
+        Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
+
+        # TOGGLE MENU
+        # ///////////////////////////////////////////////////////////////
+        # widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
+        # SET UI DEFINITIONS
+        # ///////////////////////////////////////////////////////////////
+        UIFunctions.uiDefinitions(self)
+        # SHOW APP
+        # ///////////////////////////////////////////////////////////////
+        self.show()
+        widgets.yesButton.clicked.connect(self.yes)
+        widgets.noButton.clicked.connect(self.no)
+        widgets.closeAppBtn.clicked.connect(self.close)
+        # SET CUSTOM THEME
+        # ///////////////////////////////////////////////////////////////
+        useCustomTheme = False
+        themeFile = "themes\\py_dracula_light.qss"
+
+        # SET THEME AND HACKS
+        if useCustomTheme:
+            # LOAD AND APPLY STYLE
+            UIFunctions.theme(self, themeFile, True)
+
+            # SET HACKS
+            AppFunctions.setThemeHack(self)
+
+        # SET HOME PAGE AND SELECT MENU
+        # ///////////////////////////////////////////////////////////////
+        widgets.stackedWidget.setCurrentWidget(widgets.home)
+        # widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
+
+    def yes(self):
+        # Check the tickbox is checked
+        if self.ui.acceptBox.isChecked():
+            self.ui.responsetitle.setText("Generating keys...")
+            self.main = MainWindow(anonymous=True)
+            self.main.show()
+        else:
+            self.ui.responsetitle.setText("You must tick the box above.")
+            return
+        self.fade()
+
+    def no(self):
+        self.close()
+        self.main = LoginWindow()
+        self.main.show()
+
+    def fade(self):
+        for i in range(10):
+            i = i / 10
+            self.setWindowOpacity(1 - i)
+            time.sleep(0.02)
+        self.close()
+
+    # RESIZE EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def resizeEvent(self, event):
+        # Update Size Grips
+        UIFunctions.resize_grips(self)
+
+    # MOUSE CLICK EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def mousePressEvent(self, event):
+        # SET DRAG POS WINDOW
+        self.dragPos = event.globalPos()
+
+    def exitHandler(self):
+        self.fade()
+
+
 class RenameFileWindow(QMainWindow):
     def __init__(self, filepath):
         QMainWindow.__init__(self)
@@ -657,6 +968,7 @@ class RenameFileWindow(QMainWindow):
         self.show()
         widgets.confirmButton.clicked.connect(self.confirm)
         widgets.cancelButton.clicked.connect(self.fade)
+        widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = False
@@ -747,6 +1059,7 @@ class DeleteConfirm(QMainWindow):
         self.show()
         widgets.yesButton.clicked.connect(self.yes)
         widgets.noButton.clicked.connect(self.fade)
+        widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = False
@@ -822,6 +1135,7 @@ class MoveFile(QMainWindow):
         widgets.confirmButton.clicked.connect(self.yes)
         widgets.cancelButton.clicked.connect(self.fade)
         widgets.openFilepathButton.clicked.connect(self.openFile)
+        widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = False
@@ -899,7 +1213,7 @@ if __name__ == "__main__":
             import ctypes  # Windows exclusive library
 
             # arbitrary string, can be anything
-            myappid = 'theenigmaproject.crypto.easyRSA.001'
+            myappid = 'theenigmaproject.crypto.easyRSA.003'
             ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(
                 myappid)  # Set the AppID. Needed for
             # taskbar icon and window icons to work.
@@ -910,5 +1224,5 @@ if __name__ == "__main__":
         case other:
             titleBarFlag = False
     app = QApplication(sys.argv)
-    window = MainWindow()
+    window = LoginWindow()
     sys.exit(app.exec())
