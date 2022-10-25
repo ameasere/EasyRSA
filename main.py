@@ -30,6 +30,7 @@ import sys
 # noinspection PyUnresolvedReferences
 import webbrowser
 from msilib.schema import DuplicateFile
+import shutil
 
 # noinspection PyUnresolvedReferences
 import pyperclip
@@ -276,7 +277,7 @@ class MainWindow(QMainWindow):
             # Read file in 2048 bit chunks, encrypt them and print them
             start = time.perf_counter()
             # Account for padding
-            for chunk in iter(lambda: f.read(round(2048/8)), b''):
+            for chunk in iter(lambda: f.read(round(2048 / 8)), b''):
                 # Encrypt chunk
                 try:
                     with open(new_filepath, 'ab') as d:
@@ -544,6 +545,20 @@ class MainWindow(QMainWindow):
                 # Set the window title
                 self.setWindowTitle("EasyRSA - No file selected")
 
+        def duplicateFile():
+            if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(
+                    self.ui.fileBrowserTree.currentIndex()):
+                index = self.ui.fileBrowserTree.currentIndex()
+                file_path = self.model.filePath(index)
+                ext = "." + file_path.split(".")[len(file_path.split(".")) - 1]
+                duplicate_file_path = file_path.replace(ext, "(copy)" + ext)
+                while os.path.exists(duplicate_file_path):
+                    duplicate_file_path = file_path.replace(ext, "(copy)" + ext)
+                shutil.copy(file_path, duplicate_file_path)
+            else:
+                # Set the window title
+                self.setWindowTitle("EasyRSA - No file selected")
+
         """
         Custom Context Menu
         :return:
@@ -558,16 +573,19 @@ class MainWindow(QMainWindow):
         renameAction = QAction("Rename File")
         deleteAction = QAction("Delete File")
         moveAction = QAction("Move File")
+        duplicateAction = QAction("Duplicate File")
         encryptAction = QAction("Encrypt File")
         decryptAction = QAction("Decrypt File")
         menu.addAction(encryptAction)
         menu.addAction(decryptAction)
+        menu.addAction(duplicateAction)
         menu.addAction(renameAction)
         menu.addAction(moveAction)
         menu.addAction(deleteAction)
         # Connect context menu buttons to functions
         renameAction.triggered.connect(renameFile)
         deleteAction.triggered.connect(deleteFile)
+        duplicateAction.triggered.connect(duplicateFile)
         moveAction.triggered.connect(moveFile)
         # Include file path of the selected item in the context menu
         encryptAction.triggered.connect(
@@ -816,6 +834,7 @@ class MoveFile(QMainWindow):
         def path_leaf(path):  # Splits path names into tails and heads
             head, tail = ntpath.split(path)
             return tail or ntpath.basename(head)
+
         # Get file name from index
         stem = path_leaf(self.index)
         if systemLabel == "Darwin" or systemLabel == "Linux":
