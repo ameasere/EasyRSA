@@ -453,6 +453,8 @@ class MainWindow(QMainWindow):
             case "defaultLocation":
                 self.filepath = QFileDialog.getExistingDirectory(
                     self, "Select Directory", os.getcwd())
+                if self.filepath == "":
+                    return
                 self.ui.fileBrowserTree.setRootIndex(
                     self.model.index(self.filepath))
                 self.configArray["defaultSDLocation"] = self.filepath
