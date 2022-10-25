@@ -23,6 +23,7 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QSlider, QStackedWidget, QTableWidget, QTableWidgetItem,
     QTextEdit, QTreeView, QVBoxLayout, QWidget)
 from .resources_rc import *
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -1087,7 +1088,7 @@ class Ui_MainWindow(object):
         self.publicKeySA.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 361, 222))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 361, 218))
         self.scrollAreaWidgetContents_2.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1121,7 +1122,7 @@ class Ui_MainWindow(object):
         self.privateKeySA.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 361, 222))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 361, 218))
         self.scrollAreaWidgetContents_3.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1324,7 +1325,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 222, 222))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1611,7 +1612,7 @@ class Ui_MainWindow(object):
         self.parentDrive.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.multiviewCheckbox = QCheckBox(self.filespace)
         self.multiviewCheckbox.setObjectName(u"multiviewCheckbox")
-        self.multiviewCheckbox.setGeometry(QRect(0, 40, 131, 31))
+        self.multiviewCheckbox.setGeometry(QRect(0, 30, 131, 31))
         self.multiviewCheckbox.setAutoFillBackground(False)
         self.multiviewCheckbox.setStyleSheet(u"")
         self.multiviewCheckbox.setChecked(False)
@@ -1671,6 +1672,13 @@ class Ui_MainWindow(object):
         icon12 = QIcon()
         icon12.addFile(u":/icons/images/icons/cil-arrow-circle-left.png", QSize(), QIcon.Normal, QIcon.Off)
         self.goBackButton.setIcon(icon12)
+        self.currentDirectory = QLabel(self.filespace)
+        self.currentDirectory.setObjectName(u"currentDirectory")
+        self.currentDirectory.setGeometry(QRect(0, 70, 951, 21))
+        self.currentDirectory.setStyleSheet(u"color: rgb(113, 126, 149);")
+        self.currentDirectory.setFrameShape(QFrame.StyledPanel)
+        self.currentDirectory.setLineWidth(1)
+        self.currentDirectory.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.stackedWidget.addWidget(self.filespace)
         self.page3 = QWidget()
         self.page3.setObjectName(u"page3")
@@ -1963,6 +1971,7 @@ class Ui_MainWindow(object):
         self.encryptButton.setText(QCoreApplication.translate("MainWindow", u"Encrypt", None))
         self.decryptButton.setText(QCoreApplication.translate("MainWindow", u"Decrypt", None))
         self.goBackButton.setText(QCoreApplication.translate("MainWindow", u"Go Back..", None))
+        self.currentDirectory.setText("")
         self.btn_help.setText(QCoreApplication.translate("MainWindow", u"Help", None))
         self.btn_report.setText(QCoreApplication.translate("MainWindow", u"Report Issue", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
