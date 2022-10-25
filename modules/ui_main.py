@@ -1088,7 +1088,7 @@ class Ui_MainWindow(object):
         self.publicKeySA.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 361, 218))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 361, 222))
         self.scrollAreaWidgetContents_2.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1122,7 +1122,7 @@ class Ui_MainWindow(object):
         self.privateKeySA.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 361, 218))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 361, 222))
         self.scrollAreaWidgetContents_3.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1325,7 +1325,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 222, 222))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1642,6 +1642,26 @@ class Ui_MainWindow(object):
         self.cryptoWarningTitle.setStyleSheet(u"color: rgb(255, 0, 0);")
         self.cryptoWarningTitle.setLineWidth(1)
         self.cryptoWarningTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.encryptButton = QPushButton(self.filespace)
+        self.encryptButton.setObjectName(u"encryptButton")
+        self.encryptButton.setGeometry(QRect(420, 130, 151, 30))
+        self.encryptButton.setMinimumSize(QSize(150, 30))
+        self.encryptButton.setFont(font)
+        self.encryptButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.encryptButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        icon10 = QIcon()
+        icon10.addFile(u":/icons/images/icons/cil-lock-locked.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.encryptButton.setIcon(icon10)
+        self.decryptButton = QPushButton(self.filespace)
+        self.decryptButton.setObjectName(u"decryptButton")
+        self.decryptButton.setGeometry(QRect(420, 170, 151, 30))
+        self.decryptButton.setMinimumSize(QSize(150, 30))
+        self.decryptButton.setFont(font)
+        self.decryptButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.decryptButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        icon11 = QIcon()
+        icon11.addFile(u":/icons/images/icons/cil-lock-unlocked.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.decryptButton.setIcon(icon11)
         self.stackedWidget.addWidget(self.filespace)
         self.page3 = QWidget()
         self.page3.setObjectName(u"page3")
@@ -1931,6 +1951,8 @@ class Ui_MainWindow(object):
         self.cryptoFeedbackTitle.setText("")
         self.processingSize.setText("")
         self.cryptoWarningTitle.setText("")
+        self.encryptButton.setText(QCoreApplication.translate("MainWindow", u"Encrypt", None))
+        self.decryptButton.setText(QCoreApplication.translate("MainWindow", u"Decrypt", None))
         self.btn_help.setText(QCoreApplication.translate("MainWindow", u"Help", None))
         self.btn_report.setText(QCoreApplication.translate("MainWindow", u"Report Issue", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
