@@ -214,6 +214,9 @@ class MainWindow(QMainWindow):
         if not os.path.isfile(self.filepath):
             self.ui.cryptoFeedbackTitle.setText("Encryption failed: Not a file")
             return
+        if os.stat(self.filepath).st_size == 0:
+            self.ui.cryptoFeedbackTitle.setText("Encryption failed: File is empty")
+            return
         self.ui.cryptoWarningTitle.setText("Warning: This can take a while depending on a number of factors.")
         self.ui.cryptoFeedbackTitle.setText("Encrypting...")
         with open(self.filepath, 'rb') as f:
@@ -255,6 +258,9 @@ class MainWindow(QMainWindow):
             return
         if not os.path.isfile(self.filepath):
             self.ui.cryptoFeedbackTitle.setText("Decryption failed: Not a file")
+            return
+        if os.stat(self.filepath).st_size == 0:
+            self.ui.cryptoFeedbackTitle.setText("Decryption failed: File is empty")
             return
         self.ui.cryptoWarningTitle.setText("Warning: This can take a while depending on a number of factors.")
         self.ui.cryptoFeedbackTitle.setText("Decrypting...")
