@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="Context menu finished, multithreading and other major optimizations added.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="RSA Encryption fixed, fixed singleview error and fixed UI spacing.">
+      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666648046691</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="RSA Encryption fixed, fixed singleview error and fixed UI spacing.">
+      <created>1666685621983</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1666685621983</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,6 +313,7 @@
     <MESSAGE value="RSA Encryption for singleview" />
     <MESSAGE value="Fixed PEP8 style." />
     <MESSAGE value="Context menu finished, multithreading and other major optimizations added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Context menu finished, multithreading and other major optimizations added." />
+    <MESSAGE value="RSA Encryption fixed, fixed singleview error and fixed UI spacing." />
+    <option name="LAST_COMMIT_MESSAGE" value="RSA Encryption fixed, fixed singleview error and fixed UI spacing." />
   </component>
 </project>
