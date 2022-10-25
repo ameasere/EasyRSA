@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
-    <height>686</height>
+    <width>1276</width>
+    <height>685</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -3160,8 +3160,8 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                     <widget class="QPushButton" name="goToDefault">
                      <property name="geometry">
                       <rect>
-                       <x>760</x>
-                       <y>470</y>
+                       <x>640</x>
+                       <y>380</y>
                        <width>191</width>
                        <height>30</height>
                       </rect>
@@ -3191,15 +3191,15 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                       <string>Go To Default Location</string>
                      </property>
                      <property name="icon">
-                      <iconset>
-                       <normaloff>../../../PycharmProjects/Salvation/UI/images/icons/cil-arrow-right.png</normaloff>../../../PycharmProjects/Salvation/UI/images/icons/cil-arrow-right.png</iconset>
+                      <iconset resource="resources.qrc">
+                       <normaloff>:/icons/images/icons/cil-house.png</normaloff>:/icons/images/icons/cil-house.png</iconset>
                      </property>
                     </widget>
                     <widget class="QPushButton" name="openDirectory">
                      <property name="geometry">
                       <rect>
-                       <x>760</x>
-                       <y>390</y>
+                       <x>220</x>
+                       <y>380</y>
                        <width>191</width>
                        <height>30</height>
                       </rect>
@@ -3236,8 +3236,8 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                     <widget class="QPushButton" name="defaultLocation">
                      <property name="geometry">
                       <rect>
-                       <x>760</x>
-                       <y>430</y>
+                       <x>430</x>
+                       <y>380</y>
                        <width>191</width>
                        <height>30</height>
                       </rect>
@@ -3417,7 +3417,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523,
                      <property name="geometry">
                       <rect>
                        <x>10</x>
-                       <y>430</y>
+                       <y>510</y>
                        <width>381</width>
                        <height>19</height>
                       </rect>
@@ -3438,8 +3438,8 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523,
                     <widget class="QLabel" name="cryptoFeedbackTitle">
                      <property name="geometry">
                       <rect>
-                       <x>0</x>
-                       <y>380</y>
+                       <x>10</x>
+                       <y>470</y>
                        <width>391</width>
                        <height>41</height>
                       </rect>
@@ -3462,7 +3462,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                      <property name="geometry">
                       <rect>
                        <x>10</x>
-                       <y>460</y>
+                       <y>530</y>
                        <width>381</width>
                        <height>19</height>
                       </rect>
@@ -3505,9 +3505,9 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                     <widget class="QPushButton" name="encryptButton">
                      <property name="geometry">
                       <rect>
-                       <x>420</x>
+                       <x>10</x>
                        <y>130</y>
-                       <width>151</width>
+                       <width>191</width>
                        <height>30</height>
                       </rect>
                      </property>
@@ -3543,9 +3543,9 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                     <widget class="QPushButton" name="decryptButton">
                      <property name="geometry">
                       <rect>
-                       <x>420</x>
-                       <y>170</y>
-                       <width>151</width>
+                       <x>210</x>
+                       <y>130</y>
+                       <width>191</width>
                        <height>30</height>
                       </rect>
                      </property>
@@ -3576,6 +3576,44 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                      <property name="icon">
                       <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-lock-unlocked.png</normaloff>:/icons/images/icons/cil-lock-unlocked.png</iconset>
+                     </property>
+                    </widget>
+                    <widget class="QPushButton" name="goBackButton">
+                     <property name="geometry">
+                      <rect>
+                       <x>10</x>
+                       <y>380</y>
+                       <width>191</width>
+                       <height>30</height>
+                      </rect>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Segoe UI</family>
+                       <pointsize>10</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(52, 59, 72);</string>
+                     </property>
+                     <property name="text">
+                      <string>Go Back..</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resources.qrc">
+                       <normaloff>:/icons/images/icons/cil-arrow-circle-left.png</normaloff>:/icons/images/icons/cil-arrow-circle-left.png</iconset>
                      </property>
                     </widget>
                    </widget>

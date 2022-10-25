@@ -176,6 +176,7 @@ class MainWindow(QMainWindow):
         self.ui.openDirectory.clicked.connect(self.buttonClick)
         self.ui.defaultLocation.clicked.connect(self.buttonClick)
         self.ui.goToDefault.clicked.connect(self.buttonClick)
+        self.ui.goBackButton.clicked.connect(self.buttonClick)
 
         # Multiview disabled by default
         self.ui.defaultLocation.hide()
@@ -187,6 +188,7 @@ class MainWindow(QMainWindow):
         self.ui.parentDrive.hide()
         self.ui.parentDriveSpace.hide()
         self.ui.parentDriveTitle.hide()
+        self.ui.goBackButton.hide()
         self.ui.filepathBox.show()
         self.ui.openFilepathButton.show()
 
@@ -374,6 +376,7 @@ class MainWindow(QMainWindow):
                     self.ui.parentDrive.show()
                     self.ui.parentDriveSpace.show()
                     self.ui.parentDriveTitle.show()
+                    self.ui.goBackButton.show()
                     self.model = QFileSystemModel()
                     self.model.setRootPath(os.getcwd())
                     self.ui.fileBrowserTree.setModel(
@@ -431,6 +434,7 @@ class MainWindow(QMainWindow):
                     self.ui.goToDefault.hide()
                     self.ui.openDirectory.hide()
                     self.ui.parentDrive.hide()
+                    self.ui.goBackButton.hide()
                     self.ui.parentDriveSpace.hide()
                     self.ui.parentDriveTitle.hide()
                     self.ui.filepathBox.show()
@@ -485,6 +489,12 @@ class MainWindow(QMainWindow):
                     return
                 p1 = Thread(target=self.decrypt, args=(self.filepath,))
                 p1.start()
+            case "goBackButton":
+                self.filepath = self.model.filePath(
+                    self.ui.fileBrowserTree.rootIndex())
+                self.filepath = os.path.dirname(self.filepath)
+                self.ui.fileBrowserTree.setRootIndex(
+                    self.model.index(self.filepath))
 
     # Multiview drive statistics
 
