@@ -217,6 +217,7 @@ class MainWindow(QMainWindow):
         self.ui.parentDriveSpace.hide()
         self.ui.parentDriveTitle.hide()
         self.ui.goBackButton.hide()
+        self.ui.currentDirectory.hide()
         self.ui.filepathBox.show()
         self.ui.openFilepathButton.show()
 
@@ -405,6 +406,7 @@ class MainWindow(QMainWindow):
                     self.ui.parentDriveSpace.show()
                     self.ui.parentDriveTitle.show()
                     self.ui.goBackButton.show()
+                    self.ui.currentDirectory.show()
                     self.model = QFileSystemModel()
                     self.model.setRootPath(os.getcwd())
                     self.ui.fileBrowserTree.setModel(
@@ -448,6 +450,9 @@ class MainWindow(QMainWindow):
                     self.ui.parentDriveSpace.setValue(
                         drivestats.parentDriveSpace)
                     self.ui.driveInfo.setText(drivestats.driveInformation)
+                    self.filepath = self.model.filePath(
+                        self.ui.fileBrowserTree.rootIndex())
+                    self.ui.currentDirectory.setText(self.filepath)
                     if not self.rt:
                         self.rt = RepeatedTimer(5, self.driveStatistics)
                         self.rt.start()
@@ -463,6 +468,7 @@ class MainWindow(QMainWindow):
                     self.ui.openDirectory.hide()
                     self.ui.parentDrive.hide()
                     self.ui.goBackButton.hide()
+                    self.ui.currentDirectory.hide()
                     self.ui.parentDriveSpace.hide()
                     self.ui.parentDriveTitle.hide()
                     self.ui.filepathBox.show()
@@ -482,6 +488,7 @@ class MainWindow(QMainWindow):
                     return
                 self.ui.fileBrowserTree.setRootIndex(
                     self.model.index(self.filepath))
+                self.ui.currentDirectory.setText(self.filepath)
             case "defaultLocation":
                 self.filepath = QFileDialog.getExistingDirectory(
                     self, "Select Directory", os.getcwd())
@@ -493,9 +500,11 @@ class MainWindow(QMainWindow):
                 with open("config\\config.json", "w") as f:
                     json.dump(self.configArray, f)
                     f.close()
+                self.ui.currentDirectory.setText(self.filepath)
             case "goToDefault":
                 self.ui.fileBrowserTree.setRootIndex(
                     self.model.index(self.configArray['defaultSDLocation']))
+                self.ui.currentDirectory.setText(self.configArray['defaultSDLocation'])
             case "encryptButton":
                 self.filepath = self.ui.filepathBox.text()
                 if self.filepath == "":
@@ -523,6 +532,7 @@ class MainWindow(QMainWindow):
                 self.filepath = os.path.dirname(self.filepath)
                 self.ui.fileBrowserTree.setRootIndex(
                     self.model.index(self.filepath))
+                self.ui.currentDirectory.setText(self.filepath)
 
     # Multiview drive statistics
 
