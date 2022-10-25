@@ -729,6 +729,7 @@ class MoveFile(QMainWindow):
         self.ui.setupUi(self)
         self.index = index
         self.filepath = None
+        self.newName: str | None = None
         widgets = self.ui
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -765,7 +766,27 @@ class MoveFile(QMainWindow):
         # widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
     def yes(self):
-        pass
+        self.newName = self.ui.fileNameBox.text()
+
+        def path_leaf(path):  # Splits path names into tails and heads
+            head, tail = ntpath.split(path)
+            return tail or ntpath.basename(head)
+        # Get file name from index
+        stem = path_leaf(self.index)
+        if systemLabel == "Darwin" or systemLabel == "Linux":
+            self.newName = self.newName + "/" + stem
+        else:
+            self.newName = self.newName + "\\" + stem
+        if len(self.newName) < 1:
+            self.ui.responseTitle.setText("Blank file names don't exist!")
+        else:
+            try:
+                os.rename(self.index, self.newName)
+                self.fade()
+            except Exception as e:
+                self.ui.responseTitle.setText("Error: %s" % e)
+                print(repr(e))
+                print(self.newName)
 
     def openFile(self):
         # Open file selection window
