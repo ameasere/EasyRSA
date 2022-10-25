@@ -280,6 +280,7 @@ class MainWindow(QMainWindow):
                     self.ui.cryptoFeedbackTitle.setText("Decryption failed!")
                     # Set the error message into the warning label
                     self.ui.cryptoWarningTitle.setText(str(e))
+                    os.remove(new_filepath)
                     return False
             end = time.perf_counter()
             f.close()
