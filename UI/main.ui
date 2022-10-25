@@ -1964,7 +1964,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                         <x>0</x>
                         <y>0</y>
                         <width>361</width>
-                        <height>218</height>
+                        <height>222</height>
                        </rect>
                       </property>
                       <property name="styleSheet">
@@ -2031,7 +2031,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                         <x>0</x>
                         <y>0</y>
                         <width>361</width>
-                        <height>218</height>
+                        <height>222</height>
                        </rect>
                       </property>
                       <property name="styleSheet">
@@ -2541,8 +2541,8 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>218</width>
-                               <height>218</height>
+                               <width>222</width>
+                               <height>222</height>
                               </rect>
                              </property>
                              <property name="styleSheet">
@@ -3500,6 +3500,82 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                    <widget class="QPushButton" name="encryptButton">
+                     <property name="geometry">
+                      <rect>
+                       <x>420</x>
+                       <y>130</y>
+                       <width>151</width>
+                       <height>30</height>
+                      </rect>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Segoe UI</family>
+                       <pointsize>10</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(52, 59, 72);</string>
+                     </property>
+                     <property name="text">
+                      <string>Encrypt</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resources.qrc">
+                       <normaloff>:/icons/images/icons/cil-lock-locked.png</normaloff>:/icons/images/icons/cil-lock-locked.png</iconset>
+                     </property>
+                    </widget>
+                    <widget class="QPushButton" name="decryptButton">
+                     <property name="geometry">
+                      <rect>
+                       <x>420</x>
+                       <y>170</y>
+                       <width>151</width>
+                       <height>30</height>
+                      </rect>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Segoe UI</family>
+                       <pointsize>10</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(52, 59, 72);</string>
+                     </property>
+                     <property name="text">
+                      <string>Decrypt</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resources.qrc">
+                       <normaloff>:/icons/images/icons/cil-lock-unlocked.png</normaloff>:/icons/images/icons/cil-lock-unlocked.png</iconset>
                      </property>
                     </widget>
                    </widget>

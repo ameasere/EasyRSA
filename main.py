@@ -149,6 +149,9 @@ class MainWindow(QMainWindow):
         # Home Screen
         self.ui.credits.hide()
         self.ui.openFilepathButton.clicked.connect(self.buttonClick)
+        self.ui.filepathBox.returnPressed.connect(self.buttonClick)
+        self.ui.encryptButton.clicked.connect(self.buttonClick)
+        self.ui.decryptButton.clicked.connect(self.buttonClick)
         # Main Page functionality
 
         # Generate Key Pair
@@ -194,10 +197,16 @@ class MainWindow(QMainWindow):
             subprocess.call([opener, item])
 
     def encrypt(self, index):
-        if index is None or not index.isValid():
+        if isinstance(index, str):
+            self.filepath = index
+        else:
+            if not index.isValid():
+                self.ui.cryptoFeedbackTitle.setText("Decryption failed: No file selected")
+                return
+            self.filepath = index.model().filePath(index)
+        if index is None:
             self.ui.cryptoFeedbackTitle.setText("Encryption failed: No file selected")
             return
-        self.filepath = index.model().filePath(index)
         if not os.path.isfile(self.filepath):
             self.ui.cryptoFeedbackTitle.setText("Encryption failed: Not a file")
             return
@@ -229,10 +238,17 @@ class MainWindow(QMainWindow):
         return True
 
     def decrypt(self, index):
-        if index is None or not index.isValid():
+        # If index is a string
+        if isinstance(index, str):
+            self.filepath = index
+        else:
+            if not index.isValid():
+                self.ui.cryptoFeedbackTitle.setText("Decryption failed: No file selected")
+                return
+            self.filepath = index.model().filePath(index)
+        if index is None:
             self.ui.cryptoFeedbackTitle.setText("Decryption failed: No file selected")
             return
-        self.filepath = index.model().filePath(index)
         if not os.path.isfile(self.filepath):
             self.ui.cryptoFeedbackTitle.setText("Decryption failed: Not a file")
             return
@@ -335,6 +351,8 @@ class MainWindow(QMainWindow):
                 if self.ui.multiviewCheckbox.isChecked():
                     self.ui.filepathBox.hide()
                     self.ui.openFilepathButton.hide()
+                    self.ui.encryptButton.hide()
+                    self.ui.decryptButton.hide()
                     self.ui.defaultLocation.show()
                     self.ui.driveInfo.show()
                     self.ui.driveInfoTitle.show()
@@ -405,14 +423,14 @@ class MainWindow(QMainWindow):
                     self.ui.parentDriveTitle.hide()
                     self.ui.filepathBox.show()
                     self.ui.openFilepathButton.show()
+                    self.ui.encryptButton.show()
+                    self.ui.decryptButton.show()
             case "openFilepathButton":
                 self.filepath = QFileDialog.getOpenFileName(
                     self, "Select File", os.getcwd(), "All Files (*)")[0]
                 if self.filepath == "":
                     return
                 self.ui.filepathBox.setText(self.filepath)
-                p1 = Thread(target=self.encrypt, args=(self.filepath,))
-                p1.start()
             case "openDirectory":
                 self.filepath = QFileDialog.getExistingDirectory(
                     self, "Select Directory", os.getcwd())
@@ -427,10 +445,30 @@ class MainWindow(QMainWindow):
                 with open("config\\config.json", "w") as f:
                     json.dump(self.configArray, f)
                     f.close()
-
             case "goToDefault":
                 self.ui.fileBrowserTree.setRootIndex(
                     self.model.index(self.configArray['defaultSDLocation']))
+            case "encryptButton":
+                self.filepath = self.ui.filepathBox.text()
+                if self.filepath == "":
+                    self.ui.cryptoWarningTitle.setText("No file selected")
+                    return
+                p1 = Thread(target=self.encrypt, args=(self.filepath,))
+                p1.start()
+            case "filepathBox":
+                self.filepath = self.ui.filepathBox.text()
+                if self.filepath == "":
+                    self.ui.cryptoWarningTitle.setText("No file selected")
+                    return
+                p1 = Thread(target=self.encrypt, args=(self.filepath,))
+                p1.start()
+            case "decryptButton":
+                self.filepath = self.ui.filepathBox.text()
+                if self.filepath == "":
+                    self.ui.cryptoWarningTitle.setText("No file selected")
+                    return
+                p1 = Thread(target=self.decrypt, args=(self.filepath,))
+                p1.start()
 
     # Multiview drive statistics
 
@@ -492,12 +530,6 @@ class MainWindow(QMainWindow):
             else:
                 # Set the window title
                 self.setWindowTitle("EasyRSA - No file selected")
-
-        def encryptFile():
-            pass
-
-        def decryptFile():
-            pass
 
         """
         Custom Context Menu
