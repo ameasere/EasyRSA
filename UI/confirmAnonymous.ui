@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <author>Wanderson M. Pimenta</author>
- <class>MoveWindow</class>
- <widget class="QMainWindow" name="MoveWindow">
+ <class>Anonymous</class>
+ <widget class="QMainWindow" name="Anonymous">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>555</width>
-    <height>400</height>
+    <width>647</width>
+    <height>423</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -1023,9 +1023,9 @@ background-repeat: no-repeat;</string>
                       <widget class="QLabel" name="logintitle">
                        <property name="geometry">
                         <rect>
-                         <x>190</x>
+                         <x>0</x>
                          <y>0</y>
-                         <width>71</width>
+                         <width>541</width>
                          <height>41</height>
                         </rect>
                        </property>
@@ -1036,19 +1036,19 @@ background-repeat: no-repeat;</string>
                         <number>1</number>
                        </property>
                        <property name="text">
-                        <string>Move</string>
+                        <string>Confirm Anonymous Mode</string>
                        </property>
                        <property name="alignment">
-                        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                        <set>Qt::AlignCenter</set>
                        </property>
                       </widget>
-                      <widget class="QLabel" name="usertitle">
+                      <widget class="QLabel" name="warning">
                        <property name="geometry">
                         <rect>
-                         <x>80</x>
-                         <y>60</y>
-                         <width>261</width>
-                         <height>45</height>
+                         <x>0</x>
+                         <y>50</y>
+                         <width>541</width>
+                         <height>150</height>
                         </rect>
                        </property>
                        <property name="sizePolicy">
@@ -1060,177 +1060,43 @@ background-repeat: no-repeat;</string>
                        <property name="maximumSize">
                         <size>
                          <width>16777215</width>
-                         <height>45</height>
+                         <height>150</height>
                         </size>
                        </property>
                        <property name="font">
                         <font>
                          <family>Segoe UI</family>
-                         <pointsize>11</pointsize>
+                         <pointsize>14</pointsize>
                          <weight>50</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">font: 11pt &quot;Segoe UI&quot;;</string>
+                        <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
                        </property>
                        <property name="text">
-                        <string>Select a folder to move this file to:</string>
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Initialising the app in anonymous mode brings with it various risks: your public and private key are &lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ff0000;&quot;&gt;both stored on this machine&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt; (vulnerable to interception) which means if someone steals them, &lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ff0000;&quot;&gt;you may lose your data or privacy&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt; - and if you lose your keys, &lt;/span&gt;&lt;span style=&quot; font-size:11pt; color:#ff0000;&quot;&gt;your data will not be recoverable&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Please tick below and continue if you understand this risk. You can &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:600; text-decoration: underline;&quot;&gt;always&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt; register later, however this will not use the same keys. This risk is solely your responsibility, not ours.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                        </property>
                        <property name="alignment">
-                        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                       </property>
-                      </widget>
-                      <widget class="QPushButton" name="confirmButton">
-                       <property name="geometry">
-                        <rect>
-                         <x>140</x>
-                         <y>230</y>
-                         <width>150</width>
-                         <height>30</height>
-                        </rect>
-                       </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>150</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="font">
-                        <font>
-                         <family>Segoe UI</family>
-                         <pointsize>10</pointsize>
-                         <weight>50</weight>
-                         <italic>false</italic>
-                         <bold>false</bold>
-                        </font>
-                       </property>
-                       <property name="cursor">
-                        <cursorShape>PointingHandCursor</cursorShape>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(52, 59, 72);</string>
-                       </property>
-                       <property name="text">
-                        <string>Confirm</string>
-                       </property>
-                      </widget>
-                      <widget class="QPushButton" name="cancelButton">
-                       <property name="geometry">
-                        <rect>
-                         <x>300</x>
-                         <y>230</y>
-                         <width>150</width>
-                         <height>30</height>
-                        </rect>
-                       </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>150</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="font">
-                        <font>
-                         <family>Segoe UI</family>
-                         <pointsize>10</pointsize>
-                         <weight>50</weight>
-                         <italic>false</italic>
-                         <bold>false</bold>
-                        </font>
-                       </property>
-                       <property name="cursor">
-                        <cursorShape>PointingHandCursor</cursorShape>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(52, 59, 72);</string>
-                       </property>
-                       <property name="text">
-                        <string>Cancel</string>
-                       </property>
-                      </widget>
-                      <widget class="QLineEdit" name="fileNameBox">
-                       <property name="geometry">
-                        <rect>
-                         <x>80</x>
-                         <y>110</y>
-                         <width>271</width>
-                         <height>30</height>
-                        </rect>
-                       </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(33, 37, 43);</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="placeholderText">
-                        <string>Type here</string>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="responseTitle">
-                       <property name="geometry">
-                        <rect>
-                         <x>80</x>
-                         <y>150</y>
-                         <width>261</width>
-                         <height>61</height>
-                        </rect>
-                       </property>
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>16777215</width>
-                         <height>100</height>
-                        </size>
-                       </property>
-                       <property name="font">
-                        <font>
-                         <family>Segoe UI</family>
-                         <pointsize>11</pointsize>
-                         <weight>50</weight>
-                         <italic>false</italic>
-                         <bold>false</bold>
-                        </font>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">font: 11pt &quot;Segoe UI&quot;;
-color: rgb(240, 38, 24);</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                        </property>
                        <property name="wordWrap">
                         <bool>true</bool>
                        </property>
                       </widget>
-                      <widget class="QPushButton" name="openFilepathButton">
+                      <widget class="QPushButton" name="yesButton">
                        <property name="geometry">
                         <rect>
-                         <x>80</x>
-                         <y>150</y>
-                         <width>150</width>
+                         <x>310</x>
+                         <y>270</y>
+                         <width>101</width>
                          <height>30</height>
                         </rect>
                        </property>
                        <property name="minimumSize">
                         <size>
-                         <width>150</width>
+                         <width>50</width>
                          <height>30</height>
                         </size>
                        </property>
@@ -1250,11 +1116,82 @@ color: rgb(240, 38, 24);</string>
                         <string notr="true">background-color: rgb(52, 59, 72);</string>
                        </property>
                        <property name="text">
-                        <string>Open</string>
+                        <string>Yes</string>
                        </property>
-                       <property name="icon">
-                        <iconset resource="resources.qrc">
-                         <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
+                      </widget>
+                      <widget class="QLabel" name="responsetitle">
+                       <property name="geometry">
+                        <rect>
+                         <x>30</x>
+                         <y>250</y>
+                         <width>241</width>
+                         <height>41</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font: 8pt &quot;Segoe UI&quot;; color: rgb(189, 147, 249); </string>
+                       </property>
+                       <property name="lineWidth">
+                        <number>1</number>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="noButton">
+                       <property name="geometry">
+                        <rect>
+                         <x>439</x>
+                         <y>270</y>
+                         <width>101</width>
+                         <height>30</height>
+                        </rect>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>50</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <family>Segoe UI</family>
+                         <pointsize>10</pointsize>
+                         <weight>50</weight>
+                         <italic>false</italic>
+                         <bold>false</bold>
+                        </font>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(52, 59, 72);</string>
+                       </property>
+                       <property name="text">
+                        <string>No</string>
+                       </property>
+                      </widget>
+                      <widget class="QCheckBox" name="acceptBox">
+                       <property name="geometry">
+                        <rect>
+                         <x>0</x>
+                         <y>220</y>
+                         <width>541</width>
+                         <height>21</height>
+                        </rect>
+                       </property>
+                       <property name="autoFillBackground">
+                        <bool>false</bool>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font: 8pt;</string>
+                       </property>
+                       <property name="text">
+                        <string>I accept this risk and the responsibility that comes with it.</string>
                        </property>
                       </widget>
                      </widget>
@@ -1356,7 +1293,7 @@ color: rgb(240, 38, 24);</string>
                    </font>
                   </property>
                   <property name="text">
-                   <string>Group 1</string>
+                   <string>By: enigmapr0ject</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1366,7 +1303,7 @@ color: rgb(240, 38, 24);</string>
                 <item>
                  <widget class="QLabel" name="version">
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Version&lt;/span&gt; 0.0.2&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Version&lt;/span&gt; 0.0.3&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
