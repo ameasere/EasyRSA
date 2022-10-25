@@ -29,6 +29,8 @@ import platform
 import sys
 # noinspection PyUnresolvedReferences
 import webbrowser
+from msilib.schema import DuplicateFile
+
 # noinspection PyUnresolvedReferences
 import pyperclip
 # noinspection PyUnresolvedReferences
@@ -436,6 +438,8 @@ class MainWindow(QMainWindow):
             case "openDirectory":
                 self.filepath = QFileDialog.getExistingDirectory(
                     self, "Select Directory", os.getcwd())
+                if self.filepath == "":
+                    return
                 self.ui.fileBrowserTree.setRootIndex(
                     self.model.index(self.filepath))
             case "defaultLocation":
