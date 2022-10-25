@@ -22,6 +22,9 @@ from . ui_main import Ui_MainWindow
 from . ui_rename import Ui_RenameWindow
 from . ui_confirmDelete import Ui_ConfirmDeleteWindow
 from .ui_moveFile import Ui_MoveWindow
+from .ui_login import Ui_LoginWindow
+from .ui_register import Ui_RegisterWindow
+from .ui_anonymous import Ui_Anonymous
 
 # APP SETTINGS
 from . app_settings import Settings
