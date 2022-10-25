@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="RSA Encryption fixed, fixed singleview error and fixed UI spacing.">
-      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
+    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="Fixed bug with RSA decryption failing due to read chunk size being too large.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666685621983</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fixed bug with RSA decryption failing due to read chunk size being too large.">
+      <created>1666686198881</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1666686198881</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,6 +322,7 @@
     <MESSAGE value="Fixed PEP8 style." />
     <MESSAGE value="Context menu finished, multithreading and other major optimizations added." />
     <MESSAGE value="RSA Encryption fixed, fixed singleview error and fixed UI spacing." />
-    <option name="LAST_COMMIT_MESSAGE" value="RSA Encryption fixed, fixed singleview error and fixed UI spacing." />
+    <MESSAGE value="Fixed bug with RSA decryption failing due to read chunk size being too large." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug with RSA decryption failing due to read chunk size being too large." />
   </component>
 </project>
