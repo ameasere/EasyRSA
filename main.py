@@ -205,7 +205,7 @@ class MainWindow(QMainWindow):
             self.filepath = index
         else:
             if not index.isValid():
-                self.ui.cryptoFeedbackTitle.setText("Decryption failed: No file selected")
+                self.ui.cryptoFeedbackTitle.setText("Encryption failed: No file selected")
                 return
             self.filepath = index.model().filePath(index)
         if index is None:
