@@ -225,6 +225,10 @@ class MainWindow(QMainWindow):
     def openFile(self, index):
         item = index.model().filePath(self.ui.fileBrowserTree.currentIndex())
         if not os.path.isfile(item):
+            self.filepath = index.model().filePath(self.ui.fileBrowserTree.currentIndex())
+            self.ui.fileBrowserTree.setRootIndex(
+                self.model.index(self.filepath))
+            self.ui.currentDirectory.setText(self.filepath)
             return
         if platform.system() == "Windows":
             os.startfile(item)
