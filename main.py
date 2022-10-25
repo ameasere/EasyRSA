@@ -250,7 +250,7 @@ class MainWindow(QMainWindow):
             # Read file in 2048 bit chunks, encrypt them and print them
             start = time.perf_counter()
             # Account for padding
-            for chunk in iter(lambda: f.read(2048), b''):
+            for chunk in iter(lambda: f.read(round(2048/8)), b''):
                 # Encrypt chunk
                 try:
                     with open(new_filepath, 'ab') as d:
