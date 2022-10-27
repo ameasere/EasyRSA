@@ -23,7 +23,6 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QSlider, QStackedWidget, QTableWidget, QTableWidgetItem,
     QTextEdit, QTreeView, QVBoxLayout, QWidget)
 from .resources_rc import *
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -1092,7 +1091,7 @@ class Ui_MainWindow(object):
         self.publicKeySA.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 361, 218))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 218, 218))
         self.scrollAreaWidgetContents_2.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1126,7 +1125,7 @@ class Ui_MainWindow(object):
         self.privateKeySA.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 361, 218))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 218, 218))
         self.scrollAreaWidgetContents_3.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1824,9 +1823,9 @@ class Ui_MainWindow(object):
 
         self.appLayout.addWidget(self.contentBox)
 
-        self.appMargins.addWidget(self.bgApp)
-
         MainWindow.setCentralWidget(self.styleSheet)
+
+        self.appMargins.addWidget(self.bgApp)
 
         self.retranslateUi(MainWindow)
 
@@ -1982,6 +1981,6 @@ class Ui_MainWindow(object):
         self.btn_report.setText(QCoreApplication.translate("MainWindow", u"Report Issue", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"Group 1", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.2</p></body></html>", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.4</p></body></html>", None))
     # retranslateUi
 

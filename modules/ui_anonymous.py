@@ -874,6 +874,6 @@ class Ui_Anonymous(object):
         self.acceptBox.setText(QCoreApplication.translate("Anonymous", u"I accept this risk and the responsibility that comes with it.", None))
         self.label.setText(QCoreApplication.translate("Anonymous", u"NEW PAGE TEST", None))
         self.creditsLabel.setText(QCoreApplication.translate("Anonymous", u"By: enigmapr0ject", None))
-        self.version.setText(QCoreApplication.translate("Anonymous", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.3</p></body></html>", None))
+        self.version.setText(QCoreApplication.translate("Anonymous", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.4</p></body></html>", None))
     # retranslateUi
 

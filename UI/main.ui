@@ -1963,7 +1963,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                        <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>361</width>
+                        <width>218</width>
                         <height>218</height>
                        </rect>
                       </property>
@@ -2030,7 +2030,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                        <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>361</width>
+                        <width>218</width>
                         <height>218</height>
                        </rect>
                       </property>
@@ -3936,7 +3936,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
               <item>
                <widget class="QLabel" name="version">
                 <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Version&lt;/span&gt; 0.0.2&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Version&lt;/span&gt; 0.0.4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

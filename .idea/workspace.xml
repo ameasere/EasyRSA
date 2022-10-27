@@ -4,10 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="Garbage collection, waste management, inspections and other minor cleaning.">
+    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="Fixed deprecation issues + improved warning messages for context menu.">
+      <change afterPath="$PROJECT_DIR$/automation/ui_compiler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/ui_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/confirmAnonymous.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/confirmAnonymous.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/confirmDelete.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/confirmDelete.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/login.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/login.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/main.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/main.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/moveFile.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/moveFile.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/register.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/register.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/renameFile.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/renameFile.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui_anonymous.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui_confirmDelete.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_confirmDelete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui_moveFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_moveFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui_register.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui_rename.py" beforeDir="false" />
     </list>
     <list id="5b14252b-0ea3-4826-83e3-bd87d7612c25" name="Anonymous Mode" comment="Added anonymous mode with key storing" />
     <option name="SHOW_DIALOG" value="false" />
@@ -155,28 +168,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="rsa_chunks" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="EasyRSA" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/rsa_chunks.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="rsa_pooling" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="EasyRSA" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -199,13 +190,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="ui_compiler" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="EasyRSA" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/automation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/automation/ui_compiler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.ui_compiler" />
         <item itemvalue="Python.pkcs1" />
         <item itemvalue="Python.pooling" />
         <item itemvalue="Python.rsa_pooling" />
-        <item itemvalue="Python.rsa_chunks" />
       </list>
     </recent_temporary>
   </component>
@@ -224,7 +237,7 @@
       <workItem from="1666639769244" duration="36000" />
       <workItem from="1666639821288" duration="6870000" />
       <workItem from="1666786711865" duration="20000" />
-      <workItem from="1666788530302" duration="15689000" />
+      <workItem from="1666788530302" duration="16319000" />
     </task>
     <task id="LOCAL-00001" summary="Updated config.json checks and initial creation.">
       <created>1666609646218</created>
@@ -338,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666830660861</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Fixed deprecation issues + improved warning messages for context menu.">
+      <created>1666831664513</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1666831664513</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,12 +391,14 @@
     <MESSAGE value="Added PKCS1 testing." />
     <MESSAGE value="Garbage collection, waste management, inspections and other minor cleaning." />
     <MESSAGE value="Added anonymous mode with key storing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added anonymous mode with key storing" />
+    <MESSAGE value="Fixed deprecation issues + improved warning messages for context menu." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed deprecation issues + improved warning messages for context menu." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/EasyRSA$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1666831593048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/EasyRSA$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1666832230257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/EasyRSA$pooling.coverage" NAME="pooling Coverage Results" MODIFIED="1666727185106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/EasyRSA$pkcs1.coverage" NAME="pkcs1 Coverage Results" MODIFIED="1666826952239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/EasyRSA$ui_compiler.coverage" NAME="ui_compiler Coverage Results" MODIFIED="1666832139055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/automation" />
     <SUITE FILE_PATH="coverage/EasyRSA$rsa_pooling.coverage" NAME="rsa_pooling Coverage Results" MODIFIED="1666726979759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/EasyRSA$rsa_chunks.coverage" NAME="rsa_chunks Coverage Results" MODIFIED="1666641955846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>

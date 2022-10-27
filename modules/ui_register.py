@@ -20,6 +20,7 @@ from PySide6.QtWidgets import (QApplication, QCommandLinkButton, QFrame, QGridLa
     QPushButton, QSizePolicy, QStackedWidget, QTextEdit,
     QVBoxLayout, QWidget)
 from .resources_rc import *
+
 class Ui_RegisterWindow(object):
     def setupUi(self, RegisterWindow):
         if not RegisterWindow.objectName():
@@ -1148,6 +1149,6 @@ class Ui_RegisterWindow(object):
         self.btn_print.setText(QCoreApplication.translate("RegisterWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("RegisterWindow", u"Logout", None))
         self.creditsLabel.setText(QCoreApplication.translate("RegisterWindow", u"Group 1", None))
-        self.version.setText(QCoreApplication.translate("RegisterWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.3</p></body></html>", None))
+        self.version.setText(QCoreApplication.translate("RegisterWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.4</p></body></html>", None))
     # retranslateUi
 

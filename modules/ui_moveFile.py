@@ -19,7 +19,6 @@ from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QLineEdit, QMainWindow, QPushButton, QSizePolicy,
     QStackedWidget, QVBoxLayout, QWidget)
 from .resources_rc import *
-
 class Ui_MoveWindow(object):
     def setupUi(self, MoveWindow):
         if not MoveWindow.objectName():
@@ -890,6 +889,6 @@ class Ui_MoveWindow(object):
         self.openFilepathButton.setText(QCoreApplication.translate("MoveWindow", u"Open", None))
         self.label.setText(QCoreApplication.translate("MoveWindow", u"NEW PAGE TEST", None))
         self.creditsLabel.setText(QCoreApplication.translate("MoveWindow", u"Group 1", None))
-        self.version.setText(QCoreApplication.translate("MoveWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.2</p></body></html>", None))
+        self.version.setText(QCoreApplication.translate("MoveWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.4</p></body></html>", None))
     # retranslateUi
 
