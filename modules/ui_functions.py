@@ -255,10 +255,9 @@ class UIFunctions(MainWindow):
                     UIFunctions.maximize_restore(self)
                 # MOVE WINDOW
                 if event.buttons() == Qt.LeftButton:
-                    self.move(self.pos() + event.globalPos() - self.dragPos)
-                    self.dragPos = event.globalPos()
+                    self.move(self.pos() + event.globalPosition().toPoint() - self.dragPos)
+                    self.dragPos = event.globalPosition().toPoint()
                     event.accept()
-
             self.ui.titleRightInfo.mouseMoveEvent = moveWindow
 
             # CUSTOM GRIPS
@@ -296,7 +295,7 @@ class UIFunctions(MainWindow):
             lambda: UIFunctions.maximize_restore(self))
 
         # CLOSE APPLICATION
-        #self.ui.closeAppBtn.clicked.connect(lambda: self.closeApp())
+        # self.ui.closeAppBtn.clicked.connect(lambda: self.closeApp())
 
     def resize_grips(self):
         if Settings.ENABLE_CUSTOM_TITLE_BAR:
