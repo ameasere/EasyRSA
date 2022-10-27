@@ -636,6 +636,7 @@ class MainWindow(QMainWindow):
                 self.rename.show()
             else:
                 # Set the window title
+                self.ui.cryptoWarningTitle.setText("Select a file.")
                 self.setWindowTitle("EasyRSA - No file selected")
 
         def deleteFile():
@@ -651,6 +652,7 @@ class MainWindow(QMainWindow):
                 self.delete.show()
             else:
                 # Set the window title
+                self.ui.cryptoWarningTitle.setText("Select a file.")
                 self.setWindowTitle("EasyRSA - No file selected")
 
         def moveFile():
@@ -665,6 +667,7 @@ class MainWindow(QMainWindow):
                 self.move.show()
             else:
                 # Set the window title
+                self.ui.cryptoWarningTitle.setText("Select a file.")
                 self.setWindowTitle("EasyRSA - No file selected")
 
         def duplicateFile():
@@ -682,6 +685,7 @@ class MainWindow(QMainWindow):
                 shutil.copy(file_path, duplicate_file_path)
             else:
                 # Set the window title
+                self.ui.cryptoWarningTitle.setText("Select a file.")
                 self.setWindowTitle("EasyRSA - No file selected")
 
         """
@@ -718,7 +722,7 @@ class MainWindow(QMainWindow):
         decryptAction.triggered.connect(
             lambda: Thread(target=self.decrypt, args=(self.ui.fileBrowserTree.currentIndex(),)).start())
         cursor = QtGui.QCursor()
-        menu.exec_(cursor.pos())
+        menu.exec(cursor.pos())
 
     # RESIZE EVENTS
     def resizeEvent(self, event):
@@ -737,7 +741,7 @@ class MainWindow(QMainWindow):
         :return:
         """
         # SET DRAG POS WINDOW
-        self.dragPos = event.globalPos()
+        self.dragPos = event.globalPosition().toPoint()
 
 
 class LoginWindow(QMainWindow):
@@ -897,7 +901,7 @@ class LoginWindow(QMainWindow):
         :param event:
         """
         # SET DRAG POS WINDOW
-        self.dragPos = event.globalPos()
+        self.dragPos = event.globalPosition().toPoint()
 
 
 class RegisterWindow(QMainWindow):
@@ -1017,7 +1021,7 @@ class RegisterWindow(QMainWindow):
         :param event:
         """
         # SET DRAG POS WINDOW
-        self.dragPos = event.globalPos()
+        self.dragPos = event.globalPosition().toPoint()
 
 
 class AnonymousWindow(QMainWindow):
@@ -1118,7 +1122,7 @@ class AnonymousWindow(QMainWindow):
         :param event:
         """
         # SET DRAG POS WINDOW
-        self.dragPos = event.globalPos()
+        self.dragPos = event.globalPosition().toPoint()
 
     def exitHandler(self):
         """
@@ -1233,7 +1237,7 @@ class RenameFileWindow(QMainWindow):
         :param event:
         """
         # SET DRAG POS WINDOW
-        self.dragPos = event.globalPos()
+        self.dragPos = event.globalPosition().toPoint()
 
     def exitHandler(self):
         """
@@ -1327,8 +1331,8 @@ class DeleteConfirm(QMainWindow):
         Mouse press event
         :param event:
         """
-        # SET DRAG POS WINDOW
-        self.dragPos = event.globalPos()
+        # SET DRAG POS WINDOW, without deprecation
+        self.dragPos = event.globalPosition().toPoint()
 
     def exitHandler(self):
         """
@@ -1454,8 +1458,8 @@ class MoveFile(QMainWindow):
         Mouse press event
         :param event:
         """
-        # SET DRAG POS WINDOW
-        self.dragPos = event.globalPos()
+        # set drag pos window, without deprecation
+        self.dragPos = event.globalPosition().toPoint()
 
     def exitHandler(self):
         """
