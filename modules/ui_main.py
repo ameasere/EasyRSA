@@ -577,6 +577,10 @@ class Ui_MainWindow(object):
 "	border-style: solid;\n"
 "	border-radius: 4px;\n"
 "}")
+        self.appMargins = QVBoxLayout(self.styleSheet)
+        self.appMargins.setSpacing(0)
+        self.appMargins.setObjectName(u"appMargins")
+        self.appMargins.setContentsMargins(10, 10, 10, 10)
         self.bgApp = QFrame(self.styleSheet)
         self.bgApp.setObjectName(u"bgApp")
         self.bgApp.setGeometry(QRect(10, 10, 1260, 668))
@@ -1819,6 +1823,8 @@ class Ui_MainWindow(object):
 
 
         self.appLayout.addWidget(self.contentBox)
+
+        self.appMargins.addWidget(self.bgApp)
 
         MainWindow.setCentralWidget(self.styleSheet)
 
