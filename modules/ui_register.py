@@ -20,7 +20,6 @@ from PySide6.QtWidgets import (QApplication, QCommandLinkButton, QFrame, QGridLa
     QPushButton, QSizePolicy, QStackedWidget, QTextEdit,
     QVBoxLayout, QWidget)
 from .resources_rc import *
-
 class Ui_RegisterWindow(object):
     def setupUi(self, RegisterWindow):
         if not RegisterWindow.objectName():
@@ -874,26 +873,12 @@ class Ui_RegisterWindow(object):
         self.home = QWidget()
         self.home.setObjectName(u"home")
         self.home.setStyleSheet(u"")
-        self.userbox = QLineEdit(self.home)
-        self.userbox.setObjectName(u"userbox")
-        self.userbox.setGeometry(QRect(290, 100, 211, 30))
-        self.userbox.setMinimumSize(QSize(0, 30))
-        self.userbox.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"font: 12pt \"Segoe UI\"; color: rgb(189, 147, 249)")
         self.logintitle = QLabel(self.home)
         self.logintitle.setObjectName(u"logintitle")
         self.logintitle.setGeometry(QRect(360, 0, 71, 41))
         self.logintitle.setStyleSheet(u"font: 14pt \"Segoe UI\"; color: rgb(189, 147, 249); ")
         self.logintitle.setLineWidth(1)
         self.logintitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.usertitle = QLabel(self.home)
-        self.usertitle.setObjectName(u"usertitle")
-        self.usertitle.setGeometry(QRect(290, 70, 71, 21))
-        sizePolicy2.setHeightForWidth(self.usertitle.sizePolicy().hasHeightForWidth())
-        self.usertitle.setSizePolicy(sizePolicy2)
-        self.usertitle.setMaximumSize(QSize(16777215, 45))
-        self.usertitle.setFont(font)
-        self.usertitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.emailtitle = QLabel(self.home)
         self.emailtitle.setObjectName(u"emailtitle")
         self.emailtitle.setGeometry(QRect(290, 150, 91, 21))
@@ -1148,10 +1133,7 @@ class Ui_RegisterWindow(object):
         self.closeAppBtn.setToolTip(QCoreApplication.translate("RegisterWindow", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
-        self.userbox.setText("")
-        self.userbox.setPlaceholderText(QCoreApplication.translate("RegisterWindow", u"...", None))
         self.logintitle.setText(QCoreApplication.translate("RegisterWindow", u"Register", None))
-        self.usertitle.setText(QCoreApplication.translate("RegisterWindow", u"Username", None))
         self.emailtitle.setText(QCoreApplication.translate("RegisterWindow", u"Email Address", None))
         self.emailbox.setText("")
         self.emailbox.setPlaceholderText(QCoreApplication.translate("RegisterWindow", u"...", None))

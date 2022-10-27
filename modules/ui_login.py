@@ -1208,7 +1208,7 @@ class Ui_LoginWindow(object):
         self.userbox.setText("")
         self.userbox.setPlaceholderText(QCoreApplication.translate("LoginWindow", u"...", None))
         self.logintitle.setText(QCoreApplication.translate("LoginWindow", u"Login", None))
-        self.usertitle.setText(QCoreApplication.translate("LoginWindow", u"Username", None))
+        self.usertitle.setText(QCoreApplication.translate("LoginWindow", u"Email", None))
         self.passtitle.setText(QCoreApplication.translate("LoginWindow", u"Password", None))
         self.showpassword.setText(QCoreApplication.translate("LoginWindow", u"Show Password", None))
         self.passbox.setText("")

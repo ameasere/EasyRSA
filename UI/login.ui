@@ -1539,7 +1539,7 @@ font: 12pt &quot;Segoe UI&quot;; color: rgb(189, 147, 249)</string>
                         </font>
                        </property>
                        <property name="text">
-                        <string>Username</string>
+                        <string>Email</string>
                        </property>
                        <property name="alignment">
                         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>

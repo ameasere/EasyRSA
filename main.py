@@ -1,6 +1,7 @@
 """
 Main Driver Code for EasyRSA
 """
+import base64
 # ///////////////////////////////////////////////////////////////
 #
 # BY: WANDERSON M.PIMENTA
@@ -25,13 +26,15 @@ import json
 import os
 # noinspection PyUnresolvedReferences
 import platform
+import random
+import string
 # noinspection PyUnresolvedReferences
 import sys
 # noinspection PyUnresolvedReferences
 import webbrowser
-from msilib.schema import DuplicateFile
 import shutil
-
+import winreg
+from Cryptodome.Cipher import AES
 # noinspection PyUnresolvedReferences
 import pyperclip
 import requests
@@ -58,12 +61,32 @@ title = "EasyRSA"
 description = "RSA made simple."
 
 
+# Check windows registry for a key to see if there is an encryption key stored
+# If there is, use it, if not, generate a new one and store it in the registry
+def check_key_nonce() -> bool:
+    try:
+        key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Software\\" + title, 0, winreg.KEY_READ)
+        aeskey, regtype = winreg.QueryValueEx(key, "key")
+        nonce, regtype = winreg.QueryValueEx(key, "nonce")
+        return True
+    except FileNotFoundError:
+        # Generate random 16 character string
+        aeskey = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
+        nonce = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
+        # Store key in registry
+        key = winreg.CreateKey(winreg.HKEY_CURRENT_USER, "Software\\" + title)
+        winreg.SetValueEx(key, "key", 0, winreg.REG_SZ, aeskey)
+        winreg.SetValueEx(key, "nonce", 0, winreg.REG_SZ, nonce)
+        return False
+
+
+
 class MainWindow(QMainWindow):
     """
     Dashboard
     """
 
-    def __init__(self, anonymous=False, publicKey=None, privateKey=None, newUser=False):
+    def __init__(self, anonymous=False, publicKey=None, privateKey=None):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -76,8 +99,6 @@ class MainWindow(QMainWindow):
         if publicKey and privateKey:
             self.__publicKey = publicKey
             self.__privateKey = privateKey
-        elif newUser:
-            pass
         else:
             # Check if the directory exists
             if len(os.listdir(os.getcwd() + "/.keys")) == 0:
@@ -353,7 +374,7 @@ class MainWindow(QMainWindow):
                     self.close()
                     sys.exit(0)
                 except Exception as e:
-                    print(repr(e))
+                    pass
             case "btn_home":
                 self.ui.titleLeftDescription.setText("Dashboard")  # SET PAGE
                 self.ui.stackedWidget.setCurrentWidget(
@@ -744,15 +765,30 @@ class LoginWindow(QMainWindow):
     def login(self):
         self.username = self.ui.userbox.text()
         self.password = self.ui.passbox.text()
-        postData = {"Username": self.username, "Password": self.password}
+        postData = {"Email": self.username, "Password": self.password}
         response = requests.post("https://enigmapr0ject.tech/api/easyrsa/login.php",
                                  data=postData).content.decode('utf-8')
-        if response == "2":
-            self.mainWindow = MainWindow()
+        if response == "200":
+            request = requests.post("https://enigmapr0ject.tech/api/easyrsa/keys.php", data=postData)
+            response = request.content.decode('utf-8')
+            publickey = base64.b64decode(response.split("\n")[0])
+            privatekey = base64.b64decode(response.split("\n")[1])
+            cipher = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
+            # Decrypt public key
+            publickey = cipher.decrypt(publickey)
+            cipher2 = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
+            # Decrypt private key
+            privatekey = cipher2.decrypt(privatekey)
+            # Decode from base 64
+            publickey = base64.b64decode(publickey)
+            privatekey = base64.b64decode(privatekey)
+            publickey = rsa.PublicKey.load_pkcs1(publickey)
+            privatekey = rsa.PrivateKey.load_pkcs1(privatekey)
+            self.mainWindow = MainWindow(publicKey=publickey, privateKey=privatekey)
+            self.mainWindow.ui.extraLabel.setText(self.username)
             self.mainWindow.show()
         else:
             self.ui.responsetitle.setText(response)
-            print(response)
 
     def register(self):
         self.fade()
@@ -842,9 +878,16 @@ class RegisterWindow(QMainWindow):
         self.login.show()
 
     def register(self):
-        username = self.ui.userbox.text()
         emailaddress = self.ui.emailbox.text()
-        postData = {"Username": username, "Email": emailaddress}
+        publicKey, privateKey = rsa.newkeys(2048, poolsize=psutil.cpu_count())
+        # Encrypt the public key
+        cipher = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
+        ciphertext = cipher.encrypt(base64.b64encode(publicKey.save_pkcs1()))
+        # Encrypt the private key
+        cipher2 = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
+        ciphertext2 = cipher2.encrypt(base64.b64encode(privateKey.save_pkcs1()))
+        r = requests.post("https://enigmapr0ject.tech/api/easyrsa/keys.php")
+        postData = {"Email": emailaddress, "pub": base64.b64encode(ciphertext), "prv": base64.b64encode(ciphertext2)}
         response = requests.post("https://enigmapr0ject.tech/api/easyrsa/register.php", data=postData).content.decode(
             'utf-8')
         self.ui.responsetitle.setText(response)
@@ -1190,8 +1233,6 @@ class MoveFile(QMainWindow):
                 self.fade()
             except Exception as e:
                 self.ui.responseTitle.setText("Error: %s" % e)
-                print(repr(e))
-                print(self.newName)
 
     def openFile(self):
         # Open file selection window
@@ -1238,6 +1279,12 @@ if __name__ == "__main__":
             # on any other OS.
         case other:
             titleBarFlag = False
+    check_key_nonce()
+    key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Software\\" + title, 0, winreg.KEY_READ)
+    aeskey, regtype = winreg.QueryValueEx(key, "key")
+    nonce, regtype2 = winreg.QueryValueEx(key, "nonce")
+    aeskey = bytes(aeskey, 'utf-8')
+    nonce = bytes(nonce, 'utf-8')
     app = QApplication(sys.argv)
     window = LoginWindow()
     sys.exit(app.exec())

@@ -1460,32 +1460,6 @@ p, li { white-space: pre-wrap; }
                       <property name="styleSheet">
                        <string notr="true"/>
                       </property>
-                      <widget class="QLineEdit" name="userbox">
-                       <property name="geometry">
-                        <rect>
-                         <x>290</x>
-                         <y>100</y>
-                         <width>211</width>
-                         <height>30</height>
-                        </rect>
-                       </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(33, 37, 43);
-font: 12pt &quot;Segoe UI&quot;; color: rgb(189, 147, 249)</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="placeholderText">
-                        <string>...</string>
-                       </property>
-                      </widget>
                       <widget class="QLabel" name="logintitle">
                        <property name="geometry">
                         <rect>
@@ -1503,43 +1477,6 @@ font: 12pt &quot;Segoe UI&quot;; color: rgb(189, 147, 249)</string>
                        </property>
                        <property name="text">
                         <string>Register</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="usertitle">
-                       <property name="geometry">
-                        <rect>
-                         <x>290</x>
-                         <y>70</y>
-                         <width>71</width>
-                         <height>21</height>
-                        </rect>
-                       </property>
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>16777215</width>
-                         <height>45</height>
-                        </size>
-                       </property>
-                       <property name="font">
-                        <font>
-                         <family>Segoe UI</family>
-                         <pointsize>10</pointsize>
-                         <weight>50</weight>
-                         <italic>false</italic>
-                         <bold>false</bold>
-                        </font>
-                       </property>
-                       <property name="text">
-                        <string>Username</string>
                        </property>
                        <property name="alignment">
                         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
