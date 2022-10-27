@@ -853,6 +853,7 @@ class LoginWindow(QMainWindow):
             privatekey = base64.b64decode(privatekey)
             publickey = rsa.PublicKey.load_pkcs1(publickey)
             privatekey = rsa.PrivateKey.load_pkcs1(privatekey)
+            self.close()
             self.mainWindow = MainWindow(publickey=publickey, privatekey=privatekey)
             self.mainWindow.ui.extraLabel.setText(self.username)
             self.mainWindow.show()

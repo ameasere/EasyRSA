@@ -20,6 +20,7 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QCommandLinkButton, QFra
     QMainWindow, QPushButton, QSizePolicy, QStackedWidget,
     QTextEdit, QVBoxLayout, QWidget)
 from .resources_rc import *
+
 class Ui_LoginWindow(object):
     def setupUi(self, LoginWindow):
         if not LoginWindow.objectName():
@@ -1235,6 +1236,6 @@ class Ui_LoginWindow(object):
         self.btn_print.setText(QCoreApplication.translate("LoginWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("LoginWindow", u"Logout", None))
         self.creditsLabel.setText(QCoreApplication.translate("LoginWindow", u"Group 1", None))
-        self.version.setText(QCoreApplication.translate("LoginWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.3</p></body></html>", None))
+        self.version.setText(QCoreApplication.translate("LoginWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.4</p></body></html>", None))
     # retranslateUi
 

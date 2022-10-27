@@ -877,6 +877,6 @@ class Ui_ConfirmDeleteWindow(object):
         self.usertitle_2.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"This action is irreversible.", None))
         self.label.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"NEW PAGE TEST", None))
         self.creditsLabel.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"By: enigmapr0ject", None))
-        self.version.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.3</p></body></html>", None))
+        self.version.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.4</p></body></html>", None))
     # retranslateUi
 

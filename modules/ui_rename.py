@@ -879,6 +879,6 @@ class Ui_RenameWindow(object):
         self.responseTitle.setText("")
         self.label.setText(QCoreApplication.translate("RenameWindow", u"NEW PAGE TEST", None))
         self.creditsLabel.setText(QCoreApplication.translate("RenameWindow", u"Group 1", None))
-        self.version.setText(QCoreApplication.translate("RenameWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.2</p></body></html>", None))
+        self.version.setText(QCoreApplication.translate("RenameWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.4</p></body></html>", None))
     # retranslateUi
 
