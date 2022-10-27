@@ -1,6 +1,7 @@
 """
 Main Driver Code for EasyRSA
 """
+# noinspection PyUnresolvedReferences
 import base64
 # ///////////////////////////////////////////////////////////////
 #
@@ -26,17 +27,23 @@ import json
 import os
 # noinspection PyUnresolvedReferences
 import platform
+# noinspection PyUnresolvedReferences
 import random
+# noinspection PyUnresolvedReferences
 import string
 # noinspection PyUnresolvedReferences
 import sys
 # noinspection PyUnresolvedReferences
 import webbrowser
+# noinspection PyUnresolvedReferences
 import shutil
+# noinspection PyUnresolvedReferences
 import winreg
+# noinspection PyUnresolvedReferences
 from Cryptodome.Cipher import AES
 # noinspection PyUnresolvedReferences
 import pyperclip
+# noinspection PyUnresolvedReferences
 import requests
 # noinspection PyUnresolvedReferences
 import rsa
@@ -61,24 +68,35 @@ title = "EasyRSA"
 description = "RSA made simple."
 
 
-# Check windows registry for a key to see if there is an encryption key stored
+# Check Windows registry for a key to see if there is an encryption key stored
 # If there is, use it, if not, generate a new one and store it in the registry
 def check_key_nonce() -> bool:
+    """
+    Check Windows registry for a key to see if there is an encryption key stored
+    :return:
+    """
     try:
-        key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Software\\" + title, 0, winreg.KEY_READ)
-        aeskey, regtype = winreg.QueryValueEx(key, "key")
-        nonce, regtype = winreg.QueryValueEx(key, "nonce")
+        regkey = winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Software\\" + title, 0, winreg.KEY_READ)
+        winreg.QueryValueEx(regkey, "key")
+        winreg.QueryValueEx(regkey, "nonce")
         return True
     except FileNotFoundError:
         # Generate random 16 character string
-        aeskey = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
-        nonce = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
+        aes_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
+        aes_nonce = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
         # Store key in registry
-        key = winreg.CreateKey(winreg.HKEY_CURRENT_USER, "Software\\" + title)
-        winreg.SetValueEx(key, "key", 0, winreg.REG_SZ, aeskey)
-        winreg.SetValueEx(key, "nonce", 0, winreg.REG_SZ, nonce)
+        regkey = winreg.CreateKey(winreg.HKEY_CURRENT_USER, "Software\\" + title)
+        winreg.SetValueEx(regkey, "key", 0, winreg.REG_SZ, aes_key)
+        winreg.SetValueEx(regkey, "nonce", 0, winreg.REG_SZ, aes_nonce)
         return False
 
+
+def support():
+    """
+    Open support page
+    :return:
+    """
+    webbrowser.get().open("https://github.com/enigmapr0ject/EasyRSA/issues")
 
 
 class MainWindow(QMainWindow):
@@ -86,8 +104,9 @@ class MainWindow(QMainWindow):
     Dashboard
     """
 
-    def __init__(self, anonymous=False, publicKey=None, privateKey=None):
-        QMainWindow.__init__(self)
+    def __init__(self, anonymous=False, publickey=None, privatekey=None):
+        # Call to QMainWindow as super
+        super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         widgets = self.ui
@@ -96,9 +115,9 @@ class MainWindow(QMainWindow):
         self.dragPos = None
         self.filepath: str | None = None
         self.anonymous = anonymous
-        if publicKey and privateKey:
-            self.__publicKey = publicKey
-            self.__privateKey = privateKey
+        if publickey and privatekey:
+            self.__publicKey = publickey
+            self.__privateKey = privatekey
         else:
             # Check if the directory exists
             if len(os.listdir(os.getcwd() + "/.keys")) == 0:
@@ -244,6 +263,11 @@ class MainWindow(QMainWindow):
         self.ui.openFilepathButton.show()
 
     def openFile(self, index):
+        """
+        Open file in default application
+        :param index:
+        :return:
+        """
         item = index.model().filePath(self.ui.fileBrowserTree.currentIndex())
         if not os.path.isfile(item):
             self.filepath = index.model().filePath(self.ui.fileBrowserTree.currentIndex())
@@ -259,6 +283,11 @@ class MainWindow(QMainWindow):
             subprocess.call([opener, item])
 
     def encrypt(self, index):
+        """
+        Encrypt file
+        :param index:
+        :return:
+        """
         if isinstance(index, str):
             self.filepath = index
         else:
@@ -303,6 +332,11 @@ class MainWindow(QMainWindow):
         return True
 
     def decrypt(self, index):
+        """
+        Decrypt file
+        :param index:
+        :return:
+        """
         # If index is a string
         if isinstance(index, str):
             self.filepath = index
@@ -373,8 +407,6 @@ class MainWindow(QMainWindow):
                 except AttributeError:
                     self.close()
                     sys.exit(0)
-                except Exception as e:
-                    pass
             case "btn_home":
                 self.ui.titleLeftDescription.setText("Dashboard")  # SET PAGE
                 self.ui.stackedWidget.setCurrentWidget(
@@ -411,7 +443,7 @@ class MainWindow(QMainWindow):
             case "btn_help":
                 webbrowser.get().open("https://github.com/enigmapr0ject/EasyRSA")
             case "btn_report":
-                webbrowser.get().open("https://github.com/enigmapr0ject/EasyRSA/issues")
+                support()
             case "btn_more":
                 webbrowser.get().open("https://github.com/enigmapr0ject")
             case "copyPrivateKeyButton":
@@ -440,7 +472,8 @@ class MainWindow(QMainWindow):
                     if os.path.exists(self.configArray["defaultSDLocation"]):
                         self.ui.fileBrowserTree.setRootIndex(
                             self.model.index(self.configArray['defaultSDLocation']) if self.configArray[
-                                                                                           'defaultSDLocation'] != "" else
+                                                                                           'defaultSDLocation'] != ""
+                            else
                             self.model.index(
                                 os.getcwd()))  # Set the first displaying directory
                     # If directory in defaultSDLocation doesn't exist on the
@@ -586,7 +619,14 @@ class MainWindow(QMainWindow):
 
     # Custom Context Menu
     def contextMenu(self):
+        """
+        Custom Context Menu
+        """
+
         def renameFile():
+            """
+            Rename file
+            """
             # Check if the file is a directory
             if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(
                     self.ui.fileBrowserTree.currentIndex()):
@@ -599,6 +639,9 @@ class MainWindow(QMainWindow):
                 self.setWindowTitle("EasyRSA - No file selected")
 
         def deleteFile():
+            """
+            Delete file
+            """
             # Check if the file is a directory
             if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(
                     self.ui.fileBrowserTree.currentIndex()):
@@ -611,6 +654,9 @@ class MainWindow(QMainWindow):
                 self.setWindowTitle("EasyRSA - No file selected")
 
         def moveFile():
+            """
+            Move file
+            """
             if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(
                     self.ui.fileBrowserTree.currentIndex()):
                 index = self.ui.fileBrowserTree.currentIndex()
@@ -622,6 +668,9 @@ class MainWindow(QMainWindow):
                 self.setWindowTitle("EasyRSA - No file selected")
 
         def duplicateFile():
+            """
+            Duplicate file
+            """
             if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(
                     self.ui.fileBrowserTree.currentIndex()):
                 index = self.ui.fileBrowserTree.currentIndex()
@@ -692,13 +741,23 @@ class MainWindow(QMainWindow):
 
 
 class LoginWindow(QMainWindow):
+    """
+    Login Screen
+    """
+
     def __init__(self):
-        QMainWindow.__init__(self)
         # SET AS GLOBAL WIDGETS
         # ///////////////////////////////////////////////////////////////
+        super().__init__()
+        self.dragPos = None
         self.ui = Ui_LoginWindow()
         self.ui.setupUi(self)
         widgets = self.ui
+        self.main: MainWindow | None = None
+        self.anonymous: AnonymousWindow | None = None
+        self.username: str | None = None
+        self.password: str | None = None
+        self.mainWindow: MainWindow | None = None
         widgets.passbox.setEchoMode(QtWidgets.QLineEdit.Password)
         widgets.showpassword.stateChanged.connect(self.showPassword)
         widgets.loginButton.clicked.connect(self.login)
@@ -711,8 +770,8 @@ class LoginWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
 
-        widgets.supportButton.clicked.connect(self.supportButton)
-        widgets.supportButton_2.clicked.connect(self.supportButton)
+        widgets.supportButton.clicked.connect(lambda: support())
+        widgets.supportButton_2.clicked.connect(lambda: support())
         # TOGGLE MENU
         # ///////////////////////////////////////////////////////////////
         # widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
@@ -726,7 +785,7 @@ class LoginWindow(QMainWindow):
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = False
-        themeFile = "themes\py_dracula_light.qss"
+        themeFile = "themes\\py_dracula_light.qss"
 
         # SET THEME AND HACKS
         if useCustomTheme:
@@ -741,16 +800,19 @@ class LoginWindow(QMainWindow):
         widgets.stackedWidget.setCurrentWidget(widgets.home)
         # widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
-    def supportButton(self):
-        webbrowser.get().open("https://github.com/enigmapr0ject/EasyRSA/issues")
-
     def showPassword(self):
+        """
+        Show password
+        """
         if self.ui.showpassword.isChecked():
             self.ui.passbox.setEchoMode(QtWidgets.QLineEdit.Normal)
         else:
             self.ui.passbox.setEchoMode(QtWidgets.QLineEdit.Password)
 
     def anonymousMode(self):
+        """
+        Anonymous mode
+        """
         # Check if the ".keys" folder exists and is populated
         if os.path.exists(os.path.join(os.getcwd(), ".keys")) and len(
                 os.listdir(os.path.join(os.getcwd(), ".keys"))) > 0:
@@ -763,6 +825,9 @@ class LoginWindow(QMainWindow):
             self.anonymous.show()
 
     def login(self):
+        """
+        Login
+        """
         self.username = self.ui.userbox.text()
         self.password = self.ui.passbox.text()
         postData = {"Email": self.username, "Password": self.password}
@@ -784,46 +849,69 @@ class LoginWindow(QMainWindow):
             privatekey = base64.b64decode(privatekey)
             publickey = rsa.PublicKey.load_pkcs1(publickey)
             privatekey = rsa.PrivateKey.load_pkcs1(privatekey)
-            self.mainWindow = MainWindow(publicKey=publickey, privateKey=privatekey)
+            self.mainWindow = MainWindow(publickey=publickey, privatekey=privatekey)
             self.mainWindow.ui.extraLabel.setText(self.username)
             self.mainWindow.show()
         else:
             self.ui.responsetitle.setText(response)
 
     def register(self):
+        """
+        Register
+        """
         self.fade()
         self.main = RegisterWindow()
         self.main.show()
 
     def fade(self):
+        """
+        Fade window out slowly
+        """
         for i in range(10):
-            i = i / 10
+            i /= 10
             self.setWindowOpacity(1 - i)
             time.sleep(0.02)
         self.close()
 
     def exitHandler(self):
+        """
+        Exit handler
+        """
         self.close()
 
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):
+        """
+        Resize event
+        :param event:
+        """
         # Update Size Grips
         UIFunctions.resize_grips(self)
 
     # MOUSE CLICK EVENTS
     # ///////////////////////////////////////////////////////////////
     def mousePressEvent(self, event):
+        """
+        Mouse press event
+        :param event:
+        """
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
 
 
 class RegisterWindow(QMainWindow):
+    """
+    Register Screen
+    """
+
     def __init__(self):
-        QMainWindow.__init__(self)
+        super().__init__()
 
         # SET AS GLOBAL WIDGETS
         # ///////////////////////////////////////////////////////////////
+        self.dragPos = None
+        self.login = None
         self.ui = Ui_RegisterWindow()
         self.ui.setupUi(self)
         widgets = self.ui
@@ -836,7 +924,7 @@ class RegisterWindow(QMainWindow):
 
         # APP NAME
         # ///////////////////////////////////////////////////////////////
-        widgets.supportButton.clicked.connect(self.supportButton)
+        widgets.supportButton.clicked.connect(lambda: support())
         # TOGGLE MENU
         # ///////////////////////////////////////////////////////////////
         # widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
@@ -852,7 +940,7 @@ class RegisterWindow(QMainWindow):
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
         useCustomTheme = False
-        themeFile = "themes\py_dracula_light.qss"
+        themeFile = "themes\\py_dracula_light.qss"
 
         # SET THEME AND HACKS
         if useCustomTheme:
@@ -869,15 +957,19 @@ class RegisterWindow(QMainWindow):
 
     # BUTTONS CLICK
     # Post here your functions for clicked buttons
-    def supportButton(self):
-        webbrowser.get().open("https://github.com/enigmapr0ject/EasyRSA/issues")
 
     def login(self):
+        """
+        Login
+        """
         self.fade()
         self.login = LoginWindow()
         self.login.show()
 
     def register(self):
+        """
+        Register
+        """
         emailaddress = self.ui.emailbox.text()
         publicKey, privateKey = rsa.newkeys(2048, poolsize=psutil.cpu_count())
         # Encrypt the public key
@@ -886,40 +978,58 @@ class RegisterWindow(QMainWindow):
         # Encrypt the private key
         cipher2 = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
         ciphertext2 = cipher2.encrypt(base64.b64encode(privateKey.save_pkcs1()))
-        r = requests.post("https://enigmapr0ject.tech/api/easyrsa/keys.php")
         postData = {"Email": emailaddress, "pub": base64.b64encode(ciphertext), "prv": base64.b64encode(ciphertext2)}
         response = requests.post("https://enigmapr0ject.tech/api/easyrsa/register.php", data=postData).content.decode(
             'utf-8')
         self.ui.responsetitle.setText(response)
 
     def fade(self):
+        """
+        Fade window out slowly
+        """
         for i in range(10):
-            i = i / 10
+            i /= 10
             self.setWindowOpacity(1 - i)
             time.sleep(0.02)
         self.close()
 
     def exitHandler(self):
+        """
+        Exit handler
+        """
         self.close()
 
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):
+        """
+        Resize event
+        :param event:
+        """
         # Update Size Grips
         UIFunctions.resize_grips(self)
 
     # MOUSE CLICK EVENTS
     # ///////////////////////////////////////////////////////////////
     def mousePressEvent(self, event):
+        """
+        Mouse press event
+        :param event:
+        """
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
 
 
 class AnonymousWindow(QMainWindow):
+    """
+    Anonymous Screen
+    """
     def __init__(self):
-        QMainWindow.__init__(self)
+        super().__init__()
         # SET AS GLOBAL WIDGETS
         # ///////////////////////////////////////////////////////////////
+        self.dragPos = None
+        self.main = None
         self.ui = Ui_Anonymous()
         self.ui.setupUi(self)
         widgets = self.ui
@@ -958,6 +1068,10 @@ class AnonymousWindow(QMainWindow):
         # widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
     def yes(self):
+        """
+        Yes
+        :return:
+        """
         # Check the tickbox is checked
         if self.ui.acceptBox.isChecked():
             self.ui.responsetitle.setText("Generating keys...")
@@ -969,13 +1083,19 @@ class AnonymousWindow(QMainWindow):
         self.fade()
 
     def no(self):
+        """
+        No
+        """
         self.close()
         self.main = LoginWindow()
         self.main.show()
 
     def fade(self):
+        """
+        Fade window out slowly
+        """
         for i in range(10):
-            i = i / 10
+            i /= 10
             self.setWindowOpacity(1 - i)
             time.sleep(0.02)
         self.close()
@@ -983,24 +1103,39 @@ class AnonymousWindow(QMainWindow):
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):
+        """
+        Resize event
+        :param event:
+        """
         # Update Size Grips
         UIFunctions.resize_grips(self)
 
     # MOUSE CLICK EVENTS
     # ///////////////////////////////////////////////////////////////
     def mousePressEvent(self, event):
+        """
+        Mouse press event
+        :param event:
+        """
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
 
     def exitHandler(self):
+        """
+        Exit handler
+        """
         self.fade()
 
 
 class RenameFileWindow(QMainWindow):
+    """
+    Rename File Window
+    """
     def __init__(self, filepath):
-        QMainWindow.__init__(self)
+        super().__init__()
         # SET AS GLOBAL WIDGETS
         # ///////////////////////////////////////////////////////////////
+        self.dragPos = None
         self.ui = Ui_RenameWindow()
         self.ui.setupUi(self)
         self.filepath = filepath
@@ -1008,11 +1143,6 @@ class RenameFileWindow(QMainWindow):
         widgets = self.ui
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
-        match platform.system():
-            case "Windows":
-                titleBarFlag = True
-            case _:
-                titleBarFlag = False
         Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
 
         # TOGGLE MENU
@@ -1053,6 +1183,11 @@ class RenameFileWindow(QMainWindow):
         self.newName = self.ui.fileNameBox.text()
 
         def path_leaf(path):  # Splits path names into tails and heads
+            """
+            Splits path names into tails and heads
+            :param path:
+            :return:
+            """
             head, tail = ntpath.split(path)
             return head
 
@@ -1071,8 +1206,11 @@ class RenameFileWindow(QMainWindow):
                 self.ui.responseTitle.setText("Error: %s" % e)
 
     def fade(self):
+        """
+        Fade window out slowly
+        """
         for i in range(10):
-            i = i / 10
+            i /= 10
             self.setWindowOpacity(1 - i)
             time.sleep(0.02)
         self.close()
@@ -1080,24 +1218,39 @@ class RenameFileWindow(QMainWindow):
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):
+        """
+        Resize event
+        :param event:
+        """
         # Update Size Grips
         UIFunctions.resize_grips(self)
 
     # MOUSE CLICK EVENTS
     # ///////////////////////////////////////////////////////////////
     def mousePressEvent(self, event):
+        """
+        Mouse press event
+        :param event:
+        """
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
 
     def exitHandler(self):
+        """
+        Exit handler
+        """
         self.fade()
 
 
 class DeleteConfirm(QMainWindow):
+    """
+    Delete Confirm Window
+    """
     def __init__(self, index):
-        QMainWindow.__init__(self)
+        super().__init__()
         # SET AS GLOBAL WIDGETS
         # ///////////////////////////////////////////////////////////////
+        self.dragPos = None
         self.ui = Ui_ConfirmDeleteWindow()
         self.ui.setupUi(self)
         self.index = index
@@ -1137,15 +1290,22 @@ class DeleteConfirm(QMainWindow):
         # widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
     def yes(self):
+        """
+        The function takes the index of the file to be deleted and deletes it.
+        """
         try:
             os.remove(self.index)
         except Exception as e:
+            print(e)
             self.close()
         self.fade()
 
     def fade(self):
+        """
+        Fade window out slowly
+        """
         for i in range(10):
-            i = i / 10
+            i /= 10
             self.setWindowOpacity(1 - i)
             time.sleep(0.02)
         self.close()
@@ -1153,24 +1313,39 @@ class DeleteConfirm(QMainWindow):
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):
+        """
+        Resize event
+        :param event:
+        """
         # Update Size Grips
         UIFunctions.resize_grips(self)
 
     # MOUSE CLICK EVENTS
     # ///////////////////////////////////////////////////////////////
     def mousePressEvent(self, event):
+        """
+        Mouse press event
+        :param event:
+        """
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
 
     def exitHandler(self):
+        """
+        Exit handler
+        """
         self.fade()
 
 
 class MoveFile(QMainWindow):
+    """
+    Move File Window
+    """
     def __init__(self, index):
-        QMainWindow.__init__(self)
+        super().__init__()
         # SET AS GLOBAL WIDGETS
         # ///////////////////////////////////////////////////////////////
+        self.dragPos = None
         self.ui = Ui_MoveWindow()
         self.ui.setupUi(self)
         self.index = index
@@ -1213,9 +1388,18 @@ class MoveFile(QMainWindow):
         # widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
     def yes(self):
+        """
+        The function takes the index of the file to be moved and moves it.
+        :return:
+        """
         self.newName = self.ui.fileNameBox.text()
 
         def path_leaf(path):  # Splits path names into tails and heads
+            """
+            Splits path names into tails and heads
+            :param path:
+            :return:
+            """
             head, tail = ntpath.split(path)
             return tail or ntpath.basename(head)
 
@@ -1235,14 +1419,20 @@ class MoveFile(QMainWindow):
                 self.ui.responseTitle.setText("Error: %s" % e)
 
     def openFile(self):
+        """
+        Opens file explorer to select a file
+        """
         # Open file selection window
         self.filepath = QFileDialog.getExistingDirectory(
             self, "Select Directory")
         self.ui.fileNameBox.setText(self.filepath)
 
     def fade(self):
+        """
+        Fade window out slowly
+        """
         for i in range(10):
-            i = i / 10
+            i /= 10
             self.setWindowOpacity(1 - i)
             time.sleep(0.02)
         self.close()
@@ -1250,16 +1440,27 @@ class MoveFile(QMainWindow):
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):
+        """
+        Resize event
+        :param event:
+        """
         # Update Size Grips
         UIFunctions.resize_grips(self)
 
     # MOUSE CLICK EVENTS
     # ///////////////////////////////////////////////////////////////
     def mousePressEvent(self, event):
+        """
+        Mouse press event
+        :param event:
+        """
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
 
     def exitHandler(self):
+        """
+        Exit handler
+        """
         self.fade()
 
 
