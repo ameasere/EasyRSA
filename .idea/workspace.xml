@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="Fixed deprecation issues + improved warning messages for context menu.">
-      <change afterPath="$PROJECT_DIR$/automation/ui_compiler.py" afterDir="false" />
+    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="Updated version number.">
+      <change afterPath="$PROJECT_DIR$/themes/dracula_halloween.qss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/confirmAnonymous.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/confirmAnonymous.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/confirmDelete.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/confirmDelete.ui" afterDir="false" />
@@ -14,8 +14,14 @@
       <change beforePath="$PROJECT_DIR$/UI/moveFile.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/moveFile.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/register.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/register.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/renameFile.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/renameFile.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/resources.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/UI/resources.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/app_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/app_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/app_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/app_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/resources_rc.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/resources_rc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/ui_anonymous.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/ui_confirmDelete.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_confirmDelete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/ui_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_login.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/ui_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/ui_moveFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui_moveFile.py" afterDir="false" />
@@ -84,15 +90,18 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Leigh/Desktop/EasyRSA",
+    "last_opened_file_path": "C:/Users/Leigh/Desktop/EasyRSA/themes",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+    "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Leigh\Desktop\EasyRSA\themes" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Leigh\Desktop\EasyRSA\modules" />
       <recent name="C:\Users\Leigh\Desktop\EasyRSA\tests\rsa_chunks" />
@@ -237,7 +246,9 @@
       <workItem from="1666639769244" duration="36000" />
       <workItem from="1666639821288" duration="6870000" />
       <workItem from="1666786711865" duration="20000" />
-      <workItem from="1666788530302" duration="16319000" />
+      <workItem from="1666788530302" duration="16549000" />
+      <workItem from="1666874522809" duration="16000" />
+      <workItem from="1666963757327" duration="3085000" />
     </task>
     <task id="LOCAL-00001" summary="Updated config.json checks and initial creation.">
       <created>1666609646218</created>
@@ -358,7 +369,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666831664513</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Updated version number.">
+      <created>1666832397212</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1666832397212</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,13 +410,14 @@
     <MESSAGE value="Garbage collection, waste management, inspections and other minor cleaning." />
     <MESSAGE value="Added anonymous mode with key storing" />
     <MESSAGE value="Fixed deprecation issues + improved warning messages for context menu." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed deprecation issues + improved warning messages for context menu." />
+    <MESSAGE value="Updated version number." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated version number." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/EasyRSA$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1666832230257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/EasyRSA$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1666966991639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/EasyRSA$pooling.coverage" NAME="pooling Coverage Results" MODIFIED="1666727185106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/EasyRSA$pkcs1.coverage" NAME="pkcs1 Coverage Results" MODIFIED="1666826952239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/EasyRSA$ui_compiler.coverage" NAME="ui_compiler Coverage Results" MODIFIED="1666832139055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/automation" />
+    <SUITE FILE_PATH="coverage/EasyRSA$ui_compiler.coverage" NAME="ui_compiler Coverage Results" MODIFIED="1666966554862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/automation" />
     <SUITE FILE_PATH="coverage/EasyRSA$rsa_pooling.coverage" NAME="rsa_pooling Coverage Results" MODIFIED="1666726979759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/EasyRSA$rsa_chunks.coverage" NAME="rsa_chunks Coverage Results" MODIFIED="1666641955846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
