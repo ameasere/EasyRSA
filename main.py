@@ -194,13 +194,12 @@ class MainWindow(QMainWindow):
         self.show()
         widgets.btn_more.clicked.connect(self.buttonClick)
 
-        """
-        themeFile = "themes\\Hookmark.qss"
+        themeFile = "themes\\dracula_halloween.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
-        AppFunctions.setThemeHack(self)
-        """
+
+
         # Search for config file
         stem = os.getcwd()
         stem += "\\config\\config.json"
@@ -788,16 +787,11 @@ class LoginWindow(QMainWindow):
 
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        useCustomTheme = False
-        themeFile = "themes\\py_dracula_light.qss"
+        themeFile = "themes\\dracula_halloween.qss"
 
         # SET THEME AND HACKS
-        if useCustomTheme:
-            # LOAD AND APPLY STYLE
-            UIFunctions.theme(self, themeFile, True)
+        UIFunctions.theme(self, themeFile, True)
 
-            # SET HACKS
-            AppFunctions.setThemeHack(self)
 
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
@@ -944,16 +938,11 @@ class RegisterWindow(QMainWindow):
 
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        useCustomTheme = False
-        themeFile = "themes\\py_dracula_light.qss"
+        themeFile = "themes\\dracula_halloween.qss"
 
         # SET THEME AND HACKS
-        if useCustomTheme:
-            # LOAD AND APPLY STYLE
-            UIFunctions.theme(self, themeFile, True)
+        UIFunctions.theme(self, themeFile, True)
 
-            # SET HACKS
-            AppFunctions.setThemeHack(self)
 
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
@@ -1056,16 +1045,11 @@ class AnonymousWindow(QMainWindow):
         widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        useCustomTheme = False
-        themeFile = "themes\\py_dracula_light.qss"
+        themeFile = "themes\\dracula_halloween.qss"
 
         # SET THEME AND HACKS
-        if useCustomTheme:
-            # LOAD AND APPLY STYLE
-            UIFunctions.theme(self, themeFile, True)
+        UIFunctions.theme(self, themeFile, True)
 
-            # SET HACKS
-            AppFunctions.setThemeHack(self)
 
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
@@ -1164,16 +1148,11 @@ class RenameFileWindow(QMainWindow):
         widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        useCustomTheme = False
-        themeFile = "themes\\py_dracula_light.qss"
+        themeFile = "themes\\dracula_halloween.qss"
 
         # SET THEME AND HACKS
-        if useCustomTheme:
-            # LOAD AND APPLY STYLE
-            UIFunctions.theme(self, themeFile, True)
+        UIFunctions.theme(self, themeFile, True)
 
-            # SET HACKS
-            AppFunctions.setThemeHack(self)
 
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
@@ -1278,16 +1257,11 @@ class DeleteConfirm(QMainWindow):
         widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        useCustomTheme = False
-        themeFile = "themes\\py_dracula_light.qss"
+        themeFile = "themes\\dracula_halloween.qss"
 
         # SET THEME AND HACKS
-        if useCustomTheme:
-            # LOAD AND APPLY STYLE
-            UIFunctions.theme(self, themeFile, True)
+        UIFunctions.theme(self, themeFile, True)
 
-            # SET HACKS
-            AppFunctions.setThemeHack(self)
 
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
@@ -1376,16 +1350,11 @@ class MoveFile(QMainWindow):
         widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        useCustomTheme = False
-        themeFile = "themes\\py_dracula_light.qss"
+        themeFile = "themes\\dracula_halloween.qss"
 
         # SET THEME AND HACKS
-        if useCustomTheme:
-            # LOAD AND APPLY STYLE
-            UIFunctions.theme(self, themeFile, True)
+        UIFunctions.theme(self, themeFile, True)
 
-            # SET HACKS
-            AppFunctions.setThemeHack(self)
 
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////

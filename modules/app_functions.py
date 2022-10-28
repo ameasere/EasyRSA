@@ -32,14 +32,14 @@ class AppFunctions(MainWindow):
         """
 
         # SET MANUAL STYLES
-        self.ui.lineEdit.setStyleSheet("background-color: #6272a4;")
-        self.ui.pushButton.setStyleSheet("background-color: #6272a4;")
-        self.ui.plainTextEdit.setStyleSheet("background-color: #6272a4;")
+        self.ui.lineEdit.setStyleSheet("background-color: #6272a4;") if self.ui.lineEdit else None
+        self.ui.pushButton.setStyleSheet("background-color: #6272a4;") if self.ui.pushButton else None
+        self.ui.plainTextEdit.setStyleSheet("background-color: #6272a4;") if self.ui.plainTextEdit else None
         self.ui.tableWidget.setStyleSheet(
-            "QScrollBar:vertical { background: #6272a4; } QScrollBar:horizontal { background: #6272a4; }")
+            "QScrollBar:vertical { background: #6272a4; } QScrollBar:horizontal { background: #6272a4; }") if self.ui.tableWidget else None
         self.ui.scrollArea.setStyleSheet(
-            "QScrollBar:vertical { background: #6272a4; } QScrollBar:horizontal { background: #6272a4; }")
-        self.ui.comboBox.setStyleSheet("background-color: #6272a4;")
-        self.ui.horizontalScrollBar.setStyleSheet("background-color: #6272a4;")
-        self.ui.verticalScrollBar.setStyleSheet("background-color: #6272a4;")
-        self.ui.commandLinkButton.setStyleSheet("color: #ff79c6;")
+            "QScrollBar:vertical { background: #6272a4; } QScrollBar:horizontal { background: #6272a4; }") if self.ui.scrollArea else None
+        self.ui.comboBox.setStyleSheet("background-color: #6272a4;") if self.ui.comboBox else None
+        self.ui.horizontalScrollBar.setStyleSheet("background-color: #6272a4;") if self.ui.horizontalScrollBar else None
+        self.ui.verticalScrollBar.setStyleSheet("background-color: #6272a4;") if self.ui.verticalScrollBar else None
+        self.ui.commandLinkButton.setStyleSheet("color: #ff79c6;") if self.ui.commandLinkButton else None
