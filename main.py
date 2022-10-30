@@ -60,6 +60,8 @@ from PySide6.QtWidgets import QMainWindow
 # noinspection PyUnresolvedReferences
 from modules import *
 
+from Custom_Widgets.Widgets import *
+
 # warnings.filterwarnings('ignore')
 # os.environ['QT_DEBUG_PLUGINS'] = "1"
 # FIX Problem for High DPI and Scale above 100%
@@ -104,9 +106,10 @@ class MainWindow(QMainWindow):
     Dashboard
     """
 
-    def __init__(self, anonymous=False, publickey=None, privatekey=None):
+    def __init__(self, anonymous=False, publickey=None, privatekey=None, sessionToken=None, username=None):
         # Call to QMainWindow as super
         super(MainWindow, self).__init__()
+        self.regenKeysWindow = None
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         widgets = self.ui
@@ -115,12 +118,16 @@ class MainWindow(QMainWindow):
         self.dragPos = None
         self.filepath: str | None = None
         self.anonymous = anonymous
-        if publickey and privatekey:
+        if publickey and privatekey and sessionToken and username:
             self.__publicKey = publickey
             self.__privateKey = privatekey
+            self.__sessionToken = sessionToken
+            self.__username = username
         else:
+            self.__sessionToken = None
+            self.__username = None
             # Check if the directory exists
-            if len(os.listdir(os.getcwd() + "/.keys")) == 0:
+            if not os.path.exists(os.getcwd() + "/.keys") or len(os.listdir(os.getcwd() + "/.keys")) == 0:
                 (self.__publicKey, self.__privateKey) = rsa.newkeys(2048, poolsize=psutil.cpu_count())
                 if not os.path.exists(os.getcwd() + "/.keys"):
                     os.mkdir(os.getcwd() + "/.keys")
@@ -157,7 +164,7 @@ class MainWindow(QMainWindow):
         # BUTTONS CLICK
         widgets.btn_home.clicked.connect(self.buttonClick)
         widgets.btn_filespace.clicked.connect(self.buttonClick)
-        widgets.btn_passwords.clicked.connect(self.buttonClick)
+        widgets.btn_security.clicked.connect(self.buttonClick)
         widgets.btn_account.clicked.connect(self.buttonClick)
         widgets.btn_exit.clicked.connect(self.buttonClick)
         widgets.closeAppBtn.clicked.connect(self.buttonClick)
@@ -199,13 +206,12 @@ class MainWindow(QMainWindow):
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
 
-
         # Search for config file
         stem = os.getcwd()
         stem += "\\config\\config.json"
         if not os.path.exists(stem):
             # Create JSON object
-            data = {"defaultSDLocation": os.getcwd()}
+            data = {"defaultSDLocation": os.getcwd(), "defaultBitLength": 2048}
             with open(stem, "w") as f:
                 json.dump(data, f)
                 f.close()
@@ -225,7 +231,21 @@ class MainWindow(QMainWindow):
         self.ui.filepathBox.returnPressed.connect(self.buttonClick)
         self.ui.encryptButton.clicked.connect(self.buttonClick)
         self.ui.decryptButton.clicked.connect(self.buttonClick)
-        # Main Page functionality
+
+        # Add custom buttons in the danger zone label
+        self.regenerateKeys = QCustomQPushButton(self.ui.regenkeysWidget)
+        self.regenerateKeys.setText("Regenerate Keys")
+        self.regenerateKeys.clicked.connect(self.dangerZone_regenKeys)
+        self.regenerateKeys.resize(150, 20)
+        self.regenerateKeys.setObjectAnimateOn("hover")
+        applyAnimationThemeStyle(self.regenerateKeys, 12)
+
+        self.changeBitLength = QCustomQPushButton(self.ui.changeBitLength)
+        self.changeBitLength.setText("Change Bit Length")
+        self.changeBitLength.clicked.connect(self.dangerZone_changeBitLength)
+        self.changeBitLength.resize(150, 20)
+        self.changeBitLength.setObjectAnimateOn("hover")
+        applyAnimationThemeStyle(self.changeBitLength, 12)
 
         self.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
         self.ui.privateKeyDisplay.setPlainText("PrivateKey(***********)")
@@ -260,6 +280,13 @@ class MainWindow(QMainWindow):
         self.ui.currentDirectory.hide()
         self.ui.filepathBox.show()
         self.ui.openFilepathButton.show()
+
+    def dangerZone_changeBitLength(self):
+        pass
+
+    def dangerZone_regenKeys(self):
+        self.regenKeysWindow = RegenerateKeysWindow(self.anonymous, self, self.__sessionToken, self.__username)
+        self.regenKeysWindow.show()
 
     def openFile(self, index):
         """
@@ -419,14 +446,14 @@ class MainWindow(QMainWindow):
                 self.ui.stackedWidget.setCurrentWidget(self.ui.filespace)
                 UIFunctions.resetStyle(self, btnName)
                 btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
-            case "btn_passwords":
-                self.ui.titleLeftDescription.setText("Page 3")
-                self.ui.stackedWidget.setCurrentWidget(self.ui.page3)
+            case "btn_security":
+                self.ui.titleLeftDescription.setText("Security")
+                self.ui.stackedWidget.setCurrentWidget(self.ui.Security)
                 UIFunctions.resetStyle(self, btnName)
                 btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
             case "btn_account":
-                self.ui.titleLeftDescription.setText("Page 4")
-                self.ui.stackedWidget.setCurrentWidget(self.ui.page4)
+                self.ui.titleLeftDescription.setText("Account")
+                self.ui.stackedWidget.setCurrentWidget(self.ui.Account)
                 UIFunctions.resetStyle(self, btnName)
                 btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
             case "btn_exit":
@@ -591,6 +618,8 @@ class MainWindow(QMainWindow):
                 self.ui.fileBrowserTree.setRootIndex(
                     self.model.index(self.filepath))
                 self.ui.currentDirectory.setText(self.filepath)
+            case _:
+                print(btnName)
 
     # Multiview drive statistics
 
@@ -752,6 +781,7 @@ class LoginWindow(QMainWindow):
         # SET AS GLOBAL WIDGETS
         # ///////////////////////////////////////////////////////////////
         super().__init__()
+        self.__sessionToken = None
         self.dragPos = None
         self.ui = Ui_LoginWindow()
         self.ui.setupUi(self)
@@ -792,7 +822,6 @@ class LoginWindow(QMainWindow):
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
 
-
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
         widgets.stackedWidget.setCurrentWidget(widgets.home)
@@ -831,7 +860,8 @@ class LoginWindow(QMainWindow):
         postData = {"Email": self.username, "Password": self.password}
         response = requests.post("https://enigmapr0ject.tech/api/easyrsa/login.php",
                                  data=postData).content.decode('utf-8')
-        if response == "200":
+        if len(response) > 0:
+            self.__sessionToken = response
             request = requests.post("https://enigmapr0ject.tech/api/easyrsa/keys.php", data=postData)
             response = request.content.decode('utf-8')
             publickey = base64.b64decode(response.split("\n")[0])
@@ -848,7 +878,8 @@ class LoginWindow(QMainWindow):
             publickey = rsa.PublicKey.load_pkcs1(publickey)
             privatekey = rsa.PrivateKey.load_pkcs1(privatekey)
             self.close()
-            self.mainWindow = MainWindow(publickey=publickey, privatekey=privatekey)
+            self.mainWindow = MainWindow(publickey=publickey, privatekey=privatekey, sessionToken=self.__sessionToken,
+                                         username=self.username)
             self.mainWindow.ui.extraLabel.setText(self.username)
             self.mainWindow.show()
         else:
@@ -943,7 +974,6 @@ class RegisterWindow(QMainWindow):
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
 
-
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
         widgets.stackedWidget.setCurrentWidget(widgets.home)
@@ -1018,6 +1048,7 @@ class AnonymousWindow(QMainWindow):
     """
     Anonymous Screen
     """
+
     def __init__(self):
         super().__init__()
         # SET AS GLOBAL WIDGETS
@@ -1049,7 +1080,6 @@ class AnonymousWindow(QMainWindow):
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
-
 
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
@@ -1116,10 +1146,163 @@ class AnonymousWindow(QMainWindow):
         self.fade()
 
 
+"""
+Danger Zone Windows
+"""
+
+
+class RegenerateKeysWindow(QMainWindow):
+    """
+    Regenerate Keys Window
+    """
+
+    def __init__(self, anonymousFlag, mainWindow, sessionToken, username):
+        super().__init__()
+        # SET AS GLOBAL WIDGETS
+        # ///////////////////////////////////////////////////////////////
+        self.dragPos = None
+        self.ui = Ui_RegenerateKeysWindow()
+        self.ui.setupUi(self)
+        self.parentWindow = mainWindow
+        self.anonymous = anonymousFlag
+        self.__sessionToken = sessionToken
+        self.__username = username
+        widgets = self.ui
+        # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
+        # ///////////////////////////////////////////////////////////////
+        Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
+
+        # TOGGLE MENU
+        # ///////////////////////////////////////////////////////////////
+        # widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
+        # SET UI DEFINITIONS
+        # ///////////////////////////////////////////////////////////////
+        UIFunctions.uiDefinitions(self)
+        # SHOW APP
+        # ///////////////////////////////////////////////////////////////
+        self.show()
+        widgets.yesButton.clicked.connect(self.yes)
+        widgets.noButton.clicked.connect(self.fade)
+        widgets.closeAppBtn.clicked.connect(self.close)
+        # SET CUSTOM THEME
+        # ///////////////////////////////////////////////////////////////
+        themeFile = "themes\\dracula_halloween.qss"
+
+        # SET THEME AND HACKS
+        UIFunctions.theme(self, themeFile, True)
+
+        # SET HOME PAGE AND SELECT MENU
+        # ///////////////////////////////////////////////////////////////
+        widgets.stackedWidget.setCurrentWidget(widgets.home)
+        # widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
+
+    def yes(self):
+        def regenerateKeys(defaultBitLength):
+            """
+            Regenerate keys
+            """
+            (self.__publicKey, self.__privateKey) = rsa.newkeys(int(defaultBitLength), poolsize=psutil.cpu_count())
+            if self.anonymous:
+                # Delete the keys
+                os.remove(".keys\\public.pem")
+                os.remove(".keys\\private.pem")
+                if not os.path.exists(os.getcwd() + "/.keys"):
+                    os.mkdir(os.getcwd() + "/.keys")
+                # Export the keys to files and place them in ".keys" folder
+                with open(".keys/public.pem", "wb") as f:
+                    f.write(self.__publicKey.save_pkcs1())
+                    f.close()
+                with open(".keys/private.pem", "wb") as f:
+                    f.write(self.__privateKey.save_pkcs1())
+                    f.close()
+                self.parentWindow.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
+                if self.parentWindow.ui.privateKeyCheckbox.isChecked():
+                    self.parentWindow.ui.privateKeyDisplay.setPlainText(str(self.__privateKey))
+                self.parentWindow.__publicKey = self.__publicKey
+                self.parentWindow.__privateKey = self.__privateKey
+            else:
+                cipher = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
+                ciphertext = cipher.encrypt(base64.b64encode(self.__publicKey.save_pkcs1()))
+                # Encrypt the private key
+                cipher2 = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
+                ciphertext2 = cipher2.encrypt(base64.b64encode(self.__privateKey.save_pkcs1()))
+                ciphertext = base64.b64encode(ciphertext)
+                ciphertext2 = base64.b64encode(ciphertext2)
+                data = {"Email": self.__username, "SessionToken": self.__sessionToken, "pub": ciphertext,
+                        "prv": ciphertext2}
+                # Send to server
+                r = requests.post("https://enigmapr0ject.tech/api/easyrsa/updateKeys.php", data=data)
+                # Check if the request was successful
+                print(r.text)
+                if r.text == "200":
+                    self.parentWindow.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
+                    if self.parentWindow.ui.privateKeyCheckbox.isChecked():
+                        self.parentWindow.ui.privateKeyDisplay.setPlainText(str(self.__privateKey))
+                    self.parentWindow.__publicKey = self.__publicKey
+                    self.parentWindow.__privateKey = self.__privateKey
+                elif r.text == "403":
+                    self.ui.usertitle_2.setText("Invalid session token")
+                    return
+                else:
+                    self.ui.usertitle_2.setText("An error occurred")
+                    return
+            self.ui.usertitle_2.hide()
+            self.ui.usertitle.setText("Keys regenerated successfully. You can now close this window.")
+        try:
+            self.ui.yesButton.hide()
+            self.ui.noButton.hide()
+            self.ui.usertitle_2.setText("Generating keys...")
+            with open("config\\config.json", "r") as f:
+                config = json.load(f)
+                defaultBitLength = config["defaultBitLength"]
+                f.close()
+            p1 = Thread(target=regenerateKeys, args=(defaultBitLength,))
+            p1.start()
+        except Exception as e:
+            self.usertitle_2.setText("An error occurred")
+
+    def fade(self):
+        """
+        Fade window out slowly
+        """
+        for i in range(10):
+            i /= 10
+            self.setWindowOpacity(1 - i)
+            time.sleep(0.02)
+        self.close()
+
+    # RESIZE EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def resizeEvent(self, event):
+        """
+        Resize event
+        :param event:
+        """
+        # Update Size Grips
+        UIFunctions.resize_grips(self)
+
+    # MOUSE CLICK EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def mousePressEvent(self, event):
+        """
+        Mouse press event
+        :param event:
+        """
+        # SET DRAG POS WINDOW, without deprecation
+        self.dragPos = event.globalPosition().toPoint()
+
+    def exitHandler(self):
+        """
+        Exit handler
+        """
+        self.fade()
+
+
 class RenameFileWindow(QMainWindow):
     """
     Rename File Window
     """
+
     def __init__(self, filepath):
         super().__init__()
         # SET AS GLOBAL WIDGETS
@@ -1152,7 +1335,6 @@ class RenameFileWindow(QMainWindow):
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
-
 
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
@@ -1230,6 +1412,7 @@ class DeleteConfirm(QMainWindow):
     """
     Delete Confirm Window
     """
+
     def __init__(self, index):
         super().__init__()
         # SET AS GLOBAL WIDGETS
@@ -1261,7 +1444,6 @@ class DeleteConfirm(QMainWindow):
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
-
 
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
@@ -1320,6 +1502,7 @@ class MoveFile(QMainWindow):
     """
     Move File Window
     """
+
     def __init__(self, index):
         super().__init__()
         # SET AS GLOBAL WIDGETS
@@ -1354,7 +1537,6 @@ class MoveFile(QMainWindow):
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
-
 
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////

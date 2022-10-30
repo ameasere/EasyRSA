@@ -920,7 +920,7 @@ background-position: center;</string>
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="btn_passwords">
+               <widget class="QPushButton" name="btn_security">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -1879,7 +1879,7 @@ p, li { white-space: pre-wrap; }
                     <string notr="true">background: transparent;</string>
                    </property>
                    <property name="currentIndex">
-                    <number>1</number>
+                    <number>3</number>
                    </property>
                    <widget class="QWidget" name="home">
                     <property name="styleSheet">
@@ -3857,8 +3857,103 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                      </property>
                     </widget>
                    </widget>
-                   <widget class="QWidget" name="page3"/>
-                   <widget class="QWidget" name="page4"/>
+                   <widget class="QWidget" name="Security">
+                    <widget class="QLabel" name="dashboardTitle_10">
+                     <property name="geometry">
+                      <rect>
+                       <x>0</x>
+                       <y>0</y>
+                       <width>1171</width>
+                       <height>51</height>
+                      </rect>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: rgb(255, 166, 121);
+font: 18pt &quot;Segoe UI&quot; bold;</string>
+                     </property>
+                     <property name="lineWidth">
+                      <number>1</number>
+                     </property>
+                     <property name="text">
+                      <string>Security Centre</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="dashboardTitle_11">
+                     <property name="geometry">
+                      <rect>
+                       <x>690</x>
+                       <y>460</y>
+                       <width>111</width>
+                       <height>31</height>
+                      </rect>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">font: 14pt &quot;Segoe UI&quot; bold;
+color: rgb(255, 0, 0);</string>
+                     </property>
+                     <property name="lineWidth">
+                      <number>1</number>
+                     </property>
+                     <property name="text">
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Danger Zone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="dangerBorder">
+                     <property name="geometry">
+                      <rect>
+                       <x>680</x>
+                       <y>450</y>
+                       <width>491</width>
+                       <height>121</height>
+                      </rect>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">border: 2px double;
+border-color: qradialgradient(spread:repeat, cx:0.5, cy:0.5, radius:0.077, fx:0.5, fy:0.5, stop:0.420455 rgba(255, 0, 0, 200), stop:0.497326 rgba(0, 0, 0, 147), stop:0.795455 rgba(0, 0, 0, 200))</string>
+                     </property>
+                     <property name="lineWidth">
+                      <number>1</number>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                     </property>
+                    </widget>
+                    <widget class="QWidget" name="regenkeysWidget" native="true">
+                     <property name="geometry">
+                      <rect>
+                       <x>690</x>
+                       <y>500</y>
+                       <width>151</width>
+                       <height>21</height>
+                      </rect>
+                     </property>
+                    </widget>
+                    <widget class="QWidget" name="changeBitLength" native="true">
+                     <property name="geometry">
+                      <rect>
+                       <x>690</x>
+                       <y>530</y>
+                       <width>151</width>
+                       <height>21</height>
+                      </rect>
+                     </property>
+                    </widget>
+                    <zorder>dangerBorder</zorder>
+                    <zorder>dashboardTitle_10</zorder>
+                    <zorder>dashboardTitle_11</zorder>
+                    <zorder>regenkeysWidget</zorder>
+                    <zorder>changeBitLength</zorder>
+                   </widget>
+                   <widget class="QWidget" name="Account"/>
                   </widget>
                  </item>
                 </layout>
