@@ -23,7 +23,6 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QSlider, QStackedWidget, QTableWidget, QTableWidgetItem,
     QTextEdit, QTreeView, QVBoxLayout, QWidget)
 from .resources_rc import *
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -557,10 +556,6 @@ class Ui_MainWindow(object):
 "\n"
 "\n"
 "")
-        self.appMargins = QVBoxLayout(self.styleSheet)
-        self.appMargins.setSpacing(0)
-        self.appMargins.setObjectName(u"appMargins")
-        self.appMargins.setContentsMargins(10, 10, 10, 10)
         self.bgApp = QFrame(self.styleSheet)
         self.bgApp.setObjectName(u"bgApp")
         self.bgApp.setGeometry(QRect(10, 10, 1260, 668))
@@ -689,17 +684,17 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_filespace)
 
-        self.btn_passwords = QPushButton(self.topMenu)
-        self.btn_passwords.setObjectName(u"btn_passwords")
-        sizePolicy.setHeightForWidth(self.btn_passwords.sizePolicy().hasHeightForWidth())
-        self.btn_passwords.setSizePolicy(sizePolicy)
-        self.btn_passwords.setMinimumSize(QSize(0, 45))
-        self.btn_passwords.setFont(font)
-        self.btn_passwords.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_passwords.setLayoutDirection(Qt.LeftToRight)
-        self.btn_passwords.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-lock-locked.png);")
+        self.btn_security = QPushButton(self.topMenu)
+        self.btn_security.setObjectName(u"btn_security")
+        sizePolicy.setHeightForWidth(self.btn_security.sizePolicy().hasHeightForWidth())
+        self.btn_security.setSizePolicy(sizePolicy)
+        self.btn_security.setMinimumSize(QSize(0, 45))
+        self.btn_security.setFont(font)
+        self.btn_security.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_security.setLayoutDirection(Qt.LeftToRight)
+        self.btn_security.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-lock-locked.png);")
 
-        self.verticalLayout_8.addWidget(self.btn_passwords)
+        self.verticalLayout_8.addWidget(self.btn_security)
 
         self.btn_account = QPushButton(self.topMenu)
         self.btn_account.setObjectName(u"btn_account")
@@ -901,8 +896,6 @@ class Ui_MainWindow(object):
 
 
         self.appLayout.addWidget(self.extraLeftBox)
-
-        self.appMargins.addWidget(self.bgApp)
 
         self.contentBox = QFrame(self.bgApp)
         self.contentBox.setObjectName(u"contentBox")
@@ -1740,12 +1733,44 @@ class Ui_MainWindow(object):
         self.currentDirectory.setLineWidth(1)
         self.currentDirectory.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.stackedWidget.addWidget(self.filespace)
-        self.page3 = QWidget()
-        self.page3.setObjectName(u"page3")
-        self.stackedWidget.addWidget(self.page3)
-        self.page4 = QWidget()
-        self.page4.setObjectName(u"page4")
-        self.stackedWidget.addWidget(self.page4)
+        self.Security = QWidget()
+        self.Security.setObjectName(u"Security")
+        self.dashboardTitle_10 = QLabel(self.Security)
+        self.dashboardTitle_10.setObjectName(u"dashboardTitle_10")
+        self.dashboardTitle_10.setGeometry(QRect(0, 0, 1171, 51))
+        self.dashboardTitle_10.setStyleSheet(u"color: rgb(255, 166, 121);\n"
+"font: 18pt \"Segoe UI\" bold;")
+        self.dashboardTitle_10.setLineWidth(1)
+        self.dashboardTitle_10.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.dashboardTitle_11 = QLabel(self.Security)
+        self.dashboardTitle_11.setObjectName(u"dashboardTitle_11")
+        self.dashboardTitle_11.setGeometry(QRect(690, 460, 111, 31))
+        self.dashboardTitle_11.setStyleSheet(u"font: 14pt \"Segoe UI\" bold;\n"
+"color: rgb(255, 0, 0);")
+        self.dashboardTitle_11.setLineWidth(1)
+        self.dashboardTitle_11.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.dangerBorder = QLabel(self.Security)
+        self.dangerBorder.setObjectName(u"dangerBorder")
+        self.dangerBorder.setGeometry(QRect(680, 450, 491, 121))
+        self.dangerBorder.setStyleSheet(u"border: 2px double;\n"
+"border-color: qradialgradient(spread:repeat, cx:0.5, cy:0.5, radius:0.077, fx:0.5, fy:0.5, stop:0.420455 rgba(255, 0, 0, 200), stop:0.497326 rgba(0, 0, 0, 147), stop:0.795455 rgba(0, 0, 0, 200))")
+        self.dangerBorder.setLineWidth(1)
+        self.dangerBorder.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.regenkeysWidget = QWidget(self.Security)
+        self.regenkeysWidget.setObjectName(u"regenkeysWidget")
+        self.regenkeysWidget.setGeometry(QRect(690, 500, 151, 21))
+        self.changeBitLength = QWidget(self.Security)
+        self.changeBitLength.setObjectName(u"changeBitLength")
+        self.changeBitLength.setGeometry(QRect(690, 530, 151, 21))
+        self.stackedWidget.addWidget(self.Security)
+        self.dangerBorder.raise_()
+        self.dashboardTitle_10.raise_()
+        self.dashboardTitle_11.raise_()
+        self.regenkeysWidget.raise_()
+        self.changeBitLength.raise_()
+        self.Account = QWidget()
+        self.Account.setObjectName(u"Account")
+        self.stackedWidget.addWidget(self.Account)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
 
@@ -1884,7 +1909,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1897,7 +1922,7 @@ class Ui_MainWindow(object):
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.btn_filespace.setText(QCoreApplication.translate("MainWindow", u"Drive", None))
-        self.btn_passwords.setText(QCoreApplication.translate("MainWindow", u"Passwords", None))
+        self.btn_security.setText(QCoreApplication.translate("MainWindow", u"Passwords", None))
         self.btn_account.setText(QCoreApplication.translate("MainWindow", u"Account", None))
         self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Log out", None))
         self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
@@ -2040,6 +2065,9 @@ class Ui_MainWindow(object):
         self.decryptButton.setText(QCoreApplication.translate("MainWindow", u"Decrypt", None))
         self.goBackButton.setText(QCoreApplication.translate("MainWindow", u"Go Back..", None))
         self.currentDirectory.setText("")
+        self.dashboardTitle_10.setText(QCoreApplication.translate("MainWindow", u"Security Centre", None))
+        self.dashboardTitle_11.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt;\">Danger Zone</span></p></body></html>", None))
+        self.dangerBorder.setText("")
         self.btn_help.setText(QCoreApplication.translate("MainWindow", u"Help", None))
         self.btn_report.setText(QCoreApplication.translate("MainWindow", u"Report Issue", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
