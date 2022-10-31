@@ -72,25 +72,38 @@ description = "RSA made simple."
 
 # Check Windows registry for a key to see if there is an encryption key stored
 # If there is, use it, if not, generate a new one and store it in the registry
-def check_key_nonce() -> bool:
+def check_key_nonce():
     """
     Check Windows registry for a key to see if there is an encryption key stored
     :return:
     """
-    try:
-        regkey = winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Software\\" + title, 0, winreg.KEY_READ)
-        winreg.QueryValueEx(regkey, "key")
-        winreg.QueryValueEx(regkey, "nonce")
-        return True
-    except FileNotFoundError:
-        # Generate random 16 character string
+    if platform.system() == "Windows":
+        try:
+            regkey = winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Software\\" + title, 0, winreg.KEY_READ)
+            winreg.QueryValueEx(regkey, "key")
+            winreg.QueryValueEx(regkey, "nonce")
+            return True
+        except FileNotFoundError:
+            # Generate random 16 character string
+            aes_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
+            aes_nonce = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
+            # Store key in registry
+            regkey = winreg.CreateKey(winreg.HKEY_CURRENT_USER, "Software\\" + title)
+            winreg.SetValueEx(regkey, "key", 0, winreg.REG_SZ, aes_key)
+            winreg.SetValueEx(regkey, "nonce", 0, winreg.REG_SZ, aes_nonce)
+            return False
+    else:
+        # Generate keys
         aes_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
         aes_nonce = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
-        # Store key in registry
-        regkey = winreg.CreateKey(winreg.HKEY_CURRENT_USER, "Software\\" + title)
-        winreg.SetValueEx(regkey, "key", 0, winreg.REG_SZ, aes_key)
-        winreg.SetValueEx(regkey, "nonce", 0, winreg.REG_SZ, aes_nonce)
-        return False
+        # Create environment variables instead if they do not exist
+        if not os.getenv("EASYRSA_KEY"):
+            os.environ["EASYRSA_KEY"] = aes_key
+        if not os.getenv("EASYRSA_NONCE"):
+            os.environ["EASYRSA_NONCE"] = aes_nonce
+        return aes_key, aes_nonce
+
+
 
 
 def support():
@@ -201,7 +214,7 @@ class MainWindow(QMainWindow):
         self.show()
         widgets.btn_more.clicked.connect(self.buttonClick)
 
-        themeFile = "themes\\dracula_halloween.qss"
+        themeFile = "themes/dracula_halloween.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -843,7 +856,7 @@ class LoginWindow(QMainWindow):
 
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        themeFile = "themes\\dracula_halloween.qss"
+        themeFile = "themes/dracula_halloween.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -886,7 +899,7 @@ class LoginWindow(QMainWindow):
         postData = {"Email": self.username, "Password": self.password}
         response = requests.post("https://enigmapr0ject.tech/api/easyrsa/login.php",
                                  data=postData).content.decode('utf-8')
-        if len(response) > 0:
+        if len(response) > 0 and response != "Email or Password incorrect." and response != "Field/s empty" and response != "User is not verified.":
             self.__sessionToken = response
             request = requests.post("https://enigmapr0ject.tech/api/easyrsa/keys.php", data=postData)
             response = request.content.decode('utf-8')
@@ -995,7 +1008,7 @@ class RegisterWindow(QMainWindow):
 
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        themeFile = "themes\\dracula_halloween.qss"
+        themeFile = "themes/dracula_halloween.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -1102,7 +1115,7 @@ class AnonymousWindow(QMainWindow):
         widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        themeFile = "themes\\dracula_halloween.qss"
+        themeFile = "themes/dracula_halloween.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -1212,7 +1225,7 @@ class RegenerateKeysWindow(QMainWindow):
         widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        themeFile = "themes\\dracula_halloween.qss"
+        themeFile = "themes/dracula_halloween.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -1355,7 +1368,7 @@ class BitLengthWindow(QMainWindow):
         widgets.bitLengthBox.currentTextChanged.connect(self.comboBoxChange)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        themeFile = "themes\\dracula_halloween.qss"
+        themeFile = "themes/dracula_halloween.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -1464,7 +1477,7 @@ class RenameFileWindow(QMainWindow):
         widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        themeFile = "themes\\dracula_halloween.qss"
+        themeFile = "themes/dracula_halloween.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -1573,7 +1586,7 @@ class DeleteConfirm(QMainWindow):
         widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        themeFile = "themes\\dracula_halloween.qss"
+        themeFile = "themes/dracula_halloween.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -1666,7 +1679,7 @@ class MoveFile(QMainWindow):
         widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        themeFile = "themes\\dracula_halloween.qss"
+        themeFile = "themes/dracula_halloween.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -1769,10 +1782,15 @@ if __name__ == "__main__":
             # on any other OS.
         case other:
             titleBarFlag = False
-    check_key_nonce()
-    key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Software\\" + title, 0, winreg.KEY_READ)
-    aeskey, regtype = winreg.QueryValueEx(key, "key")
-    nonce, regtype2 = winreg.QueryValueEx(key, "nonce")
+
+    if platform.system() == "Windows":
+        check_key_nonce()
+        key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Software\\" + title, 0, winreg.KEY_READ)
+        aeskey, regtype = winreg.QueryValueEx(key, "key")
+        nonce, regtype2 = winreg.QueryValueEx(key, "nonce")
+    else:
+        # Get key and nonce from env
+        aeskey, nonce = check_key_nonce()
     aeskey = bytes(aeskey, 'utf-8')
     nonce = bytes(nonce, 'utf-8')
     app = QApplication(sys.argv)
