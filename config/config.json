@@ -1,1 +1,4 @@
-{"defaultSDLocation": "C:/Users/light/OneDrive/Desktop/EasyRSA", "defaultBitLength":  2048}
+{
+    "defaultSDLocation": "C:/Users/light/OneDrive/Desktop/EasyRSA",
+    "defaultBitLength": "1024"
+}

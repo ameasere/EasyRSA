@@ -282,7 +282,8 @@ class MainWindow(QMainWindow):
         self.ui.openFilepathButton.show()
 
     def dangerZone_changeBitLength(self):
-        pass
+        self.DZ_changeBitLength = BitLengthWindow()
+        self.DZ_changeBitLength.show()
 
     def dangerZone_regenKeys(self):
         self.regenKeysWindow = RegenerateKeysWindow(self.anonymous, self, self.__sessionToken, self.__username)
@@ -457,9 +458,34 @@ class MainWindow(QMainWindow):
                 UIFunctions.resetStyle(self, btnName)
                 btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
             case "btn_exit":
+                self.__privateKey = None
+                self.__publicKey = None
+                self.__username = None
+                self.__sessionToken = None
+                self.filepath = None
+                self.anonymous = None
+                try:
+                    self.rt.stop()
+                except AttributeError:
+                    pass
                 self.close()
+                self.loginWindow = LoginWindow()
+                self.loginWindow.show()
             case "btn_logout":
+                # Nullify every sensitive variable
+                self.__privateKey = None
+                self.__publicKey = None
+                self.__username = None
+                self.__sessionToken = None
+                self.filepath = None
+                self.anonymous = None
+                try:
+                    self.rt.stop()
+                except AttributeError:
+                    pass
                 self.close()
+                self.loginWindow = LoginWindow()
+                self.loginWindow.show()
             case "btn_credits":
                 # Check if the credits are already showing
                 if self.ui.credits.isHidden():
@@ -1260,6 +1286,113 @@ class RegenerateKeysWindow(QMainWindow):
             p1.start()
         except Exception as e:
             self.usertitle_2.setText("An error occurred")
+
+    def fade(self):
+        """
+        Fade window out slowly
+        """
+        for i in range(10):
+            i /= 10
+            self.setWindowOpacity(1 - i)
+            time.sleep(0.02)
+        self.close()
+
+    # RESIZE EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def resizeEvent(self, event):
+        """
+        Resize event
+        :param event:
+        """
+        # Update Size Grips
+        UIFunctions.resize_grips(self)
+
+    # MOUSE CLICK EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def mousePressEvent(self, event):
+        """
+        Mouse press event
+        :param event:
+        """
+        # SET DRAG POS WINDOW, without deprecation
+        self.dragPos = event.globalPosition().toPoint()
+
+    def exitHandler(self):
+        """
+        Exit handler
+        """
+        self.fade()
+
+class BitLengthWindow(QMainWindow):
+    """
+    Regenerate Keys Window
+    """
+
+    def __init__(self):
+        super().__init__()
+        # SET AS GLOBAL WIDGETS
+        # ///////////////////////////////////////////////////////////////
+        self.dragPos = None
+        self.ui = Ui_BitLengthWindow()
+        self.ui.setupUi(self)
+        widgets = self.ui
+        # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
+        # ///////////////////////////////////////////////////////////////
+        Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
+
+        # TOGGLE MENU
+        # ///////////////////////////////////////////////////////////////
+        # widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
+        # SET UI DEFINITIONS
+        # ///////////////////////////////////////////////////////////////
+        UIFunctions.uiDefinitions(self)
+        # SHOW APP
+        # ///////////////////////////////////////////////////////////////
+        self.show()
+        widgets.yesButton.clicked.connect(self.yes)
+        widgets.noButton.clicked.connect(self.fade)
+        widgets.closeAppBtn.clicked.connect(self.close)
+        widgets.bitLengthBox.currentTextChanged.connect(self.comboBoxChange)
+        # SET CUSTOM THEME
+        # ///////////////////////////////////////////////////////////////
+        themeFile = "themes\\dracula_halloween.qss"
+
+        # SET THEME AND HACKS
+        UIFunctions.theme(self, themeFile, True)
+
+        # SET HOME PAGE AND SELECT MENU
+        # ///////////////////////////////////////////////////////////////
+        widgets.stackedWidget.setCurrentWidget(widgets.home)
+        # widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
+
+    def comboBoxChange(self, s):
+        if s == "512":
+            self.ui.warningIcon.show()
+            self.ui.warningLabel.show()
+        else:
+            self.ui.warningIcon.hide()
+            self.ui.warningLabel.hide()
+
+    def yes(self):
+        self.ui.yesButton.hide()
+        self.ui.noButton.hide()
+        self.ui.bitLengthBox.hide()
+        self.ui.usertitle.hide()
+        # Get the bit length from the combobox
+        bitLength = self.ui.bitLengthBox.currentText()
+        # Save the bit length to the config file
+        with open("config\\config.json", "r") as f:
+            config = json.load(f)
+            f.close()
+        config["defaultBitLength"] = bitLength
+        with open("config\\config.json", "w") as f:
+            json.dump(config, f, indent=4)
+            f.close()
+        # Update the UI
+        self.ui.warningLabel.setText("Bit length updated successfully. To use this new length, you will have to regenerate your keys.")
+        # Check if the label is hidden
+        if self.ui.warningLabel.isHidden():
+            self.ui.warningLabel.show()
 
     def fade(self):
         """
