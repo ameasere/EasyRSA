@@ -38,7 +38,8 @@ import webbrowser
 # noinspection PyUnresolvedReferences
 import shutil
 # noinspection PyUnresolvedReferences
-import winreg
+if platform.system() == "Windows":
+    import winreg
 # noinspection PyUnresolvedReferences
 from Cryptodome.Cipher import AES
 # noinspection PyUnresolvedReferences
