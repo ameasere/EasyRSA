@@ -1606,7 +1606,7 @@ font: 12pt &quot;Segoe UI&quot;; color: rgb(255, 166, 121);</string>
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">font: 8pt &quot;Segoe UI&quot;; color: rgb(189, 147, 249); </string>
+                        <string notr="true">font: 8pt &quot;Segoe UI&quot;; color: rgb(255, 166, 121);</string>
                        </property>
                        <property name="lineWidth">
                         <number>1</number>

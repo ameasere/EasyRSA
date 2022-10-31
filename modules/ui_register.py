@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'register.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.0
+## Created by: Qt User Interface Compiler version 6.2.4
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -931,7 +931,7 @@ class Ui_RegisterWindow(object):
         self.responsetitle = QLabel(self.home)
         self.responsetitle.setObjectName(u"responsetitle")
         self.responsetitle.setGeometry(QRect(290, 220, 211, 41))
-        self.responsetitle.setStyleSheet(u"font: 8pt \"Segoe UI\"; color: rgb(189, 147, 249); ")
+        self.responsetitle.setStyleSheet(u"font: 8pt \"Segoe UI\"; color: rgb(255, 166, 121);")
         self.responsetitle.setLineWidth(1)
         self.responsetitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.supportButton = QCommandLinkButton(self.home)
