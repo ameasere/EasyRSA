@@ -835,8 +835,8 @@ class LoginWindow(QMainWindow):
         widgets.showpassword.stateChanged.connect(self.showPassword)
         widgets.loginButton.clicked.connect(self.login)
         widgets.registerButton.clicked.connect(self.register)
-        widgets.cancelbutton.clicked.connect(self.register)
-        widgets.submitbutton.clicked.connect(self.login)
+        #widgets.cancelbutton.clicked.connect(self.register)
+        #widgets.submitbutton.clicked.connect(self.login)
         widgets.anonMode.clicked.connect(self.anonymousMode)
         widgets.closeAppBtn.clicked.connect(self.close)
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
@@ -844,7 +844,7 @@ class LoginWindow(QMainWindow):
         Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
 
         widgets.supportButton.clicked.connect(lambda: support())
-        widgets.supportButton_2.clicked.connect(lambda: support())
+        #widgets.supportButton_2.clicked.connect(lambda: support())
         # TOGGLE MENU
         # ///////////////////////////////////////////////////////////////
         # widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
@@ -981,11 +981,10 @@ class RegisterWindow(QMainWindow):
         # SET AS GLOBAL WIDGETS
         # ///////////////////////////////////////////////////////////////
         self.dragPos = None
-        self.login = None
         self.ui = Ui_RegisterWindow()
         self.ui.setupUi(self)
         widgets = self.ui
-        widgets.loginButton.clicked.connect(self.login)
+        widgets.cancelRegisterButton.clicked.connect(self.login)
         widgets.registerButton.clicked.connect(self.register)
         widgets.closeAppBtn.clicked.connect(self.close)
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
@@ -1026,7 +1025,7 @@ class RegisterWindow(QMainWindow):
         """
         Login
         """
-        self.fade()
+        self.hide()
         self.login = LoginWindow()
         self.login.show()
 
