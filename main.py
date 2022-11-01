@@ -358,7 +358,7 @@ class MainWindow(QMainWindow):
             new_filepath = os.path.join(os.path.dirname(self.filepath), new_filename)
             # Read file in 2048 bit chunks, encrypt them and print them
             start = time.perf_counter()
-            for chunk in iter(lambda: f.read(round((2048 / 8) - 11)), b''):
+            for chunk in iter(lambda: f.read(round((int(self.configArray['defaultBitLength']) / 8) - 11)), b''):
                 # Encrypt chunk
                 rsa.encrypt(chunk, self.__publicKey)
                 with open(new_filepath, 'ab') as e:
@@ -409,7 +409,7 @@ class MainWindow(QMainWindow):
             # Read file in 2048 bit chunks, encrypt them and print them
             start = time.perf_counter()
             # Account for padding
-            for chunk in iter(lambda: f.read(round(2048 / 8)), b''):
+            for chunk in iter(lambda: f.read(round(int(self.configArray['defaultBitLength']) / 8)), b''):
                 # Encrypt chunk
                 try:
                     with open(new_filepath, 'ab') as d:
