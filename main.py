@@ -37,6 +37,8 @@ import sys
 import webbrowser
 # noinspection PyUnresolvedReferences
 import shutil
+from queue import Queue
+
 # noinspection PyUnresolvedReferences
 if platform.system() == "Windows":
     import winreg
@@ -60,7 +62,8 @@ from PySide6 import QtGui, QtWidgets, QtCore
 from PySide6.QtWidgets import QMainWindow
 # noinspection PyUnresolvedReferences
 from modules import *
-
+from PySide6.QtCore import *
+import traceback
 from Custom_Widgets.Widgets import *
 
 # warnings.filterwarnings('ignore')
@@ -69,6 +72,68 @@ from Custom_Widgets.Widgets import *
 os.environ["QT_FONT_DPI"] = "96"
 title = "EasyRSA"
 description = "RSA made simple."
+
+
+class WorkerSignals(QObject):
+    '''
+    Defines the signals available from a running worker thread.
+
+    Supported signals are:
+
+    finished
+        No data
+
+    error
+        tuple (exctype, value, traceback.format_exc() )
+
+    result
+        object data returned from processing, anything
+
+    '''
+    finished = Signal()  # QtCore.Signal
+    error = Signal(tuple)
+    result = Signal(object)
+
+
+class Worker(QRunnable):
+    '''
+    Worker thread
+
+    Inherits from QRunnable to handler worker thread setup, signals and wrap-up.
+
+    :param callback: The function callback to run on this worker thread. Supplied args and
+                     kwargs will be passed through to the runner.
+    :type callback: function
+    :param args: Arguments to pass to the callback function
+    :param kwargs: Keywords to pass to the callback function
+
+    '''
+
+    def __init__(self, fn, *args, **kwargs):
+        super(Worker, self).__init__()
+        # Store constructor arguments (re-used for processing)
+        self.fn = fn
+        self.args = args
+        self.kwargs = kwargs
+        self.signals = WorkerSignals()
+
+    @Slot()  # QtCore.Slot
+    def run(self):
+        '''
+        Initialise the runner function with passed args, kwargs.
+        '''
+
+        # Retrieve args/kwargs here; and fire processing using them
+        try:
+            result = self.fn(*self.args, **self.kwargs)
+        except:
+            traceback.print_exc()
+            exctype, value = sys.exc_info()[:2]
+            self.signals.error.emit((exctype, value, traceback.format_exc()))
+        else:
+            self.signals.result.emit(result)  # Return the result of the processing
+        finally:
+            self.signals.finished.emit()  # Done
 
 
 # Check Windows registry for a key to see if there is an encryption key stored
@@ -103,8 +168,6 @@ def check_key_nonce():
         if not os.getenv("EASYRSA_NONCE"):
             os.environ["EASYRSA_NONCE"] = aes_nonce
         return aes_key, aes_nonce
-
-
 
 
 def support():
@@ -222,7 +285,7 @@ class MainWindow(QMainWindow):
 
         # Search for config file
         stem = os.getcwd()
-        stem += "\\config\\config.json"
+        stem += "/config/config.json"
         if not os.path.exists(stem):
             # Create JSON object
             data = {"defaultSDLocation": os.getcwd(), "defaultBitLength": 2048}
@@ -707,7 +770,7 @@ class MainWindow(QMainWindow):
                 self.ui.fileBrowserTree_2.setRootIndex(
                     self.model.index(self.filepath))
                 self.configArray["defaultSDLocation"] = self.filepath
-                with open("config\\config.json", "w") as f:
+                with open("config/config.json", "w") as f:
                     json.dump(self.configArray, f)
                     f.close()
                 self.ui.currentDirectory_2.setText(self.filepath)
@@ -968,8 +1031,8 @@ class LoginWindow(QMainWindow):
         widgets.showpassword.stateChanged.connect(self.showPassword)
         widgets.loginButton.clicked.connect(self.login)
         widgets.registerButton.clicked.connect(self.register)
-        #widgets.cancelbutton.clicked.connect(self.register)
-        #widgets.submitbutton.clicked.connect(self.login)
+        # widgets.cancelbutton.clicked.connect(self.register)
+        # widgets.submitbutton.clicked.connect(self.login)
         widgets.anonMode.clicked.connect(self.anonymousMode)
         widgets.closeAppBtn.clicked.connect(self.close)
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
@@ -977,7 +1040,7 @@ class LoginWindow(QMainWindow):
         Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
 
         widgets.supportButton.clicked.connect(lambda: support())
-        #widgets.supportButton_2.clicked.connect(lambda: support())
+        # widgets.supportButton_2.clicked.connect(lambda: support())
         # TOGGLE MENU
         # ///////////////////////////////////////////////////////////////
         # widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
@@ -1339,6 +1402,7 @@ class RegenerateKeysWindow(QMainWindow):
         self.anonymous = anonymousFlag
         self.__sessionToken = sessionToken
         self.__username = username
+        self.threadpool = QThreadPool()
         widgets = self.ui
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -1369,15 +1433,19 @@ class RegenerateKeysWindow(QMainWindow):
         # widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
     def yes(self):
-        def regenerateKeys(defaultBitLength):
+        def regenerateKeys():
             """
             Regenerate keys
             """
+            with open("config/config.json", "r") as f:
+                config = json.load(f)
+                defaultBitLength = config["defaultBitLength"]
+                f.close()
             (self.__publicKey, self.__privateKey) = rsa.newkeys(int(defaultBitLength), poolsize=psutil.cpu_count())
             if self.anonymous:
                 # Delete the keys
-                os.remove(".keys\\public.pem")
-                os.remove(".keys\\private.pem")
+                os.remove(".keys/public.pem")
+                os.remove(".keys/private.pem")
                 if not os.path.exists(os.getcwd() + "/.keys"):
                     os.mkdir(os.getcwd() + "/.keys")
                 # Export the keys to files and place them in ".keys" folder
@@ -1387,11 +1455,7 @@ class RegenerateKeysWindow(QMainWindow):
                 with open(".keys/private.pem", "wb") as f:
                     f.write(self.__privateKey.save_pkcs1())
                     f.close()
-                self.parentWindow.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
-                if self.parentWindow.ui.privateKeyCheckbox.isChecked():
-                    self.parentWindow.ui.privateKeyDisplay.setPlainText(str(self.__privateKey))
-                self.parentWindow.__publicKey = self.__publicKey
-                self.parentWindow.__privateKey = self.__privateKey
+                print("Keys regenerated.")
             else:
                 cipher = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
                 ciphertext = cipher.encrypt(base64.b64encode(self.__publicKey.save_pkcs1()))
@@ -1405,13 +1469,8 @@ class RegenerateKeysWindow(QMainWindow):
                 # Send to server
                 r = requests.post("https://enigmapr0ject.tech/api/easyrsa/updateKeys.php", data=data)
                 # Check if the request was successful
-                print(r.text)
                 if r.text == "200":
-                    self.parentWindow.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
-                    if self.parentWindow.ui.privateKeyCheckbox.isChecked():
-                        self.parentWindow.ui.privateKeyDisplay.setPlainText(str(self.__privateKey))
-                    self.parentWindow.__publicKey = self.__publicKey
-                    self.parentWindow.__privateKey = self.__privateKey
+                    pass
                 elif r.text == "403":
                     self.ui.usertitle_2.setText("Invalid session token")
                     return
@@ -1424,14 +1483,29 @@ class RegenerateKeysWindow(QMainWindow):
             self.ui.yesButton.hide()
             self.ui.noButton.hide()
             self.ui.usertitle_2.setText("Generating keys...")
-            with open("config\\config.json", "r") as f:
-                config = json.load(f)
-                defaultBitLength = config["defaultBitLength"]
-                f.close()
-            p1 = Thread(target=regenerateKeys, args=(defaultBitLength,))
-            p1.start()
+            worker = Worker(regenerateKeys)
+            worker.signals.result.connect(self.result)
+            worker.signals.finished.connect(self.regenFinished)
+
+            self.threadpool.start(worker)
         except Exception as e:
-            self.usertitle_2.setText("An error occurred")
+            self.ui.usertitle_2.setText("An error occurred")
+    def result(self):
+        pass
+    def regenFinished(self):
+        # Read the public key and private key
+        with open(".keys/public.pem", "rb") as f:
+            self.__publicKey = rsa.PublicKey.load_pkcs1(f.read())
+            f.close()
+        with open(".keys/private.pem", "rb") as f:
+            self.__privateKey = rsa.PrivateKey.load_pkcs1(f.read())
+            f.close()
+        self.parentWindow.__publicKey = self.__publicKey
+        self.parentWindow.__privateKey = self.__privateKey
+        self.parentWindow.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
+        # If private key checkbox is checked
+        if self.parentWindow.ui.privateKeyCheckbox.isChecked():
+            self.parentWindow.ui.publicKeyDisplay.setPlainText(str(self.__privateKey))
 
     def fade(self):
         """
@@ -1468,6 +1542,7 @@ class RegenerateKeysWindow(QMainWindow):
         Exit handler
         """
         self.fade()
+
 
 class BitLengthWindow(QMainWindow):
     """
@@ -1527,11 +1602,11 @@ class BitLengthWindow(QMainWindow):
         # Get the bit length from the combobox
         bitLength = self.ui.bitLengthBox.currentText()
         # Save the bit length to the config file
-        with open("config\\config.json", "r") as f:
+        with open("config/config.json", "r") as f:
             config = json.load(f)
             f.close()
         config["defaultBitLength"] = bitLength
-        with open("config\\config.json", "w") as f:
+        with open("config/config.json", "w") as f:
             json.dump(config, f, indent=4)
             f.close()
         # Update the UI
