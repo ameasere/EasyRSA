@@ -2581,7 +2581,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>353</width>
+                               <width>218</width>
                                <height>218</height>
                               </rect>
                              </property>
@@ -3486,14 +3486,14 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                      <property name="styleSheet">
                       <string notr="true">QProgressBar {
 background-color: rgb(98, 114, 164);
-color: rgb(200, 200, 200);
+color: rgb(0, 0, 0);
 border-style: none;
 border-radius: 10px;
 text-align: center;
 }
 QProgressBar::chunk{
 border-radius: 10px;
-background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 color: rgba(255, 166, 121, 255), stop:1 rgba(255, 213, 121, 255));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 127, 0, 255), stop:1 rgba(255, 255, 255, 255));
 }</string>
                      </property>
                      <property name="value">

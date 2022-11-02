@@ -23,7 +23,6 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QSlider, QStackedWidget, QTableWidget, QTableWidgetItem,
     QTextEdit, QTreeView, QVBoxLayout, QWidget)
 from .resources_rc import *
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -557,6 +556,10 @@ class Ui_MainWindow(object):
 "\n"
 "\n"
 "")
+        self.appMargins = QVBoxLayout(self.styleSheet)
+        self.appMargins.setSpacing(0)
+        self.appMargins.setObjectName(u"appMargins")
+        self.appMargins.setContentsMargins(10, 10, 10, 10)
         self.bgApp = QFrame(self.styleSheet)
         self.bgApp.setObjectName(u"bgApp")
         self.bgApp.setGeometry(QRect(10, 10, 1260, 668))
@@ -1316,7 +1319,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 353, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1611,14 +1614,14 @@ class Ui_MainWindow(object):
         self.parentDriveSpace_2.setGeometry(QRect(930, 220, 211, 16))
         self.parentDriveSpace_2.setStyleSheet(u"QProgressBar {\n"
 "background-color: rgb(98, 114, 164);\n"
-"color: rgb(200, 200, 200);\n"
+"color: rgb(0, 0, 0);\n"
 "border-style: none;\n"
 "border-radius: 10px;\n"
 "text-align: center;\n"
 "}\n"
 "QProgressBar::chunk{\n"
 "border-radius: 10px;\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 color: rgba(255, 166, 121, 255), stop:1 rgba(255, 213, 121, 255));\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 127, 0, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "}")
         self.parentDriveSpace_2.setValue(0)
         self.parentDrive_2 = QLabel(self.filespace)
@@ -1894,6 +1897,8 @@ class Ui_MainWindow(object):
         self.appLayout.addWidget(self.contentBox)
 
         MainWindow.setCentralWidget(self.styleSheet)
+
+        self.appMargins.addWidget(self.bgApp)
 
         self.retranslateUi(MainWindow)
 

@@ -37,8 +37,6 @@ import sys
 import webbrowser
 # noinspection PyUnresolvedReferences
 import shutil
-from queue import Queue
-
 # noinspection PyUnresolvedReferences
 if platform.system() == "Windows":
     import winreg
@@ -1982,7 +1980,7 @@ if __name__ == "__main__":
             import ctypes  # Windows exclusive library
 
             # arbitrary string, can be anything
-            myappid = 'theenigmaproject.crypto.easyRSA.003'
+            myappid = 'theenigmaproject.crypto.easyRSA.004'
             ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(
                 myappid)  # Set the AppID. Needed for
             # taskbar icon and window icons to work.
