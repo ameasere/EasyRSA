@@ -222,7 +222,7 @@ class MainWindow(QMainWindow):
 
         # Search for config file
         stem = os.getcwd()
-        stem += "\\config\\config.json"
+        stem += "/config/config.json"
         if not os.path.exists(stem):
             # Create JSON object
             data = {"defaultSDLocation": os.getcwd(), "defaultBitLength": 2048}
@@ -622,7 +622,7 @@ class MainWindow(QMainWindow):
                 self.ui.fileBrowserTree.setRootIndex(
                     self.model.index(self.filepath))
                 self.configArray["defaultSDLocation"] = self.filepath
-                with open("config\\config.json", "w") as f:
+                with open("config/config.json", "w") as f:
                     json.dump(self.configArray, f)
                     f.close()
                 self.ui.currentDirectory.setText(self.filepath)
@@ -1243,8 +1243,8 @@ class RegenerateKeysWindow(QMainWindow):
             (self.__publicKey, self.__privateKey) = rsa.newkeys(int(defaultBitLength), poolsize=psutil.cpu_count())
             if self.anonymous:
                 # Delete the keys
-                os.remove(".keys\\public.pem")
-                os.remove(".keys\\private.pem")
+                os.remove(".keys/public.pem")
+                os.remove(".keys/private.pem")
                 if not os.path.exists(os.getcwd() + "/.keys"):
                     os.mkdir(os.getcwd() + "/.keys")
                 # Export the keys to files and place them in ".keys" folder
@@ -1291,7 +1291,7 @@ class RegenerateKeysWindow(QMainWindow):
             self.ui.yesButton.hide()
             self.ui.noButton.hide()
             self.ui.usertitle_2.setText("Generating keys...")
-            with open("config\\config.json", "r") as f:
+            with open("config/config.json", "r") as f:
                 config = json.load(f)
                 defaultBitLength = config["defaultBitLength"]
                 f.close()
@@ -1394,11 +1394,11 @@ class BitLengthWindow(QMainWindow):
         # Get the bit length from the combobox
         bitLength = self.ui.bitLengthBox.currentText()
         # Save the bit length to the config file
-        with open("config\\config.json", "r") as f:
+        with open("config/config.json", "r") as f:
             config = json.load(f)
             f.close()
         config["defaultBitLength"] = bitLength
-        with open("config\\config.json", "w") as f:
+        with open("config/config.json", "w") as f:
             json.dump(config, f, indent=4)
             f.close()
         # Update the UI
