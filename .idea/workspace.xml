@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="Fixed config pathing issues.">
-      <change afterPath="$PROJECT_DIR$/modules/WorkerThreading.py" afterDir="false" />
+    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="Fixed SIGSEGV memory access violation when regenerating keys and updating the dashboard.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <list id="5b14252b-0ea3-4826-83e3-bd87d7612c25" name="Anonymous Mode" comment="Added anonymous mode with key storing" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,11 +31,10 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="0.0.3a" />
+        <entry key="$PROJECT_DIR$" value="halloween-new-ui-test" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
@@ -247,6 +244,7 @@
       <workItem from="1667260020055" duration="551000" />
       <workItem from="1667260601093" duration="934000" />
       <workItem from="1667333894060" duration="1663000" />
+      <workItem from="1667423041965" duration="178000" />
     </task>
     <task id="LOCAL-00001" summary="Updated config.json checks and initial creation.">
       <created>1666609646218</created>
@@ -423,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667419898734</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Fixed SIGSEGV memory access violation when regenerating keys and updating the dashboard.">
+      <created>1667422859267</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1667422859267</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -463,12 +468,13 @@
     <MESSAGE value="Changing bit-length now works along with logging out." />
     <MESSAGE value="Preliminary *NIX fixes, and API response fixes." />
     <MESSAGE value="Fixed config pathing issues." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed config pathing issues." />
+    <MESSAGE value="Fixed SIGSEGV memory access violation when regenerating keys and updating the dashboard." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed SIGSEGV memory access violation when regenerating keys and updating the dashboard." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/EasyRSA$rsa_pooling.coverage" NAME="rsa_pooling Coverage Results" MODIFIED="1666726979759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/EasyRSA$pooling.coverage" NAME="pooling Coverage Results" MODIFIED="1666727185106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/EasyRSA$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1667422478531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/EasyRSA$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1667423101924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/EasyRSA$pkcs1.coverage" NAME="pkcs1 Coverage Results" MODIFIED="1666826952239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/EasyRSA$ui_compiler.coverage" NAME="ui_compiler Coverage Results" MODIFIED="1666832139055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/automation" />
     <SUITE FILE_PATH="coverage/EasyRSA$rsa_chunks.coverage" NAME="rsa_chunks Coverage Results" MODIFIED="1666641955846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
