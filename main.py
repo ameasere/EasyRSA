@@ -334,6 +334,7 @@ class MainWindow(QMainWindow):
 
         # Copy Private Key
         self.ui.copyPrivateKeyButton.clicked.connect(self.buttonClick)
+        self.ui.copyPublicKeyButton.clicked.connect(self.buttonClick)
 
         # Filespace Page functionality
 
