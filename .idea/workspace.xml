@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="Preliminary *NIX fixes, and API response fixes." />
+    <list default="true" id="27758b9c-daa3-47af-9d5a-9a426b5867f6" name="Changes" comment="Fixed config pathing issues.">
+      <change afterPath="$PROJECT_DIR$/modules/WorkerThreading.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <list id="5b14252b-0ea3-4826-83e3-bd87d7612c25" name="Anonymous Mode" comment="Added anonymous mode with key storing" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -411,7 +416,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667224122537</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Fixed config pathing issues.">
+      <created>1667419898734</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1667419898734</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,12 +462,13 @@
     <MESSAGE value="Added &quot;Danger Zone&quot; for regenerating keys and other functions. Regenerating keys is the only thing fully implemented as of now." />
     <MESSAGE value="Changing bit-length now works along with logging out." />
     <MESSAGE value="Preliminary *NIX fixes, and API response fixes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Preliminary *NIX fixes, and API response fixes." />
+    <MESSAGE value="Fixed config pathing issues." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed config pathing issues." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/EasyRSA$rsa_pooling.coverage" NAME="rsa_pooling Coverage Results" MODIFIED="1666726979759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/EasyRSA$pooling.coverage" NAME="pooling Coverage Results" MODIFIED="1666727185106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/EasyRSA$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1667419630384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/EasyRSA$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1667422478531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/EasyRSA$pkcs1.coverage" NAME="pkcs1 Coverage Results" MODIFIED="1666826952239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/EasyRSA$ui_compiler.coverage" NAME="ui_compiler Coverage Results" MODIFIED="1666832139055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/automation" />
     <SUITE FILE_PATH="coverage/EasyRSA$rsa_chunks.coverage" NAME="rsa_chunks Coverage Results" MODIFIED="1666641955846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
