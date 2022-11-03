@@ -3303,8 +3303,8 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                     <widget class="QCheckBox" name="multiviewCheckbox_1">
                      <property name="geometry">
                       <rect>
-                       <x>970</x>
-                       <y>140</y>
+                       <x>960</x>
+                       <y>150</y>
                        <width>131</width>
                        <height>31</height>
                       </rect>
@@ -3328,9 +3328,9 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                     <widget class="QLabel" name="currentDirectory_2">
                      <property name="geometry">
                       <rect>
-                       <x>140</x>
-                       <y>120</y>
-                       <width>741</width>
+                       <x>280</x>
+                       <y>130</y>
+                       <width>601</width>
                        <height>21</height>
                       </rect>
                      </property>
@@ -3345,7 +3345,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                       <number>1</number>
                      </property>
                      <property name="text">
-                      <string/>
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -3354,7 +3354,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                     <widget class="QTreeView" name="fileBrowserTree_2">
                      <property name="geometry">
                       <rect>
-                       <x>30</x>
+                       <x>40</x>
                        <y>150</y>
                        <width>851</width>
                        <height>271</height>
@@ -3371,8 +3371,8 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                     <widget class="QLabel" name="selectFileToEncryptText_2">
                      <property name="geometry">
                       <rect>
-                       <x>920</x>
-                       <y>120</y>
+                       <x>910</x>
+                       <y>130</y>
                        <width>231</width>
                        <height>21</height>
                       </rect>
@@ -3408,8 +3408,8 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                     <widget class="QLabel" name="parentDriveTitle_2">
                      <property name="geometry">
                       <rect>
-                       <x>930</x>
-                       <y>190</y>
+                       <x>920</x>
+                       <y>200</y>
                        <width>211</width>
                        <height>21</height>
                       </rect>
@@ -3430,8 +3430,8 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                     <widget class="QLabel" name="driveInfoTitle_2">
                      <property name="geometry">
                       <rect>
-                       <x>930</x>
-                       <y>250</y>
+                       <x>920</x>
+                       <y>260</y>
                        <width>211</width>
                        <height>19</height>
                       </rect>
@@ -3452,8 +3452,8 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                     <widget class="QLabel" name="driveInfo_2">
                      <property name="geometry">
                       <rect>
-                       <x>930</x>
-                       <y>300</y>
+                       <x>920</x>
+                       <y>310</y>
                        <width>211</width>
                        <height>161</height>
                       </rect>
@@ -3477,8 +3477,8 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                     <widget class="QProgressBar" name="parentDriveSpace_2">
                      <property name="geometry">
                       <rect>
-                       <x>930</x>
-                       <y>220</y>
+                       <x>920</x>
+                       <y>230</y>
                        <width>211</width>
                        <height>16</height>
                       </rect>
@@ -3503,8 +3503,8 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                     <widget class="QLabel" name="parentDrive_2">
                      <property name="geometry">
                       <rect>
-                       <x>930</x>
-                       <y>280</y>
+                       <x>920</x>
+                       <y>290</y>
                        <width>131</width>
                        <height>21</height>
                       </rect>
@@ -3525,16 +3525,22 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                     <widget class="QPushButton" name="openDirectory_2">
                      <property name="geometry">
                       <rect>
-                       <x>240</x>
-                       <y>430</y>
-                       <width>211</width>
-                       <height>30</height>
+                       <x>140</x>
+                       <y>130</y>
+                       <width>131</width>
+                       <height>19</height>
                       </rect>
                      </property>
                      <property name="minimumSize">
                       <size>
-                       <width>150</width>
-                       <height>30</height>
+                       <width>10</width>
+                       <height>10</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>19</height>
                       </size>
                      </property>
                      <property name="font">
@@ -3563,8 +3569,8 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                     <widget class="QPushButton" name="goToDefault_2">
                      <property name="geometry">
                       <rect>
-                       <x>680</x>
-                       <y>430</y>
+                       <x>30</x>
+                       <y>450</y>
                        <width>201</width>
                        <height>30</height>
                       </rect>
@@ -3601,9 +3607,9 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                     <widget class="QPushButton" name="defaultLocation_2">
                      <property name="geometry">
                       <rect>
-                       <x>460</x>
-                       <y>430</y>
-                       <width>211</width>
+                       <x>250</x>
+                       <y>450</y>
+                       <width>201</width>
                        <height>30</height>
                       </rect>
                      </property>
@@ -3640,15 +3646,21 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                      <property name="geometry">
                       <rect>
                        <x>30</x>
-                       <y>430</y>
-                       <width>201</width>
-                       <height>30</height>
+                       <y>130</y>
+                       <width>111</width>
+                       <height>19</height>
                       </rect>
                      </property>
                      <property name="minimumSize">
                       <size>
-                       <width>150</width>
-                       <height>30</height>
+                       <width>10</width>
+                       <height>10</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>19</height>
                       </size>
                      </property>
                      <property name="font">
@@ -3677,8 +3689,8 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                     <widget class="QLabel" name="multiviewDetailsBox">
                      <property name="geometry">
                       <rect>
-                       <x>920</x>
-                       <y>180</y>
+                       <x>910</x>
+                       <y>190</y>
                        <width>231</width>
                        <height>251</height>
                       </rect>
@@ -3707,9 +3719,9 @@ border-bottom-right-radius :7px;</string>
                     <widget class="QLabel" name="currentDirectoryText">
                      <property name="geometry">
                       <rect>
-                       <x>30</x>
-                       <y>120</y>
-                       <width>111</width>
+                       <x>40</x>
+                       <y>130</y>
+                       <width>851</width>
                        <height>21</height>
                       </rect>
                      </property>
@@ -3736,10 +3748,12 @@ border-bottom-right-radius :7px;</string>
                      </property>
                      <property name="styleSheet">
                       <string notr="true">color: rgb(113, 126, 149);
-</string>
+background-color: rgb(52, 59, 72);
+border-top-left-radius :7px;
+border-top-right-radius :7px;</string>
                      </property>
                      <property name="text">
-                      <string>Current Directory:</string>
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -3782,6 +3796,216 @@ border-bottom-right-radius :7px;</string>
                       <bool>false</bool>
                      </property>
                     </widget>
+                    <widget class="QLabel" name="border1">
+                     <property name="geometry">
+                      <rect>
+                       <x>40</x>
+                       <y>420</y>
+                       <width>851</width>
+                       <height>21</height>
+                      </rect>
+                     </property>
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>45</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Segoe UI</family>
+                       <pointsize>10</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: rgb(113, 126, 149);
+background-color: rgb(52, 59, 72);
+border-bottom-left-radius :7px;
+border-bottom-right-radius :7px;</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="border2">
+                     <property name="geometry">
+                      <rect>
+                       <x>30</x>
+                       <y>130</y>
+                       <width>20</width>
+                       <height>311</height>
+                      </rect>
+                     </property>
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>1000</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Segoe UI</family>
+                       <pointsize>10</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">color: rgb(113, 126, 149);
+background-color: rgb(52, 59, 72);
+border-bottom-left-radius :7px;
+border-top-left-radius :7px;</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                    <widget class="QPushButton" name="encryptButton_3">
+                     <property name="geometry">
+                      <rect>
+                       <x>470</x>
+                       <y>450</y>
+                       <width>201</width>
+                       <height>30</height>
+                      </rect>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Segoe UI</family>
+                       <pointsize>10</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(52, 59, 72);</string>
+                     </property>
+                     <property name="text">
+                      <string>Encrypt Selected File</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resources.qrc">
+                       <normaloff>:/icons/images/icons/cil-lock-locked.png</normaloff>:/icons/images/icons/cil-lock-locked.png</iconset>
+                     </property>
+                    </widget>
+                    <widget class="QPushButton" name="decryptButton_3">
+                     <property name="geometry">
+                      <rect>
+                       <x>690</x>
+                       <y>450</y>
+                       <width>201</width>
+                       <height>30</height>
+                      </rect>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Segoe UI</family>
+                       <pointsize>10</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(52, 59, 72);</string>
+                     </property>
+                     <property name="text">
+                      <string>Decrypt Selected File</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resources.qrc">
+                       <normaloff>:/icons/images/icons/cil-lock-unlocked.png</normaloff>:/icons/images/icons/cil-lock-unlocked.png</iconset>
+                     </property>
+                    </widget>
+                    <widget class="QPushButton" name="closePopup">
+                     <property name="geometry">
+                      <rect>
+                       <x>1070</x>
+                       <y>540</y>
+                       <width>31</width>
+                       <height>31</height>
+                      </rect>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>30</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Segoe UI</family>
+                       <pointsize>10</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="cursor">
+                      <cursorShape>PointingHandCursor</cursorShape>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">border: none;</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="resources.qrc">
+                       <normaloff>:/icons/images/icons/cil-x-circle.png</normaloff>:/icons/images/icons/cil-x-circle.png</iconset>
+                     </property>
+                     <property name="default">
+                      <bool>false</bool>
+                     </property>
+                     <property name="flat">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                    <zorder>fileBrowserTree_2</zorder>
+                    <zorder>border2</zorder>
+                    <zorder>border1</zorder>
+                    <zorder>currentDirectoryText</zorder>
                     <zorder>currentDirectory_2</zorder>
                     <zorder>multiviewDetailsBox</zorder>
                     <zorder>decryptButton_2</zorder>
@@ -3791,7 +4015,6 @@ border-bottom-right-radius :7px;</string>
                     <zorder>encryptButton_2</zorder>
                     <zorder>filespaceTitle</zorder>
                     <zorder>multiviewCheckbox_1</zorder>
-                    <zorder>fileBrowserTree_2</zorder>
                     <zorder>selectFileToEncryptText_2</zorder>
                     <zorder>parentDriveTitle_2</zorder>
                     <zorder>driveInfoTitle_2</zorder>
@@ -3802,8 +4025,10 @@ border-bottom-right-radius :7px;</string>
                     <zorder>goToDefault_2</zorder>
                     <zorder>defaultLocation_2</zorder>
                     <zorder>goBackButton_2</zorder>
-                    <zorder>currentDirectoryText</zorder>
                     <zorder>announceBox</zorder>
+                    <zorder>encryptButton_3</zorder>
+                    <zorder>decryptButton_3</zorder>
+                    <zorder>closePopup</zorder>
                    </widget>
                    <widget class="QWidget" name="Security">
                     <widget class="QLabel" name="dashboardTitle_10">
