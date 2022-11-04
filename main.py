@@ -194,6 +194,9 @@ class MainWindow(QMainWindow):
         self.dragPos = None
         self.filepath: str | None = None
         self.anonymous = anonymous
+        self.threadpool = QThreadPool()
+        self.__publicKey = None
+        self.__privateKey = None
         if publickey and privatekey and sessionToken and username:
             self.__publicKey = publickey
             self.__privateKey = privatekey
@@ -203,25 +206,35 @@ class MainWindow(QMainWindow):
             self.__sessionToken = None
             self.__username = None
             # Check if the directory exists
-            if not os.path.exists(os.getcwd() + "/.keys") or len(os.listdir(os.getcwd() + "/.keys")) == 0:
-                (self.__publicKey, self.__privateKey) = rsa.newkeys(2048, poolsize=psutil.cpu_count())
-                if not os.path.exists(os.getcwd() + "/.keys"):
-                    os.mkdir(os.getcwd() + "/.keys")
-                # Export the keys to files and place them in ".keys" folder
-                with open(".keys/public.pem", "wb") as f:
-                    f.write(self.__publicKey.save_pkcs1())
-                    f.close()
-                with open(".keys/private.pem", "wb") as f:
-                    f.write(self.__privateKey.save_pkcs1())
-                    f.close()
-            else:
-                # Read the keys
-                with open(".keys/public.pem", "rb") as f:
-                    self.__publicKey = rsa.PublicKey.load_pkcs1(f.read())
-                    f.close()
-                with open(".keys/private.pem", "rb") as f:
-                    self.__privateKey = rsa.PrivateKey.load_pkcs1(f.read())
-                    f.close()
+            def generateKeys():
+                """
+                Generate keys
+                :return:
+                """
+                (__publicKey, __privateKey) = rsa.newkeys(2048, poolsize=psutil.cpu_count())
+                if not os.path.exists(os.getcwd() + "/.keys") or len(os.listdir(os.getcwd() + "/.keys")) == 0:
+
+                    if not os.path.exists(os.getcwd() + "/.keys"):
+                        os.mkdir(os.getcwd() + "/.keys")
+                    # Export the keys to files and place them in ".keys" folder
+                    with open(".keys/public.pem", "wb") as f:
+                        f.write(__publicKey.save_pkcs1())
+                        f.close()
+                    with open(".keys/private.pem", "wb") as f:
+                        f.write(__privateKey.save_pkcs1())
+                        f.close()
+                else:
+                    # Read the keys
+                    with open(".keys/public.pem", "rb") as f:
+                        __publicKey = rsa.PublicKey.load_pkcs1(f.read())
+                        f.close()
+                    with open(".keys/private.pem", "rb") as f:
+                        __privateKey = rsa.PrivateKey.load_pkcs1(f.read())
+                        f.close()
+            worker = Worker(generateKeys)
+            worker.signals.result.connect(self.result)
+            worker.signals.finished.connect(self.generateFinished)
+            self.threadpool.start(worker)
         Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
         # APPLY TEXTS
         self.setWindowTitle(title)
@@ -327,7 +340,7 @@ class MainWindow(QMainWindow):
         self.changeBitLength.setObjectAnimateOn("hover")
         applyAnimationThemeStyle(self.changeBitLength, 12)
 
-        self.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
+        self.ui.publicKeyDisplay.setPlainText(str(self.__publicKey) if self.__publicKey is not None else "Generating keys...")
         self.ui.privateKeyDisplay.setPlainText("PrivateKey(***********)")
 
         # Private Key Checkbox Tick
@@ -368,6 +381,21 @@ class MainWindow(QMainWindow):
         self.ui.encryptButton_3.hide()
         self.ui.decryptButton_3.hide()
         self.ui.closePopup.hide()
+    def result(self):
+        pass
+    def generateFinished(self):
+        with open(".keys/public.pem", "rb") as f:
+            self.__publicKey = rsa.PublicKey.load_pkcs1(f.read())
+            f.close()
+        with open(".keys/private.pem", "rb") as f:
+            self.__privateKey = rsa.PrivateKey.load_pkcs1(f.read())
+            f.close()
+        self.__publicKey = str(self.__publicKey)
+        self.__privateKey = str(self.__privateKey)
+        # Update the UI
+        self.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
+        self.ui.privateKeyDisplay.setPlainText("PrivateKey(***********)")
+
 
     def dangerZone_changeBitLength(self):
         self.DZ_changeBitLength = BitLengthWindow()
@@ -912,7 +940,7 @@ class MainWindow(QMainWindow):
         :return:
         """
         if self.ui.privateKeyCheckbox.isChecked():
-            self.ui.privateKeyDisplay.setPlainText(str(self.__privateKey))
+            self.ui.privateKeyDisplay.setPlainText(str(self.__privateKey) if self.__privateKey else "Generating keys...")
         else:
             self.ui.privateKeyDisplay.setPlainText("PrivateKey(***********)")
 
