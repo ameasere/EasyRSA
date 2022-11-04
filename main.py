@@ -37,6 +37,7 @@ import sys
 import webbrowser
 # noinspection PyUnresolvedReferences
 import shutil
+
 # noinspection PyUnresolvedReferences
 if platform.system() == "Windows":
     import winreg
@@ -60,7 +61,8 @@ from PySide6 import QtGui, QtWidgets, QtCore
 from PySide6.QtWidgets import QMainWindow
 # noinspection PyUnresolvedReferences
 from modules import *
-
+from PySide6.QtCore import *
+import traceback
 from Custom_Widgets.Widgets import *
 
 # warnings.filterwarnings('ignore')
@@ -69,6 +71,68 @@ from Custom_Widgets.Widgets import *
 os.environ["QT_FONT_DPI"] = "96"
 title = "EasyRSA"
 description = "RSA made simple."
+
+
+class WorkerSignals(QObject):
+    '''
+    Defines the signals available from a running worker thread.
+
+    Supported signals are:
+
+    finished
+        No data
+
+    error
+        tuple (exctype, value, traceback.format_exc() )
+
+    result
+        object data returned from processing, anything
+
+    '''
+    finished = Signal()  # QtCore.Signal
+    error = Signal(tuple)
+    result = Signal(object)
+
+
+class Worker(QRunnable):
+    '''
+    Worker thread
+
+    Inherits from QRunnable to handler worker thread setup, signals and wrap-up.
+
+    :param callback: The function callback to run on this worker thread. Supplied args and
+                     kwargs will be passed through to the runner.
+    :type callback: function
+    :param args: Arguments to pass to the callback function
+    :param kwargs: Keywords to pass to the callback function
+
+    '''
+
+    def __init__(self, fn, *args, **kwargs):
+        super(Worker, self).__init__()
+        # Store constructor arguments (re-used for processing)
+        self.fn = fn
+        self.args = args
+        self.kwargs = kwargs
+        self.signals = WorkerSignals()
+
+    @Slot()  # QtCore.Slot
+    def run(self):
+        '''
+        Initialise the runner function with passed args, kwargs.
+        '''
+
+        # Retrieve args/kwargs here; and fire processing using them
+        try:
+            result = self.fn(*self.args, **self.kwargs)
+        except:
+            traceback.print_exc()
+            exctype, value = sys.exc_info()[:2]
+            self.signals.error.emit((exctype, value, traceback.format_exc()))
+        else:
+            self.signals.result.emit(result)  # Return the result of the processing
+        finally:
+            self.signals.finished.emit()  # Done
 
 
 # Check Windows registry for a key to see if there is an encryption key stored
@@ -103,8 +167,6 @@ def check_key_nonce():
         if not os.getenv("EASYRSA_NONCE"):
             os.environ["EASYRSA_NONCE"] = aes_nonce
         return aes_key, aes_nonce
-
-
 
 
 def support():
@@ -222,7 +284,7 @@ class MainWindow(QMainWindow):
 
         # Search for config file
         stem = os.getcwd()
-        stem += "\\config\\config.json"
+        stem += "/config/config.json"
         if not os.path.exists(stem):
             # Create JSON object
             data = {"defaultSDLocation": os.getcwd(), "defaultBitLength": 2048}
@@ -241,10 +303,14 @@ class MainWindow(QMainWindow):
                 widgets.btn_home.styleSheet()))
         # Home Screen
         self.ui.credits.hide()
-        self.ui.openFilepathButton.clicked.connect(self.buttonClick)
-        self.ui.filepathBox.returnPressed.connect(self.buttonClick)
-        self.ui.encryptButton.clicked.connect(self.buttonClick)
-        self.ui.decryptButton.clicked.connect(self.buttonClick)
+        self.ui.announceBox.hide()
+        self.ui.openFilepathButton_2.clicked.connect(self.buttonClick)
+        self.ui.filepathBox_2.returnPressed.connect(self.buttonClick)
+        self.ui.encryptButton_2.clicked.connect(self.buttonClick)
+        self.ui.decryptButton_2.clicked.connect(self.buttonClick)
+        self.ui.encryptButton_3.clicked.connect(self.buttonClick)
+        self.ui.decryptButton_3.clicked.connect(self.buttonClick)
+        self.ui.closePopup.clicked.connect(self.buttonClick)
 
         # Add custom buttons in the danger zone label
         self.regenerateKeys = QCustomQPushButton(self.ui.regenkeysWidget)
@@ -270,30 +336,38 @@ class MainWindow(QMainWindow):
 
         # Copy Private Key
         self.ui.copyPrivateKeyButton.clicked.connect(self.buttonClick)
+        self.ui.copyPublicKeyButton.clicked.connect(self.buttonClick)
 
         # Filespace Page functionality
 
         # Multiview Checkbox Tick
-        self.ui.multiviewCheckbox.stateChanged.connect(self.buttonClick)
-        self.ui.openDirectory.clicked.connect(self.buttonClick)
-        self.ui.defaultLocation.clicked.connect(self.buttonClick)
-        self.ui.goToDefault.clicked.connect(self.buttonClick)
-        self.ui.goBackButton.clicked.connect(self.buttonClick)
+        self.ui.multiviewCheckbox_1.stateChanged.connect(self.buttonClick)
+        self.ui.openDirectory_2.clicked.connect(self.buttonClick)
+        self.ui.defaultLocation_2.clicked.connect(self.buttonClick)
+        self.ui.goToDefault_2.clicked.connect(self.buttonClick)
+        self.ui.goBackButton_2.clicked.connect(self.buttonClick)
 
         # Multiview disabled by default
-        self.ui.defaultLocation.hide()
-        self.ui.driveInfo.hide()
-        self.ui.driveInfoTitle.hide()
-        self.ui.fileBrowserTree.hide()
-        self.ui.goToDefault.hide()
-        self.ui.openDirectory.hide()
-        self.ui.parentDrive.hide()
-        self.ui.parentDriveSpace.hide()
-        self.ui.parentDriveTitle.hide()
-        self.ui.goBackButton.hide()
-        self.ui.currentDirectory.hide()
-        self.ui.filepathBox.show()
-        self.ui.openFilepathButton.show()
+        self.ui.currentDirectoryText.hide()
+        self.ui.defaultLocation_2.hide()
+        self.ui.driveInfo_2.hide()
+        self.ui.driveInfoTitle_2.hide()
+        self.ui.fileBrowserTree_2.hide()
+        self.ui.goToDefault_2.hide()
+        self.ui.openDirectory_2.hide()
+        self.ui.parentDrive_2.hide()
+        self.ui.parentDriveSpace_2.hide()
+        self.ui.parentDriveTitle_2.hide()
+        self.ui.goBackButton_2.hide()
+        self.ui.multiviewDetailsBox.hide()
+        self.ui.currentDirectory_2.hide()
+        self.ui.filepathBox_2.show()
+        self.ui.openFilepathButton_2.show()
+        self.ui.border1.hide()
+        self.ui.border2.hide()
+        self.ui.encryptButton_3.hide()
+        self.ui.decryptButton_3.hide()
+        self.ui.closePopup.hide()
 
     def dangerZone_changeBitLength(self):
         self.DZ_changeBitLength = BitLengthWindow()
@@ -309,12 +383,12 @@ class MainWindow(QMainWindow):
         :param index:
         :return:
         """
-        item = index.model().filePath(self.ui.fileBrowserTree.currentIndex())
+        item = index.model().filePath(self.ui.fileBrowserTree_2.currentIndex())
         if not os.path.isfile(item):
-            self.filepath = index.model().filePath(self.ui.fileBrowserTree.currentIndex())
-            self.ui.fileBrowserTree.setRootIndex(
+            self.filepath = index.model().filePath(self.ui.fileBrowserTree_2.currentIndex())
+            self.ui.fileBrowserTree_2.setRootIndex(
                 self.model.index(self.filepath))
-            self.ui.currentDirectory.setText(self.filepath)
+            self.ui.currentDirectory_2.setText(self.filepath)
             return
         if platform.system() == "Windows":
             os.startfile(item)
@@ -333,20 +407,57 @@ class MainWindow(QMainWindow):
             self.filepath = index
         else:
             if not index.isValid():
-                self.ui.cryptoFeedbackTitle.setText("Encryption failed: No file selected")
+                self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                  "border-top-left-radius :10px;"
+                                                  "border-top-right-radius :10px;"
+                                                  "border-bottom-left-radius :10px;"
+                                                  "border-bottom-right-radius :10px;")
+                self.ui.announceBox.setText("Failed to encrypt file. Please select a valid file "
+                                            "(folders cannot be encrypted).")
+                self.ui.announceBox.show()
+                self.ui.closePopup.show()
                 return
             self.filepath = index.model().filePath(index)
         if index is None:
-            self.ui.cryptoFeedbackTitle.setText("Encryption failed: No file selected")
+            self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                              "border-top-left-radius :10px;"
+                                              "border-top-right-radius :10px;"
+                                              "border-bottom-left-radius :10px;"
+                                              "border-bottom-right-radius :10px;")
+            self.ui.announceBox.setText("Failed to encrypt file. Please select a valid file "
+                                        "(folders cannot be encrypted).")
+            self.ui.announceBox.show()
+            self.ui.closePopup.show()
             return
         if not os.path.isfile(self.filepath):
-            self.ui.cryptoFeedbackTitle.setText("Encryption failed: Not a file")
+            self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                              "border-top-left-radius :10px;"
+                                              "border-top-right-radius :10px;"
+                                              "border-bottom-left-radius :10px;"
+                                              "border-bottom-right-radius :10px;")
+            self.ui.announceBox.setText("Failed to encrypt file. Please select a valid file "
+                                        "(folders cannot be encrypted).")
+            self.ui.announceBox.show()
+            self.ui.closePopup.show()
             return
         if os.stat(self.filepath).st_size == 0:
-            self.ui.cryptoFeedbackTitle.setText("Encryption failed: File is empty")
+            self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                              "border-top-left-radius :10px;"
+                                              "border-top-right-radius :10px;"
+                                              "border-bottom-left-radius :10px;"
+                                              "border-bottom-right-radius :10px;")
+            self.ui.announceBox.setText("Failed to encrypt file. This file is empty!")
+            self.ui.announceBox.show()
+            self.ui.closePopup.show()
             return
-        self.ui.cryptoWarningTitle.setText("Warning: This can take a while depending on a number of factors.")
-        self.ui.cryptoFeedbackTitle.setText("Encrypting...")
+        self.ui.closePopup.hide()
+        self.ui.announceBox.setStyleSheet("background-color: rgb(255, 159, 25);"
+                                          "border-top-left-radius :10px;"
+                                          "border-top-right-radius :10px;"
+                                          "border-bottom-left-radius :10px;"
+                                          "border-bottom-right-radius :10px;")
+        self.ui.announceBox.setText("Encrypting file.. | Warning: This may take a while | Please wait..")
+        self.ui.announceBox.show()
         with open(self.filepath, 'rb') as f:
             # Get the file name
             filename = os.path.basename(self.filepath)
@@ -366,10 +477,15 @@ class MainWindow(QMainWindow):
                     e.close()
             end = time.perf_counter()
             f.close()
-        self.ui.cryptoFeedbackTitle.setText("Encryption Complete!")
-        self.ui.processingTime.setText("Time taken: " + str(round(end - start, 2)) + " seconds")
-        self.ui.processingSize.setText("Filesize: " + str(round(os.path.getsize(self.filepath) / 1000000, 2)) + " MB")
-        self.ui.cryptoWarningTitle.setText("")
+        self.ui.announceBox.setStyleSheet("background-color: rgb(30, 200, 84);"
+                                          "border-top-left-radius :10px;"
+                                          "border-top-right-radius :10px;"
+                                          "border-bottom-left-radius :10px;"
+                                          "border-bottom-right-radius :10px;")
+        self.ui.announceBox.setText("Encryption Complete! | Time taken: " + str(round(end - start, 2)) + " seconds | "
+                                    "Filesize: " + str(round(os.stat(new_filepath).st_size / 1000000, 2)) + " MB")
+        self.ui.announceBox.show()
+        self.ui.closePopup.show()
         return True
 
     def decrypt(self, index):
@@ -383,20 +499,51 @@ class MainWindow(QMainWindow):
             self.filepath = index
         else:
             if not index.isValid():
-                self.ui.cryptoFeedbackTitle.setText("Decryption failed: No file selected")
+                self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                  "border-top-left-radius :10px;"
+                                                  "border-top-right-radius :10px;"
+                                                  "border-bottom-left-radius :10px;"
+                                                  "border-bottom-right-radius :10px;")
+                self.ui.announceBox.setText("Failed to decrypt file. Please select a valid file "
+                                            "(folders cannot be decrypted).")
+                self.ui.announceBox.show()
+                self.ui.closePopup.show()
                 return
             self.filepath = index.model().filePath(index)
         if index is None:
-            self.ui.cryptoFeedbackTitle.setText("Decryption failed: No file selected")
+            self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                              "border-top-left-radius :10px;"
+                                              "border-top-right-radius :10px;"
+                                              "border-bottom-left-radius :10px;"
+                                              "border-bottom-right-radius :10px;")
+            self.ui.announceBox.setText("Failed to decrypt file. Please select a valid file "
+                                        "(folders cannot be decrypted).")
+            self.ui.announceBox.show()
+            self.ui.closePopup.show()
             return
         if not os.path.isfile(self.filepath):
-            self.ui.cryptoFeedbackTitle.setText("Decryption failed: Not a file")
+            self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                              "border-top-left-radius :10px;"
+                                              "border-top-right-radius :10px;"
+                                              "border-bottom-left-radius :10px;"
+                                              "border-bottom-right-radius :10px;")
+            self.ui.announceBox.setText("Failed to decrypt file. Please select a valid file "
+                                        "(folders cannot be decrypted).")
+            self.ui.announceBox.show()
+            self.ui.closePopup.show()
             return
         if os.stat(self.filepath).st_size == 0:
-            self.ui.cryptoFeedbackTitle.setText("Decryption failed: File is empty")
+            self.ui.announceBox.setText("Failed to decrypt file. This file is empty!")
+            self.ui.closePopup.show()
             return
-        self.ui.cryptoWarningTitle.setText("Warning: This can take a while depending on a number of factors.")
-        self.ui.cryptoFeedbackTitle.setText("Decrypting...")
+        self.ui.closePopup.hide()
+        self.ui.announceBox.setStyleSheet("background-color: rgb(255, 159, 25);"
+                                          "border-top-left-radius :10px;"
+                                          "border-top-right-radius :10px;"
+                                          "border-bottom-left-radius :10px;"
+                                          "border-bottom-right-radius :10px;")
+        self.ui.announceBox.setText("Decrypting file.. | Warning: This may take a while | Please wait..")
+        self.ui.announceBox.show()
         with open(self.filepath, 'rb') as f:
             # Get the file name
             filename = os.path.basename(self.filepath)
@@ -416,17 +563,28 @@ class MainWindow(QMainWindow):
                         d.write(rsa.decrypt(chunk, self.__privateKey))
                         d.close()
                 except rsa.pkcs1.DecryptionError as e:
-                    self.ui.cryptoFeedbackTitle.setText("Decryption failed!")
-                    # Set the error message into the warning label
-                    self.ui.cryptoWarningTitle.setText(str(e))
+                    # Set the error message into the announcement box
+                    self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                      "border-top-left-radius :10px;"
+                                                      "border-top-right-radius :10px;"
+                                                      "border-bottom-left-radius :10px;"
+                                                      "border-bottom-right-radius :10px;")
+                    self.ui.announceBox.setText("Decryption failed! | Error: " + str(e))
+                    self.ui.announceBox.show()
+                    self.ui.closePopup.show()
                     os.remove(new_filepath)
                     return False
             end = time.perf_counter()
             f.close()
-        self.ui.cryptoFeedbackTitle.setText("Decryption Complete!")
-        self.ui.processingTime.setText("Time taken: " + str(round(end - start, 2)) + " seconds")
-        self.ui.processingSize.setText("Filesize: " + str(round(os.path.getsize(self.filepath) / 1000000, 2)) + " MB")
-        self.ui.cryptoWarningTitle.setText("")
+        self.ui.announceBox.setStyleSheet("background-color: rgb(30, 200, 84);"
+                                          "border-top-left-radius :10px;"
+                                          "border-top-right-radius :10px;"
+                                          "border-bottom-left-radius :10px;"
+                                          "border-bottom-right-radius :10px;")
+        self.ui.announceBox.setText("Decryption Complete! | Time taken: " + str(round(end - start, 2)) + " seconds | "
+                                    "Filesize: " + str(round(os.stat(new_filepath).st_size / 1000000, 2)) + " MB")
+        self.ui.announceBox.show()
+        self.ui.closePopup.show()
         return True
 
     # BUTTON CLICK
@@ -438,6 +596,9 @@ class MainWindow(QMainWindow):
         # GET BUTTON CLICKED
         btn = self.sender()
         btnName = btn.objectName()
+        # only hide the announcement box if the colour is not yellow (since it means it's doing something)
+        if not self.ui.announceBox.styleSheet().__contains__("background-color: rgb(255, 159, 25);"):
+            self.ui.announceBox.hide()
         match btnName:
             # SHOW NEW PAGE
             case "closeAppBtn":
@@ -449,7 +610,7 @@ class MainWindow(QMainWindow):
                     self.close()
                     sys.exit(0)
             case "btn_home":
-                self.ui.titleLeftDescription.setText("Dashboard")  # SET PAGE
+                # self.ui.titleLeftDescription.setText("Dashboard")  # SET PAGE
                 self.ui.stackedWidget.setCurrentWidget(
                     self.ui.home)  # RESET ANOTHERS BUTTONS SELECTED
                 UIFunctions.resetStyle(self, btnName)
@@ -457,17 +618,17 @@ class MainWindow(QMainWindow):
                     UIFunctions.selectMenu(
                         btn.styleSheet()))  # SELECT MENU
             case "btn_filespace":
-                self.ui.titleLeftDescription.setText("Filespace")
+                # self.ui.titleLeftDescription.setText("Filespace")
                 self.ui.stackedWidget.setCurrentWidget(self.ui.filespace)
                 UIFunctions.resetStyle(self, btnName)
                 btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
             case "btn_security":
-                self.ui.titleLeftDescription.setText("Security")
+                # self.ui.titleLeftDescription.setText("Security")
                 self.ui.stackedWidget.setCurrentWidget(self.ui.Security)
                 UIFunctions.resetStyle(self, btnName)
                 btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
             case "btn_account":
-                self.ui.titleLeftDescription.setText("Account")
+                # self.ui.titleLeftDescription.setText("Account")
                 self.ui.stackedWidget.setCurrentWidget(self.ui.Account)
                 UIFunctions.resetStyle(self, btnName)
                 btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
@@ -514,29 +675,38 @@ class MainWindow(QMainWindow):
                 webbrowser.get().open("https://github.com/enigmapr0ject")
             case "copyPrivateKeyButton":
                 pyperclip.copy(self.ui.privateKeyDisplay.toPlainText())
-            case "multiviewCheckbox":
-                if self.ui.multiviewCheckbox.isChecked():
-                    self.ui.filepathBox.hide()
-                    self.ui.openFilepathButton.hide()
-                    self.ui.encryptButton.hide()
-                    self.ui.decryptButton.hide()
-                    self.ui.defaultLocation.show()
-                    self.ui.driveInfo.show()
-                    self.ui.driveInfoTitle.show()
-                    self.ui.fileBrowserTree.show()
-                    self.ui.goToDefault.show()
-                    self.ui.openDirectory.show()
-                    self.ui.parentDrive.show()
-                    self.ui.parentDriveSpace.show()
-                    self.ui.parentDriveTitle.show()
-                    self.ui.goBackButton.show()
-                    self.ui.currentDirectory.show()
+            case "copyPublicKeyButton":
+                pyperclip.copy(self.ui.publicKeyDisplay.toPlainText())
+            case "multiviewCheckbox_1":
+                if self.ui.multiviewCheckbox_1.isChecked():
+                    self.ui.filepathBox_2.hide()
+                    self.ui.openFilepathButton_2.hide()
+                    self.ui.encryptButton_2.hide()
+                    self.ui.decryptButton_2.hide()
+                    self.ui.defaultLocation_2.show()
+                    self.ui.multiviewDetailsBox.show()
+                    self.ui.driveInfo_2.show()
+                    self.ui.driveInfoTitle_2.show()
+                    self.ui.fileBrowserTree_2.show()
+                    self.ui.goToDefault_2.show()
+                    self.ui.openDirectory_2.show()
+                    self.ui.parentDrive_2.show()
+                    self.ui.parentDriveSpace_2.show()
+                    self.ui.selectFileToEncryptText.hide()
+                    self.ui.parentDriveTitle_2.show()
+                    self.ui.goBackButton_2.show()
+                    self.ui.currentDirectory_2.show()
+                    self.ui.currentDirectoryText.show()
+                    self.ui.encryptButton_3.show()
+                    self.ui.decryptButton_3.show()
+                    self.ui.border1.show()
+                    self.ui.border2.show()
                     self.model = QFileSystemModel()
                     self.model.setRootPath(os.getcwd())
-                    self.ui.fileBrowserTree.setModel(
+                    self.ui.fileBrowserTree_2.setModel(
                         self.model)  # Set the model
                     if os.path.exists(self.configArray["defaultSDLocation"]):
-                        self.ui.fileBrowserTree.setRootIndex(
+                        self.ui.fileBrowserTree_2.setRootIndex(
                             self.model.index(self.configArray['defaultSDLocation']) if self.configArray[
                                                                                            'defaultSDLocation'] != ""
                             else
@@ -545,39 +715,39 @@ class MainWindow(QMainWindow):
                     # If directory in defaultSDLocation doesn't exist on the
                     # current machine, use current directory
                     else:
-                        self.ui.fileBrowserTree.setRootIndex(
+                        self.ui.fileBrowserTree_2.setRootIndex(
                             self.model.index(os.getcwd()))
                         self.model.index(os.getcwd())
-                    self.ui.fileBrowserTree.doubleClicked.connect(
+                    self.ui.fileBrowserTree_2.doubleClicked.connect(
                         self.openFile)
-                    self.ui.fileBrowserTree.setAlternatingRowColors(
+                    self.ui.fileBrowserTree_2.setAlternatingRowColors(
                         False)  # Set the alternating row colors
-                    self.ui.fileBrowserTree.setSortingEnabled(
+                    self.ui.fileBrowserTree_2.setSortingEnabled(
                         True)  # Set the sorting
                     # Default sort by name
-                    self.ui.fileBrowserTree.sortByColumn(0, Qt.AscendingOrder)
-                    self.ui.fileBrowserTree.setColumnWidth(0, 200)
-                    self.ui.fileBrowserTree.setColumnWidth(1, 150)
-                    self.ui.fileBrowserTree.setColumnWidth(2, 200)
-                    self.ui.fileBrowserTree.setColumnWidth(3, 200)
+                    self.ui.fileBrowserTree_2.sortByColumn(0, Qt.AscendingOrder)
+                    self.ui.fileBrowserTree_2.setColumnWidth(0, 200)
+                    self.ui.fileBrowserTree_2.setColumnWidth(1, 150)
+                    self.ui.fileBrowserTree_2.setColumnWidth(2, 200)
+                    self.ui.fileBrowserTree_2.setColumnWidth(3, 200)
                     # Set the context menu
-                    self.ui.fileBrowserTree.setContextMenuPolicy(
+                    self.ui.fileBrowserTree_2.setContextMenuPolicy(
                         QtCore.Qt.ContextMenuPolicy.CustomContextMenu)
                     # (right clicking)
-                    self.ui.fileBrowserTree.customContextMenuRequested.connect(
+                    self.ui.fileBrowserTree_2.customContextMenuRequested.connect(
                         self.contextMenu)  # Custom right click
                     # menu
-                    # self.ui.fileBrowserTree.doubleClicked.connect() #
+                    # self.ui.fileBrowserTree_2.doubleClicked.connect() #
                     # Double-clicking on a file has a special effect
                     drivestats = DriveStatistics()
-                    self.ui.parentDrive.setText(
+                    self.ui.parentDrive_2.setText(
                         "Parent Drive: %s" % drivestats.parentDrive)
-                    self.ui.parentDriveSpace.setValue(
+                    self.ui.parentDriveSpace_2.setValue(
                         drivestats.parentDriveSpace)
-                    self.ui.driveInfo.setText(drivestats.driveInformation)
+                    self.ui.driveInfo_2.setText(drivestats.driveInformation)
                     self.filepath = self.model.filePath(
-                        self.ui.fileBrowserTree.rootIndex())
-                    self.ui.currentDirectory.setText(self.filepath)
+                        self.ui.fileBrowserTree_2.rootIndex())
+                    self.ui.currentDirectory_2.setText(self.filepath)
                     if not self.rt:
                         self.rt = RepeatedTimer(5, self.driveStatistics)
                         self.rt.start()
@@ -585,81 +755,142 @@ class MainWindow(QMainWindow):
                         self.rt.start()
                 else:
                     self.rt.stop()
-                    self.ui.defaultLocation.hide()
-                    self.ui.driveInfo.hide()
-                    self.ui.driveInfoTitle.hide()
-                    self.ui.fileBrowserTree.hide()
-                    self.ui.goToDefault.hide()
-                    self.ui.openDirectory.hide()
-                    self.ui.parentDrive.hide()
-                    self.ui.goBackButton.hide()
-                    self.ui.currentDirectory.hide()
-                    self.ui.parentDriveSpace.hide()
-                    self.ui.parentDriveTitle.hide()
-                    self.ui.filepathBox.show()
-                    self.ui.openFilepathButton.show()
-                    self.ui.encryptButton.show()
-                    self.ui.decryptButton.show()
-            case "openFilepathButton":
+                    self.ui.defaultLocation_2.hide()
+                    self.ui.driveInfo_2.hide()
+                    self.ui.driveInfoTitle_2.hide()
+                    self.ui.fileBrowserTree_2.hide()
+                    self.ui.goToDefault_2.hide()
+                    self.ui.openDirectory_2.hide()
+                    self.ui.parentDrive_2.hide()
+                    self.ui.goBackButton_2.hide()
+                    self.ui.currentDirectoryText.hide()
+                    self.ui.currentDirectory_2.hide()
+                    self.ui.multiviewDetailsBox.hide()
+                    self.ui.parentDriveSpace_2.hide()
+                    self.ui.selectFileToEncryptText.show()
+                    self.ui.parentDriveTitle_2.hide()
+                    self.ui.filepathBox_2.show()
+                    self.ui.openFilepathButton_2.show()
+                    self.ui.encryptButton_2.show()
+                    self.ui.decryptButton_2.show()
+                    self.ui.encryptButton_3.hide()
+                    self.ui.decryptButton_3.hide()
+                    self.ui.border1.hide()
+                    self.ui.border2.hide()
+            case "openFilepathButton_2":
                 self.filepath = QFileDialog.getOpenFileName(
                     self, "Select File", os.getcwd(), "All Files (*)")[0]
                 if self.filepath == "":
                     return
-                self.ui.filepathBox.setText(self.filepath)
-            case "openDirectory":
+                self.ui.filepathBox_2.setText(self.filepath)
+            case "openDirectory_2":
                 self.filepath = QFileDialog.getExistingDirectory(
                     self, "Select Directory", os.getcwd())
                 if self.filepath == "":
                     return
-                self.ui.fileBrowserTree.setRootIndex(
+                self.ui.fileBrowserTree_2.setRootIndex(
                     self.model.index(self.filepath))
-                self.ui.currentDirectory.setText(self.filepath)
-            case "defaultLocation":
+                self.ui.currentDirectory_2.setText(self.filepath)
+            case "defaultLocation_2":
                 self.filepath = QFileDialog.getExistingDirectory(
                     self, "Select Directory", os.getcwd())
                 if self.filepath == "":
                     return
-                self.ui.fileBrowserTree.setRootIndex(
+                self.ui.fileBrowserTree_2.setRootIndex(
                     self.model.index(self.filepath))
                 self.configArray["defaultSDLocation"] = self.filepath
-                with open("config\\config.json", "w") as f:
+                with open("config/config.json", "w") as f:
                     json.dump(self.configArray, f)
                     f.close()
-                self.ui.currentDirectory.setText(self.filepath)
-            case "goToDefault":
-                self.ui.fileBrowserTree.setRootIndex(
+                self.ui.currentDirectory_2.setText(self.filepath)
+            case "goToDefault_2":
+                self.ui.fileBrowserTree_2.setRootIndex(
                     self.model.index(self.configArray['defaultSDLocation']))
-                self.ui.currentDirectory.setText(self.configArray['defaultSDLocation'])
-            case "encryptButton":
-                self.filepath = self.ui.filepathBox.text()
+                self.ui.currentDirectory_2.setText(self.configArray['defaultSDLocation'])
+            case "encryptButton_2":
+                self.filepath = self.ui.filepathBox_2.text()
                 if self.filepath == "":
-                    self.ui.cryptoWarningTitle.setText("No file selected")
+                    self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                      "border-top-left-radius :10px;"
+                                                      "border-top-right-radius :10px;"
+                                                      "border-bottom-left-radius :10px;"
+                                                      "border-bottom-right-radius :10px;")
+                    self.ui.announceBox.setText("Failed to encrypt file. Please select a valid file "
+                                                "(folders cannot be encrypted).")
+                    self.ui.announceBox.show()
+                    self.ui.closePopup.show()
                     return
                 p1 = Thread(target=self.encrypt, args=(self.filepath,))
                 p1.start()
-            case "filepathBox":
-                self.filepath = self.ui.filepathBox.text()
+            case "encryptButton_3":
+                self.filepath = self.model.filePath(self.ui.fileBrowserTree_2.currentIndex())
                 if self.filepath == "":
-                    self.ui.cryptoWarningTitle.setText("No file selected")
+                    self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                      "border-top-left-radius :10px;"
+                                                      "border-top-right-radius :10px;"
+                                                      "border-bottom-left-radius :10px;"
+                                                      "border-bottom-right-radius :10px;")
+                    self.ui.announceBox.setText("Please click on the file you wish to encrypt.")
+                    self.ui.announceBox.show()
+                    self.ui.closePopup.show()
                     return
                 p1 = Thread(target=self.encrypt, args=(self.filepath,))
                 p1.start()
-            case "decryptButton":
-                self.filepath = self.ui.filepathBox.text()
+            case "decryptButton_3":
+                self.filepath = self.model.filePath(self.ui.fileBrowserTree_2.currentIndex())
                 if self.filepath == "":
-                    self.ui.cryptoWarningTitle.setText("No file selected")
+                    self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                      "border-top-left-radius :10px;"
+                                                      "border-top-right-radius :10px;"
+                                                      "border-bottom-left-radius :10px;"
+                                                      "border-bottom-right-radius :10px;")
+                    self.ui.announceBox.setText("Please click on the file you wish to decrypt.")
+                    self.ui.announceBox.show()
+                    self.ui.closePopup.show()
                     return
                 p1 = Thread(target=self.decrypt, args=(self.filepath,))
                 p1.start()
-            case "goBackButton":
+            case "closePopup":
+                self.ui.announceBox.hide()
+                self.ui.closePopup.hide()
+            case "filepathBox_2":
+                self.filepath = self.ui.filepathBox_2.text()
+                if self.filepath == "":
+                    self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                      "border-top-left-radius :10px;"
+                                                      "border-top-right-radius :10px;"
+                                                      "border-bottom-left-radius :10px;"
+                                                      "border-bottom-right-radius :10px;")
+                    self.ui.announceBox.setText("No file has been selected.")
+                    self.ui.announceBox.show()
+                    self.ui.closePopup.show()
+                    return
+                p1 = Thread(target=self.encrypt, args=(self.filepath,))
+                p1.start()
+            case "decryptButton_2":
+                self.filepath = self.ui.filepathBox_2.text()
+                if self.filepath == "":
+                    self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                      "border-top-left-radius :10px;"
+                                                      "border-top-right-radius :10px;"
+                                                      "border-bottom-left-radius :10px;"
+                                                      "border-bottom-right-radius :10px;")
+                    self.ui.announceBox.setText("Failed to decrypt file. Please select a valid file "
+                                                "(folders cannot be encrypted).")
+                    self.ui.announceBox.show()
+                    self.ui.closePopup.show()
+                    return
+                p1 = Thread(target=self.decrypt, args=(self.filepath,))
+                p1.start()
+            case "goBackButton_2":
                 self.filepath = self.model.filePath(
-                    self.ui.fileBrowserTree.rootIndex())
+                    self.ui.fileBrowserTree_2.rootIndex())
                 self.filepath = os.path.dirname(self.filepath)
-                self.ui.fileBrowserTree.setRootIndex(
+                self.ui.fileBrowserTree_2.setRootIndex(
                     self.model.index(self.filepath))
-                self.ui.currentDirectory.setText(self.filepath)
+                self.ui.currentDirectory_2.setText(self.filepath)
             case _:
-                print(btnName)
+                print("%s button not found." % btnName)
 
     # Multiview drive statistics
 
@@ -668,11 +899,11 @@ class MainWindow(QMainWindow):
         Drive statistics for multiview, in realtime
         """
         drivestats = DriveStatistics()
-        self.ui.parentDrive.setText(
+        self.ui.parentDrive_2.setText(
             "Parent Drive: %s" %
             drivestats.parentDrive)
-        self.ui.parentDriveSpace.setValue(drivestats.parentDriveSpace)
-        self.ui.driveInfo.setText(drivestats.driveInformation)
+        self.ui.parentDriveSpace_2.setValue(drivestats.parentDriveSpace)
+        self.ui.driveInfo_2.setText(drivestats.driveInformation)
 
     # Private Key Checkbox Tick
     def privateKeyCheckboxTick(self):
@@ -696,15 +927,22 @@ class MainWindow(QMainWindow):
             Rename file
             """
             # Check if the file is a directory
-            if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(
-                    self.ui.fileBrowserTree.currentIndex()):
-                index = self.ui.fileBrowserTree.currentIndex()
+            if self.ui.fileBrowserTree_2.currentIndex().isValid() and not self.model.isDir(
+                    self.ui.fileBrowserTree_2.currentIndex()):
+                index = self.ui.fileBrowserTree_2.currentIndex()
                 file_path = self.model.filePath(index)
                 self.rename = RenameFileWindow(file_path)
                 self.rename.show()
             else:
                 # Set the window title
-                self.ui.cryptoWarningTitle.setText("Select a file.")
+                self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                  "border-top-left-radius :10px;"
+                                                  "border-top-right-radius :10px;"
+                                                  "border-bottom-left-radius :10px;"
+                                                  "border-bottom-right-radius :10px;")
+                self.ui.announceBox.setText("Failed to rename file. Please select a valid file "
+                                            "(folders cannot be renamed).")
+                self.ui.announceBox.show()
                 self.setWindowTitle("EasyRSA - No file selected")
 
         def deleteFile():
@@ -712,39 +950,53 @@ class MainWindow(QMainWindow):
             Delete file
             """
             # Check if the file is a directory
-            if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(
-                    self.ui.fileBrowserTree.currentIndex()):
-                index = self.ui.fileBrowserTree.currentIndex()
+            if self.ui.fileBrowserTree_2.currentIndex().isValid() and not self.model.isDir(
+                    self.ui.fileBrowserTree_2.currentIndex()):
+                index = self.ui.fileBrowserTree_2.currentIndex()
                 file_path = self.model.filePath(index)
                 self.delete = DeleteConfirm(file_path)
                 self.delete.show()
             else:
                 # Set the window title
-                self.ui.cryptoWarningTitle.setText("Select a file.")
+                self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                  "border-top-left-radius :10px;"
+                                                  "border-top-right-radius :10px;"
+                                                  "border-bottom-left-radius :10px;"
+                                                  "border-bottom-right-radius :10px;")
+                self.ui.announceBox.setText("Failed to delete file. Please select a valid file "
+                                            "(folders cannot be deleted).")
+                self.ui.announceBox.show()
                 self.setWindowTitle("EasyRSA - No file selected")
 
         def moveFile():
             """
             Move file
             """
-            if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(
-                    self.ui.fileBrowserTree.currentIndex()):
-                index = self.ui.fileBrowserTree.currentIndex()
+            if self.ui.fileBrowserTree_2.currentIndex().isValid() and not self.model.isDir(
+                    self.ui.fileBrowserTree_2.currentIndex()):
+                index = self.ui.fileBrowserTree_2.currentIndex()
                 file_path = self.model.filePath(index)
                 self.move = MoveFile(file_path)
                 self.move.show()
             else:
                 # Set the window title
-                self.ui.cryptoWarningTitle.setText("Select a file.")
+                self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                  "border-top-left-radius :10px;"
+                                                  "border-top-right-radius :10px;"
+                                                  "border-bottom-left-radius :10px;"
+                                                  "border-bottom-right-radius :10px;")
+                self.ui.announceBox.setText("Failed to move file. Please select a valid file "
+                                            "(folders cannot be moved).")
+                self.ui.announceBox.show()
                 self.setWindowTitle("EasyRSA - No file selected")
 
         def duplicateFile():
             """
             Duplicate file
             """
-            if self.ui.fileBrowserTree.currentIndex().isValid() and not self.model.isDir(
-                    self.ui.fileBrowserTree.currentIndex()):
-                index = self.ui.fileBrowserTree.currentIndex()
+            if self.ui.fileBrowserTree_2.currentIndex().isValid() and not self.model.isDir(
+                    self.ui.fileBrowserTree_2.currentIndex()):
+                index = self.ui.fileBrowserTree_2.currentIndex()
                 file_path = self.model.filePath(index)
                 ext = "." + file_path.split(".")[len(file_path.split(".")) - 1]
                 duplicate_file_path = file_path.replace(ext, "(copy)" + ext)
@@ -753,7 +1005,14 @@ class MainWindow(QMainWindow):
                 shutil.copy(file_path, duplicate_file_path)
             else:
                 # Set the window title
-                self.ui.cryptoWarningTitle.setText("Select a file.")
+                self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                  "border-top-left-radius :10px;"
+                                                  "border-top-right-radius :10px;"
+                                                  "border-bottom-left-radius :10px;"
+                                                  "border-bottom-right-radius :10px;")
+                self.ui.announceBox.setText("Failed to duplicate file. Please select a valid file "
+                                            "(folders cannot be duplicated).")
+                self.ui.announceBox.show()
                 self.setWindowTitle("EasyRSA - No file selected")
 
         """
@@ -786,9 +1045,9 @@ class MainWindow(QMainWindow):
         moveAction.triggered.connect(moveFile)
         # Include file path of the selected item in the context menu
         encryptAction.triggered.connect(
-            lambda: Thread(target=self.encrypt, args=(self.ui.fileBrowserTree.currentIndex(),)).start())
+            lambda: Thread(target=self.encrypt, args=(self.ui.fileBrowserTree_2.currentIndex(),)).start())
         decryptAction.triggered.connect(
-            lambda: Thread(target=self.decrypt, args=(self.ui.fileBrowserTree.currentIndex(),)).start())
+            lambda: Thread(target=self.decrypt, args=(self.ui.fileBrowserTree_2.currentIndex(),)).start())
         cursor = QtGui.QCursor()
         menu.exec(cursor.pos())
 
@@ -835,8 +1094,8 @@ class LoginWindow(QMainWindow):
         widgets.showpassword.stateChanged.connect(self.showPassword)
         widgets.loginButton.clicked.connect(self.login)
         widgets.registerButton.clicked.connect(self.register)
-        widgets.cancelbutton.clicked.connect(self.register)
-        widgets.submitbutton.clicked.connect(self.login)
+        # widgets.cancelbutton.clicked.connect(self.register)
+        # widgets.submitbutton.clicked.connect(self.login)
         widgets.anonMode.clicked.connect(self.anonymousMode)
         widgets.closeAppBtn.clicked.connect(self.close)
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
@@ -844,7 +1103,7 @@ class LoginWindow(QMainWindow):
         Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
 
         widgets.supportButton.clicked.connect(lambda: support())
-        widgets.supportButton_2.clicked.connect(lambda: support())
+        # widgets.supportButton_2.clicked.connect(lambda: support())
         # TOGGLE MENU
         # ///////////////////////////////////////////////////////////////
         # widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
@@ -981,11 +1240,10 @@ class RegisterWindow(QMainWindow):
         # SET AS GLOBAL WIDGETS
         # ///////////////////////////////////////////////////////////////
         self.dragPos = None
-        self.login = None
         self.ui = Ui_RegisterWindow()
         self.ui.setupUi(self)
         widgets = self.ui
-        widgets.loginButton.clicked.connect(self.login)
+        widgets.cancelRegisterButton.clicked.connect(self.login)
         widgets.registerButton.clicked.connect(self.register)
         widgets.closeAppBtn.clicked.connect(self.close)
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
@@ -1026,7 +1284,7 @@ class RegisterWindow(QMainWindow):
         """
         Login
         """
-        self.fade()
+        self.hide()
         self.login = LoginWindow()
         self.login.show()
 
@@ -1207,6 +1465,7 @@ class RegenerateKeysWindow(QMainWindow):
         self.anonymous = anonymousFlag
         self.__sessionToken = sessionToken
         self.__username = username
+        self.threadpool = QThreadPool()
         widgets = self.ui
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -1237,15 +1496,19 @@ class RegenerateKeysWindow(QMainWindow):
         # widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
     def yes(self):
-        def regenerateKeys(defaultBitLength):
+        def regenerateKeys():
             """
             Regenerate keys
             """
+            with open("config/config.json", "r") as f:
+                config = json.load(f)
+                defaultBitLength = config["defaultBitLength"]
+                f.close()
             (self.__publicKey, self.__privateKey) = rsa.newkeys(int(defaultBitLength), poolsize=psutil.cpu_count())
             if self.anonymous:
                 # Delete the keys
-                os.remove(".keys\\public.pem")
-                os.remove(".keys\\private.pem")
+                os.remove(".keys/public.pem")
+                os.remove(".keys/private.pem")
                 if not os.path.exists(os.getcwd() + "/.keys"):
                     os.mkdir(os.getcwd() + "/.keys")
                 # Export the keys to files and place them in ".keys" folder
@@ -1255,11 +1518,7 @@ class RegenerateKeysWindow(QMainWindow):
                 with open(".keys/private.pem", "wb") as f:
                     f.write(self.__privateKey.save_pkcs1())
                     f.close()
-                self.parentWindow.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
-                if self.parentWindow.ui.privateKeyCheckbox.isChecked():
-                    self.parentWindow.ui.privateKeyDisplay.setPlainText(str(self.__privateKey))
-                self.parentWindow.__publicKey = self.__publicKey
-                self.parentWindow.__privateKey = self.__privateKey
+                print("Keys regenerated.")
             else:
                 cipher = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
                 ciphertext = cipher.encrypt(base64.b64encode(self.__publicKey.save_pkcs1()))
@@ -1273,13 +1532,8 @@ class RegenerateKeysWindow(QMainWindow):
                 # Send to server
                 r = requests.post("https://enigmapr0ject.tech/api/easyrsa/updateKeys.php", data=data)
                 # Check if the request was successful
-                print(r.text)
                 if r.text == "200":
-                    self.parentWindow.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
-                    if self.parentWindow.ui.privateKeyCheckbox.isChecked():
-                        self.parentWindow.ui.privateKeyDisplay.setPlainText(str(self.__privateKey))
-                    self.parentWindow.__publicKey = self.__publicKey
-                    self.parentWindow.__privateKey = self.__privateKey
+                    pass
                 elif r.text == "403":
                     self.ui.usertitle_2.setText("Invalid session token")
                     return
@@ -1288,18 +1542,36 @@ class RegenerateKeysWindow(QMainWindow):
                     return
             self.ui.usertitle_2.hide()
             self.ui.usertitle.setText("Keys regenerated successfully. You can now close this window.")
+
         try:
             self.ui.yesButton.hide()
             self.ui.noButton.hide()
             self.ui.usertitle_2.setText("Generating keys...")
-            with open("config\\config.json", "r") as f:
-                config = json.load(f)
-                defaultBitLength = config["defaultBitLength"]
-                f.close()
-            p1 = Thread(target=regenerateKeys, args=(defaultBitLength,))
-            p1.start()
+            worker = Worker(regenerateKeys)
+            worker.signals.result.connect(self.result)
+            worker.signals.finished.connect(self.regenFinished)
+
+            self.threadpool.start(worker)
         except Exception as e:
-            self.usertitle_2.setText("An error occurred")
+            self.ui.usertitle_2.setText("An error occurred")
+
+    def result(self):
+        pass
+
+    def regenFinished(self):
+        # Read the public key and private key
+        with open(".keys/public.pem", "rb") as f:
+            self.__publicKey = rsa.PublicKey.load_pkcs1(f.read())
+            f.close()
+        with open(".keys/private.pem", "rb") as f:
+            self.__privateKey = rsa.PrivateKey.load_pkcs1(f.read())
+            f.close()
+        self.parentWindow.__publicKey = self.__publicKey
+        self.parentWindow.__privateKey = self.__privateKey
+        self.parentWindow.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
+        # If private key checkbox is checked
+        if self.parentWindow.ui.privateKeyCheckbox.isChecked():
+            self.parentWindow.ui.publicKeyDisplay.setPlainText(str(self.__privateKey))
 
     def fade(self):
         """
@@ -1336,6 +1608,7 @@ class RegenerateKeysWindow(QMainWindow):
         Exit handler
         """
         self.fade()
+
 
 class BitLengthWindow(QMainWindow):
     """
@@ -1395,15 +1668,16 @@ class BitLengthWindow(QMainWindow):
         # Get the bit length from the combobox
         bitLength = self.ui.bitLengthBox.currentText()
         # Save the bit length to the config file
-        with open("config\\config.json", "r") as f:
+        with open("config/config.json", "r") as f:
             config = json.load(f)
             f.close()
         config["defaultBitLength"] = bitLength
-        with open("config\\config.json", "w") as f:
+        with open("config/config.json", "w") as f:
             json.dump(config, f, indent=4)
             f.close()
         # Update the UI
-        self.ui.warningLabel.setText("Bit length updated successfully. To use this new length, you will have to regenerate your keys.")
+        self.ui.warningLabel.setText(
+            "Bit length updated successfully. To use this new length, you will have to regenerate your keys.")
         # Check if the label is hidden
         if self.ui.warningLabel.isHidden():
             self.ui.warningLabel.show()
@@ -1773,7 +2047,7 @@ if __name__ == "__main__":
             import ctypes  # Windows exclusive library
 
             # arbitrary string, can be anything
-            myappid = 'theenigmaproject.crypto.easyRSA.003'
+            myappid = 'theenigmaproject.crypto.easyRSA.004'
             ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(
                 myappid)  # Set the AppID. Needed for
             # taskbar icon and window icons to work.
