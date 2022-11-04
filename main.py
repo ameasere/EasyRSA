@@ -231,19 +231,20 @@ class MainWindow(QMainWindow):
                     with open(".keys/private.pem", "rb") as f:
                         __privateKey = rsa.PrivateKey.load_pkcs1(f.read())
                         f.close()
-            if anonymous is False:
-                worker = Worker(generateKeys)
-                worker.signals.result.connect(self.result)
-                worker.signals.finished.connect(self.generateFinished)
-                self.threadpool.start(worker)
-            else:
-                # Read keys
+                # Check if the .keys folder exists and has 2 keys in it
+            if os.path.exists(os.getcwd() + "/.keys") and len(os.listdir(os.getcwd() + "/.keys")) == 2:
+                # Read the keys from the files
                 with open(".keys/public.pem", "rb") as f:
                     self.__publicKey = rsa.PublicKey.load_pkcs1(f.read())
                     f.close()
                 with open(".keys/private.pem", "rb") as f:
                     self.__privateKey = rsa.PrivateKey.load_pkcs1(f.read())
                     f.close()
+            else:
+                worker = Worker(generateKeys)
+                worker.signals.result.connect(self.result)
+                worker.signals.finished.connect(self.generateFinished)
+                self.threadpool.start(worker)
         Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
         # APPLY TEXTS
         self.setWindowTitle(title)
