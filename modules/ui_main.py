@@ -553,6 +553,10 @@ class Ui_MainWindow(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
+        self.appMargins = QVBoxLayout(self.styleSheet)
+        self.appMargins.setSpacing(0)
+        self.appMargins.setObjectName(u"appMargins")
+        self.appMargins.setContentsMargins(10, 10, 10, 10)
         self.bgApp = QFrame(self.styleSheet)
         self.bgApp.setObjectName(u"bgApp")
         self.bgApp.setGeometry(QRect(10, 10, 1260, 668))
@@ -601,8 +605,7 @@ class Ui_MainWindow(object):
         self.toggleButton.setFont(font)
         self.toggleButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.toggleButton.setLayoutDirection(Qt.LeftToRight)
-        self.toggleButton.setStyleSheet(u"background-image: url(:/icons/images/icons/icon_menu.png);\n"
-"background-color: rgb(35, 35, 38);")
+        self.toggleButton.setStyleSheet(u"background-image: url(:/icons/images/icons/icon_menu.png);")
 
         self.verticalLayout_4.addWidget(self.toggleButton)
 
@@ -708,6 +711,8 @@ class Ui_MainWindow(object):
 
 
         self.appLayout.addWidget(self.leftMenuBg)
+
+        self.appMargins.addWidget(self.bgApp)
 
         self.extraLeftBox = QFrame(self.bgApp)
         self.extraLeftBox.setObjectName(u"extraLeftBox")
@@ -1489,23 +1494,16 @@ class Ui_MainWindow(object):
         self.filespaceTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.filepathBox_2 = QLineEdit(self.filespace)
         self.filepathBox_2.setObjectName(u"filepathBox_2")
-        self.filepathBox_2.setGeometry(QRect(360, 190, 461, 30))
+        self.filepathBox_2.setGeometry(QRect(360, 190, 451, 30))
         self.filepathBox_2.setMinimumSize(QSize(0, 30))
-        self.filepathBox_2.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"border-bottom-left-radius :0px;\n"
-"border-bottom-right-radius :0px;\n"
-"border: none;")
+        self.filepathBox_2.setStyleSheet(u"background-color: rgb(33, 37, 43);")
         self.encryptButton_2 = QPushButton(self.filespace)
         self.encryptButton_2.setObjectName(u"encryptButton_2")
-        self.encryptButton_2.setGeometry(QRect(370, 260, 221, 30))
+        self.encryptButton_2.setGeometry(QRect(360, 260, 221, 30))
         self.encryptButton_2.setMinimumSize(QSize(150, 30))
         self.encryptButton_2.setFont(font)
         self.encryptButton_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.encryptButton_2.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
-"border-top-right-radius :0px;\n"
-"border-bottom-right-radius :0px;\n"
-"border-top-left-radius :14px;\n"
-"border-bottom-left-radius :14px;")
+        self.encryptButton_2.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         icon8 = QIcon()
         icon8.addFile(u":/icons/images/icons/cil-lock-locked.png", QSize(), QIcon.Normal, QIcon.Off)
         self.encryptButton_2.setIcon(icon8)
@@ -1515,24 +1513,17 @@ class Ui_MainWindow(object):
         self.decryptButton_2.setMinimumSize(QSize(150, 30))
         self.decryptButton_2.setFont(font)
         self.decryptButton_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.decryptButton_2.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
-"border-top-left-radius :0px;\n"
-"border-bottom-left-radius :0px;\n"
-"border-top-right-radius :14px;\n"
-"border-bottom-right-radius :14px;")
+        self.decryptButton_2.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         icon9 = QIcon()
         icon9.addFile(u":/icons/images/icons/cil-lock-unlocked.png", QSize(), QIcon.Normal, QIcon.Off)
         self.decryptButton_2.setIcon(icon9)
         self.openFilepathButton_2 = QPushButton(self.filespace)
         self.openFilepathButton_2.setObjectName(u"openFilepathButton_2")
-        self.openFilepathButton_2.setGeometry(QRect(360, 220, 461, 30))
+        self.openFilepathButton_2.setGeometry(QRect(360, 220, 451, 30))
         self.openFilepathButton_2.setMinimumSize(QSize(150, 30))
         self.openFilepathButton_2.setFont(font)
         self.openFilepathButton_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.openFilepathButton_2.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
-"border-top-left-radius :0px;\n"
-"border-top-right-radius :0px;\n"
-"border: none;")
+        self.openFilepathButton_2.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         self.openFilepathButton_2.setIcon(icon6)
         self.selectFileToEncryptText = QLabel(self.filespace)
         self.selectFileToEncryptText.setObjectName(u"selectFileToEncryptText")
@@ -1551,15 +1542,16 @@ class Ui_MainWindow(object):
         self.multiviewCheckbox_1.setTristate(False)
         self.currentDirectory_2 = QLabel(self.filespace)
         self.currentDirectory_2.setObjectName(u"currentDirectory_2")
-        self.currentDirectory_2.setGeometry(QRect(280, 110, 591, 41))
-        self.currentDirectory_2.setStyleSheet(u"color: rgb(220, 220, 220);")
+        self.currentDirectory_2.setGeometry(QRect(280, 130, 601, 21))
+        self.currentDirectory_2.setStyleSheet(u"color: rgb(113, 126, 149);\n"
+"")
         self.currentDirectory_2.setFrameShape(QFrame.NoFrame)
         self.currentDirectory_2.setLineWidth(1)
         self.currentDirectory_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.fileBrowserTree_2 = QTreeView(self.filespace)
         self.fileBrowserTree_2.setObjectName(u"fileBrowserTree_2")
         self.fileBrowserTree_2.setGeometry(QRect(40, 150, 851, 271))
-        self.fileBrowserTree_2.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
+        self.fileBrowserTree_2.setStyleSheet(u"background-color: rgb(52, 59, 72);\n"
 "")
         self.fileBrowserTree_2.setFrameShape(QFrame.NoFrame)
         self.selectFileToEncryptText_2 = QLabel(self.filespace)
@@ -1573,20 +1565,19 @@ class Ui_MainWindow(object):
         self.parentDriveTitle_2 = QLabel(self.filespace)
         self.parentDriveTitle_2.setObjectName(u"parentDriveTitle_2")
         self.parentDriveTitle_2.setGeometry(QRect(920, 200, 211, 21))
-        self.parentDriveTitle_2.setStyleSheet(u"color: rgb(220, 220, 220);\n"
-"")
+        self.parentDriveTitle_2.setStyleSheet(u"color: rgb(113, 126, 149);")
         self.parentDriveTitle_2.setLineWidth(1)
         self.parentDriveTitle_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.driveInfoTitle_2 = QLabel(self.filespace)
         self.driveInfoTitle_2.setObjectName(u"driveInfoTitle_2")
         self.driveInfoTitle_2.setGeometry(QRect(920, 260, 211, 19))
-        self.driveInfoTitle_2.setStyleSheet(u"color: rgb(220, 220, 220);")
+        self.driveInfoTitle_2.setStyleSheet(u"color: rgb(113, 126, 149);")
         self.driveInfoTitle_2.setLineWidth(1)
         self.driveInfoTitle_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.driveInfo_2 = QLabel(self.filespace)
         self.driveInfo_2.setObjectName(u"driveInfo_2")
         self.driveInfo_2.setGeometry(QRect(920, 310, 211, 161))
-        self.driveInfo_2.setStyleSheet(u"color: rgb(220, 220, 220);")
+        self.driveInfo_2.setStyleSheet(u"color: rgb(113, 126, 149);")
         self.driveInfo_2.setLineWidth(1)
         self.driveInfo_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.driveInfo_2.setWordWrap(False)
@@ -1595,7 +1586,7 @@ class Ui_MainWindow(object):
         self.parentDriveSpace_2.setGeometry(QRect(920, 230, 211, 16))
         self.parentDriveSpace_2.setStyleSheet(u"QProgressBar {\n"
 "background-color: rgb(98, 114, 164);\n"
-"color: rgb(220, 220, 220);\n"
+"color: rgb(0, 0, 0);\n"
 "border-style: none;\n"
 "border-radius: 10px;\n"
 "text-align: center;\n"
@@ -1608,58 +1599,46 @@ class Ui_MainWindow(object):
         self.parentDrive_2 = QLabel(self.filespace)
         self.parentDrive_2.setObjectName(u"parentDrive_2")
         self.parentDrive_2.setGeometry(QRect(920, 290, 131, 21))
-        self.parentDrive_2.setStyleSheet(u"color: rgb(220, 220, 220);")
+        self.parentDrive_2.setStyleSheet(u"color: rgb(113, 126, 149);")
         self.parentDrive_2.setLineWidth(1)
         self.parentDrive_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.openDirectory_2 = QPushButton(self.filespace)
         self.openDirectory_2.setObjectName(u"openDirectory_2")
-        self.openDirectory_2.setGeometry(QRect(140, 110, 131, 41))
+        self.openDirectory_2.setGeometry(QRect(140, 130, 131, 19))
         self.openDirectory_2.setMinimumSize(QSize(10, 10))
-        self.openDirectory_2.setMaximumSize(QSize(16777215, 50))
+        self.openDirectory_2.setMaximumSize(QSize(16777215, 19))
         self.openDirectory_2.setFont(font)
         self.openDirectory_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.openDirectory_2.setStyleSheet(u"color: rgb(220, 220, 220);\n"
-"background-color: rgb(35, 35, 38);\n"
-"border: none;")
+        self.openDirectory_2.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         self.openDirectory_2.setIcon(icon6)
         self.goToDefault_2 = QPushButton(self.filespace)
         self.goToDefault_2.setObjectName(u"goToDefault_2")
-        self.goToDefault_2.setGeometry(QRect(30, 450, 171, 30))
+        self.goToDefault_2.setGeometry(QRect(30, 450, 201, 30))
         self.goToDefault_2.setMinimumSize(QSize(150, 30))
         self.goToDefault_2.setFont(font)
         self.goToDefault_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.goToDefault_2.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
-"border-bottom-left-radius :14px;\n"
-"border-top-left-radius :14px;\n"
-"border-top-right-radius :14px;\n"
-"border-bottom-right-radius :14px;")
+        self.goToDefault_2.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         icon10 = QIcon()
         icon10.addFile(u":/icons/images/icons/cil-house.png", QSize(), QIcon.Normal, QIcon.Off)
         self.goToDefault_2.setIcon(icon10)
         self.defaultLocation_2 = QPushButton(self.filespace)
         self.defaultLocation_2.setObjectName(u"defaultLocation_2")
-        self.defaultLocation_2.setGeometry(QRect(230, 450, 201, 30))
+        self.defaultLocation_2.setGeometry(QRect(250, 450, 201, 30))
         self.defaultLocation_2.setMinimumSize(QSize(150, 30))
         self.defaultLocation_2.setFont(font)
         self.defaultLocation_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.defaultLocation_2.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
-"border-top-left-radius :14px;\n"
-"border-bottom-left-radius :14px;\n"
-"border-top-right-radius :14px;\n"
-"border-bottom-right-radius :14px;")
+        self.defaultLocation_2.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         icon11 = QIcon()
         icon11.addFile(u":/icons/images/icons/cil-star.png", QSize(), QIcon.Normal, QIcon.Off)
         self.defaultLocation_2.setIcon(icon11)
         self.goBackButton_2 = QPushButton(self.filespace)
         self.goBackButton_2.setObjectName(u"goBackButton_2")
-        self.goBackButton_2.setGeometry(QRect(30, 110, 111, 41))
+        self.goBackButton_2.setGeometry(QRect(30, 130, 111, 19))
         self.goBackButton_2.setMinimumSize(QSize(10, 10))
-        self.goBackButton_2.setMaximumSize(QSize(16777215, 50))
+        self.goBackButton_2.setMaximumSize(QSize(16777215, 19))
         self.goBackButton_2.setFont(font)
         self.goBackButton_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.goBackButton_2.setStyleSheet(u"color: rgb(220, 220, 220);\n"
-"background-color: rgb(35, 35, 38);\n"
-"border: none;")
+        self.goBackButton_2.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         icon12 = QIcon()
         icon12.addFile(u":/icons/images/icons/cil-arrow-circle-left.png", QSize(), QIcon.Normal, QIcon.Off)
         self.goBackButton_2.setIcon(icon12)
@@ -1667,7 +1646,7 @@ class Ui_MainWindow(object):
         self.multiviewDetailsBox.setObjectName(u"multiviewDetailsBox")
         self.multiviewDetailsBox.setGeometry(QRect(910, 190, 231, 251))
         self.multiviewDetailsBox.setStyleSheet(u"color: rgb(113, 126, 149);\n"
-"background-color: rgb(35, 35, 38);\n"
+"background-color: rgb(52, 59, 72);\n"
 "border-top-left-radius :7px;\n"
 "border-top-right-radius :7px;\n"
 "border-bottom-left-radius :7px;\n"
@@ -1677,14 +1656,13 @@ class Ui_MainWindow(object):
         self.multiviewDetailsBox.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.currentDirectoryText = QLabel(self.filespace)
         self.currentDirectoryText.setObjectName(u"currentDirectoryText")
-        self.currentDirectoryText.setGeometry(QRect(40, 110, 851, 41))
+        self.currentDirectoryText.setGeometry(QRect(40, 130, 851, 21))
         sizePolicy2.setHeightForWidth(self.currentDirectoryText.sizePolicy().hasHeightForWidth())
         self.currentDirectoryText.setSizePolicy(sizePolicy2)
-        self.currentDirectoryText.setMinimumSize(QSize(0, 30))
         self.currentDirectoryText.setMaximumSize(QSize(16777215, 45))
         self.currentDirectoryText.setFont(font)
         self.currentDirectoryText.setStyleSheet(u"color: rgb(113, 126, 149);\n"
-"background-color: rgb(35, 35, 38);\n"
+"background-color: rgb(52, 59, 72);\n"
 "border-top-left-radius :7px;\n"
 "border-top-right-radius :7px;")
         self.currentDirectoryText.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
@@ -1707,33 +1685,29 @@ class Ui_MainWindow(object):
         self.border1.setMaximumSize(QSize(16777215, 45))
         self.border1.setFont(font)
         self.border1.setStyleSheet(u"color: rgb(113, 126, 149);\n"
-"background-color: rgb(35, 35, 38);\n"
+"background-color: rgb(52, 59, 72);\n"
 "border-bottom-left-radius :7px;\n"
 "border-bottom-right-radius :7px;")
         self.border1.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.border2 = QLabel(self.filespace)
         self.border2.setObjectName(u"border2")
-        self.border2.setGeometry(QRect(30, 110, 20, 331))
+        self.border2.setGeometry(QRect(30, 130, 20, 311))
         sizePolicy2.setHeightForWidth(self.border2.sizePolicy().hasHeightForWidth())
         self.border2.setSizePolicy(sizePolicy2)
         self.border2.setMaximumSize(QSize(16777215, 1000))
         self.border2.setFont(font)
         self.border2.setStyleSheet(u"color: rgb(113, 126, 149);\n"
-"background-color: rgb(35, 35, 38);\n"
+"background-color: rgb(52, 59, 72);\n"
 "border-bottom-left-radius :7px;\n"
 "border-top-left-radius :7px;")
         self.border2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.encryptButton_3 = QPushButton(self.filespace)
         self.encryptButton_3.setObjectName(u"encryptButton_3")
-        self.encryptButton_3.setGeometry(QRect(460, 450, 201, 30))
+        self.encryptButton_3.setGeometry(QRect(470, 450, 201, 30))
         self.encryptButton_3.setMinimumSize(QSize(150, 30))
         self.encryptButton_3.setFont(font)
         self.encryptButton_3.setCursor(QCursor(Qt.PointingHandCursor))
-        self.encryptButton_3.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
-"border-bottom-left-radius :14px;\n"
-"border-top-left-radius :14px;\n"
-"border-top-right-radius :14px;\n"
-"border-bottom-right-radius :14px;")
+        self.encryptButton_3.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         self.encryptButton_3.setIcon(icon8)
         self.decryptButton_3 = QPushButton(self.filespace)
         self.decryptButton_3.setObjectName(u"decryptButton_3")
@@ -1741,11 +1715,7 @@ class Ui_MainWindow(object):
         self.decryptButton_3.setMinimumSize(QSize(150, 30))
         self.decryptButton_3.setFont(font)
         self.decryptButton_3.setCursor(QCursor(Qt.PointingHandCursor))
-        self.decryptButton_3.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
-"border-bottom-left-radius :14px;\n"
-"border-top-left-radius :14px;\n"
-"border-top-right-radius :14px;\n"
-"border-bottom-right-radius :14px;")
+        self.decryptButton_3.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         self.decryptButton_3.setIcon(icon9)
         self.closePopup = QPushButton(self.filespace)
         self.closePopup.setObjectName(u"closePopup")
@@ -1758,29 +1728,6 @@ class Ui_MainWindow(object):
         icon13.addFile(u":/icons/images/icons/cil-x-circle.png", QSize(), QIcon.Normal, QIcon.Off)
         self.closePopup.setIcon(icon13)
         self.closePopup.setFlat(False)
-        self.border1_2 = QLabel(self.filespace)
-        self.border1_2.setObjectName(u"border1_2")
-        self.border1_2.setGeometry(QRect(30, 150, 861, 1))
-        sizePolicy2.setHeightForWidth(self.border1_2.sizePolicy().hasHeightForWidth())
-        self.border1_2.setSizePolicy(sizePolicy2)
-        self.border1_2.setMaximumSize(QSize(16777215, 1))
-        self.border1_2.setFont(font)
-        self.border1_2.setStyleSheet(u"background-color: rgb(52, 59, 72);\n"
-"\n"
-"")
-        self.border1_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.border1_3 = QLabel(self.filespace)
-        self.border1_3.setObjectName(u"border1_3")
-        self.border1_3.setGeometry(QRect(270, 110, 1, 41))
-        sizePolicy2.setHeightForWidth(self.border1_3.sizePolicy().hasHeightForWidth())
-        self.border1_3.setSizePolicy(sizePolicy2)
-        self.border1_3.setMinimumSize(QSize(0, 20))
-        self.border1_3.setMaximumSize(QSize(1, 100000))
-        self.border1_3.setFont(font)
-        self.border1_3.setStyleSheet(u"background-color: rgb(52, 59, 72);\n"
-"\n"
-"")
-        self.border1_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.stackedWidget.addWidget(self.filespace)
         self.fileBrowserTree_2.raise_()
         self.border2.raise_()
@@ -1792,6 +1739,7 @@ class Ui_MainWindow(object):
         self.openFilepathButton_2.raise_()
         self.selectFileToEncryptText.raise_()
         self.filepathBox_2.raise_()
+        self.encryptButton_2.raise_()
         self.filespaceTitle.raise_()
         self.multiviewCheckbox_1.raise_()
         self.selectFileToEncryptText_2.raise_()
@@ -1808,9 +1756,6 @@ class Ui_MainWindow(object):
         self.encryptButton_3.raise_()
         self.decryptButton_3.raise_()
         self.closePopup.raise_()
-        self.border1_2.raise_()
-        self.border1_3.raise_()
-        self.encryptButton_2.raise_()
         self.Security = QWidget()
         self.Security.setObjectName(u"Security")
         self.dashboardTitle_10 = QLabel(self.Security)
@@ -1987,7 +1932,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(3)
         self.closePopup.setDefault(False)
 
 
@@ -2123,16 +2068,16 @@ class Ui_MainWindow(object):
         self.openFilepathButton_2.setText(QCoreApplication.translate("MainWindow", u"Select File", None))
         self.selectFileToEncryptText.setText(QCoreApplication.translate("MainWindow", u"Select file to encrypt:", None))
         self.multiviewCheckbox_1.setText(QCoreApplication.translate("MainWindow", u" Enable Multiview", None))
-        self.currentDirectory_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>aaaaa</p></body></html>", None))
+        self.currentDirectory_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><br/></p></body></html>", None))
         self.selectFileToEncryptText_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Want a more advanced view?</p></body></html>", None))
         self.parentDriveTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Drive Usage</p></body></html>", None))
         self.driveInfoTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Drive Information</p></body></html>", None))
         self.driveInfo_2.setText("")
         self.parentDrive_2.setText(QCoreApplication.translate("MainWindow", u"Parent Drive:", None))
-        self.openDirectory_2.setText(QCoreApplication.translate("MainWindow", u" Open Directory", None))
+        self.openDirectory_2.setText(QCoreApplication.translate("MainWindow", u"Open Directory", None))
         self.goToDefault_2.setText(QCoreApplication.translate("MainWindow", u"Go To Default Location", None))
         self.defaultLocation_2.setText(QCoreApplication.translate("MainWindow", u"Change Default Location", None))
-        self.goBackButton_2.setText(QCoreApplication.translate("MainWindow", u" Go Back..", None))
+        self.goBackButton_2.setText(QCoreApplication.translate("MainWindow", u"Go Back..", None))
         self.multiviewDetailsBox.setText("")
         self.currentDirectoryText.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><br/></p></body></html>", None))
         self.announceBox.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" color:#d80a14;\">ErrorBox</span></p></body></html>", None))
@@ -2141,8 +2086,6 @@ class Ui_MainWindow(object):
         self.encryptButton_3.setText(QCoreApplication.translate("MainWindow", u"Encrypt Selected File", None))
         self.decryptButton_3.setText(QCoreApplication.translate("MainWindow", u"Decrypt Selected File", None))
         self.closePopup.setText("")
-        self.border1_2.setText("")
-        self.border1_3.setText("")
         self.dashboardTitle_10.setText(QCoreApplication.translate("MainWindow", u"Security Centre", None))
         self.dashboardTitle_11.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt;\">Danger Zone</span></p></body></html>", None))
         self.dangerBorder.setText("")
