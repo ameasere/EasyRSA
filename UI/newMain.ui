@@ -688,7 +688,8 @@ Button */
                  <enum>Qt::LeftToRight</enum>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-image: url(:/icons/images/icons/icon_menu.png);</string>
+                 <string notr="true">background-image: url(:/icons/images/icons/icon_menu.png);
+background-color: rgb(35, 35, 38);</string>
                 </property>
                 <property name="text">
                  <string>Hide</string>
@@ -1797,7 +1798,7 @@ background-position: center;</string>
                     <string notr="true">background: transparent;</string>
                    </property>
                    <property name="currentIndex">
-                    <number>3</number>
+                    <number>2</number>
                    </property>
                    <widget class="QWidget" name="home">
                     <property name="styleSheet">
@@ -3038,7 +3039,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                       <rect>
                        <x>360</x>
                        <y>190</y>
-                       <width>451</width>
+                       <width>461</width>
                        <height>30</height>
                       </rect>
                      </property>
@@ -3049,7 +3050,10 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(33, 37, 43);</string>
+                      <string notr="true">background-color: rgb(33, 37, 43);
+border-bottom-left-radius :0px;
+border-bottom-right-radius :0px;
+border: none;</string>
                      </property>
                      <property name="text">
                       <string/>
@@ -3061,7 +3065,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                     <widget class="QPushButton" name="encryptButton_2">
                      <property name="geometry">
                       <rect>
-                       <x>360</x>
+                       <x>370</x>
                        <y>260</y>
                        <width>221</width>
                        <height>30</height>
@@ -3086,7 +3090,11 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                       <cursorShape>PointingHandCursor</cursorShape>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(52, 59, 72);</string>
+                      <string notr="true">background-color: rgb(35, 35, 38);
+border-top-right-radius :0px;
+border-bottom-right-radius :0px;
+border-top-left-radius :14px;
+border-bottom-left-radius :14px;</string>
                      </property>
                      <property name="text">
                       <string>Encrypt</string>
@@ -3124,7 +3132,11 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                       <cursorShape>PointingHandCursor</cursorShape>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(52, 59, 72);</string>
+                      <string notr="true">background-color: rgb(35, 35, 38);
+border-top-left-radius :0px;
+border-bottom-left-radius :0px;
+border-top-right-radius :14px;
+border-bottom-right-radius :14px;</string>
                      </property>
                      <property name="text">
                       <string>Decrypt</string>
@@ -3139,7 +3151,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                       <rect>
                        <x>360</x>
                        <y>220</y>
-                       <width>451</width>
+                       <width>461</width>
                        <height>30</height>
                       </rect>
                      </property>
@@ -3162,7 +3174,10 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                       <cursorShape>PointingHandCursor</cursorShape>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(52, 59, 72);</string>
+                      <string notr="true">background-color: rgb(35, 35, 38);
+border-top-left-radius :0px;
+border-top-right-radius :0px;
+border: none;</string>
                      </property>
                      <property name="text">
                       <string>Select File</string>
@@ -3238,14 +3253,13 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                      <property name="geometry">
                       <rect>
                        <x>280</x>
-                       <y>130</y>
-                       <width>601</width>
-                       <height>21</height>
+                       <y>110</y>
+                       <width>591</width>
+                       <height>41</height>
                       </rect>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">color: rgb(113, 126, 149);
-</string>
+                      <string notr="true">color: rgb(220, 220, 220);</string>
                      </property>
                      <property name="frameShape">
                       <enum>QFrame::NoFrame</enum>
@@ -3254,7 +3268,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                       <number>1</number>
                      </property>
                      <property name="text">
-                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;aaaaa&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -3270,7 +3284,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                       </rect>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(52, 59, 72);
+                      <string notr="true">background-color: rgb(35, 35, 38);
 </string>
                      </property>
                      <property name="frameShape">
@@ -3324,7 +3338,8 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                       </rect>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">color: rgb(113, 126, 149);</string>
+                      <string notr="true">color: rgb(220, 220, 220);
+</string>
                      </property>
                      <property name="lineWidth">
                       <number>1</number>
@@ -3346,7 +3361,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                       </rect>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">color: rgb(113, 126, 149);</string>
+                      <string notr="true">color: rgb(220, 220, 220);</string>
                      </property>
                      <property name="lineWidth">
                       <number>1</number>
@@ -3368,7 +3383,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                       </rect>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">color: rgb(113, 126, 149);</string>
+                      <string notr="true">color: rgb(220, 220, 220);</string>
                      </property>
                      <property name="lineWidth">
                       <number>1</number>
@@ -3395,7 +3410,7 @@ font: 18pt &quot;Segoe UI&quot; bold;</string>
                      <property name="styleSheet">
                       <string notr="true">QProgressBar {
 background-color: rgb(98, 114, 164);
-color: rgb(0, 0, 0);
+color: rgb(220, 220, 220);
 border-style: none;
 border-radius: 10px;
 text-align: center;
@@ -3419,7 +3434,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                       </rect>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">color: rgb(113, 126, 149);</string>
+                      <string notr="true">color: rgb(220, 220, 220);</string>
                      </property>
                      <property name="lineWidth">
                       <number>1</number>
@@ -3435,9 +3450,9 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                      <property name="geometry">
                       <rect>
                        <x>140</x>
-                       <y>130</y>
+                       <y>110</y>
                        <width>131</width>
-                       <height>19</height>
+                       <height>41</height>
                       </rect>
                      </property>
                      <property name="minimumSize">
@@ -3449,7 +3464,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                      <property name="maximumSize">
                       <size>
                        <width>16777215</width>
-                       <height>19</height>
+                       <height>50</height>
                       </size>
                      </property>
                      <property name="font">
@@ -3465,10 +3480,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                       <cursorShape>PointingHandCursor</cursorShape>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(52, 59, 72);</string>
+                      <string notr="true">color: rgb(220, 220, 220);
+background-color: rgb(35, 35, 38);
+border: none;</string>
                      </property>
                      <property name="text">
-                      <string>Open Directory</string>
+                      <string> Open Directory</string>
                      </property>
                      <property name="icon">
                       <iconset resource="resources.qrc">
@@ -3480,7 +3497,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                       <rect>
                        <x>30</x>
                        <y>450</y>
-                       <width>201</width>
+                       <width>171</width>
                        <height>30</height>
                       </rect>
                      </property>
@@ -3503,7 +3520,11 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                       <cursorShape>PointingHandCursor</cursorShape>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(52, 59, 72);</string>
+                      <string notr="true">background-color: rgb(35, 35, 38);
+border-bottom-left-radius :14px;
+border-top-left-radius :14px;
+border-top-right-radius :14px;
+border-bottom-right-radius :14px;</string>
                      </property>
                      <property name="text">
                       <string>Go To Default Location</string>
@@ -3516,7 +3537,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                     <widget class="QPushButton" name="defaultLocation_2">
                      <property name="geometry">
                       <rect>
-                       <x>250</x>
+                       <x>230</x>
                        <y>450</y>
                        <width>201</width>
                        <height>30</height>
@@ -3541,7 +3562,11 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                       <cursorShape>PointingHandCursor</cursorShape>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(52, 59, 72);</string>
+                      <string notr="true">background-color: rgb(35, 35, 38);
+border-top-left-radius :14px;
+border-bottom-left-radius :14px;
+border-top-right-radius :14px;
+border-bottom-right-radius :14px;</string>
                      </property>
                      <property name="text">
                       <string>Change Default Location</string>
@@ -3555,9 +3580,9 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                      <property name="geometry">
                       <rect>
                        <x>30</x>
-                       <y>130</y>
+                       <y>110</y>
                        <width>111</width>
-                       <height>19</height>
+                       <height>41</height>
                       </rect>
                      </property>
                      <property name="minimumSize">
@@ -3569,7 +3594,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                      <property name="maximumSize">
                       <size>
                        <width>16777215</width>
-                       <height>19</height>
+                       <height>50</height>
                       </size>
                      </property>
                      <property name="font">
@@ -3585,10 +3610,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                       <cursorShape>PointingHandCursor</cursorShape>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(52, 59, 72);</string>
+                      <string notr="true">color: rgb(220, 220, 220);
+background-color: rgb(35, 35, 38);
+border: none;</string>
                      </property>
                      <property name="text">
-                      <string>Go Back..</string>
+                      <string> Go Back..</string>
                      </property>
                      <property name="icon">
                       <iconset resource="resources.qrc">
@@ -3606,7 +3633,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
                      </property>
                      <property name="styleSheet">
                       <string notr="true">color: rgb(113, 126, 149);
-background-color: rgb(52, 59, 72);
+background-color: rgb(35, 35, 38);
 border-top-left-radius :7px;
 border-top-right-radius :7px;
 border-bottom-left-radius :7px;
@@ -3629,9 +3656,9 @@ border-bottom-right-radius :7px;</string>
                      <property name="geometry">
                       <rect>
                        <x>40</x>
-                       <y>130</y>
+                       <y>110</y>
                        <width>851</width>
-                       <height>21</height>
+                       <height>41</height>
                       </rect>
                      </property>
                      <property name="sizePolicy">
@@ -3639,6 +3666,12 @@ border-bottom-right-radius :7px;</string>
                        <horstretch>0</horstretch>
                        <verstretch>0</verstretch>
                       </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>30</height>
+                      </size>
                      </property>
                      <property name="maximumSize">
                       <size>
@@ -3657,7 +3690,7 @@ border-bottom-right-radius :7px;</string>
                      </property>
                      <property name="styleSheet">
                       <string notr="true">color: rgb(113, 126, 149);
-background-color: rgb(52, 59, 72);
+background-color: rgb(35, 35, 38);
 border-top-left-radius :7px;
 border-top-right-radius :7px;</string>
                      </property>
@@ -3737,7 +3770,7 @@ border-top-right-radius :7px;</string>
                      </property>
                      <property name="styleSheet">
                       <string notr="true">color: rgb(113, 126, 149);
-background-color: rgb(52, 59, 72);
+background-color: rgb(35, 35, 38);
 border-bottom-left-radius :7px;
 border-bottom-right-radius :7px;</string>
                      </property>
@@ -3752,9 +3785,9 @@ border-bottom-right-radius :7px;</string>
                      <property name="geometry">
                       <rect>
                        <x>30</x>
-                       <y>130</y>
+                       <y>110</y>
                        <width>20</width>
-                       <height>311</height>
+                       <height>331</height>
                       </rect>
                      </property>
                      <property name="sizePolicy">
@@ -3780,7 +3813,7 @@ border-bottom-right-radius :7px;</string>
                      </property>
                      <property name="styleSheet">
                       <string notr="true">color: rgb(113, 126, 149);
-background-color: rgb(52, 59, 72);
+background-color: rgb(35, 35, 38);
 border-bottom-left-radius :7px;
 border-top-left-radius :7px;</string>
                      </property>
@@ -3794,7 +3827,7 @@ border-top-left-radius :7px;</string>
                     <widget class="QPushButton" name="encryptButton_3">
                      <property name="geometry">
                       <rect>
-                       <x>470</x>
+                       <x>460</x>
                        <y>450</y>
                        <width>201</width>
                        <height>30</height>
@@ -3819,7 +3852,11 @@ border-top-left-radius :7px;</string>
                       <cursorShape>PointingHandCursor</cursorShape>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(52, 59, 72);</string>
+                      <string notr="true">background-color: rgb(35, 35, 38);
+border-bottom-left-radius :14px;
+border-top-left-radius :14px;
+border-top-right-radius :14px;
+border-bottom-right-radius :14px;</string>
                      </property>
                      <property name="text">
                       <string>Encrypt Selected File</string>
@@ -3857,7 +3894,11 @@ border-top-left-radius :7px;</string>
                       <cursorShape>PointingHandCursor</cursorShape>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color: rgb(52, 59, 72);</string>
+                      <string notr="true">background-color: rgb(35, 35, 38);
+border-bottom-left-radius :14px;
+border-top-left-radius :14px;
+border-top-right-radius :14px;
+border-bottom-right-radius :14px;</string>
                      </property>
                      <property name="text">
                       <string>Decrypt Selected File</string>
@@ -3911,6 +3952,96 @@ border-top-left-radius :7px;</string>
                       <bool>false</bool>
                      </property>
                     </widget>
+                    <widget class="QLabel" name="border1_2">
+                     <property name="geometry">
+                      <rect>
+                       <x>30</x>
+                       <y>150</y>
+                       <width>861</width>
+                       <height>1</height>
+                      </rect>
+                     </property>
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>1</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Segoe UI</family>
+                       <pointsize>10</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(52, 59, 72);
+
+</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                    <widget class="QLabel" name="border1_3">
+                     <property name="geometry">
+                      <rect>
+                       <x>270</x>
+                       <y>110</y>
+                       <width>1</width>
+                       <height>41</height>
+                      </rect>
+                     </property>
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>1</width>
+                       <height>100000</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Segoe UI</family>
+                       <pointsize>10</pointsize>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(52, 59, 72);
+
+</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
                     <zorder>fileBrowserTree_2</zorder>
                     <zorder>border2</zorder>
                     <zorder>border1</zorder>
@@ -3921,7 +4052,6 @@ border-top-left-radius :7px;</string>
                     <zorder>openFilepathButton_2</zorder>
                     <zorder>selectFileToEncryptText</zorder>
                     <zorder>filepathBox_2</zorder>
-                    <zorder>encryptButton_2</zorder>
                     <zorder>filespaceTitle</zorder>
                     <zorder>multiviewCheckbox_1</zorder>
                     <zorder>selectFileToEncryptText_2</zorder>
@@ -3938,6 +4068,9 @@ border-top-left-radius :7px;</string>
                     <zorder>encryptButton_3</zorder>
                     <zorder>decryptButton_3</zorder>
                     <zorder>closePopup</zorder>
+                    <zorder>border1_2</zorder>
+                    <zorder>border1_3</zorder>
+                    <zorder>encryptButton_2</zorder>
                    </widget>
                    <widget class="QWidget" name="Security">
                     <widget class="QLabel" name="dashboardTitle_10">
