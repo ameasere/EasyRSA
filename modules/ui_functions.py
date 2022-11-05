@@ -205,12 +205,12 @@ class UIFunctions(MainWindow):
     # ///////////////////////////////////////////////////////////////
     # SELECT
     def selectMenu(getStyle):
-        select = getStyle + Settings.MENU_SELECTED_STYLESHEET_HALLOWEEN
+        select = getStyle + Settings.MENU_SELECTED_STYLESHEET
         return select
 
     # DESELECT
     def deselectMenu(getStyle):
-        deselect = getStyle.replace(Settings.MENU_SELECTED_STYLESHEET_HALLOWEEN, "")
+        deselect = getStyle.replace(Settings.MENU_SELECTED_STYLESHEET, "")
         return deselect
 
     # START SELECTION
