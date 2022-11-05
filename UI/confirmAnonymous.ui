@@ -46,13 +46,13 @@ QWidget{
 Tooltip */
 QToolTip {
 	color: #ffffff;
-	background-color: rgba(33, 37, 43, 180);
-	border: 1px solid rgb(44, 49, 58);
+	background-color: rgba(35,35,38, 180);
+	border: 1px solid rgb(35,35,38);
 	background-image: none;
 	background-position: left center;
     background-repeat: no-repeat;
 	border: none;
-	border-left: 2px solid rgb(255, 166, 121);
+	border-left: 2px solid rgb(0,94,217);
 	text-align: left;
 	padding-left: 8px;
 	margin: 0px;
@@ -60,27 +60,27 @@ QToolTip {
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 Bg App */
-#bgApp {	
-	background-color: rgb(40, 44, 52);
-	border: 1px solid rgb(44, 49, 58);
+#bgApp {
+	background-color: rgb(11,11,11);
+	border: 1px solid rgb(35,35,38);
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 Left Menu */
-#leftMenuBg {	
-	background-color: rgb(33, 37, 43);
+#leftMenuBg {
+	background-color: rgb(35,35,38);
 }
 #topLogo {
-	background-color: rgb(33, 37, 43);
+	background-color: rgb(35,35,38);
 	background-image: url(:/images/images/images/RSA30x30.png);
 	background-position: center;
 	background-repeat: no-repeat;
 }
 #titleLeftApp { font: 63 12pt &quot;Segoe UI Semibold&quot;; }
-#titleLeftDescription { font: 8pt &quot;Segoe UI&quot;; color: rgb(249, 203, 147); }
+#titleLeftDescription { font: 8pt &quot;Segoe UI&quot;; color: rgb(32, 124, 245); }
 
 /* MENUS */
-#topMenu .QPushButton {	
+#topMenu .QPushButton {
 	background-position: left center;
     background-repeat: no-repeat;
 	border: none;
@@ -90,13 +90,13 @@ Left Menu */
 	padding-left: 44px;
 }
 #topMenu .QPushButton:hover {
-	background-color: rgb(40, 44, 52);
+	background-color: rgb(11,11,11);
 }
-#topMenu .QPushButton:pressed {	
-	background-color: rgb(249, 203, 147);
+#topMenu .QPushButton:pressed {
+	background-color: rgb(32, 124, 245);
 	color: rgb(255, 255, 255);
 }
-#bottomMenu .QPushButton {	
+#bottomMenu .QPushButton {
 	background-position: left center;
     background-repeat: no-repeat;
 	border: none;
@@ -106,14 +106,14 @@ Left Menu */
 	padding-left: 44px;
 }
 #bottomMenu .QPushButton:hover {
-	background-color: rgb(40, 44, 52);
+	background-color: rgb(11,11,11);
 }
-#bottomMenu .QPushButton:pressed {	
-	background-color: rgb(249, 203, 147);
+#bottomMenu .QPushButton:pressed {
+	background-color: rgb(32, 124, 245);
 	color: rgb(255, 255, 255);
 }
 #leftMenuFrame{
-	border-top: 3px solid rgb(44, 49, 58);
+	border-top: 3px solid rgb(35,35,38);
 }
 
 /* Toggle Button */
@@ -128,10 +128,10 @@ Left Menu */
 	color: rgb(113, 126, 149);
 }
 #toggleButton:hover {
-	background-color: rgb(40, 44, 52);
+	background-color: rgb(11,11,11);
 }
 #toggleButton:pressed {
-	background-color: rgb(249, 203, 147);
+	background-color: rgb(32, 124, 245);
 }
 
 /* Title Menu */
@@ -140,11 +140,11 @@ Left Menu */
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 Extra Tab */
-#extraLeftBox {	
-	background-color: rgb(44, 49, 58);
+#extraLeftBox {
+	background-color: rgb(35,35,38);
 }
 #extraTopBg {
-	background-color: rgb(249, 203, 147);
+	background-color: rgb(32, 124, 245);
 }
 
 /* Icon */
@@ -159,12 +159,12 @@ Extra Tab */
 
 /* Btn Close */
 #extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }
-#extraCloseColumnBtn:hover { background-color: rgb(249, 217, 161); border-style: solid; border-radius: 4px; }
-#extraCloseColumnBtn:pressed { background-color: rgb(238, 183, 141); border-style: solid; border-radius: 4px; }
+#extraCloseColumnBtn:hover { background-color: rgb(87, 156, 247); border-style: solid; border-radius: 4px; }
+#extraCloseColumnBtn:pressed { background-color: rgb(46, 130, 240); border-style: solid; border-radius: 4px; }
 
 /* Extra Content */
 #extraContent{
-	border-top: 3px solid rgb(40, 44, 52);
+	border-top: 3px solid rgb(11,11,11);
 }
 
 /* Extra Top Menus */
@@ -178,20 +178,20 @@ background-position: left center;
 	padding-left: 44px;
 }
 #extraTopMenu .QPushButton:hover {
-	background-color: rgb(40, 44, 52);
+	background-color: rgb(11,11,11);
 }
-#extraTopMenu .QPushButton:pressed {	
-	background-color: rgb(249, 203, 147);
+#extraTopMenu .QPushButton:pressed {
+	background-color: rgb(32, 124, 245);
 	color: rgb(255, 255, 255);
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 Content App */
-#contentTopBg{	
-	background-color: rgb(33, 37, 43);
+#contentTopBg{
+	background-color: rgb(35,35,38);
 }
 #contentBottom{
-	border-top: 3px solid rgb(44, 49, 58);
+	border-top: 3px solid rgb(35,35,38);
 }
 
 /* Top Buttons */
@@ -200,16 +200,16 @@ Content App */
 #rightButtons .QPushButton:pressed { background-color: rgb(23, 26, 30); border-style: solid; border-radius: 4px; }
 
 /* Theme Settings */
-#extraRightBox { background-color: rgb(44, 49, 58); }
-#themeSettingsTopDetail { background-color: rgb(249, 203, 147); }
+#extraRightBox { background-color: rgb(35,35,38); }
+#themeSettingsTopDetail { background-color: rgb(32, 124, 245); }
 
 /* Bottom Bar */
-#bottomBar { background-color: rgb(44, 49, 58); }
+#bottomBar { background-color: rgb(35,35,38); }
 #bottomBar QLabel { font-size: 11px; color: rgb(113, 126, 149); padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }
 
 /* CONTENT SETTINGS */
 /* MENUS */
-#contentSettings .QPushButton {	
+#contentSettings .QPushButton {
 	background-position: left center;
     background-repeat: no-repeat;
 	border: none;
@@ -219,20 +219,20 @@ Content App */
 	padding-left: 44px;
 }
 #contentSettings .QPushButton:hover {
-	background-color: rgb(40, 44, 52);
+	background-color: rgb(11,11,11);
 }
-#contentSettings .QPushButton:pressed {	
-	background-color: rgb(249, 203, 147);
+#contentSettings .QPushButton:pressed {
+	background-color: rgb(32, 124, 245);
 	color: rgb(255, 255, 255);
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 QTableWidget */
-QTableWidget {	
+QTableWidget {
 	background-color: transparent;
 	padding: 10px;
 	border-radius: 5px;
-	gridline-color: rgb(44, 49, 58);
+	gridline-color: rgb(35,35,38);
 	border-bottom: 1px solid rgb(44, 49, 60);
 }
 QTableWidget::item{
@@ -242,23 +242,23 @@ QTableWidget::item{
 	gridline-color: rgb(44, 49, 60);
 }
 QTableWidget::item:selected{
-	background-color: rgb(249, 203, 147);
+	background-color: rgb(32, 124, 245);
 }
 QHeaderView::section{
-	background-color: rgb(33, 37, 43);
+	background-color: rgb(35,35,38);
 	max-width: 30px;
-	border: 1px solid rgb(44, 49, 58);
+	border: 1px solid rgb(35,35,38);
 	border-style: none;
     border-bottom: 1px solid rgb(44, 49, 60);
     border-right: 1px solid rgb(44, 49, 60);
 }
-QTableWidget::horizontalHeader {	
-	background-color: rgb(33, 37, 43);
+QTableWidget::horizontalHeader {
+	background-color: rgb(35,35,38);
 }
 QHeaderView::section:horizontal
 {
-    border: 1px solid rgb(33, 37, 43);
-	background-color: rgb(33, 37, 43);
+    border: 1px solid rgb(35,35,38);
+	background-color: rgb(35,35,38);
 	padding: 3px;
 	border-top-left-radius: 7px;
     border-top-right-radius: 7px;
@@ -271,12 +271,12 @@ QHeaderView::section:vertical
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 LineEdit */
 QLineEdit {
-	background-color: rgb(33, 37, 43);
+	background-color: rgb(35,35,38);
 	border-radius: 5px;
-	border: 2px solid rgb(33, 37, 43);
+	border: 2px solid rgb(35,35,38);
 	padding-left: 10px;
 	selection-color: rgb(255, 255, 255);
-	selection-background-color: rgb(255, 166, 121);
+	selection-background-color: rgb(0,94,217);
 }
 QLineEdit:hover {
 	border: 2px solid rgb(64, 71, 88);
@@ -292,7 +292,7 @@ QPlainTextEdit {
 	border-radius: 5px;
 	padding: 10px;
 	selection-color: rgb(255, 255, 255);
-	selection-background-color: rgb(255, 166, 121);
+	selection-background-color: rgb(0,94,217);
 }
 QPlainTextEdit  QScrollBar:vertical {
     width: 8px;
@@ -317,7 +317,7 @@ QScrollBar:horizontal {
 	border-radius: 0px;
 }
 QScrollBar::handle:horizontal {
-    background: rgb(249, 203, 147);
+    background: rgb(32, 124, 245);
     min-width: 25px;
 	border-radius: 4px;
 }
@@ -354,8 +354,8 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
     margin: 21px 0 21px 0;
 	border-radius: 0px;
  }
- QScrollBar::handle:vertical {	
-	background: rgb(249, 203, 147);
+ QScrollBar::handle:vertical {
+	background: rgb(32, 124, 245);
     min-height: 25px;
 	border-radius: 4px;
  }
@@ -399,7 +399,7 @@ QCheckBox::indicator:hover {
 }
 QCheckBox::indicator:checked {
     background: 3px solid rgb(52, 59, 72);
-	border: 3px solid rgb(52, 59, 72);	
+	border: 3px solid rgb(52, 59, 72);
 	background-image: url(:/icons/images/icons/cil-check-alt.png);
 }
 
@@ -417,7 +417,7 @@ QRadioButton::indicator:hover {
 }
 QRadioButton::indicator:checked {
     background: 3px solid rgb(94, 106, 130);
-	border: 3px solid rgb(52, 59, 72);	
+	border: 3px solid rgb(52, 59, 72);
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -425,7 +425,7 @@ ComboBox */
 QComboBox{
 	background-color: rgb(27, 29, 35);
 	border-radius: 5px;
-	border: 2px solid rgb(33, 37, 43);
+	border: 2px solid rgb(35,35,38);
 	padding: 5px;
 	padding-left: 10px;
 }
@@ -435,19 +435,19 @@ QComboBox:hover{
 QComboBox::drop-down {
 	subcontrol-origin: padding;
 	subcontrol-position: top right;
-	width: 25px; 
+	width: 25px;
 	border-left-width: 3px;
 	border-left-color: rgba(39, 44, 54, 150);
 	border-left-style: solid;
 	border-top-right-radius: 3px;
-	border-bottom-right-radius: 3px;	
+	border-bottom-right-radius: 3px;
 	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);
 	background-position: center;
 	background-repeat: no-repeat;
  }
 QComboBox QAbstractItemView {
-	color: rgb(255, 166, 121);
-	background-color: rgb(33, 37, 43);
+	color: rgb(0,94,217);
+	background-color: rgb(35,35,38);
 	padding: 10px;
 	selection-background-color: rgb(39, 44, 54);
 }
@@ -464,7 +464,7 @@ QSlider::groove:horizontal:hover {
 	background-color: rgb(55, 62, 76);
 }
 QSlider::handle:horizontal {
-    background-color: rgb(249, 203, 147);
+    background-color: rgb(32, 124, 245);
     border: none;
     height: 10px;
     width: 10px;
@@ -475,7 +475,7 @@ QSlider::handle:horizontal:hover {
     background-color: rgb(255, 212, 155);
 }
 QSlider::handle:horizontal:pressed {
-    background-color: rgb(255, 166, 121);
+    background-color: rgb(0,94,217);
 }
 
 QSlider::groove:vertical {
@@ -488,7 +488,7 @@ QSlider::groove:vertical:hover {
 	background-color: rgb(55, 62, 76);
 }
 QSlider::handle:vertical {
-    background-color: rgb(249, 203, 147);
+    background-color: rgb(32, 124, 245);
 	border: none;
     height: 10px;
     width: 10px;
@@ -499,22 +499,22 @@ QSlider::handle:vertical:hover {
     background-color: rgb(255, 212, 155);
 }
 QSlider::handle:vertical:pressed {
-    background-color: rgb(255, 166, 121);
+    background-color: rgb(0,94,217);
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 CommandLinkButton */
-QCommandLinkButton {	
-	color: rgb(255, 166, 121);
+QCommandLinkButton {
+	color: rgb(0,94,217);
 	border-radius: 5px;
 	padding: 5px;
 }
-QCommandLinkButton:hover {	
+QCommandLinkButton:hover {
 	color: rgb(255, 170, 255);
 	background-color: rgb(44, 49, 60);
 }
-QCommandLinkButton:pressed {	
-	color: rgb(249, 203, 147);
+QCommandLinkButton:pressed {
+	color: rgb(32, 124, 245);
 	background-color: rgb(52, 58, 71);
 }
 
@@ -522,21 +522,17 @@ QCommandLinkButton:pressed {
 Button */
 #pagesContainer QPushButton {
 	border: 2px solid rgb(52, 59, 72);
-	border-radius: 5px;	
+	border-radius: 5px;
 	background-color: rgb(52, 59, 72);
 }
 #pagesContainer QPushButton:hover {
 	background-color: rgb(57, 65, 80);
 	border: 2px solid rgb(61, 70, 86);
 }
-#pagesContainer QPushButton:pressed {	
+#pagesContainer QPushButton:pressed {
 	background-color: rgb(35, 40, 49);
 	border: 2px solid rgb(43, 50, 61);
-}
-
-
-
-</string>
+}</string>
    </property>
    <layout class="QVBoxLayout" name="appMargins">
     <property name="spacing">
@@ -1047,7 +1043,7 @@ background-repeat: no-repeat;</string>
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">font: 14pt &quot;Segoe UI&quot;; color: rgb(255, 166, 121);</string>
+                        <string notr="true">font: 14pt &quot;Segoe UI&quot;; color: rgb(0,94,217);</string>
                        </property>
                        <property name="lineWidth">
                         <number>1</number>
@@ -1209,90 +1205,6 @@ background-repeat: no-repeat;</string>
                        </property>
                        <property name="text">
                         <string>I accept this risk and the responsibility that comes with it.</string>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="logintitle_2">
-                       <property name="geometry">
-                        <rect>
-                         <x>10</x>
-                         <y>250</y>
-                         <width>51</width>
-                         <height>51</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">font: 14pt &quot;Segoe UI&quot;; color: rgb(255, 166, 121);</string>
-                       </property>
-                       <property name="lineWidth">
-                        <number>1</number>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="pixmap">
-                        <pixmap resource="resources.qrc">:/images/images/images/bats.png</pixmap>
-                       </property>
-                       <property name="scaledContents">
-                        <bool>true</bool>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="logintitle_3">
-                       <property name="geometry">
-                        <rect>
-                         <x>60</x>
-                         <y>270</y>
-                         <width>51</width>
-                         <height>51</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">font: 14pt &quot;Segoe UI&quot;; color: rgb(255, 166, 121);</string>
-                       </property>
-                       <property name="lineWidth">
-                        <number>1</number>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="pixmap">
-                        <pixmap resource="resources.qrc">:/images/images/images/bats.png</pixmap>
-                       </property>
-                       <property name="scaledContents">
-                        <bool>true</bool>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="logintitle_4">
-                       <property name="geometry">
-                        <rect>
-                         <x>80</x>
-                         <y>240</y>
-                         <width>51</width>
-                         <height>51</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">font: 14pt &quot;Segoe UI&quot;; color: rgb(255, 166, 121);</string>
-                       </property>
-                       <property name="lineWidth">
-                        <number>1</number>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="pixmap">
-                        <pixmap resource="resources.qrc">:/images/images/images/bats.png</pixmap>
-                       </property>
-                       <property name="scaledContents">
-                        <bool>true</bool>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
                        </property>
                       </widget>
                      </widget>

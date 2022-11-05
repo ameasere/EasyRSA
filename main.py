@@ -300,7 +300,7 @@ class MainWindow(QMainWindow):
         self.show()
         widgets.btn_more.clicked.connect(self.buttonClick)
 
-        themeFile = "themes/dracula_halloween.qss"
+        themeFile = "themes/EasyRSA.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -1154,7 +1154,7 @@ class LoginWindow(QMainWindow):
 
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        themeFile = "themes/dracula_halloween.qss"
+        themeFile = "themes/EasyRSA.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -1305,7 +1305,7 @@ class RegisterWindow(QMainWindow):
 
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        themeFile = "themes/dracula_halloween.qss"
+        themeFile = "themes/EasyRSA.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -1412,7 +1412,7 @@ class AnonymousWindow(QMainWindow):
         widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        themeFile = "themes/dracula_halloween.qss"
+        themeFile = "themes/EasyRSA.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -1523,7 +1523,7 @@ class RegenerateKeysWindow(QMainWindow):
         widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        themeFile = "themes/dracula_halloween.qss"
+        themeFile = "themes/EasyRSA.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -1680,7 +1680,7 @@ class BitLengthWindow(QMainWindow):
         widgets.bitLengthBox.currentTextChanged.connect(self.comboBoxChange)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        themeFile = "themes/dracula_halloween.qss"
+        themeFile = "themes/EasyRSA.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -1790,7 +1790,7 @@ class RenameFileWindow(QMainWindow):
         widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        themeFile = "themes/dracula_halloween.qss"
+        themeFile = "themes/EasyRSA.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -1899,7 +1899,7 @@ class DeleteConfirm(QMainWindow):
         widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        themeFile = "themes/dracula_halloween.qss"
+        themeFile = "themes/EasyRSA.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
@@ -1992,7 +1992,7 @@ class MoveFile(QMainWindow):
         widgets.closeAppBtn.clicked.connect(self.close)
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        themeFile = "themes/dracula_halloween.qss"
+        themeFile = "themes/EasyRSA.qss"
 
         # SET THEME AND HACKS
         UIFunctions.theme(self, themeFile, True)
