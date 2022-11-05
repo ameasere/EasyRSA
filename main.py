@@ -391,6 +391,8 @@ class MainWindow(QMainWindow):
         self.ui.encryptButton_3.hide()
         self.ui.decryptButton_3.hide()
         self.ui.closePopup.hide()
+        self.ui.border1_2.hide()
+        self.ui.border1_3.hide()
     def result(self):
         pass
     def generateFinished(self):
@@ -739,6 +741,8 @@ class MainWindow(QMainWindow):
                     self.ui.decryptButton_3.show()
                     self.ui.border1.show()
                     self.ui.border2.show()
+                    self.ui.border1_2.show()
+                    self.ui.border1_3.show()
                     self.model = QFileSystemModel()
                     self.model.setRootPath(os.getcwd())
                     self.ui.fileBrowserTree_2.setModel(
@@ -813,6 +817,8 @@ class MainWindow(QMainWindow):
                     self.ui.decryptButton_2.show()
                     self.ui.encryptButton_3.hide()
                     self.ui.decryptButton_3.hide()
+                    self.ui.border1_2.hide()
+                    self.ui.border1_3.hide()
                     self.ui.border1.hide()
                     self.ui.border2.hide()
             case "openFilepathButton_2":
