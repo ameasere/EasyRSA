@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'login.ui'
+## Form generated from reading UI file 'loginNew.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.0
 ##
@@ -25,8 +25,8 @@ class Ui_LoginWindow(object):
     def setupUi(self, LoginWindow):
         if not LoginWindow.objectName():
             LoginWindow.setObjectName(u"LoginWindow")
-        LoginWindow.resize(940, 597)
-        LoginWindow.setMinimumSize(QSize(940, 560))
+        LoginWindow.resize(523, 641)
+        LoginWindow.setMinimumSize(QSize(500, 560))
         icon = QIcon()
         icon.addFile(u":/images/images/images/RSA.png", QSize(), QIcon.Normal, QIcon.Off)
         LoginWindow.setWindowIcon(icon)
@@ -38,12 +38,7 @@ class Ui_LoginWindow(object):
         font.setBold(False)
         font.setItalic(False)
         self.styleSheet.setFont(font)
-        self.styleSheet.setStyleSheet(u"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-"\n"
-"SET APP STYLESHEET - FULL STYLES HERE\n"
-"DARK THEME - DRACULA COLOR BASED\n"
-"\n"
-"///////////////////////////////////////////////////////////////////////////////////////////////// */\n"
+        self.styleSheet.setStyleSheet(u"/* Halloween Stylesheet */\n"
 "\n"
 "QWidget{\n"
 "	color: rgb(221, 221, 221);\n"
@@ -54,13 +49,13 @@ class Ui_LoginWindow(object):
 "Tooltip */\n"
 "QToolTip {\n"
 "	color: #ffffff;\n"
-"	background-color: rgba(33, 37, 43, 180);\n"
-"	border: 1px solid rgb(44, 49, 58);\n"
+"	background-color: rgba(35,35,38, 180);\n"
+"	border: 1px solid rgb(35,35,38);\n"
 "	background-image: none;\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
-"	border-left: 2px solid rgb(255, 121, 198);\n"
+"	border-left: 2px solid rgb(0,94,217);\n"
 "	text-align: left;\n"
 "	padding-left: 8px;\n"
 "	margin: 0px;\n"
@@ -68,15 +63,28 @@ class Ui_LoginWindow(object):
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Bg App */\n"
-"#bgApp {	\n"
-"	background"
-                        "-color: rgb(40, 44, 52);\n"
-"	border: 1px solid rgb(44, 49, 58);\n"
+"#bgApp {\n"
+"	background-color: rgb(11,11,11);\n"
+"	border: 1px solid rgb(35,35,38);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"Left Menu */\n"
+"#leftMenuBg {\n"
+"	background-color: rgb(35,35,38);\n"
+"}\n"
+"#topLogo {\n"
+"	ba"
+                        "ckground-color: rgb(35,35,38);\n"
+"	background-image: url(:/images/images/images/RSA30x30.png);\n"
+"	background-position: center;\n"
+"	background-repeat: no-repeat;\n"
+"}\n"
+"#titleLeftApp { font: 63 12pt \"Segoe UI Semibold\"; }\n"
+"#titleLeftDescription { font: 8pt \"Segoe UI\"; color: rgb(32, 124, 245); }\n"
+"\n"
 "/* MENUS */\n"
-"#topMenu .QPushButton {	\n"
+"#topMenu .QPushButton {\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
@@ -86,31 +94,31 @@ class Ui_LoginWindow(object):
 "	padding-left: 44px;\n"
 "}\n"
 "#topMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(11,11,11);\n"
 "}\n"
-"#topMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
+"#topMenu .QPushButton:pressed {\n"
+"	background-color: rgb(32, 124, 245);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
-"#bottomMenu .QPushButton {	\n"
+"#bottomMenu .QPushButton {\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
 "	border-left: 20px solid transparent;\n"
 "	background-color:transparent;\n"
 "	text-align: left;\n"
-"	padding-left: 44px;\n"
+"	padding-left"
+                        ": 44px;\n"
 "}\n"
 "#bottomMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(11,11,11);\n"
 "}\n"
-"#bottomMenu .QPushButton:pr"
-                        "essed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
+"#bottomMenu .QPushButton:pressed {\n"
+"	background-color: rgb(32, 124, 245);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "#leftMenuFrame{\n"
-"	border-top: 3px solid rgb(44, 49, 58);\n"
+"	border-top: 3px solid rgb(35,35,38);\n"
 "}\n"
 "\n"
 "/* Toggle Button */\n"
@@ -125,10 +133,10 @@ class Ui_LoginWindow(object):
 "	color: rgb(113, 126, 149);\n"
 "}\n"
 "#toggleButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(11,11,11);\n"
 "}\n"
 "#toggleButton:pressed {\n"
-"	background-color: rgb(189, 147, 249);\n"
+"	background-color: rgb(32, 124, 245);\n"
 "}\n"
 "\n"
 "/* Title Menu */\n"
@@ -136,6 +144,15 @@ class Ui_LoginWindow(object):
 "\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"Extra Tab */\n"
+"#extraLeftBox {\n"
+"	background-color: rgb(35,35,38);\n"
+"}\n"
+"#extraTopBg {\n"
+""
+                        "	background-color: rgb(32, 124, 245);\n"
+"}\n"
+"\n"
 "/* Icon */\n"
 "#extraIcon {\n"
 "	background-position: center;\n"
@@ -144,17 +161,16 @@ class Ui_LoginWindow(object):
 "}\n"
 "\n"
 "/* Label */\n"
-"#extraLabel { colo"
-                        "r: rgb(255, 255, 255); }\n"
+"#extraLabel { color: rgb(255, 255, 255); }\n"
 "\n"
 "/* Btn Close */\n"
 "#extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
-"#extraCloseColumnBtn:hover { background-color: rgb(196, 161, 249); border-style: solid; border-radius: 4px; }\n"
-"#extraCloseColumnBtn:pressed { background-color: rgb(180, 141, 238); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:hover { background-color: rgb(87, 156, 247); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:pressed { background-color: rgb(46, 130, 240); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Extra Content */\n"
 "#extraContent{\n"
-"	border-top: 3px solid rgb(40, 44, 52);\n"
+"	border-top: 3px solid rgb(11,11,11);\n"
 "}\n"
 "\n"
 "/* Extra Top Menus */\n"
@@ -165,24 +181,24 @@ class Ui_LoginWindow(object):
 "	border-left: 22px solid transparent;\n"
 "	background-color:transparent;\n"
 "	text-align: left;\n"
-"	padding-left: 44px;\n"
+"	padding-left: "
+                        "44px;\n"
 "}\n"
 "#extraTopMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(11,11,11);\n"
 "}\n"
-"#extraTopMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
+"#extraTopMenu .QPushButton:pressed {\n"
+"	background-color: rgb(32, 124, 245);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
-"/* ///////////////////////////////"
-                        "//////////////////////////////////////////////////////////////////\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Content App */\n"
-"#contentTopBg{	\n"
-"	background-color: rgb(33, 37, 43);\n"
+"#contentTopBg{\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
 "#contentBottom{\n"
-"	border-top: 3px solid rgb(44, 49, 58);\n"
+"	border-top: 3px solid rgb(35,35,38);\n"
 "}\n"
 "\n"
 "/* Top Buttons */\n"
@@ -191,17 +207,17 @@ class Ui_LoginWindow(object):
 "#rightButtons .QPushButton:pressed { background-color: rgb(23, 26, 30); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Theme Settings */\n"
-"#extraRightBox { background-color: rgb(44, 49, 58); }\n"
-"#themeSettingsTopDetail { background-color: rgb(189, 147, 249); }\n"
+"#extraRightBox { background-color: rgb(35,35,38); }\n"
+"#themeSettingsTopDetail { background-color: rgb(32, 124, 245); }\n"
 "\n"
-"/* Bottom Bar */\n"
-"#bottomBar { background-color: rgb(44, 49, 58); }\n"
+"/* Bottom "
+                        "Bar */\n"
+"#bottomBar { background-color: rgb(35,35,38); }\n"
 "#bottomBar QLabel { font-size: 11px; color: rgb(113, 126, 149); padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }\n"
 "\n"
 "/* CONTENT SETTINGS */\n"
 "/* MENUS */\n"
-"#conte"
-                        "ntSettings .QPushButton {	\n"
+"#contentSettings .QPushButton {\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
@@ -211,22 +227,23 @@ class Ui_LoginWindow(object):
 "	padding-left: 44px;\n"
 "}\n"
 "#contentSettings .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(11,11,11);\n"
 "}\n"
-"#contentSettings .QPushButton:pressed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
+"#contentSettings .QPushButton:pressed {\n"
+"	background-color: rgb(32, 124, 245);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "QTableWidget */\n"
-"QTableWidget {	\n"
+"QTableWidget {\n"
 "	background-color: transparent;\n"
 "	padding: 10px;\n"
 "	border-radius: 5px;\n"
-"	gridline-color: rgb(44, 49, 58);\n"
+"	gridline-color: rgb(35,35,38);\n"
 "	border-bottom: 1px solid rgb(44, 49, 60);\n"
-"}\n"
+""
+                        "}\n"
 "QTableWidget::item{\n"
 "	border-color: rgb(44, 49, 60);\n"
 "	padding-left: 5px;\n"
@@ -234,24 +251,23 @@ class Ui_LoginWindow(object):
 "	gridline-color: rgb(44, 49, 60);\n"
 "}\n"
 "QTableWidget::item:selected{\n"
-"	background-color: rgb(189, 147, 249);\n"
+"	background-color: rgb(32, 124, 245);\n"
 "}\n"
-""
-                        "QHeaderView::section{\n"
-"	background-color: rgb(33, 37, 43);\n"
+"QHeaderView::section{\n"
+"	background-color: rgb(35,35,38);\n"
 "	max-width: 30px;\n"
-"	border: 1px solid rgb(44, 49, 58);\n"
+"	border: 1px solid rgb(35,35,38);\n"
 "	border-style: none;\n"
 "    border-bottom: 1px solid rgb(44, 49, 60);\n"
 "    border-right: 1px solid rgb(44, 49, 60);\n"
 "}\n"
-"QTableWidget::horizontalHeader {	\n"
-"	background-color: rgb(33, 37, 43);\n"
+"QTableWidget::horizontalHeader {\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
 "QHeaderView::section:horizontal\n"
 "{\n"
-"    border: 1px solid rgb(33, 37, 43);\n"
-"	background-color: rgb(33, 37, 43);\n"
+"    border: 1px solid rgb(35,35,38);\n"
+"	background-color: rgb(35,35,38);\n"
 "	padding: 3px;\n"
 "	border-top-left-radius: 7px;\n"
 "    border-top-right-radius: 7px;\n"
@@ -264,15 +280,15 @@ class Ui_LoginWindow(object):
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "LineEdit */\n"
 "QLineEdit {\n"
-"	background-color: rgb(33, 37, 43);\n"
+"	"
+                        "background-color: rgb(35,35,38);\n"
 "	border-radius: 5px;\n"
-"	border: 2px solid rgb(33, 37, 43);\n"
+"	border: 2px solid rgb(35,35,38);\n"
 "	padding-left: 10px;\n"
 "	selection-color: rgb(255, 255, 255);\n"
-"	selection-background-color: rgb(255, 121, 198);\n"
+"	selection-background-color: rgb(0,94,217);\n"
 "}\n"
-""
-                        "QLineEdit:hover {\n"
+"QLineEdit:hover {\n"
 "	border: 2px solid rgb(64, 71, 88);\n"
 "}\n"
 "QLineEdit:focus {\n"
@@ -286,7 +302,7 @@ class Ui_LoginWindow(object):
 "	border-radius: 5px;\n"
 "	padding: 10px;\n"
 "	selection-color: rgb(255, 255, 255);\n"
-"	selection-background-color: rgb(255, 121, 198);\n"
+"	selection-background-color: rgb(0,94,217);\n"
 "}\n"
 "QPlainTextEdit  QScrollBar:vertical {\n"
 "    width: 8px;\n"
@@ -301,20 +317,20 @@ class Ui_LoginWindow(object):
 "	border: 2px solid rgb(91, 101, 124);\n"
 "}\n"
 "\n"
-"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"/* ////////////////////////////////////"
+                        "/////////////////////////////////////////////////////////////\n"
 "ScrollBars */\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
 "    background: rgb(52, 59, 72);\n"
 "    height: 8px;\n"
-"    margin: 0px 21px 0 2"
-                        "1px;\n"
+"    margin: 0px 21px 0 21px;\n"
 "	border-radius: 0px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
-"    background: rgb(189, 147, 249);\n"
+"    background: rgb(32, 124, 245);\n"
 "    min-width: 25px;\n"
-"	border-radius: 4px\n"
+"	border-radius: 4px;\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
@@ -336,7 +352,8 @@ class Ui_LoginWindow(object):
 "}\n"
 "QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal\n"
 "{\n"
-"     background: none;\n"
+"     background: none;"
+                        "\n"
 "}\n"
 "QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal\n"
 "{\n"
@@ -345,15 +362,14 @@ class Ui_LoginWindow(object):
 " QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
-"    width: 8px"
-                        ";\n"
+"    width: 8px;\n"
 "    margin: 21px 0 21px 0;\n"
 "	border-radius: 0px;\n"
 " }\n"
-" QScrollBar::handle:vertical {	\n"
-"	background: rgb(189, 147, 249);\n"
+" QScrollBar::handle:vertical {\n"
+"	background: rgb(32, 124, 245);\n"
 "    min-height: 25px;\n"
-"	border-radius: 4px\n"
+"	border-radius: 4px;\n"
 " }\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
@@ -374,15 +390,15 @@ class Ui_LoginWindow(object):
 "     subcontrol-origin: margin;\n"
 " }\n"
 " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"     background: none;\n"
+""
+                        "     background: none;\n"
 " }\n"
 "\n"
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "     background: none;\n"
 " }\n"
 "\n"
-"/* //////////////////////////////////////////////////////////////"
-                        "///////////////////////////////////\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "CheckBox */\n"
 "QCheckBox::indicator {\n"
 "    border: 3px solid rgb(52, 59, 72);\n"
@@ -396,7 +412,7 @@ class Ui_LoginWindow(object):
 "}\n"
 "QCheckBox::indicator:checked {\n"
 "    background: 3px solid rgb(52, 59, 72);\n"
-"	border: 3px solid rgb(52, 59, 72);	\n"
+"	border: 3px solid rgb(52, 59, 72);\n"
 "	background-image: url(:/icons/images/icons/cil-check-alt.png);\n"
 "}\n"
 "\n"
@@ -409,13 +425,13 @@ class Ui_LoginWindow(object):
 "	border-radius: 10px;\n"
 "    background: rgb(44, 49, 60);\n"
 "}\n"
-"QRadioButton::indicator:hover {\n"
+""
+                        "QRadioButton::indicator:hover {\n"
 "    border: 3px solid rgb(58, 66, 81);\n"
 "}\n"
 "QRadioButton::indicator:checked {\n"
 "    background: 3px solid rgb(94, 106, 130);\n"
-"	border: 3px solid rgb(52, 59, 72)"
-                        ";	\n"
+"	border: 3px solid rgb(52, 59, 72);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
@@ -423,7 +439,7 @@ class Ui_LoginWindow(object):
 "QComboBox{\n"
 "	background-color: rgb(27, 29, 35);\n"
 "	border-radius: 5px;\n"
-"	border: 2px solid rgb(33, 37, 43);\n"
+"	border: 2px solid rgb(35,35,38);\n"
 "	padding: 5px;\n"
 "	padding-left: 10px;\n"
 "}\n"
@@ -433,25 +449,25 @@ class Ui_LoginWindow(object):
 "QComboBox::drop-down {\n"
 "	subcontrol-origin: padding;\n"
 "	subcontrol-position: top right;\n"
-"	width: 25px; \n"
+"	width: 25px;\n"
 "	border-left-width: 3px;\n"
 "	border-left-color: rgba(39, 44, 54, 150);\n"
 "	border-left-style: solid;\n"
 "	border-top-right-radius: 3px;\n"
-"	border-bottom-right-radius: 3px;	\n"
+"	border-bottom-right-radius: 3px;\n"
 "	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);\n"
 "	background-position: center;\n"
-"	background-repeat: no-reperat;\n"
+"	background-repeat: no-repeat;\n"
 " }\n"
-"QComboBox QAbstractItemView {\n"
-"	color: rgb(255, 121, 198);	\n"
-"	background-color: rgb(33, 37, 43);\n"
+"QCom"
+                        "boBox QAbstractItemView {\n"
+"	color: rgb(0,94,217);\n"
+"	background-color: rgb(35,35,38);\n"
 "	padding: 10px;\n"
 "	selection-background-color: rgb(39, 44, 54);\n"
 "}\n"
 "\n"
-"/* /////////////"
-                        "////////////////////////////////////////////////////////////////////////////////////\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Sliders */\n"
 "QSlider::groove:horizontal {\n"
 "    border-radius: 5px;\n"
@@ -463,7 +479,7 @@ class Ui_LoginWindow(object):
 "	background-color: rgb(55, 62, 76);\n"
 "}\n"
 "QSlider::handle:horizontal {\n"
-"    background-color: rgb(189, 147, 249);\n"
+"    background-color: rgb(32, 124, 245);\n"
 "    border: none;\n"
 "    height: 10px;\n"
 "    width: 10px;\n"
@@ -471,78 +487,76 @@ class Ui_LoginWindow(object):
 "	border-radius: 5px;\n"
 "}\n"
 "QSlider::handle:horizontal:hover {\n"
-"    background-color: rgb(195, 155, 255);\n"
+"    background-color: rgb(255, 212, 155);\n"
 "}\n"
 "QSlider::handle:horizontal:pressed {\n"
-"    background-color: rgb(255, 121, 198);\n"
+"    background-color: rgb(0,94,217);\n"
 "}\n"
 "\n"
 "QSlider::groove:vertical {\n"
 "    border-radius: 5px;\n"
 "    width: 10px;\n"
 "    margin: 0px;\n"
-"	background-color: rgb(52, 59, 72);\n"
+"	background-color"
+                        ": rgb(52, 59, 72);\n"
 "}\n"
 "QSlider::groove:vertical:hover {\n"
 "	background-color: rgb(55, 62, 76);\n"
 "}\n"
 "QSlider::handle:vertical {\n"
-"    background-color: rgb(189, 147, 249);\n"
-""
-                        "	border: none;\n"
+"    background-color: rgb(32, 124, 245);\n"
+"	border: none;\n"
 "    height: 10px;\n"
 "    width: 10px;\n"
 "    margin: 0px;\n"
 "	border-radius: 5px;\n"
 "}\n"
 "QSlider::handle:vertical:hover {\n"
-"    background-color: rgb(195, 155, 255);\n"
+"    background-color: rgb(255, 212, 155);\n"
 "}\n"
 "QSlider::handle:vertical:pressed {\n"
-"    background-color: rgb(255, 121, 198);\n"
+"    background-color: rgb(0,94,217);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "CommandLinkButton */\n"
-"QCommandLinkButton {	\n"
-"	color: rgb(255, 121, 198);\n"
+"QCommandLinkButton {\n"
+"	color: rgb(0,94,217);\n"
 "	border-radius: 5px;\n"
 "	padding: 5px;\n"
-"	color: rgb(255, 170, 255);\n"
 "}\n"
-"QCommandLinkButton:hover {	\n"
+"QCommandLinkButton:hover {\n"
 "	color: rgb(255, 170, 255);\n"
 "	background-color: rgb(44, 49, 60);\n"
 "}\n"
-"QCommandLinkButton:pressed {	\n"
-"	color: rgb(189, 147, 249);\n"
+"QCommandLinkButton:pressed {\n"
+"	color: rgb(32, 124, 245);\n"
 "	background-color: rgb(52, 58, 71);\n"
 "}\n"
 "\n"
-"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"/* ////////////////////////////////////////////////////////////////////////////////////"
+                        "/////////////\n"
 "Button */\n"
 "#pagesContainer QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
-"	border-radius: 5px;	\n"
-"	backgroun"
-                        "d-color: rgb(52, 59, 72);\n"
+"	border-radius: 5px;\n"
+"	background-color: rgb(52, 59, 72);\n"
 "}\n"
 "#pagesContainer QPushButton:hover {\n"
 "	background-color: rgb(57, 65, 80);\n"
 "	border: 2px solid rgb(61, 70, 86);\n"
 "}\n"
-"#pagesContainer QPushButton:pressed {	\n"
+"#pagesContainer QPushButton:pressed {\n"
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
-"}\n"
-"\n"
-"")
+"}")
         self.appMargins = QVBoxLayout(self.styleSheet)
         self.appMargins.setSpacing(0)
         self.appMargins.setObjectName(u"appMargins")
         self.appMargins.setContentsMargins(10, 10, 10, 10)
         self.bgApp = QFrame(self.styleSheet)
         self.bgApp.setObjectName(u"bgApp")
+        self.bgApp.setMaximumSize(QSize(500, 600))
         self.bgApp.setStyleSheet(u"")
         self.bgApp.setFrameShape(QFrame.NoFrame)
         self.bgApp.setFrameShadow(QFrame.Raised)
@@ -550,49 +564,6 @@ class Ui_LoginWindow(object):
         self.appLayout.setSpacing(0)
         self.appLayout.setObjectName(u"appLayout")
         self.appLayout.setContentsMargins(0, 0, 0, 0)
-        self.leftMenuBg = QFrame(self.bgApp)
-        self.leftMenuBg.setObjectName(u"leftMenuBg")
-        self.leftMenuBg.setMinimumSize(QSize(60, 0))
-        self.leftMenuBg.setMaximumSize(QSize(60, 16777215))
-        self.leftMenuBg.setFrameShape(QFrame.NoFrame)
-        self.leftMenuBg.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_3 = QVBoxLayout(self.leftMenuBg)
-        self.verticalLayout_3.setSpacing(0)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.topLogoInfo = QFrame(self.leftMenuBg)
-        self.topLogoInfo.setObjectName(u"topLogoInfo")
-        self.topLogoInfo.setMinimumSize(QSize(0, 50))
-        self.topLogoInfo.setMaximumSize(QSize(16777215, 50))
-        self.topLogoInfo.setFrameShape(QFrame.NoFrame)
-        self.topLogoInfo.setFrameShadow(QFrame.Raised)
-        self.topLogo = QFrame(self.topLogoInfo)
-        self.topLogo.setObjectName(u"topLogo")
-        self.topLogo.setGeometry(QRect(10, 10, 42, 42))
-        self.topLogo.setMinimumSize(QSize(42, 42))
-        self.topLogo.setMaximumSize(QSize(42, 42))
-        self.topLogo.setStyleSheet(u"background-image: url(:/images/images/images/RSA30x30.png);\n"
-"background-position: center;\n"
-"background-repeat: no-repeat;")
-        self.topLogo.setFrameShape(QFrame.NoFrame)
-        self.topLogo.setFrameShadow(QFrame.Raised)
-        self.titleLeftApp = QLabel(self.topLogoInfo)
-        self.titleLeftApp.setObjectName(u"titleLeftApp")
-        self.titleLeftApp.setGeometry(QRect(70, 8, 160, 20))
-        self.titleLeftApp.setFont(font)
-        self.titleLeftApp.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.titleLeftDescription = QLabel(self.topLogoInfo)
-        self.titleLeftDescription.setObjectName(u"titleLeftDescription")
-        self.titleLeftDescription.setGeometry(QRect(70, 27, 160, 16))
-        self.titleLeftDescription.setMaximumSize(QSize(16777215, 16))
-        self.titleLeftDescription.setFont(font)
-        self.titleLeftDescription.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-
-        self.verticalLayout_3.addWidget(self.topLogoInfo)
-
-
-        self.appLayout.addWidget(self.leftMenuBg)
-
         self.extraLeftBox = QFrame(self.bgApp)
         self.extraLeftBox.setObjectName(u"extraLeftBox")
         self.extraLeftBox.setMinimumSize(QSize(0, 0))
@@ -742,6 +713,7 @@ class Ui_LoginWindow(object):
 
         self.contentBox = QFrame(self.bgApp)
         self.contentBox.setObjectName(u"contentBox")
+        self.contentBox.setMaximumSize(QSize(500, 16777215))
         self.contentBox.setFrameShape(QFrame.NoFrame)
         self.contentBox.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.contentBox)
@@ -771,8 +743,21 @@ class Ui_LoginWindow(object):
         self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.topLogo = QFrame(self.leftBox)
+        self.topLogo.setObjectName(u"topLogo")
+        self.topLogo.setMinimumSize(QSize(42, 42))
+        self.topLogo.setMaximumSize(QSize(42, 42))
+        self.topLogo.setStyleSheet(u"background-image: url(:/images/images/images/RSA30x30.png);\n"
+"background-position: center;\n"
+"background-repeat: no-repeat;")
+        self.topLogo.setFrameShape(QFrame.NoFrame)
+        self.topLogo.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_3.addWidget(self.topLogo)
+
         self.titleRightInfo = QLabel(self.leftBox)
         self.titleRightInfo.setObjectName(u"titleRightInfo")
+        self.titleRightInfo.setEnabled(True)
         sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
@@ -845,6 +830,7 @@ class Ui_LoginWindow(object):
 
         self.contentBottom = QFrame(self.contentBox)
         self.contentBottom.setObjectName(u"contentBottom")
+        self.contentBottom.setMaximumSize(QSize(500, 16777215))
         self.contentBottom.setFrameShape(QFrame.NoFrame)
         self.contentBottom.setFrameShadow(QFrame.Raised)
         self.verticalLayout_6 = QVBoxLayout(self.contentBottom)
@@ -853,6 +839,7 @@ class Ui_LoginWindow(object):
         self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.content = QFrame(self.contentBottom)
         self.content.setObjectName(u"content")
+        self.content.setMaximumSize(QSize(500, 16777215))
         self.content.setFrameShape(QFrame.NoFrame)
         self.content.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_4 = QHBoxLayout(self.content)
@@ -861,6 +848,7 @@ class Ui_LoginWindow(object):
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.pagesContainer = QFrame(self.content)
         self.pagesContainer.setObjectName(u"pagesContainer")
+        self.pagesContainer.setMaximumSize(QSize(500, 750))
         self.pagesContainer.setStyleSheet(u"")
         self.pagesContainer.setFrameShape(QFrame.NoFrame)
         self.pagesContainer.setFrameShadow(QFrame.Raised)
@@ -874,29 +862,41 @@ class Ui_LoginWindow(object):
         self.home = QWidget()
         self.home.setObjectName(u"home")
         self.home.setStyleSheet(u"")
-        self.userbox = QLineEdit(self.home)
-        self.userbox.setObjectName(u"userbox")
-        self.userbox.setGeometry(QRect(290, 100, 211, 30))
-        self.userbox.setMinimumSize(QSize(0, 30))
-        self.userbox.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"font: 12pt \"Segoe UI\"; color: rgb(189, 147, 249)")
+        self.responsetitle = QLabel(self.home)
+        self.responsetitle.setObjectName(u"responsetitle")
+        self.responsetitle.setGeometry(QRect(290, 220, 331, 41))
+        self.responsetitle.setStyleSheet(u"font: 8pt \"Segoe UI\"; color: rgb(255, 166, 121); ")
+        self.responsetitle.setLineWidth(1)
+        self.responsetitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.logintitle = QLabel(self.home)
         self.logintitle.setObjectName(u"logintitle")
-        self.logintitle.setGeometry(QRect(360, 0, 51, 41))
-        self.logintitle.setStyleSheet(u"font: 14pt \"Segoe UI\"; color: rgb(189, 147, 249); ")
+        self.logintitle.setGeometry(QRect(170, 110, 131, 41))
+        self.logintitle.setStyleSheet(u"font: 14pt \"Segoe UI\"; color: rgb(0,94,217);")
         self.logintitle.setLineWidth(1)
         self.logintitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.usertitle = QLabel(self.home)
         self.usertitle.setObjectName(u"usertitle")
-        self.usertitle.setGeometry(QRect(290, 70, 71, 21))
+        self.usertitle.setGeometry(QRect(130, 160, 91, 21))
         sizePolicy2.setHeightForWidth(self.usertitle.sizePolicy().hasHeightForWidth())
         self.usertitle.setSizePolicy(sizePolicy2)
         self.usertitle.setMaximumSize(QSize(16777215, 45))
         self.usertitle.setFont(font)
         self.usertitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.userbox = QLineEdit(self.home)
+        self.userbox.setObjectName(u"userbox")
+        self.userbox.setGeometry(QRect(130, 180, 221, 30))
+        self.userbox.setMinimumSize(QSize(0, 30))
+        self.userbox.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"font: 12pt \"Segoe UI\"; color: rgb(255, 166, 121);")
+        self.passbox = QLineEdit(self.home)
+        self.passbox.setObjectName(u"passbox")
+        self.passbox.setGeometry(QRect(130, 250, 221, 30))
+        self.passbox.setMinimumSize(QSize(0, 30))
+        self.passbox.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"font: 12pt \"Segoe UI\"; color: rgb(255, 166, 121);")
         self.passtitle = QLabel(self.home)
         self.passtitle.setObjectName(u"passtitle")
-        self.passtitle.setGeometry(QRect(290, 150, 71, 21))
+        self.passtitle.setGeometry(QRect(130, 230, 71, 21))
         sizePolicy2.setHeightForWidth(self.passtitle.sizePolicy().hasHeightForWidth())
         self.passtitle.setSizePolicy(sizePolicy2)
         self.passtitle.setMaximumSize(QSize(16777215, 45))
@@ -904,121 +904,51 @@ class Ui_LoginWindow(object):
         self.passtitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.showpassword = QCheckBox(self.home)
         self.showpassword.setObjectName(u"showpassword")
-        self.showpassword.setGeometry(QRect(390, 150, 111, 21))
+        self.showpassword.setGeometry(QRect(360, 250, 111, 31))
         self.showpassword.setAutoFillBackground(False)
         self.showpassword.setStyleSheet(u"font: 8pt;")
-        self.passbox = QLineEdit(self.home)
-        self.passbox.setObjectName(u"passbox")
-        self.passbox.setGeometry(QRect(290, 180, 211, 30))
-        self.passbox.setMinimumSize(QSize(0, 30))
-        self.passbox.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"font: 12pt \"Segoe UI\"; color: rgb(189, 147, 249)")
         self.loginButton = QPushButton(self.home)
         self.loginButton.setObjectName(u"loginButton")
-        self.loginButton.setGeometry(QRect(290, 270, 151, 30))
+        self.loginButton.setGeometry(QRect(160, 300, 151, 30))
         self.loginButton.setMinimumSize(QSize(150, 30))
         self.loginButton.setFont(font)
         self.loginButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.loginButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
-        self.responsetitle = QLabel(self.home)
-        self.responsetitle.setObjectName(u"responsetitle")
-        self.responsetitle.setGeometry(QRect(290, 220, 331, 41))
-        self.responsetitle.setStyleSheet(u"font: 8pt \"Segoe UI\"; color: rgb(189, 147, 249); ")
-        self.responsetitle.setLineWidth(1)
-        self.responsetitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.supportButton = QCommandLinkButton(self.home)
-        self.supportButton.setObjectName(u"supportButton")
-        self.supportButton.setGeometry(QRect(10, 423, 141, 51))
-        self.supportButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.supportButton.setStyleSheet(u"font: 10pt;")
-        icon4 = QIcon()
-        icon4.addFile(u":/icons/images/icons/cil-link.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.supportButton.setIcon(icon4)
-        self.logintitle_2 = QLabel(self.home)
-        self.logintitle_2.setObjectName(u"logintitle_2")
-        self.logintitle_2.setGeometry(QRect(10, 370, 131, 41))
-        self.logintitle_2.setStyleSheet(u"font: 14pt \"Segoe UI\"; color: rgb(189, 147, 249); ")
-        self.logintitle_2.setLineWidth(1)
-        self.logintitle_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.registerButton = QPushButton(self.home)
         self.registerButton.setObjectName(u"registerButton")
-        self.registerButton.setGeometry(QRect(290, 310, 150, 30))
+        self.registerButton.setGeometry(QRect(160, 340, 150, 30))
         self.registerButton.setMinimumSize(QSize(150, 30))
         self.registerButton.setFont(font)
         self.registerButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.registerButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         self.anonMode = QPushButton(self.home)
         self.anonMode.setObjectName(u"anonMode")
-        self.anonMode.setGeometry(QRect(290, 360, 151, 30))
+        self.anonMode.setGeometry(QRect(160, 380, 151, 31))
         self.anonMode.setMinimumSize(QSize(150, 30))
         self.anonMode.setFont(font)
         self.anonMode.setCursor(QCursor(Qt.PointingHandCursor))
-        self.anonMode.setStyleSheet(u"background-color: rgb(189, 147, 249);")
+        self.anonMode.setStyleSheet(u"background-color: rgb(0,94,217);\n"
+"")
+        icon4 = QIcon()
+        icon4.addFile(u":/icons/images/icons/cil-camera.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.anonMode.setIcon(icon4)
+        self.supportButton = QCommandLinkButton(self.home)
+        self.supportButton.setObjectName(u"supportButton")
+        self.supportButton.setGeometry(QRect(10, 450, 131, 41))
+        self.supportButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.supportButton.setStyleSheet(u"font: 10pt;")
         icon5 = QIcon()
-        icon5.addFile(u":/icons/images/icons/cil-camera.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.anonMode.setIcon(icon5)
+        icon5.addFile(u":/icons/images/icons/cil-link.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.supportButton.setIcon(icon5)
         self.stackedWidget.addWidget(self.home)
         self.twofactor = QWidget()
         self.twofactor.setObjectName(u"twofactor")
-        self.logintitle_3 = QLabel(self.twofactor)
-        self.logintitle_3.setObjectName(u"logintitle_3")
-        self.logintitle_3.setGeometry(QRect(10, 370, 131, 41))
-        self.logintitle_3.setStyleSheet(u"font: 14pt \"Segoe UI\"; color: rgb(189, 147, 249); ")
-        self.logintitle_3.setLineWidth(1)
-        self.logintitle_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.userbox_2 = QLineEdit(self.twofactor)
-        self.userbox_2.setObjectName(u"userbox_2")
-        self.userbox_2.setGeometry(QRect(340, 210, 121, 30))
-        self.userbox_2.setMinimumSize(QSize(0, 30))
-        self.userbox_2.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"font: 12pt \"Segoe UI\"; color: rgb(189, 147, 249)")
-        self.cancelbutton = QPushButton(self.twofactor)
-        self.cancelbutton.setObjectName(u"cancelbutton")
-        self.cancelbutton.setGeometry(QRect(330, 390, 150, 30))
-        self.cancelbutton.setMinimumSize(QSize(150, 30))
-        self.cancelbutton.setFont(font)
-        self.cancelbutton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.cancelbutton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         self.twofactoresponse = QLabel(self.twofactor)
         self.twofactoresponse.setObjectName(u"twofactoresponse")
         self.twofactoresponse.setGeometry(QRect(340, 250, 261, 41))
         self.twofactoresponse.setStyleSheet(u"font: 8pt \"Segoe UI\"; color: rgb(189, 147, 249); ")
         self.twofactoresponse.setLineWidth(1)
         self.twofactoresponse.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.submitbutton = QPushButton(self.twofactor)
-        self.submitbutton.setObjectName(u"submitbutton")
-        self.submitbutton.setGeometry(QRect(330, 340, 150, 30))
-        self.submitbutton.setMinimumSize(QSize(150, 30))
-        self.submitbutton.setFont(font)
-        self.submitbutton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.submitbutton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
-        self.logintitle_4 = QLabel(self.twofactor)
-        self.logintitle_4.setObjectName(u"logintitle_4")
-        self.logintitle_4.setGeometry(QRect(290, 0, 211, 41))
-        self.logintitle_4.setStyleSheet(u"font: 14pt \"Segoe UI\"; color: rgb(189, 147, 249); ")
-        self.logintitle_4.setLineWidth(1)
-        self.logintitle_4.setAlignment(Qt.AlignCenter)
-        self.supportButton_2 = QCommandLinkButton(self.twofactor)
-        self.supportButton_2.setObjectName(u"supportButton_2")
-        self.supportButton_2.setGeometry(QRect(10, 423, 141, 51))
-        self.supportButton_2.setCursor(QCursor(Qt.PointingHandCursor))
-        self.supportButton_2.setStyleSheet(u"font: 10pt;")
-        self.supportButton_2.setIcon(icon4)
-        self.usertitle_2 = QLabel(self.twofactor)
-        self.usertitle_2.setObjectName(u"usertitle_2")
-        self.usertitle_2.setGeometry(QRect(340, 180, 121, 21))
-        sizePolicy2.setHeightForWidth(self.usertitle_2.sizePolicy().hasHeightForWidth())
-        self.usertitle_2.setSizePolicy(sizePolicy2)
-        self.usertitle_2.setMaximumSize(QSize(16777215, 45))
-        self.usertitle_2.setFont(font)
-        self.usertitle_2.setAlignment(Qt.AlignCenter)
-        self.twofactorprompt = QLabel(self.twofactor)
-        self.twofactorprompt.setObjectName(u"twofactorprompt")
-        self.twofactorprompt.setGeometry(QRect(190, 50, 431, 91))
-        self.twofactorprompt.setStyleSheet(u"font: 14pt \"Segoe UI\";")
-        self.twofactorprompt.setLineWidth(1)
-        self.twofactorprompt.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.twofactorprompt.setWordWrap(True)
         self.stackedWidget.addWidget(self.twofactor)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
@@ -1169,8 +1099,6 @@ class Ui_LoginWindow(object):
 
     def retranslateUi(self, LoginWindow):
         LoginWindow.setWindowTitle(QCoreApplication.translate("LoginWindow", u"EasyRSA", None))
-        self.titleLeftApp.setText(QCoreApplication.translate("LoginWindow", u"Salvation", None))
-        self.titleLeftDescription.setText(QCoreApplication.translate("LoginWindow", u"Data Vault", None))
         self.extraLabel.setText(QCoreApplication.translate("LoginWindow", u"Left Box", None))
 #if QT_CONFIG(tooltip)
         self.extraCloseColumnBtn.setToolTip(QCoreApplication.translate("LoginWindow", u"Close left box", None))
@@ -1193,7 +1121,7 @@ class Ui_LoginWindow(object):
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert QRC</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; "
                         "margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
-        self.titleRightInfo.setText(QCoreApplication.translate("LoginWindow", u"EasyRSA", None))
+        self.titleRightInfo.setText(QCoreApplication.translate("LoginWindow", u"EasyRSA - Login", None))
 #if QT_CONFIG(tooltip)
         self.minimizeAppBtn.setToolTip(QCoreApplication.translate("LoginWindow", u"Minimize", None))
 #endif // QT_CONFIG(tooltip)
@@ -1206,32 +1134,21 @@ class Ui_LoginWindow(object):
         self.closeAppBtn.setToolTip(QCoreApplication.translate("LoginWindow", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
+        self.responsetitle.setText("")
+        self.logintitle.setText(QCoreApplication.translate("LoginWindow", u"<html><head/><body><p align=\"center\">EasyRSA Login</p></body></html>", None))
+        self.usertitle.setText(QCoreApplication.translate("LoginWindow", u"Email Address", None))
         self.userbox.setText("")
         self.userbox.setPlaceholderText(QCoreApplication.translate("LoginWindow", u"...", None))
-        self.logintitle.setText(QCoreApplication.translate("LoginWindow", u"Login", None))
-        self.usertitle.setText(QCoreApplication.translate("LoginWindow", u"Email", None))
-        self.passtitle.setText(QCoreApplication.translate("LoginWindow", u"Password", None))
-        self.showpassword.setText(QCoreApplication.translate("LoginWindow", u"Show Password", None))
         self.passbox.setText("")
         self.passbox.setPlaceholderText(QCoreApplication.translate("LoginWindow", u"...", None))
+        self.passtitle.setText(QCoreApplication.translate("LoginWindow", u"Password", None))
+        self.showpassword.setText(QCoreApplication.translate("LoginWindow", u"Show Password", None))
         self.loginButton.setText(QCoreApplication.translate("LoginWindow", u"Login", None))
-        self.responsetitle.setText("")
-        self.supportButton.setText(QCoreApplication.translate("LoginWindow", u"Click me!", None))
-        self.supportButton.setDescription("")
-        self.logintitle_2.setText(QCoreApplication.translate("LoginWindow", u"Need support?", None))
         self.registerButton.setText(QCoreApplication.translate("LoginWindow", u"Register", None))
         self.anonMode.setText(QCoreApplication.translate("LoginWindow", u"Anonymous Mode", None))
-        self.logintitle_3.setText(QCoreApplication.translate("LoginWindow", u"Need support?", None))
-        self.userbox_2.setText("")
-        self.userbox_2.setPlaceholderText(QCoreApplication.translate("LoginWindow", u"...", None))
-        self.cancelbutton.setText(QCoreApplication.translate("LoginWindow", u"Cancel", None))
+        self.supportButton.setText(QCoreApplication.translate("LoginWindow", u"Need Support?", None))
+        self.supportButton.setDescription("")
         self.twofactoresponse.setText("")
-        self.submitbutton.setText(QCoreApplication.translate("LoginWindow", u"Submit", None))
-        self.logintitle_4.setText(QCoreApplication.translate("LoginWindow", u"2 Factor Authentication", None))
-        self.supportButton_2.setText(QCoreApplication.translate("LoginWindow", u"Click me!", None))
-        self.supportButton_2.setDescription("")
-        self.usertitle_2.setText(QCoreApplication.translate("LoginWindow", u"Code", None))
-        self.twofactorprompt.setText(QCoreApplication.translate("LoginWindow", u"<html><head/><body><p>A code has been sent to the phone number registered to this account. Please check the SMS sent and enter the code below.</p></body></html>", None))
         self.btn_message.setText(QCoreApplication.translate("LoginWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("LoginWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("LoginWindow", u"Logout", None))
