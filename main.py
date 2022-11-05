@@ -719,6 +719,7 @@ class MainWindow(QMainWindow):
                 pyperclip.copy(self.ui.publicKeyDisplay.toPlainText())
             case "multiviewCheckbox_1":
                 if self.ui.multiviewCheckbox_1.isChecked():
+                    self.ui.backer1.hide()
                     self.ui.filepathBox_2.hide()
                     self.ui.openFilepathButton_2.hide()
                     self.ui.encryptButton_2.hide()
@@ -809,8 +810,9 @@ class MainWindow(QMainWindow):
                     self.ui.currentDirectory_2.hide()
                     self.ui.multiviewDetailsBox.hide()
                     self.ui.parentDriveSpace_2.hide()
-                    self.ui.selectFileToEncryptText.show()
                     self.ui.parentDriveTitle_2.hide()
+                    self.ui.selectFileToEncryptText.show()
+                    self.ui.backer1.show()
                     self.ui.filepathBox_2.show()
                     self.ui.openFilepathButton_2.show()
                     self.ui.encryptButton_2.show()

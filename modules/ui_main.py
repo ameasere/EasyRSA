@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1276, 685)
+        MainWindow.resize(1276, 687)
         MainWindow.setMinimumSize(QSize(940, 560))
         icon = QIcon()
         icon.addFile(u":/images/images/images/RSA.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -1080,24 +1080,18 @@ class Ui_MainWindow(object):
         self.publicKeyDisplay.setGeometry(QRect(140, 149, 381, 231))
         self.publicKeyDisplay.setMinimumSize(QSize(200, 200))
         self.publicKeyDisplay.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"color: rgb(203, 203, 203);")
+"color: rgb(203, 203, 203);\n"
+"border-bottom-left-radius :0px;\n"
+"border-bottom-right-radius :0px;")
         self.publicKeyDisplay.setReadOnly(True)
         self.privateKeyDisplay = QPlainTextEdit(self.home)
         self.privateKeyDisplay.setObjectName(u"privateKeyDisplay")
         self.privateKeyDisplay.setGeometry(QRect(650, 149, 381, 231))
         self.privateKeyDisplay.setMinimumSize(QSize(200, 200))
         self.privateKeyDisplay.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"color: rgb(203, 203, 203);")
+"color: rgb(203, 203, 203);\n"
+"border-bottom-left-radius :0px;")
         self.privateKeyDisplay.setReadOnly(True)
-        self.warningMessage = QLabel(self.home)
-        self.warningMessage.setObjectName(u"warningMessage")
-        self.warningMessage.setGeometry(QRect(640, 430, 401, 51))
-        sizePolicy2.setHeightForWidth(self.warningMessage.sizePolicy().hasHeightForWidth())
-        self.warningMessage.setSizePolicy(sizePolicy2)
-        self.warningMessage.setMaximumSize(QSize(16777215, 100))
-        self.warningMessage.setFont(font)
-        self.warningMessage.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.warningMessage.setWordWrap(True)
         self.privateKeyCheckbox = QCheckBox(self.home)
         self.privateKeyCheckbox.setObjectName(u"privateKeyCheckbox")
         self.privateKeyCheckbox.setGeometry(QRect(900, 380, 131, 31))
@@ -1111,7 +1105,9 @@ class Ui_MainWindow(object):
         self.copyPrivateKeyButton.setMinimumSize(QSize(150, 30))
         self.copyPrivateKeyButton.setFont(font)
         self.copyPrivateKeyButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.copyPrivateKeyButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.copyPrivateKeyButton.setStyleSheet(u"background-color: rgb(52, 59, 72);\n"
+"border-top-left-radius :0px;\n"
+"border-top-right-radius :0px;")
         icon5 = QIcon()
         icon5.addFile(u":/icons/images/icons/cil-clone.png", QSize(), QIcon.Normal, QIcon.Off)
         self.copyPrivateKeyButton.setIcon(icon5)
@@ -1135,7 +1131,9 @@ class Ui_MainWindow(object):
         self.copyPublicKeyButton.setMinimumSize(QSize(150, 30))
         self.copyPublicKeyButton.setFont(font)
         self.copyPublicKeyButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.copyPublicKeyButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.copyPublicKeyButton.setStyleSheet(u"background-color: rgb(52, 59, 72);\n"
+"border-top-left-radius :0px;\n"
+"border-top-right-radius :0px;")
         self.copyPublicKeyButton.setIcon(icon5)
         self.topLogoInfo = QFrame(self.home)
         self.topLogoInfo.setObjectName(u"topLogoInfo")
@@ -1144,6 +1142,21 @@ class Ui_MainWindow(object):
         self.topLogoInfo.setMaximumSize(QSize(16777215, 50))
         self.topLogoInfo.setFrameShape(QFrame.NoFrame)
         self.topLogoInfo.setFrameShadow(QFrame.Raised)
+        self.backer1_3 = QLabel(self.home)
+        self.backer1_3.setObjectName(u"backer1_3")
+        self.backer1_3.setGeometry(QRect(140, 440, 901, 31))
+        sizePolicy2.setHeightForWidth(self.backer1_3.sizePolicy().hasHeightForWidth())
+        self.backer1_3.setSizePolicy(sizePolicy2)
+        self.backer1_3.setMaximumSize(QSize(16777215, 1000))
+        self.backer1_3.setFont(font)
+        self.backer1_3.setStyleSheet(u"color: rgb(113, 126, 149);\n"
+"background-color: rgb(255, 0, 0);\n"
+"border-top-left-radius :14px;\n"
+"border-bottom-left-radius :14px;\n"
+"border-top-right-radius :14px;\n"
+"border-bottom-right-radius :14px;")
+        self.backer1_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.backer1_3.setWordWrap(True)
         self.stackedWidget.addWidget(self.home)
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
@@ -1286,7 +1299,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 353, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1494,10 +1507,11 @@ class Ui_MainWindow(object):
         self.filepathBox_2.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
 "border-bottom-left-radius :0px;\n"
 "border-bottom-right-radius :0px;\n"
-"border: none;")
+"border-color :rgb(51, 51, 56);\n"
+"border-bottom:none;")
         self.encryptButton_2 = QPushButton(self.filespace)
         self.encryptButton_2.setObjectName(u"encryptButton_2")
-        self.encryptButton_2.setGeometry(QRect(370, 260, 221, 30))
+        self.encryptButton_2.setGeometry(QRect(370, 280, 221, 30))
         self.encryptButton_2.setMinimumSize(QSize(150, 30))
         self.encryptButton_2.setFont(font)
         self.encryptButton_2.setCursor(QCursor(Qt.PointingHandCursor))
@@ -1505,13 +1519,14 @@ class Ui_MainWindow(object):
 "border-top-right-radius :0px;\n"
 "border-bottom-right-radius :0px;\n"
 "border-top-left-radius :14px;\n"
-"border-bottom-left-radius :14px;")
+"border-bottom-left-radius :14px;\n"
+"border-color :rgb(51, 51, 56);")
         icon8 = QIcon()
         icon8.addFile(u":/icons/images/icons/cil-lock-locked.png", QSize(), QIcon.Normal, QIcon.Off)
         self.encryptButton_2.setIcon(icon8)
         self.decryptButton_2 = QPushButton(self.filespace)
         self.decryptButton_2.setObjectName(u"decryptButton_2")
-        self.decryptButton_2.setGeometry(QRect(590, 260, 221, 30))
+        self.decryptButton_2.setGeometry(QRect(590, 280, 221, 30))
         self.decryptButton_2.setMinimumSize(QSize(150, 30))
         self.decryptButton_2.setFont(font)
         self.decryptButton_2.setCursor(QCursor(Qt.PointingHandCursor))
@@ -1519,24 +1534,25 @@ class Ui_MainWindow(object):
 "border-top-left-radius :0px;\n"
 "border-bottom-left-radius :0px;\n"
 "border-top-right-radius :14px;\n"
-"border-bottom-right-radius :14px;")
+"border-bottom-right-radius :14px;\n"
+"border-color :rgb(51, 51, 56);")
         icon9 = QIcon()
         icon9.addFile(u":/icons/images/icons/cil-lock-unlocked.png", QSize(), QIcon.Normal, QIcon.Off)
         self.decryptButton_2.setIcon(icon9)
         self.openFilepathButton_2 = QPushButton(self.filespace)
         self.openFilepathButton_2.setObjectName(u"openFilepathButton_2")
-        self.openFilepathButton_2.setGeometry(QRect(360, 220, 461, 30))
+        self.openFilepathButton_2.setGeometry(QRect(360, 220, 461, 41))
         self.openFilepathButton_2.setMinimumSize(QSize(150, 30))
         self.openFilepathButton_2.setFont(font)
         self.openFilepathButton_2.setCursor(QCursor(Qt.PointingHandCursor))
         self.openFilepathButton_2.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
 "border-top-left-radius :0px;\n"
 "border-top-right-radius :0px;\n"
-"border: none;")
+"border-color :rgb(51, 51, 56);")
         self.openFilepathButton_2.setIcon(icon6)
         self.selectFileToEncryptText = QLabel(self.filespace)
         self.selectFileToEncryptText.setObjectName(u"selectFileToEncryptText")
-        self.selectFileToEncryptText.setGeometry(QRect(360, 160, 411, 21))
+        self.selectFileToEncryptText.setGeometry(QRect(290, 150, 601, 21))
         sizePolicy2.setHeightForWidth(self.selectFileToEncryptText.sizePolicy().hasHeightForWidth())
         self.selectFileToEncryptText.setSizePolicy(sizePolicy2)
         self.selectFileToEncryptText.setMaximumSize(QSize(16777215, 45))
@@ -1544,14 +1560,14 @@ class Ui_MainWindow(object):
         self.selectFileToEncryptText.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.multiviewCheckbox_1 = QCheckBox(self.filespace)
         self.multiviewCheckbox_1.setObjectName(u"multiviewCheckbox_1")
-        self.multiviewCheckbox_1.setGeometry(QRect(960, 150, 131, 31))
+        self.multiviewCheckbox_1.setGeometry(QRect(960, 140, 131, 31))
         self.multiviewCheckbox_1.setAutoFillBackground(False)
         self.multiviewCheckbox_1.setStyleSheet(u"")
         self.multiviewCheckbox_1.setChecked(False)
         self.multiviewCheckbox_1.setTristate(False)
         self.currentDirectory_2 = QLabel(self.filespace)
         self.currentDirectory_2.setObjectName(u"currentDirectory_2")
-        self.currentDirectory_2.setGeometry(QRect(280, 110, 591, 41))
+        self.currentDirectory_2.setGeometry(QRect(290, 110, 581, 41))
         self.currentDirectory_2.setStyleSheet(u"color: rgb(220, 220, 220);")
         self.currentDirectory_2.setFrameShape(QFrame.NoFrame)
         self.currentDirectory_2.setLineWidth(1)
@@ -1564,7 +1580,7 @@ class Ui_MainWindow(object):
         self.fileBrowserTree_2.setFrameShape(QFrame.NoFrame)
         self.selectFileToEncryptText_2 = QLabel(self.filespace)
         self.selectFileToEncryptText_2.setObjectName(u"selectFileToEncryptText_2")
-        self.selectFileToEncryptText_2.setGeometry(QRect(910, 130, 231, 21))
+        self.selectFileToEncryptText_2.setGeometry(QRect(910, 120, 231, 21))
         sizePolicy2.setHeightForWidth(self.selectFileToEncryptText_2.sizePolicy().hasHeightForWidth())
         self.selectFileToEncryptText_2.setSizePolicy(sizePolicy2)
         self.selectFileToEncryptText_2.setMaximumSize(QSize(16777215, 45))
@@ -1624,7 +1640,7 @@ class Ui_MainWindow(object):
         self.openDirectory_2.setIcon(icon6)
         self.goToDefault_2 = QPushButton(self.filespace)
         self.goToDefault_2.setObjectName(u"goToDefault_2")
-        self.goToDefault_2.setGeometry(QRect(30, 450, 171, 30))
+        self.goToDefault_2.setGeometry(QRect(50, 450, 191, 30))
         self.goToDefault_2.setMinimumSize(QSize(150, 30))
         self.goToDefault_2.setFont(font)
         self.goToDefault_2.setCursor(QCursor(Qt.PointingHandCursor))
@@ -1632,13 +1648,14 @@ class Ui_MainWindow(object):
 "border-bottom-left-radius :14px;\n"
 "border-top-left-radius :14px;\n"
 "border-top-right-radius :14px;\n"
-"border-bottom-right-radius :14px;")
+"border-bottom-right-radius :14px;\n"
+"border-color :rgb(51, 51, 56);")
         icon10 = QIcon()
         icon10.addFile(u":/icons/images/icons/cil-house.png", QSize(), QIcon.Normal, QIcon.Off)
         self.goToDefault_2.setIcon(icon10)
         self.defaultLocation_2 = QPushButton(self.filespace)
         self.defaultLocation_2.setObjectName(u"defaultLocation_2")
-        self.defaultLocation_2.setGeometry(QRect(230, 450, 201, 30))
+        self.defaultLocation_2.setGeometry(QRect(260, 450, 191, 30))
         self.defaultLocation_2.setMinimumSize(QSize(150, 30))
         self.defaultLocation_2.setFont(font)
         self.defaultLocation_2.setCursor(QCursor(Qt.PointingHandCursor))
@@ -1646,7 +1663,8 @@ class Ui_MainWindow(object):
 "border-top-left-radius :14px;\n"
 "border-bottom-left-radius :14px;\n"
 "border-top-right-radius :14px;\n"
-"border-bottom-right-radius :14px;")
+"border-bottom-right-radius :14px;\n"
+"border-color :rgb(51, 51, 56);")
         icon11 = QIcon()
         icon11.addFile(u":/icons/images/icons/cil-star.png", QSize(), QIcon.Normal, QIcon.Off)
         self.defaultLocation_2.setIcon(icon11)
@@ -1691,7 +1709,7 @@ class Ui_MainWindow(object):
         self.announceBox = QLabel(self.filespace)
         self.announceBox.setObjectName(u"announceBox")
         self.announceBox.setGeometry(QRect(70, 540, 1031, 31))
-        self.announceBox.setStyleSheet(u"background-color: rgb(206, 55, 8);border-top-left-radius :10px;border-top-right-radius :10px;border-bottom-left-radius :10px;border-bottom-right-radius :10px;")
+        self.announceBox.setStyleSheet(u"background-color: rgb(206, 55, 8);border-top-left-radius :15px;border-top-right-radius :15px;border-bottom-left-radius :15px;border-bottom-right-radius :15px;")
         self.announceBox.setFrameShape(QFrame.Panel)
         self.announceBox.setFrameShadow(QFrame.Raised)
         self.announceBox.setLineWidth(0)
@@ -1725,7 +1743,7 @@ class Ui_MainWindow(object):
         self.border2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.encryptButton_3 = QPushButton(self.filespace)
         self.encryptButton_3.setObjectName(u"encryptButton_3")
-        self.encryptButton_3.setGeometry(QRect(460, 450, 201, 30))
+        self.encryptButton_3.setGeometry(QRect(470, 450, 191, 30))
         self.encryptButton_3.setMinimumSize(QSize(150, 30))
         self.encryptButton_3.setFont(font)
         self.encryptButton_3.setCursor(QCursor(Qt.PointingHandCursor))
@@ -1733,11 +1751,12 @@ class Ui_MainWindow(object):
 "border-bottom-left-radius :14px;\n"
 "border-top-left-radius :14px;\n"
 "border-top-right-radius :14px;\n"
-"border-bottom-right-radius :14px;")
+"border-bottom-right-radius :14px;\n"
+"border-color :rgb(51, 51, 56);")
         self.encryptButton_3.setIcon(icon8)
         self.decryptButton_3 = QPushButton(self.filespace)
         self.decryptButton_3.setObjectName(u"decryptButton_3")
-        self.decryptButton_3.setGeometry(QRect(690, 450, 201, 30))
+        self.decryptButton_3.setGeometry(QRect(680, 450, 191, 30))
         self.decryptButton_3.setMinimumSize(QSize(150, 30))
         self.decryptButton_3.setFont(font)
         self.decryptButton_3.setCursor(QCursor(Qt.PointingHandCursor))
@@ -1745,7 +1764,8 @@ class Ui_MainWindow(object):
 "border-bottom-left-radius :14px;\n"
 "border-top-left-radius :14px;\n"
 "border-top-right-radius :14px;\n"
-"border-bottom-right-radius :14px;")
+"border-bottom-right-radius :14px;\n"
+"border-color :rgb(51, 51, 56);")
         self.decryptButton_3.setIcon(icon9)
         self.closePopup = QPushButton(self.filespace)
         self.closePopup.setObjectName(u"closePopup")
@@ -1771,7 +1791,7 @@ class Ui_MainWindow(object):
         self.border1_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.border1_3 = QLabel(self.filespace)
         self.border1_3.setObjectName(u"border1_3")
-        self.border1_3.setGeometry(QRect(270, 110, 1, 41))
+        self.border1_3.setGeometry(QRect(280, 110, 1, 41))
         sizePolicy2.setHeightForWidth(self.border1_3.sizePolicy().hasHeightForWidth())
         self.border1_3.setSizePolicy(sizePolicy2)
         self.border1_3.setMinimumSize(QSize(0, 20))
@@ -1781,17 +1801,41 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.border1_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.backer1 = QLabel(self.filespace)
+        self.backer1.setObjectName(u"backer1")
+        self.backer1.setGeometry(QRect(290, 110, 601, 251))
+        sizePolicy2.setHeightForWidth(self.backer1.sizePolicy().hasHeightForWidth())
+        self.backer1.setSizePolicy(sizePolicy2)
+        self.backer1.setMaximumSize(QSize(16777215, 1000))
+        self.backer1.setFont(font)
+        self.backer1.setStyleSheet(u"color: rgb(113, 126, 149);\n"
+"background-color: rgb(35, 35, 38);\n"
+"border-top-left-radius :14px;\n"
+"border-bottom-left-radius :14px;\n"
+"border-top-right-radius :14px;\n"
+"border-bottom-right-radius :14px;")
+        self.backer1.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.multiviewDetailsBox_2 = QLabel(self.filespace)
+        self.multiviewDetailsBox_2.setObjectName(u"multiviewDetailsBox_2")
+        self.multiviewDetailsBox_2.setGeometry(QRect(910, 110, 231, 71))
+        self.multiviewDetailsBox_2.setStyleSheet(u"color: rgb(113, 126, 149);\n"
+"background-color: rgb(35, 35, 38);\n"
+"border-top-left-radius :7px;\n"
+"border-top-right-radius :7px;\n"
+"border-bottom-left-radius :7px;\n"
+"border-bottom-right-radius :7px;")
+        self.multiviewDetailsBox_2.setFrameShape(QFrame.NoFrame)
+        self.multiviewDetailsBox_2.setLineWidth(1)
+        self.multiviewDetailsBox_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.stackedWidget.addWidget(self.filespace)
+        self.backer1.raise_()
+        self.multiviewDetailsBox_2.raise_()
         self.fileBrowserTree_2.raise_()
         self.border2.raise_()
         self.border1.raise_()
         self.currentDirectoryText.raise_()
         self.currentDirectory_2.raise_()
         self.multiviewDetailsBox.raise_()
-        self.decryptButton_2.raise_()
-        self.openFilepathButton_2.raise_()
-        self.selectFileToEncryptText.raise_()
-        self.filepathBox_2.raise_()
         self.filespaceTitle.raise_()
         self.multiviewCheckbox_1.raise_()
         self.selectFileToEncryptText_2.raise_()
@@ -1811,6 +1855,10 @@ class Ui_MainWindow(object):
         self.border1_2.raise_()
         self.border1_3.raise_()
         self.encryptButton_2.raise_()
+        self.filepathBox_2.raise_()
+        self.decryptButton_2.raise_()
+        self.openFilepathButton_2.raise_()
+        self.selectFileToEncryptText.raise_()
         self.Security = QWidget()
         self.Security.setObjectName(u"Security")
         self.dashboardTitle_10 = QLabel(self.Security)
@@ -2039,16 +2087,13 @@ class Ui_MainWindow(object):
         self.closeAppBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
-        self.dashboardTitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Welcome to your EasyRSA Dashboard</p></body></html>", None))
-#if QT_CONFIG(whatsthis)
-        self.warningMessage.setWhatsThis("")
-#endif // QT_CONFIG(whatsthis)
-        self.warningMessage.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" color:#ff0000;\">DANGER: Your private key is not to be shared. Doing so will allow </span><span style=\" font-weight:600; text-decoration: underline; color:#ff0000;\">anybody</span><span style=\" color:#ff0000;\"> to decrypt your data. Use this feature is at your own risk.</span></p></body></html>", None))
+        self.dashboardTitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Welcome to your EasyRSA Dashboard</span></p></body></html>", None))
         self.privateKeyCheckbox.setText(QCoreApplication.translate("MainWindow", u"Show Private Key", None))
         self.copyPrivateKeyButton.setText(QCoreApplication.translate("MainWindow", u"Copy Private Key", None))
-        self.dashboardTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Your Public Key</span></p></body></html>", None))
-        self.dashboardTitle_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Your Private Key</span></p></body></html>", None))
+        self.dashboardTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600;\">Your Public Key</span></p></body></html>", None))
+        self.dashboardTitle_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600;\">Your Private Key</span></p></body></html>", None))
         self.copyPublicKeyButton.setText(QCoreApplication.translate("MainWindow", u"Copy Public Key", None))
+        self.backer1_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#181818;\">DANGER:</span><span style=\" color:#181818;\"> Your private key is not to be shared. Doing so will allow anybody to decrypt your data. Use this feature is at your own risk.</span></p></body></html>", None))
         self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Open", None))
         self.labelVersion_3.setText(QCoreApplication.translate("MainWindow", u"Label description", None))
@@ -2115,18 +2160,18 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Line", None));
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
-        self.filespaceTitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">EasyRSA Filespace</p></body></html>", None))
+        self.filespaceTitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">EasyRSA Filespace</span></p></body></html>", None))
         self.filepathBox_2.setText("")
         self.filepathBox_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
-        self.encryptButton_2.setText(QCoreApplication.translate("MainWindow", u"Encrypt", None))
-        self.decryptButton_2.setText(QCoreApplication.translate("MainWindow", u"Decrypt", None))
-        self.openFilepathButton_2.setText(QCoreApplication.translate("MainWindow", u"Select File", None))
-        self.selectFileToEncryptText.setText(QCoreApplication.translate("MainWindow", u"Select file to encrypt:", None))
+        self.encryptButton_2.setText(QCoreApplication.translate("MainWindow", u"Encrypt File", None))
+        self.decryptButton_2.setText(QCoreApplication.translate("MainWindow", u"Decrypt File", None))
+        self.openFilepathButton_2.setText(QCoreApplication.translate("MainWindow", u"Browse Files", None))
+        self.selectFileToEncryptText.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#005ed9;\">Select file to encrypt</span></p></body></html>", None))
         self.multiviewCheckbox_1.setText(QCoreApplication.translate("MainWindow", u" Enable Multiview", None))
         self.currentDirectory_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>aaaaa</p></body></html>", None))
-        self.selectFileToEncryptText_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Want a more advanced view?</p></body></html>", None))
-        self.parentDriveTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Drive Usage</p></body></html>", None))
-        self.driveInfoTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Drive Information</p></body></html>", None))
+        self.selectFileToEncryptText_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#005ed9;\">Want a more advanced view?</span></p></body></html>", None))
+        self.parentDriveTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#005ed9;\">Drive Usage</span></p></body></html>", None))
+        self.driveInfoTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#005ed9;\">Drive Information</span></p></body></html>", None))
         self.driveInfo_2.setText("")
         self.parentDrive_2.setText(QCoreApplication.translate("MainWindow", u"Parent Drive:", None))
         self.openDirectory_2.setText(QCoreApplication.translate("MainWindow", u" Open Directory", None))
@@ -2143,6 +2188,8 @@ class Ui_MainWindow(object):
         self.closePopup.setText("")
         self.border1_2.setText("")
         self.border1_3.setText("")
+        self.backer1.setText("")
+        self.multiviewDetailsBox_2.setText("")
         self.dashboardTitle_10.setText(QCoreApplication.translate("MainWindow", u"Security Centre", None))
         self.dashboardTitle_11.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt;\">Danger Zone</span></p></body></html>", None))
         self.dangerBorder.setText("")
