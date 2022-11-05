@@ -1,9 +1,15 @@
 <RCC>
   <qresource prefix="images">
+    <file>../images/images/boo.png</file>
+    <file>../images/images/bats.png</file>
+    <file>../images/images/happyhalloween.png</file>
+    <file>../images/images/pumpkin.png</file>
+    <file>../images/images/witch.png</file>
     <file>../images/images/RSA30x30.png</file>
     <file>../images/images/RSA.png</file>
   </qresource>
   <qresource prefix="icons">
+    <file>images/icons/cil_error.png</file>
     <file>images/icons/cil-3d.png</file>
     <file>images/icons/cil-4k.png</file>
     <file>images/icons/cil-account-logout.png</file>

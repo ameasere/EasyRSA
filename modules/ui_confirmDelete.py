@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'confirmDelete.ui'
+## Form generated from reading UI file 'newConfirmDelete.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.0
 ##
@@ -37,12 +37,7 @@ class Ui_ConfirmDeleteWindow(object):
         font.setBold(False)
         font.setItalic(False)
         self.styleSheet.setFont(font)
-        self.styleSheet.setStyleSheet(u"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-"\n"
-"SET APP STYLESHEET - FULL STYLES HERE\n"
-"DARK THEME - DRACULA COLOR BASED\n"
-"\n"
-"///////////////////////////////////////////////////////////////////////////////////////////////// */\n"
+        self.styleSheet.setStyleSheet(u"/* Halloween Stylesheet */\n"
 "\n"
 "QWidget{\n"
 "	color: rgb(221, 221, 221);\n"
@@ -53,13 +48,13 @@ class Ui_ConfirmDeleteWindow(object):
 "Tooltip */\n"
 "QToolTip {\n"
 "	color: #ffffff;\n"
-"	background-color: rgba(33, 37, 43, 180);\n"
-"	border: 1px solid rgb(44, 49, 58);\n"
+"	background-color: rgba(35,35,38, 180);\n"
+"	border: 1px solid rgb(35,35,38);\n"
 "	background-image: none;\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
-"	border-left: 2px solid rgb(255, 121, 198);\n"
+"	border-left: 2px solid rgb(0,94,217);\n"
 "	text-align: left;\n"
 "	padding-left: 8px;\n"
 "	margin: 0px;\n"
@@ -67,15 +62,28 @@ class Ui_ConfirmDeleteWindow(object):
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Bg App */\n"
-"#bgApp {	\n"
-"	background"
-                        "-color: rgb(40, 44, 52);\n"
-"	border: 1px solid rgb(44, 49, 58);\n"
+"#bgApp {\n"
+"	background-color: rgb(11,11,11);\n"
+"	border: 1px solid rgb(35,35,38);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"Left Menu */\n"
+"#leftMenuBg {\n"
+"	background-color: rgb(35,35,38);\n"
+"}\n"
+"#topLogo {\n"
+"	ba"
+                        "ckground-color: rgb(35,35,38);\n"
+"	background-image: url(:/images/images/images/RSA30x30.png);\n"
+"	background-position: center;\n"
+"	background-repeat: no-repeat;\n"
+"}\n"
+"#titleLeftApp { font: 63 12pt \"Segoe UI Semibold\"; }\n"
+"#titleLeftDescription { font: 8pt \"Segoe UI\"; color: rgb(32, 124, 245); }\n"
+"\n"
 "/* MENUS */\n"
-"#topMenu .QPushButton {	\n"
+"#topMenu .QPushButton {\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
@@ -85,31 +93,31 @@ class Ui_ConfirmDeleteWindow(object):
 "	padding-left: 44px;\n"
 "}\n"
 "#topMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(11,11,11);\n"
 "}\n"
-"#topMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
+"#topMenu .QPushButton:pressed {\n"
+"	background-color: rgb(32, 124, 245);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
-"#bottomMenu .QPushButton {	\n"
+"#bottomMenu .QPushButton {\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
 "	border-left: 20px solid transparent;\n"
 "	background-color:transparent;\n"
 "	text-align: left;\n"
-"	padding-left: 44px;\n"
+"	padding-left"
+                        ": 44px;\n"
 "}\n"
 "#bottomMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(11,11,11);\n"
 "}\n"
-"#bottomMenu .QPushButton:pr"
-                        "essed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
+"#bottomMenu .QPushButton:pressed {\n"
+"	background-color: rgb(32, 124, 245);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "#leftMenuFrame{\n"
-"	border-top: 3px solid rgb(44, 49, 58);\n"
+"	border-top: 3px solid rgb(35,35,38);\n"
 "}\n"
 "\n"
 "/* Toggle Button */\n"
@@ -124,10 +132,10 @@ class Ui_ConfirmDeleteWindow(object):
 "	color: rgb(113, 126, 149);\n"
 "}\n"
 "#toggleButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(11,11,11);\n"
 "}\n"
 "#toggleButton:pressed {\n"
-"	background-color: rgb(189, 147, 249);\n"
+"	background-color: rgb(32, 124, 245);\n"
 "}\n"
 "\n"
 "/* Title Menu */\n"
@@ -135,6 +143,15 @@ class Ui_ConfirmDeleteWindow(object):
 "\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"Extra Tab */\n"
+"#extraLeftBox {\n"
+"	background-color: rgb(35,35,38);\n"
+"}\n"
+"#extraTopBg {\n"
+""
+                        "	background-color: rgb(32, 124, 245);\n"
+"}\n"
+"\n"
 "/* Icon */\n"
 "#extraIcon {\n"
 "	background-position: center;\n"
@@ -143,17 +160,16 @@ class Ui_ConfirmDeleteWindow(object):
 "}\n"
 "\n"
 "/* Label */\n"
-"#extraLabel { colo"
-                        "r: rgb(255, 255, 255); }\n"
+"#extraLabel { color: rgb(255, 255, 255); }\n"
 "\n"
 "/* Btn Close */\n"
 "#extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
-"#extraCloseColumnBtn:hover { background-color: rgb(196, 161, 249); border-style: solid; border-radius: 4px; }\n"
-"#extraCloseColumnBtn:pressed { background-color: rgb(180, 141, 238); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:hover { background-color: rgb(87, 156, 247); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:pressed { background-color: rgb(46, 130, 240); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Extra Content */\n"
 "#extraContent{\n"
-"	border-top: 3px solid rgb(40, 44, 52);\n"
+"	border-top: 3px solid rgb(11,11,11);\n"
 "}\n"
 "\n"
 "/* Extra Top Menus */\n"
@@ -164,24 +180,24 @@ class Ui_ConfirmDeleteWindow(object):
 "	border-left: 22px solid transparent;\n"
 "	background-color:transparent;\n"
 "	text-align: left;\n"
-"	padding-left: 44px;\n"
+"	padding-left: "
+                        "44px;\n"
 "}\n"
 "#extraTopMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(11,11,11);\n"
 "}\n"
-"#extraTopMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
+"#extraTopMenu .QPushButton:pressed {\n"
+"	background-color: rgb(32, 124, 245);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
-"/* ///////////////////////////////"
-                        "//////////////////////////////////////////////////////////////////\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Content App */\n"
-"#contentTopBg{	\n"
-"	background-color: rgb(33, 37, 43);\n"
+"#contentTopBg{\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
 "#contentBottom{\n"
-"	border-top: 3px solid rgb(44, 49, 58);\n"
+"	border-top: 3px solid rgb(35,35,38);\n"
 "}\n"
 "\n"
 "/* Top Buttons */\n"
@@ -190,17 +206,17 @@ class Ui_ConfirmDeleteWindow(object):
 "#rightButtons .QPushButton:pressed { background-color: rgb(23, 26, 30); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Theme Settings */\n"
-"#extraRightBox { background-color: rgb(44, 49, 58); }\n"
-"#themeSettingsTopDetail { background-color: rgb(189, 147, 249); }\n"
+"#extraRightBox { background-color: rgb(35,35,38); }\n"
+"#themeSettingsTopDetail { background-color: rgb(32, 124, 245); }\n"
 "\n"
-"/* Bottom Bar */\n"
-"#bottomBar { background-color: rgb(44, 49, 58); }\n"
+"/* Bottom "
+                        "Bar */\n"
+"#bottomBar { background-color: rgb(35,35,38); }\n"
 "#bottomBar QLabel { font-size: 11px; color: rgb(113, 126, 149); padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }\n"
 "\n"
 "/* CONTENT SETTINGS */\n"
 "/* MENUS */\n"
-"#conte"
-                        "ntSettings .QPushButton {	\n"
+"#contentSettings .QPushButton {\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
@@ -210,22 +226,23 @@ class Ui_ConfirmDeleteWindow(object):
 "	padding-left: 44px;\n"
 "}\n"
 "#contentSettings .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(11,11,11);\n"
 "}\n"
-"#contentSettings .QPushButton:pressed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
+"#contentSettings .QPushButton:pressed {\n"
+"	background-color: rgb(32, 124, 245);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "QTableWidget */\n"
-"QTableWidget {	\n"
+"QTableWidget {\n"
 "	background-color: transparent;\n"
 "	padding: 10px;\n"
 "	border-radius: 5px;\n"
-"	gridline-color: rgb(44, 49, 58);\n"
+"	gridline-color: rgb(35,35,38);\n"
 "	border-bottom: 1px solid rgb(44, 49, 60);\n"
-"}\n"
+""
+                        "}\n"
 "QTableWidget::item{\n"
 "	border-color: rgb(44, 49, 60);\n"
 "	padding-left: 5px;\n"
@@ -233,24 +250,23 @@ class Ui_ConfirmDeleteWindow(object):
 "	gridline-color: rgb(44, 49, 60);\n"
 "}\n"
 "QTableWidget::item:selected{\n"
-"	background-color: rgb(189, 147, 249);\n"
+"	background-color: rgb(32, 124, 245);\n"
 "}\n"
-""
-                        "QHeaderView::section{\n"
-"	background-color: rgb(33, 37, 43);\n"
+"QHeaderView::section{\n"
+"	background-color: rgb(35,35,38);\n"
 "	max-width: 30px;\n"
-"	border: 1px solid rgb(44, 49, 58);\n"
+"	border: 1px solid rgb(35,35,38);\n"
 "	border-style: none;\n"
 "    border-bottom: 1px solid rgb(44, 49, 60);\n"
 "    border-right: 1px solid rgb(44, 49, 60);\n"
 "}\n"
-"QTableWidget::horizontalHeader {	\n"
-"	background-color: rgb(33, 37, 43);\n"
+"QTableWidget::horizontalHeader {\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
 "QHeaderView::section:horizontal\n"
 "{\n"
-"    border: 1px solid rgb(33, 37, 43);\n"
-"	background-color: rgb(33, 37, 43);\n"
+"    border: 1px solid rgb(35,35,38);\n"
+"	background-color: rgb(35,35,38);\n"
 "	padding: 3px;\n"
 "	border-top-left-radius: 7px;\n"
 "    border-top-right-radius: 7px;\n"
@@ -263,15 +279,15 @@ class Ui_ConfirmDeleteWindow(object):
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "LineEdit */\n"
 "QLineEdit {\n"
-"	background-color: rgb(33, 37, 43);\n"
+"	"
+                        "background-color: rgb(35,35,38);\n"
 "	border-radius: 5px;\n"
-"	border: 2px solid rgb(33, 37, 43);\n"
+"	border: 2px solid rgb(35,35,38);\n"
 "	padding-left: 10px;\n"
 "	selection-color: rgb(255, 255, 255);\n"
-"	selection-background-color: rgb(255, 121, 198);\n"
+"	selection-background-color: rgb(0,94,217);\n"
 "}\n"
-""
-                        "QLineEdit:hover {\n"
+"QLineEdit:hover {\n"
 "	border: 2px solid rgb(64, 71, 88);\n"
 "}\n"
 "QLineEdit:focus {\n"
@@ -285,7 +301,7 @@ class Ui_ConfirmDeleteWindow(object):
 "	border-radius: 5px;\n"
 "	padding: 10px;\n"
 "	selection-color: rgb(255, 255, 255);\n"
-"	selection-background-color: rgb(255, 121, 198);\n"
+"	selection-background-color: rgb(0,94,217);\n"
 "}\n"
 "QPlainTextEdit  QScrollBar:vertical {\n"
 "    width: 8px;\n"
@@ -300,20 +316,20 @@ class Ui_ConfirmDeleteWindow(object):
 "	border: 2px solid rgb(91, 101, 124);\n"
 "}\n"
 "\n"
-"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"/* ////////////////////////////////////"
+                        "/////////////////////////////////////////////////////////////\n"
 "ScrollBars */\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
 "    background: rgb(52, 59, 72);\n"
 "    height: 8px;\n"
-"    margin: 0px 21px 0 2"
-                        "1px;\n"
+"    margin: 0px 21px 0 21px;\n"
 "	border-radius: 0px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
-"    background: rgb(189, 147, 249);\n"
+"    background: rgb(32, 124, 245);\n"
 "    min-width: 25px;\n"
-"	border-radius: 4px\n"
+"	border-radius: 4px;\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
@@ -335,7 +351,8 @@ class Ui_ConfirmDeleteWindow(object):
 "}\n"
 "QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal\n"
 "{\n"
-"     background: none;\n"
+"     background: none;"
+                        "\n"
 "}\n"
 "QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal\n"
 "{\n"
@@ -344,15 +361,14 @@ class Ui_ConfirmDeleteWindow(object):
 " QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
-"    width: 8px"
-                        ";\n"
+"    width: 8px;\n"
 "    margin: 21px 0 21px 0;\n"
 "	border-radius: 0px;\n"
 " }\n"
-" QScrollBar::handle:vertical {	\n"
-"	background: rgb(189, 147, 249);\n"
+" QScrollBar::handle:vertical {\n"
+"	background: rgb(32, 124, 245);\n"
 "    min-height: 25px;\n"
-"	border-radius: 4px\n"
+"	border-radius: 4px;\n"
 " }\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
@@ -373,15 +389,15 @@ class Ui_ConfirmDeleteWindow(object):
 "     subcontrol-origin: margin;\n"
 " }\n"
 " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"     background: none;\n"
+""
+                        "     background: none;\n"
 " }\n"
 "\n"
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
 "     background: none;\n"
 " }\n"
 "\n"
-"/* //////////////////////////////////////////////////////////////"
-                        "///////////////////////////////////\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "CheckBox */\n"
 "QCheckBox::indicator {\n"
 "    border: 3px solid rgb(52, 59, 72);\n"
@@ -395,7 +411,7 @@ class Ui_ConfirmDeleteWindow(object):
 "}\n"
 "QCheckBox::indicator:checked {\n"
 "    background: 3px solid rgb(52, 59, 72);\n"
-"	border: 3px solid rgb(52, 59, 72);	\n"
+"	border: 3px solid rgb(52, 59, 72);\n"
 "	background-image: url(:/icons/images/icons/cil-check-alt.png);\n"
 "}\n"
 "\n"
@@ -408,13 +424,13 @@ class Ui_ConfirmDeleteWindow(object):
 "	border-radius: 10px;\n"
 "    background: rgb(44, 49, 60);\n"
 "}\n"
-"QRadioButton::indicator:hover {\n"
+""
+                        "QRadioButton::indicator:hover {\n"
 "    border: 3px solid rgb(58, 66, 81);\n"
 "}\n"
 "QRadioButton::indicator:checked {\n"
 "    background: 3px solid rgb(94, 106, 130);\n"
-"	border: 3px solid rgb(52, 59, 72)"
-                        ";	\n"
+"	border: 3px solid rgb(52, 59, 72);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
@@ -422,7 +438,7 @@ class Ui_ConfirmDeleteWindow(object):
 "QComboBox{\n"
 "	background-color: rgb(27, 29, 35);\n"
 "	border-radius: 5px;\n"
-"	border: 2px solid rgb(33, 37, 43);\n"
+"	border: 2px solid rgb(35,35,38);\n"
 "	padding: 5px;\n"
 "	padding-left: 10px;\n"
 "}\n"
@@ -432,25 +448,25 @@ class Ui_ConfirmDeleteWindow(object):
 "QComboBox::drop-down {\n"
 "	subcontrol-origin: padding;\n"
 "	subcontrol-position: top right;\n"
-"	width: 25px; \n"
+"	width: 25px;\n"
 "	border-left-width: 3px;\n"
 "	border-left-color: rgba(39, 44, 54, 150);\n"
 "	border-left-style: solid;\n"
 "	border-top-right-radius: 3px;\n"
-"	border-bottom-right-radius: 3px;	\n"
+"	border-bottom-right-radius: 3px;\n"
 "	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);\n"
 "	background-position: center;\n"
-"	background-repeat: no-reperat;\n"
+"	background-repeat: no-repeat;\n"
 " }\n"
-"QComboBox QAbstractItemView {\n"
-"	color: rgb(255, 121, 198);	\n"
-"	background-color: rgb(33, 37, 43);\n"
+"QCom"
+                        "boBox QAbstractItemView {\n"
+"	color: rgb(0,94,217);\n"
+"	background-color: rgb(35,35,38);\n"
 "	padding: 10px;\n"
 "	selection-background-color: rgb(39, 44, 54);\n"
 "}\n"
 "\n"
-"/* /////////////"
-                        "////////////////////////////////////////////////////////////////////////////////////\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Sliders */\n"
 "QSlider::groove:horizontal {\n"
 "    border-radius: 5px;\n"
@@ -462,7 +478,7 @@ class Ui_ConfirmDeleteWindow(object):
 "	background-color: rgb(55, 62, 76);\n"
 "}\n"
 "QSlider::handle:horizontal {\n"
-"    background-color: rgb(189, 147, 249);\n"
+"    background-color: rgb(32, 124, 245);\n"
 "    border: none;\n"
 "    height: 10px;\n"
 "    width: 10px;\n"
@@ -470,78 +486,76 @@ class Ui_ConfirmDeleteWindow(object):
 "	border-radius: 5px;\n"
 "}\n"
 "QSlider::handle:horizontal:hover {\n"
-"    background-color: rgb(195, 155, 255);\n"
+"    background-color: rgb(255, 212, 155);\n"
 "}\n"
 "QSlider::handle:horizontal:pressed {\n"
-"    background-color: rgb(255, 121, 198);\n"
+"    background-color: rgb(0,94,217);\n"
 "}\n"
 "\n"
 "QSlider::groove:vertical {\n"
 "    border-radius: 5px;\n"
 "    width: 10px;\n"
 "    margin: 0px;\n"
-"	background-color: rgb(52, 59, 72);\n"
+"	background-color"
+                        ": rgb(52, 59, 72);\n"
 "}\n"
 "QSlider::groove:vertical:hover {\n"
 "	background-color: rgb(55, 62, 76);\n"
 "}\n"
 "QSlider::handle:vertical {\n"
-"    background-color: rgb(189, 147, 249);\n"
-""
-                        "	border: none;\n"
+"    background-color: rgb(32, 124, 245);\n"
+"	border: none;\n"
 "    height: 10px;\n"
 "    width: 10px;\n"
 "    margin: 0px;\n"
 "	border-radius: 5px;\n"
 "}\n"
 "QSlider::handle:vertical:hover {\n"
-"    background-color: rgb(195, 155, 255);\n"
+"    background-color: rgb(255, 212, 155);\n"
 "}\n"
 "QSlider::handle:vertical:pressed {\n"
-"    background-color: rgb(255, 121, 198);\n"
+"    background-color: rgb(0,94,217);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "CommandLinkButton */\n"
-"QCommandLinkButton {	\n"
-"	color: rgb(255, 121, 198);\n"
+"QCommandLinkButton {\n"
+"	color: rgb(0,94,217);\n"
 "	border-radius: 5px;\n"
 "	padding: 5px;\n"
-"	color: rgb(255, 170, 255);\n"
 "}\n"
-"QCommandLinkButton:hover {	\n"
+"QCommandLinkButton:hover {\n"
 "	color: rgb(255, 170, 255);\n"
 "	background-color: rgb(44, 49, 60);\n"
 "}\n"
-"QCommandLinkButton:pressed {	\n"
-"	color: rgb(189, 147, 249);\n"
+"QCommandLinkButton:pressed {\n"
+"	color: rgb(32, 124, 245);\n"
 "	background-color: rgb(52, 58, 71);\n"
 "}\n"
 "\n"
-"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"/* ////////////////////////////////////////////////////////////////////////////////////"
+                        "/////////////\n"
 "Button */\n"
 "#pagesContainer QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
-"	border-radius: 5px;	\n"
-"	backgroun"
-                        "d-color: rgb(52, 59, 72);\n"
+"	border-radius: 5px;\n"
+"	background-color: rgb(52, 59, 72);\n"
 "}\n"
 "#pagesContainer QPushButton:hover {\n"
 "	background-color: rgb(57, 65, 80);\n"
 "	border: 2px solid rgb(61, 70, 86);\n"
 "}\n"
-"#pagesContainer QPushButton:pressed {	\n"
+"#pagesContainer QPushButton:pressed {\n"
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
-"}\n"
-"\n"
-"")
+"}")
         self.appMargins = QVBoxLayout(self.styleSheet)
         self.appMargins.setSpacing(0)
         self.appMargins.setObjectName(u"appMargins")
         self.appMargins.setContentsMargins(10, 10, 10, 10)
         self.bgApp = QFrame(self.styleSheet)
         self.bgApp.setObjectName(u"bgApp")
+        self.bgApp.setMaximumSize(QSize(16777215, 250))
         self.bgApp.setStyleSheet(u"")
         self.bgApp.setFrameShape(QFrame.NoFrame)
         self.bgApp.setFrameShadow(QFrame.Raised)
@@ -549,38 +563,6 @@ class Ui_ConfirmDeleteWindow(object):
         self.appLayout.setSpacing(0)
         self.appLayout.setObjectName(u"appLayout")
         self.appLayout.setContentsMargins(0, 0, 0, 0)
-        self.leftMenuBg = QFrame(self.bgApp)
-        self.leftMenuBg.setObjectName(u"leftMenuBg")
-        self.leftMenuBg.setMinimumSize(QSize(60, 0))
-        self.leftMenuBg.setMaximumSize(QSize(60, 16777215))
-        self.leftMenuBg.setFrameShape(QFrame.NoFrame)
-        self.leftMenuBg.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_3 = QVBoxLayout(self.leftMenuBg)
-        self.verticalLayout_3.setSpacing(0)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.topLogoInfo = QFrame(self.leftMenuBg)
-        self.topLogoInfo.setObjectName(u"topLogoInfo")
-        self.topLogoInfo.setMinimumSize(QSize(0, 50))
-        self.topLogoInfo.setMaximumSize(QSize(16777215, 50))
-        self.topLogoInfo.setFrameShape(QFrame.NoFrame)
-        self.topLogoInfo.setFrameShadow(QFrame.Raised)
-        self.topLogo = QFrame(self.topLogoInfo)
-        self.topLogo.setObjectName(u"topLogo")
-        self.topLogo.setGeometry(QRect(10, 10, 42, 42))
-        self.topLogo.setMinimumSize(QSize(42, 42))
-        self.topLogo.setMaximumSize(QSize(42, 42))
-        self.topLogo.setStyleSheet(u"background-image: url(:/images/images/images/RSA30x30.png);\n"
-"background-position: center;\n"
-"background-repeat: no-repeat;")
-        self.topLogo.setFrameShape(QFrame.NoFrame)
-        self.topLogo.setFrameShadow(QFrame.Raised)
-
-        self.verticalLayout_3.addWidget(self.topLogoInfo)
-
-
-        self.appLayout.addWidget(self.leftMenuBg)
-
         self.contentBox = QFrame(self.bgApp)
         self.contentBox.setObjectName(u"contentBox")
         self.contentBox.setFrameShape(QFrame.NoFrame)
@@ -612,6 +594,18 @@ class Ui_ConfirmDeleteWindow(object):
         self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.topLogo = QFrame(self.leftBox)
+        self.topLogo.setObjectName(u"topLogo")
+        self.topLogo.setMinimumSize(QSize(42, 42))
+        self.topLogo.setMaximumSize(QSize(42, 42))
+        self.topLogo.setStyleSheet(u"background-image: url(:/images/images/images/RSA30x30.png);\n"
+"background-position: center;\n"
+"background-repeat: no-repeat;")
+        self.topLogo.setFrameShape(QFrame.NoFrame)
+        self.topLogo.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_3.addWidget(self.topLogo)
+
         self.titleRightInfo = QLabel(self.leftBox)
         self.titleRightInfo.setObjectName(u"titleRightInfo")
         sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
@@ -717,55 +711,55 @@ class Ui_ConfirmDeleteWindow(object):
         self.home = QWidget()
         self.home.setObjectName(u"home")
         self.home.setStyleSheet(u"")
-        self.logintitle = QLabel(self.home)
-        self.logintitle.setObjectName(u"logintitle")
-        self.logintitle.setGeometry(QRect(0, 0, 391, 41))
-        self.logintitle.setStyleSheet(u"font: 14pt \"Segoe UI\"; color: rgb(189, 147, 249); ")
-        self.logintitle.setLineWidth(1)
-        self.logintitle.setAlignment(Qt.AlignCenter)
-        self.usertitle = QLabel(self.home)
-        self.usertitle.setObjectName(u"usertitle")
-        self.usertitle.setGeometry(QRect(0, 50, 391, 45))
-        sizePolicy1.setHeightForWidth(self.usertitle.sizePolicy().hasHeightForWidth())
-        self.usertitle.setSizePolicy(sizePolicy1)
-        self.usertitle.setMaximumSize(QSize(16777215, 45))
-        font2 = QFont()
-        font2.setFamilies([u"Segoe UI"])
-        font2.setPointSize(14)
-        font2.setBold(False)
-        font2.setItalic(False)
-        self.usertitle.setFont(font2)
-        self.usertitle.setStyleSheet(u"font: 14pt \"Segoe UI\";")
-        self.usertitle.setAlignment(Qt.AlignCenter)
-        self.yesButton = QPushButton(self.home)
-        self.yesButton.setObjectName(u"yesButton")
-        self.yesButton.setGeometry(QRect(10, 160, 150, 30))
-        self.yesButton.setMinimumSize(QSize(150, 30))
-        self.yesButton.setFont(font)
-        self.yesButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.yesButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         self.responsetitle = QLabel(self.home)
         self.responsetitle.setObjectName(u"responsetitle")
         self.responsetitle.setGeometry(QRect(290, 220, 211, 41))
         self.responsetitle.setStyleSheet(u"font: 8pt \"Segoe UI\"; color: rgb(189, 147, 249); ")
         self.responsetitle.setLineWidth(1)
         self.responsetitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.noButton = QPushButton(self.home)
-        self.noButton.setObjectName(u"noButton")
-        self.noButton.setGeometry(QRect(220, 160, 150, 30))
-        self.noButton.setMinimumSize(QSize(150, 30))
-        self.noButton.setFont(font)
-        self.noButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.noButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         self.usertitle_2 = QLabel(self.home)
         self.usertitle_2.setObjectName(u"usertitle_2")
         self.usertitle_2.setGeometry(QRect(0, 250, 351, 21))
         sizePolicy1.setHeightForWidth(self.usertitle_2.sizePolicy().hasHeightForWidth())
         self.usertitle_2.setSizePolicy(sizePolicy1)
         self.usertitle_2.setMaximumSize(QSize(16777215, 45))
+        font2 = QFont()
+        font2.setFamilies([u"Segoe UI"])
+        font2.setPointSize(14)
+        font2.setBold(False)
+        font2.setItalic(False)
         self.usertitle_2.setFont(font2)
         self.usertitle_2.setStyleSheet(u"font: 14pt \"Segoe UI\";")
         self.usertitle_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.yesButton = QPushButton(self.home)
+        self.yesButton.setObjectName(u"yesButton")
+        self.yesButton.setGeometry(QRect(60, 100, 150, 30))
+        self.yesButton.setMinimumSize(QSize(150, 30))
+        self.yesButton.setFont(font)
+        self.yesButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.yesButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.noButton = QPushButton(self.home)
+        self.noButton.setObjectName(u"noButton")
+        self.noButton.setGeometry(QRect(240, 100, 150, 30))
+        self.noButton.setMinimumSize(QSize(150, 30))
+        self.noButton.setFont(font)
+        self.noButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.noButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.logintitle = QLabel(self.home)
+        self.logintitle.setObjectName(u"logintitle")
+        self.logintitle.setGeometry(QRect(0, 10, 451, 41))
+        self.logintitle.setStyleSheet(u"font: 14pt \"Segoe UI\"; color: rgb(0,94,217);")
+        self.logintitle.setLineWidth(1)
+        self.logintitle.setAlignment(Qt.AlignCenter)
+        self.usertitle = QLabel(self.home)
+        self.usertitle.setObjectName(u"usertitle")
+        self.usertitle.setGeometry(QRect(0, 40, 461, 45))
+        sizePolicy1.setHeightForWidth(self.usertitle.sizePolicy().hasHeightForWidth())
+        self.usertitle.setSizePolicy(sizePolicy1)
+        self.usertitle.setMaximumSize(QSize(16777215, 45))
+        self.usertitle.setFont(font2)
+        self.usertitle.setStyleSheet(u"font: 14pt \"Segoe UI\";")
+        self.usertitle.setAlignment(Qt.AlignCenter)
         self.stackedWidget.addWidget(self.home)
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
@@ -856,7 +850,7 @@ class Ui_ConfirmDeleteWindow(object):
 
     def retranslateUi(self, ConfirmDeleteWindow):
         ConfirmDeleteWindow.setWindowTitle(QCoreApplication.translate("ConfirmDeleteWindow", u"EasyRSA", None))
-        self.titleRightInfo.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"EasyRSA", None))
+        self.titleRightInfo.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"EasyRSA - Confirm File Deletion", None))
 #if QT_CONFIG(tooltip)
         self.minimizeAppBtn.setToolTip(QCoreApplication.translate("ConfirmDeleteWindow", u"Minimize", None))
 #endif // QT_CONFIG(tooltip)
@@ -869,12 +863,12 @@ class Ui_ConfirmDeleteWindow(object):
         self.closeAppBtn.setToolTip(QCoreApplication.translate("ConfirmDeleteWindow", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
-        self.logintitle.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"Confirm Delete", None))
-        self.usertitle.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"Are you sure?", None))
-        self.yesButton.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"Yes", None))
         self.responsetitle.setText("")
-        self.noButton.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"No", None))
         self.usertitle_2.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"This action is irreversible.", None))
+        self.yesButton.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"Yes", None))
+        self.noButton.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"Cancel", None))
+        self.logintitle.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"Are you sure?", None))
+        self.usertitle.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">File deletion is </span><span style=\" font-size:12pt; color:#ff0000;\">irreversible</span><span style=\" font-size:12pt;\"> and this action cannot be undone.</span></p></body></html>", None))
         self.label.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"NEW PAGE TEST", None))
         self.creditsLabel.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"By: enigmapr0ject", None))
         self.version.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.4</p></body></html>", None))

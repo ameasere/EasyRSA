@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main.ui'
+## Form generated from reading UI file 'newMain.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.0
 ##
@@ -23,6 +23,7 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QSlider, QStackedWidget, QTableWidget, QTableWidgetItem,
     QTextEdit, QTreeView, QVBoxLayout, QWidget)
 from .resources_rc import *
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -40,12 +41,7 @@ class Ui_MainWindow(object):
         font.setBold(False)
         font.setItalic(False)
         self.styleSheet.setFont(font)
-        self.styleSheet.setStyleSheet(u"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
-"\n"
-"SET APP STYLESHEET - FULL STYLES HERE\n"
-"DARK THEME - DRACULA COLOR BASED\n"
-"\n"
-"///////////////////////////////////////////////////////////////////////////////////////////////// */\n"
+        self.styleSheet.setStyleSheet(u"/* Halloween Stylesheet */\n"
 "\n"
 "QWidget{\n"
 "	color: rgb(221, 221, 221);\n"
@@ -56,13 +52,13 @@ class Ui_MainWindow(object):
 "Tooltip */\n"
 "QToolTip {\n"
 "	color: #ffffff;\n"
-"	background-color: rgba(33, 37, 43, 180);\n"
-"	border: 1px solid rgb(44, 49, 58);\n"
+"	background-color: rgba(35,35,38, 180);\n"
+"	border: 1px solid rgb(35,35,38);\n"
 "	background-image: none;\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
-"	border-left: 2px solid rgb(255, 121, 198);\n"
+"	border-left: 2px solid rgb(0,94,217);\n"
 "	text-align: left;\n"
 "	padding-left: 8px;\n"
 "	margin: 0px;\n"
@@ -70,28 +66,28 @@ class Ui_MainWindow(object):
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Bg App */\n"
-"#bgApp {	\n"
-"	background"
-                        "-color: rgb(40, 44, 52);\n"
-"	border: 1px solid rgb(44, 49, 58);\n"
+"#bgApp {\n"
+"	background-color: rgb(11,11,11);\n"
+"	border: 1px solid rgb(35,35,38);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Left Menu */\n"
-"#leftMenuBg {	\n"
-"	background-color: rgb(33, 37, 43);\n"
+"#leftMenuBg {\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
 "#topLogo {\n"
-"	background-color: rgb(33, 37, 43);\n"
-"	background-image: url(:/images/images/images/PyDracula.png);\n"
-"	background-position: centered;\n"
+"	ba"
+                        "ckground-color: rgb(35,35,38);\n"
+"	background-image: url(:/images/images/images/RSA30x30.png);\n"
+"	background-position: center;\n"
 "	background-repeat: no-repeat;\n"
 "}\n"
 "#titleLeftApp { font: 63 12pt \"Segoe UI Semibold\"; }\n"
-"#titleLeftDescription { font: 8pt \"Segoe UI\"; color: rgb(189, 147, 249); }\n"
+"#titleLeftDescription { font: 8pt \"Segoe UI\"; color: rgb(32, 124, 245); }\n"
 "\n"
 "/* MENUS */\n"
-"#topMenu .QPushButton {	\n"
+"#topMenu .QPushButton {\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
@@ -101,31 +97,31 @@ class Ui_MainWindow(object):
 "	padding-left: 44px;\n"
 "}\n"
 "#topMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(11,11,11);\n"
 "}\n"
-"#topMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(18"
-                        "9, 147, 249);\n"
+"#topMenu .QPushButton:pressed {\n"
+"	background-color: rgb(32, 124, 245);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
-"#bottomMenu .QPushButton {	\n"
+"#bottomMenu .QPushButton {\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
 "	border-left: 20px solid transparent;\n"
 "	background-color:transparent;\n"
 "	text-align: left;\n"
-"	padding-left: 44px;\n"
+"	padding-left"
+                        ": 44px;\n"
 "}\n"
 "#bottomMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(11,11,11);\n"
 "}\n"
-"#bottomMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
+"#bottomMenu .QPushButton:pressed {\n"
+"	background-color: rgb(32, 124, 245);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "#leftMenuFrame{\n"
-"	border-top: 3px solid rgb(44, 49, 58);\n"
+"	border-top: 3px solid rgb(35,35,38);\n"
 "}\n"
 "\n"
 "/* Toggle Button */\n"
@@ -140,11 +136,10 @@ class Ui_MainWindow(object):
 "	color: rgb(113, 126, 149);\n"
 "}\n"
 "#toggleButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(11,11,11);\n"
 "}\n"
 "#toggleButton:pressed {\n"
-"	background-color: rgb("
-                        "189, 147, 249);\n"
+"	background-color: rgb(32, 124, 245);\n"
 "}\n"
 "\n"
 "/* Title Menu */\n"
@@ -153,11 +148,12 @@ class Ui_MainWindow(object):
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Extra Tab */\n"
-"#extraLeftBox {	\n"
-"	background-color: rgb(44, 49, 58);\n"
+"#extraLeftBox {\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
-"#extraTopBg{	\n"
-"	background-color: rgb(189, 147, 249)\n"
+"#extraTopBg {\n"
+""
+                        "	background-color: rgb(32, 124, 245);\n"
 "}\n"
 "\n"
 "/* Icon */\n"
@@ -172,13 +168,12 @@ class Ui_MainWindow(object):
 "\n"
 "/* Btn Close */\n"
 "#extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
-"#extraCloseColumnBtn:hover { background-color: rgb(196, 161, 249); border-style: solid; border-radius: 4px; }\n"
-"#extraCloseColumnBtn:pressed { background-color: rgb(180, 141, 238); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:hover { background-color: rgb(87, 156, 247); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:pressed { background-color: rgb(46, 130, 240); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Extra Content */\n"
 "#extraContent{\n"
-"	border"
-                        "-top: 3px solid rgb(40, 44, 52);\n"
+"	border-top: 3px solid rgb(11,11,11);\n"
 "}\n"
 "\n"
 "/* Extra Top Menus */\n"
@@ -189,42 +184,43 @@ class Ui_MainWindow(object):
 "	border-left: 22px solid transparent;\n"
 "	background-color:transparent;\n"
 "	text-align: left;\n"
-"	padding-left: 44px;\n"
+"	padding-left: "
+                        "44px;\n"
 "}\n"
 "#extraTopMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(11,11,11);\n"
 "}\n"
-"#extraTopMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
+"#extraTopMenu .QPushButton:pressed {\n"
+"	background-color: rgb(32, 124, 245);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Content App */\n"
-"#contentTopBg{	\n"
-"	background-color: rgb(33, 37, 43);\n"
+"#contentTopBg{\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
 "#contentBottom{\n"
-"	border-top: 3px solid rgb(44, 49, 58);\n"
+"	border-top: 3px solid rgb(35,35,38);\n"
 "}\n"
 "\n"
 "/* Top Buttons */\n"
 "#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
-"#rightButtons .QPushButton:hover { background-color: rgb(44, 49, 57); border-sty"
-                        "le: solid; border-radius: 4px; }\n"
+"#rightButtons .QPushButton:hover { background-color: rgb(44, 49, 57); border-style: solid; border-radius: 4px; }\n"
 "#rightButtons .QPushButton:pressed { background-color: rgb(23, 26, 30); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Theme Settings */\n"
-"#extraRightBox { background-color: rgb(44, 49, 58); }\n"
-"#themeSettingsTopDetail { background-color: rgb(189, 147, 249); }\n"
+"#extraRightBox { background-color: rgb(35,35,38); }\n"
+"#themeSettingsTopDetail { background-color: rgb(32, 124, 245); }\n"
 "\n"
-"/* Bottom Bar */\n"
-"#bottomBar { background-color: rgb(44, 49, 58); }\n"
+"/* Bottom "
+                        "Bar */\n"
+"#bottomBar { background-color: rgb(35,35,38); }\n"
 "#bottomBar QLabel { font-size: 11px; color: rgb(113, 126, 149); padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }\n"
 "\n"
 "/* CONTENT SETTINGS */\n"
 "/* MENUS */\n"
-"#contentSettings .QPushButton {	\n"
+"#contentSettings .QPushButton {\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
@@ -234,23 +230,23 @@ class Ui_MainWindow(object):
 "	padding-left: 44px;\n"
 "}\n"
 "#contentSettings .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(11,11,11);\n"
 "}\n"
-"#contentSettings .QPushButton:pressed {	\n"
-"	background-color: rgb(189, 147, 249);\n"
-"	color: rgb"
-                        "(255, 255, 255);\n"
+"#contentSettings .QPushButton:pressed {\n"
+"	background-color: rgb(32, 124, 245);\n"
+"	color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "QTableWidget */\n"
-"QTableWidget {	\n"
+"QTableWidget {\n"
 "	background-color: transparent;\n"
 "	padding: 10px;\n"
 "	border-radius: 5px;\n"
-"	gridline-color: rgb(44, 49, 58);\n"
+"	gridline-color: rgb(35,35,38);\n"
 "	border-bottom: 1px solid rgb(44, 49, 60);\n"
-"}\n"
+""
+                        "}\n"
 "QTableWidget::item{\n"
 "	border-color: rgb(44, 49, 60);\n"
 "	padding-left: 5px;\n"
@@ -258,24 +254,23 @@ class Ui_MainWindow(object):
 "	gridline-color: rgb(44, 49, 60);\n"
 "}\n"
 "QTableWidget::item:selected{\n"
-"	background-color: rgb(189, 147, 249);\n"
+"	background-color: rgb(32, 124, 245);\n"
 "}\n"
 "QHeaderView::section{\n"
-"	background-color: rgb(33, 37, 43);\n"
+"	background-color: rgb(35,35,38);\n"
 "	max-width: 30px;\n"
-"	border: 1px solid rgb(44, 49, 58);\n"
+"	border: 1px solid rgb(35,35,38);\n"
 "	border-style: none;\n"
 "    border-bottom: 1px solid rgb(44, 49, 60);\n"
 "    border-right: 1px solid rgb(44, 49, 60);\n"
 "}\n"
-"QTableWidget::horizontalHeader {	\n"
-"	background-color: rgb(33, 37, 43);\n"
+"QTableWidget::horizontalHeader {\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
 "QHeaderView::section:horizontal\n"
 "{\n"
-"    border: 1px solid rgb(33, 37, 43);\n"
-"	background-co"
-                        "lor: rgb(33, 37, 43);\n"
+"    border: 1px solid rgb(35,35,38);\n"
+"	background-color: rgb(35,35,38);\n"
 "	padding: 3px;\n"
 "	border-top-left-radius: 7px;\n"
 "    border-top-right-radius: 7px;\n"
@@ -288,12 +283,13 @@ class Ui_MainWindow(object):
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "LineEdit */\n"
 "QLineEdit {\n"
-"	background-color: rgb(33, 37, 43);\n"
+"	"
+                        "background-color: rgb(35,35,38);\n"
 "	border-radius: 5px;\n"
-"	border: 2px solid rgb(33, 37, 43);\n"
+"	border: 2px solid rgb(35,35,38);\n"
 "	padding-left: 10px;\n"
 "	selection-color: rgb(255, 255, 255);\n"
-"	selection-background-color: rgb(255, 121, 198);\n"
+"	selection-background-color: rgb(0,94,217);\n"
 "}\n"
 "QLineEdit:hover {\n"
 "	border: 2px solid rgb(64, 71, 88);\n"
@@ -309,8 +305,7 @@ class Ui_MainWindow(object):
 "	border-radius: 5px;\n"
 "	padding: 10px;\n"
 "	selection-color: rgb(255, 255, 255);\n"
-"	selection-background-c"
-                        "olor: rgb(255, 121, 198);\n"
+"	selection-background-color: rgb(0,94,217);\n"
 "}\n"
 "QPlainTextEdit  QScrollBar:vertical {\n"
 "    width: 8px;\n"
@@ -325,7 +320,8 @@ class Ui_MainWindow(object):
 "	border: 2px solid rgb(91, 101, 124);\n"
 "}\n"
 "\n"
-"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"/* ////////////////////////////////////"
+                        "/////////////////////////////////////////////////////////////\n"
 "ScrollBars */\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
@@ -335,9 +331,9 @@ class Ui_MainWindow(object):
 "	border-radius: 0px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
-"    background: rgb(189, 147, 249);\n"
+"    background: rgb(32, 124, 245);\n"
 "    min-width: 25px;\n"
-"	border-radius: 4px\n"
+"	border-radius: 4px;\n"
 "}\n"
 "QScrollBar::add-line:horizontal {\n"
 "    border: none;\n"
@@ -348,8 +344,7 @@ class Ui_MainWindow(object):
 "    subcontrol-position: right;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
-""
-                        "QScrollBar::sub-line:horizontal {\n"
+"QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
 "    background: rgb(55, 63, 77);\n"
 "    width: 20px;\n"
@@ -360,7 +355,8 @@ class Ui_MainWindow(object):
 "}\n"
 "QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal\n"
 "{\n"
-"     background: none;\n"
+"     background: none;"
+                        "\n"
 "}\n"
 "QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal\n"
 "{\n"
@@ -373,10 +369,10 @@ class Ui_MainWindow(object):
 "    margin: 21px 0 21px 0;\n"
 "	border-radius: 0px;\n"
 " }\n"
-" QScrollBar::handle:vertical {	\n"
-"	background: rgb(189, 147, 249);\n"
+" QScrollBar::handle:vertical {\n"
+"	background: rgb(32, 124, 245);\n"
 "    min-height: 25px;\n"
-"	border-radius: 4px\n"
+"	border-radius: 4px;\n"
 " }\n"
 " QScrollBar::add-line:vertical {\n"
 "     border: none;\n"
@@ -385,8 +381,7 @@ class Ui_MainWindow(object):
 "	border-bottom-left-radius: 4px;\n"
 "    border-bottom-right-radius: 4px;\n"
 "     subcontrol-position: bottom;\n"
-"     su"
-                        "bcontrol-origin: margin;\n"
+"     subcontrol-origin: margin;\n"
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
@@ -398,7 +393,8 @@ class Ui_MainWindow(object):
 "     subcontrol-origin: margin;\n"
 " }\n"
 " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"     background: none;\n"
+""
+                        "     background: none;\n"
 " }\n"
 "\n"
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
@@ -419,9 +415,8 @@ class Ui_MainWindow(object):
 "}\n"
 "QCheckBox::indicator:checked {\n"
 "    background: 3px solid rgb(52, 59, 72);\n"
-"	border: 3px solid rgb(52, 59, 72);	\n"
-"	back"
-                        "ground-image: url(:/icons/images/icons/cil-check-alt.png);\n"
+"	border: 3px solid rgb(52, 59, 72);\n"
+"	background-image: url(:/icons/images/icons/cil-check-alt.png);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
@@ -433,12 +428,13 @@ class Ui_MainWindow(object):
 "	border-radius: 10px;\n"
 "    background: rgb(44, 49, 60);\n"
 "}\n"
-"QRadioButton::indicator:hover {\n"
+""
+                        "QRadioButton::indicator:hover {\n"
 "    border: 3px solid rgb(58, 66, 81);\n"
 "}\n"
 "QRadioButton::indicator:checked {\n"
 "    background: 3px solid rgb(94, 106, 130);\n"
-"	border: 3px solid rgb(52, 59, 72);	\n"
+"	border: 3px solid rgb(52, 59, 72);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
@@ -446,7 +442,7 @@ class Ui_MainWindow(object):
 "QComboBox{\n"
 "	background-color: rgb(27, 29, 35);\n"
 "	border-radius: 5px;\n"
-"	border: 2px solid rgb(33, 37, 43);\n"
+"	border: 2px solid rgb(35,35,38);\n"
 "	padding: 5px;\n"
 "	padding-left: 10px;\n"
 "}\n"
@@ -455,21 +451,21 @@ class Ui_MainWindow(object):
 "}\n"
 "QComboBox::drop-down {\n"
 "	subcontrol-origin: padding;\n"
-"	subco"
-                        "ntrol-position: top right;\n"
-"	width: 25px; \n"
+"	subcontrol-position: top right;\n"
+"	width: 25px;\n"
 "	border-left-width: 3px;\n"
 "	border-left-color: rgba(39, 44, 54, 150);\n"
 "	border-left-style: solid;\n"
 "	border-top-right-radius: 3px;\n"
-"	border-bottom-right-radius: 3px;	\n"
+"	border-bottom-right-radius: 3px;\n"
 "	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);\n"
 "	background-position: center;\n"
-"	background-repeat: no-reperat;\n"
+"	background-repeat: no-repeat;\n"
 " }\n"
-"QComboBox QAbstractItemView {\n"
-"	color: rgb(255, 121, 198);	\n"
-"	background-color: rgb(33, 37, 43);\n"
+"QCom"
+                        "boBox QAbstractItemView {\n"
+"	color: rgb(0,94,217);\n"
+"	background-color: rgb(35,35,38);\n"
 "	padding: 10px;\n"
 "	selection-background-color: rgb(39, 44, 54);\n"
 "}\n"
@@ -486,32 +482,32 @@ class Ui_MainWindow(object):
 "	background-color: rgb(55, 62, 76);\n"
 "}\n"
 "QSlider::handle:horizontal {\n"
-"    background-color: rgb(189, 147, 249);\n"
+"    background-color: rgb(32, 124, 245);\n"
 "    border: none;\n"
-"    h"
-                        "eight: 10px;\n"
+"    height: 10px;\n"
 "    width: 10px;\n"
 "    margin: 0px;\n"
 "	border-radius: 5px;\n"
 "}\n"
 "QSlider::handle:horizontal:hover {\n"
-"    background-color: rgb(195, 155, 255);\n"
+"    background-color: rgb(255, 212, 155);\n"
 "}\n"
 "QSlider::handle:horizontal:pressed {\n"
-"    background-color: rgb(255, 121, 198);\n"
+"    background-color: rgb(0,94,217);\n"
 "}\n"
 "\n"
 "QSlider::groove:vertical {\n"
 "    border-radius: 5px;\n"
 "    width: 10px;\n"
 "    margin: 0px;\n"
-"	background-color: rgb(52, 59, 72);\n"
+"	background-color"
+                        ": rgb(52, 59, 72);\n"
 "}\n"
 "QSlider::groove:vertical:hover {\n"
 "	background-color: rgb(55, 62, 76);\n"
 "}\n"
 "QSlider::handle:vertical {\n"
-"    background-color: rgb(189, 147, 249);\n"
+"    background-color: rgb(32, 124, 245);\n"
 "	border: none;\n"
 "    height: 10px;\n"
 "    width: 10px;\n"
@@ -519,62 +515,43 @@ class Ui_MainWindow(object):
 "	border-radius: 5px;\n"
 "}\n"
 "QSlider::handle:vertical:hover {\n"
-"    background-color: rgb(195, 155, 255);\n"
+"    background-color: rgb(255, 212, 155);\n"
 "}\n"
 "QSlider::handle:vertical:pressed {\n"
-"    background-color: rgb(255, 121, 198);\n"
+"    background-color: rgb(0,94,217);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "CommandLinkButton */\n"
-"QCommandLi"
-                        "nkButton {	\n"
-"	color: rgb(255, 121, 198);\n"
+"QCommandLinkButton {\n"
+"	color: rgb(0,94,217);\n"
 "	border-radius: 5px;\n"
 "	padding: 5px;\n"
-"	color: rgb(255, 170, 255);\n"
 "}\n"
-"QCommandLinkButton:hover {	\n"
+"QCommandLinkButton:hover {\n"
 "	color: rgb(255, 170, 255);\n"
 "	background-color: rgb(44, 49, 60);\n"
 "}\n"
-"QCommandLinkButton:pressed {	\n"
-"	color: rgb(189, 147, 249);\n"
+"QCommandLinkButton:pressed {\n"
+"	color: rgb(32, 124, 245);\n"
 "	background-color: rgb(52, 58, 71);\n"
 "}\n"
 "\n"
-"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"/* ////////////////////////////////////////////////////////////////////////////////////"
+                        "/////////////\n"
 "Button */\n"
 "#pagesContainer QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
-"	border-radius: 5px;	\n"
+"	border-radius: 5px;\n"
 "	background-color: rgb(52, 59, 72);\n"
 "}\n"
 "#pagesContainer QPushButton:hover {\n"
 "	background-color: rgb(57, 65, 80);\n"
 "	border: 2px solid rgb(61, 70, 86);\n"
 "}\n"
-"#pagesContainer QPushButton:pressed {	\n"
+"#pagesContainer QPushButton:pressed {\n"
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
-"}\n"
-"QMenu {\n"
-"	background-color: rgb(33, 37, 43); \n"
-"	font: 8pt \"Segoe UI\"; \n"
-"color: rgb(189, 147, 249);	\n"
-"}\n"
-"QMenu::item:selected {\n"
-""
-                        "	color: rgb(255, 255, 255);\n"
-"	background-color: rgb(254, 120, 198); \n"
-"	border-style: solid;\n"
-" 	border-radius: 4px;\n"
-"}\n"
-"QMenu::item {\n"
-"	color: rgb(254, 120, 198);\n"
-"	background-color: rgb(40, 44, 52);\n"
-"	border-style: solid;\n"
-"	border-radius: 4px;\n"
 "}")
         self.appMargins = QVBoxLayout(self.styleSheet)
         self.appMargins.setSpacing(0)
@@ -600,47 +577,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.topLogoInfo = QFrame(self.leftMenuBg)
-        self.topLogoInfo.setObjectName(u"topLogoInfo")
-        self.topLogoInfo.setMinimumSize(QSize(0, 50))
-        self.topLogoInfo.setMaximumSize(QSize(16777215, 50))
-        self.topLogoInfo.setFrameShape(QFrame.NoFrame)
-        self.topLogoInfo.setFrameShadow(QFrame.Raised)
-        self.topLogo = QFrame(self.topLogoInfo)
-        self.topLogo.setObjectName(u"topLogo")
-        self.topLogo.setGeometry(QRect(10, 10, 42, 42))
-        self.topLogo.setMinimumSize(QSize(42, 42))
-        self.topLogo.setMaximumSize(QSize(42, 42))
-        self.topLogo.setSizeIncrement(QSize(0, 0))
-        self.topLogo.setAutoFillBackground(False)
-        self.topLogo.setStyleSheet(u"background-image: url(:/images/images/images/RSA30x30.png);\n"
-"background-position: center;")
-        self.topLogo.setFrameShape(QFrame.NoFrame)
-        self.topLogo.setFrameShadow(QFrame.Raised)
-        self.titleLeftApp = QLabel(self.topLogoInfo)
-        self.titleLeftApp.setObjectName(u"titleLeftApp")
-        self.titleLeftApp.setGeometry(QRect(70, 8, 160, 20))
-        font1 = QFont()
-        font1.setFamilies([u"Segoe UI Semibold"])
-        font1.setPointSize(12)
-        font1.setBold(False)
-        font1.setItalic(False)
-        self.titleLeftApp.setFont(font1)
-        self.titleLeftApp.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.titleLeftDescription = QLabel(self.topLogoInfo)
-        self.titleLeftDescription.setObjectName(u"titleLeftDescription")
-        self.titleLeftDescription.setGeometry(QRect(70, 27, 160, 16))
-        self.titleLeftDescription.setMaximumSize(QSize(16777215, 16))
-        font2 = QFont()
-        font2.setFamilies([u"Segoe UI"])
-        font2.setPointSize(8)
-        font2.setBold(False)
-        font2.setItalic(False)
-        self.titleLeftDescription.setFont(font2)
-        self.titleLeftDescription.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-
-        self.verticalLayout_3.addWidget(self.topLogoInfo)
-
         self.leftMenuFrame = QFrame(self.leftMenuBg)
         self.leftMenuFrame.setObjectName(u"leftMenuFrame")
         self.leftMenuFrame.setFrameShape(QFrame.NoFrame)
@@ -665,7 +601,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.toggleButton.sizePolicy().hasHeightForWidth())
         self.toggleButton.setSizePolicy(sizePolicy)
-        self.toggleButton.setMinimumSize(QSize(0, 45))
+        self.toggleButton.setMinimumSize(QSize(0, 50))
         self.toggleButton.setFont(font)
         self.toggleButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.toggleButton.setLayoutDirection(Qt.LeftToRight)
@@ -708,17 +644,17 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_filespace)
 
-        self.btn_passwords = QPushButton(self.topMenu)
-        self.btn_passwords.setObjectName(u"btn_passwords")
-        sizePolicy.setHeightForWidth(self.btn_passwords.sizePolicy().hasHeightForWidth())
-        self.btn_passwords.setSizePolicy(sizePolicy)
-        self.btn_passwords.setMinimumSize(QSize(0, 45))
-        self.btn_passwords.setFont(font)
-        self.btn_passwords.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_passwords.setLayoutDirection(Qt.LeftToRight)
-        self.btn_passwords.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-lock-locked.png);")
+        self.btn_security = QPushButton(self.topMenu)
+        self.btn_security.setObjectName(u"btn_security")
+        sizePolicy.setHeightForWidth(self.btn_security.sizePolicy().hasHeightForWidth())
+        self.btn_security.setSizePolicy(sizePolicy)
+        self.btn_security.setMinimumSize(QSize(0, 45))
+        self.btn_security.setFont(font)
+        self.btn_security.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_security.setLayoutDirection(Qt.LeftToRight)
+        self.btn_security.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-lock-locked.png);")
 
-        self.verticalLayout_8.addWidget(self.btn_passwords)
+        self.verticalLayout_8.addWidget(self.btn_security)
 
         self.btn_account = QPushButton(self.topMenu)
         self.btn_account.setObjectName(u"btn_account")
@@ -775,6 +711,8 @@ class Ui_MainWindow(object):
 
 
         self.appLayout.addWidget(self.leftMenuBg)
+
+        self.appMargins.addWidget(self.bgApp)
 
         self.extraLeftBox = QFrame(self.bgApp)
         self.extraLeftBox.setObjectName(u"extraLeftBox")
@@ -952,6 +890,19 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.topLogo = QFrame(self.leftBox)
+        self.topLogo.setObjectName(u"topLogo")
+        self.topLogo.setMinimumSize(QSize(42, 42))
+        self.topLogo.setMaximumSize(QSize(42, 42))
+        self.topLogo.setSizeIncrement(QSize(0, 0))
+        self.topLogo.setAutoFillBackground(False)
+        self.topLogo.setStyleSheet(u"background-image: url(:/images/images/images/RSA30x30.png);\n"
+"background-position: center;")
+        self.topLogo.setFrameShape(QFrame.NoFrame)
+        self.topLogo.setFrameShadow(QFrame.Raised)
+
+        self.horizontalLayout_3.addWidget(self.topLogo)
+
         self.titleRightInfo = QLabel(self.leftBox)
         self.titleRightInfo.setObjectName(u"titleRightInfo")
         sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
@@ -959,6 +910,7 @@ class Ui_MainWindow(object):
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.titleRightInfo.sizePolicy().hasHeightForWidth())
         self.titleRightInfo.setSizePolicy(sizePolicy2)
+        self.titleRightInfo.setMinimumSize(QSize(10000, 0))
         self.titleRightInfo.setMaximumSize(QSize(16777215, 45))
         self.titleRightInfo.setFont(font)
         self.titleRightInfo.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
@@ -1005,13 +957,13 @@ class Ui_MainWindow(object):
         self.maximizeRestoreAppBtn.setObjectName(u"maximizeRestoreAppBtn")
         self.maximizeRestoreAppBtn.setMinimumSize(QSize(28, 28))
         self.maximizeRestoreAppBtn.setMaximumSize(QSize(28, 28))
-        font3 = QFont()
-        font3.setFamilies([u"Segoe UI"])
-        font3.setPointSize(10)
-        font3.setBold(False)
-        font3.setItalic(False)
-        font3.setStyleStrategy(QFont.PreferDefault)
-        self.maximizeRestoreAppBtn.setFont(font3)
+        font1 = QFont()
+        font1.setFamilies([u"Segoe UI"])
+        font1.setPointSize(10)
+        font1.setBold(False)
+        font1.setItalic(False)
+        font1.setStyleStrategy(QFont.PreferDefault)
+        self.maximizeRestoreAppBtn.setFont(font1)
         self.maximizeRestoreAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon4 = QIcon()
         icon4.addFile(u":/icons/images/icons/icon_maximize.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -1071,14 +1023,14 @@ class Ui_MainWindow(object):
 "background-repeat: no-repeat;")
         self.dashboardTitle = QLabel(self.home)
         self.dashboardTitle.setObjectName(u"dashboardTitle")
-        self.dashboardTitle.setGeometry(QRect(0, 0, 1171, 51))
-        self.dashboardTitle.setStyleSheet(u"color: rgb(189, 147, 249);\n"
+        self.dashboardTitle.setGeometry(QRect(0, 40, 1171, 31))
+        self.dashboardTitle.setStyleSheet(u"color: rgb(0,94,217);\n"
 "font: 18pt \"Segoe UI\" bold;")
         self.dashboardTitle.setLineWidth(1)
         self.dashboardTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.publicKeySA = QScrollArea(self.home)
         self.publicKeySA.setObjectName(u"publicKeySA")
-        self.publicKeySA.setGeometry(QRect(0, 90, 361, 211))
+        self.publicKeySA.setGeometry(QRect(180, 180, 341, 201))
         self.publicKeySA.setStyleSheet(u" QScrollBar:vertical {\n"
 "    background: rgb(52, 59, 72);\n"
 " }\n"
@@ -1091,7 +1043,7 @@ class Ui_MainWindow(object):
         self.publicKeySA.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 218, 218))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 341, 201))
         self.scrollAreaWidgetContents_2.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1101,18 +1053,10 @@ class Ui_MainWindow(object):
 " }")
         self.horizontalLayout_13 = QHBoxLayout(self.scrollAreaWidgetContents_2)
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
-        self.publicKeyDisplay = QPlainTextEdit(self.scrollAreaWidgetContents_2)
-        self.publicKeyDisplay.setObjectName(u"publicKeyDisplay")
-        self.publicKeyDisplay.setMinimumSize(QSize(200, 200))
-        self.publicKeyDisplay.setStyleSheet(u"background-color: rgb(33, 37, 43);")
-        self.publicKeyDisplay.setReadOnly(True)
-
-        self.horizontalLayout_13.addWidget(self.publicKeyDisplay)
-
         self.publicKeySA.setWidget(self.scrollAreaWidgetContents_2)
         self.privateKeySA = QScrollArea(self.home)
         self.privateKeySA.setObjectName(u"privateKeySA")
-        self.privateKeySA.setGeometry(QRect(400, 90, 361, 211))
+        self.privateKeySA.setGeometry(QRect(650, 180, 341, 201))
         self.privateKeySA.setStyleSheet(u" QScrollBar:vertical {\n"
 "    background: rgb(52, 59, 72);\n"
 " }\n"
@@ -1125,7 +1069,7 @@ class Ui_MainWindow(object):
         self.privateKeySA.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 218, 218))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 341, 201))
         self.scrollAreaWidgetContents_3.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1135,34 +1079,24 @@ class Ui_MainWindow(object):
 " }")
         self.horizontalLayout_14 = QHBoxLayout(self.scrollAreaWidgetContents_3)
         self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
-        self.privateKeyDisplay = QPlainTextEdit(self.scrollAreaWidgetContents_3)
-        self.privateKeyDisplay.setObjectName(u"privateKeyDisplay")
-        self.privateKeyDisplay.setMinimumSize(QSize(200, 200))
-        self.privateKeyDisplay.setStyleSheet(u"background-color: rgb(33, 37, 43);")
-        self.privateKeyDisplay.setReadOnly(True)
-
-        self.horizontalLayout_14.addWidget(self.privateKeyDisplay)
-
         self.privateKeySA.setWidget(self.scrollAreaWidgetContents_3)
-        self.publicKeyTitle = QLabel(self.home)
-        self.publicKeyTitle.setObjectName(u"publicKeyTitle")
-        self.publicKeyTitle.setGeometry(QRect(10, 64, 331, 21))
-        sizePolicy2.setHeightForWidth(self.publicKeyTitle.sizePolicy().hasHeightForWidth())
-        self.publicKeyTitle.setSizePolicy(sizePolicy2)
-        self.publicKeyTitle.setMaximumSize(QSize(16777215, 45))
-        self.publicKeyTitle.setFont(font)
-        self.publicKeyTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.privateKeyTitle = QLabel(self.home)
-        self.privateKeyTitle.setObjectName(u"privateKeyTitle")
-        self.privateKeyTitle.setGeometry(QRect(410, 60, 331, 21))
-        sizePolicy2.setHeightForWidth(self.privateKeyTitle.sizePolicy().hasHeightForWidth())
-        self.privateKeyTitle.setSizePolicy(sizePolicy2)
-        self.privateKeyTitle.setMaximumSize(QSize(16777215, 45))
-        self.privateKeyTitle.setFont(font)
-        self.privateKeyTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.publicKeyDisplay = QPlainTextEdit(self.home)
+        self.publicKeyDisplay.setObjectName(u"publicKeyDisplay")
+        self.publicKeyDisplay.setGeometry(QRect(140, 149, 381, 231))
+        self.publicKeyDisplay.setMinimumSize(QSize(200, 200))
+        self.publicKeyDisplay.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"color: rgb(203, 203, 203);")
+        self.publicKeyDisplay.setReadOnly(True)
+        self.privateKeyDisplay = QPlainTextEdit(self.home)
+        self.privateKeyDisplay.setObjectName(u"privateKeyDisplay")
+        self.privateKeyDisplay.setGeometry(QRect(650, 149, 381, 231))
+        self.privateKeyDisplay.setMinimumSize(QSize(200, 200))
+        self.privateKeyDisplay.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"color: rgb(203, 203, 203);")
+        self.privateKeyDisplay.setReadOnly(True)
         self.warningMessage = QLabel(self.home)
         self.warningMessage.setObjectName(u"warningMessage")
-        self.warningMessage.setGeometry(QRect(410, 310, 331, 51))
+        self.warningMessage.setGeometry(QRect(640, 430, 401, 51))
         sizePolicy2.setHeightForWidth(self.warningMessage.sizePolicy().hasHeightForWidth())
         self.warningMessage.setSizePolicy(sizePolicy2)
         self.warningMessage.setMaximumSize(QSize(16777215, 100))
@@ -1171,14 +1105,14 @@ class Ui_MainWindow(object):
         self.warningMessage.setWordWrap(True)
         self.privateKeyCheckbox = QCheckBox(self.home)
         self.privateKeyCheckbox.setObjectName(u"privateKeyCheckbox")
-        self.privateKeyCheckbox.setGeometry(QRect(410, 370, 131, 31))
+        self.privateKeyCheckbox.setGeometry(QRect(900, 380, 131, 31))
         self.privateKeyCheckbox.setAutoFillBackground(False)
         self.privateKeyCheckbox.setStyleSheet(u"")
         self.privateKeyCheckbox.setChecked(False)
         self.privateKeyCheckbox.setTristate(False)
         self.copyPrivateKeyButton = QPushButton(self.home)
         self.copyPrivateKeyButton.setObjectName(u"copyPrivateKeyButton")
-        self.copyPrivateKeyButton.setGeometry(QRect(590, 370, 150, 30))
+        self.copyPrivateKeyButton.setGeometry(QRect(650, 380, 241, 30))
         self.copyPrivateKeyButton.setMinimumSize(QSize(150, 30))
         self.copyPrivateKeyButton.setFont(font)
         self.copyPrivateKeyButton.setCursor(QCursor(Qt.PointingHandCursor))
@@ -1186,6 +1120,35 @@ class Ui_MainWindow(object):
         icon5 = QIcon()
         icon5.addFile(u":/icons/images/icons/cil-clone.png", QSize(), QIcon.Normal, QIcon.Off)
         self.copyPrivateKeyButton.setIcon(icon5)
+        self.dashboardTitle_2 = QLabel(self.home)
+        self.dashboardTitle_2.setObjectName(u"dashboardTitle_2")
+        self.dashboardTitle_2.setGeometry(QRect(140, 120, 381, 21))
+        self.dashboardTitle_2.setStyleSheet(u"color: rgb(0,60,240);\n"
+"font: 18pt \"Segoe UI\" bold;")
+        self.dashboardTitle_2.setLineWidth(1)
+        self.dashboardTitle_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.dashboardTitle_3 = QLabel(self.home)
+        self.dashboardTitle_3.setObjectName(u"dashboardTitle_3")
+        self.dashboardTitle_3.setGeometry(QRect(650, 120, 381, 21))
+        self.dashboardTitle_3.setStyleSheet(u"color: rgb(0,60,240);\n"
+"font: 18pt \"Segoe UI\" bold;")
+        self.dashboardTitle_3.setLineWidth(1)
+        self.dashboardTitle_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.copyPublicKeyButton = QPushButton(self.home)
+        self.copyPublicKeyButton.setObjectName(u"copyPublicKeyButton")
+        self.copyPublicKeyButton.setGeometry(QRect(140, 380, 381, 30))
+        self.copyPublicKeyButton.setMinimumSize(QSize(150, 30))
+        self.copyPublicKeyButton.setFont(font)
+        self.copyPublicKeyButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.copyPublicKeyButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.copyPublicKeyButton.setIcon(icon5)
+        self.topLogoInfo = QFrame(self.home)
+        self.topLogoInfo.setObjectName(u"topLogoInfo")
+        self.topLogoInfo.setGeometry(QRect(70, 50, 60, 50))
+        self.topLogoInfo.setMinimumSize(QSize(0, 50))
+        self.topLogoInfo.setMaximumSize(QSize(16777215, 50))
+        self.topLogoInfo.setFrameShape(QFrame.NoFrame)
+        self.topLogoInfo.setFrameShadow(QFrame.Raised)
         self.stackedWidget.addWidget(self.home)
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
@@ -1417,10 +1380,10 @@ class Ui_MainWindow(object):
         self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         if (self.tableWidget.rowCount() < 16):
             self.tableWidget.setRowCount(16)
-        font4 = QFont()
-        font4.setFamilies([u"Segoe UI"])
+        font2 = QFont()
+        font2.setFamilies([u"Segoe UI"])
         __qtablewidgetitem4 = QTableWidgetItem()
-        __qtablewidgetitem4.setFont(font4);
+        __qtablewidgetitem4.setFont(font2);
         self.tableWidget.setVerticalHeaderItem(0, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
         self.tableWidget.setVerticalHeaderItem(1, __qtablewidgetitem5)
@@ -1524,171 +1487,313 @@ class Ui_MainWindow(object):
         self.filespace.setObjectName(u"filespace")
         self.filespaceTitle = QLabel(self.filespace)
         self.filespaceTitle.setObjectName(u"filespaceTitle")
-        self.filespaceTitle.setGeometry(QRect(0, 0, 1171, 51))
-        self.filespaceTitle.setStyleSheet(u"color: rgb(189, 147, 249);\n"
+        self.filespaceTitle.setGeometry(QRect(0, 40, 1171, 31))
+        self.filespaceTitle.setStyleSheet(u"color: rgb(0,94,217);\n"
 "font: 18pt \"Segoe UI\" bold;")
         self.filespaceTitle.setLineWidth(1)
         self.filespaceTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.openFilepathButton = QPushButton(self.filespace)
-        self.openFilepathButton.setObjectName(u"openFilepathButton")
-        self.openFilepathButton.setGeometry(QRect(420, 90, 150, 30))
-        self.openFilepathButton.setMinimumSize(QSize(150, 30))
-        self.openFilepathButton.setFont(font)
-        self.openFilepathButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.openFilepathButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
-        self.openFilepathButton.setIcon(icon6)
-        self.filepathBox = QLineEdit(self.filespace)
-        self.filepathBox.setObjectName(u"filepathBox")
-        self.filepathBox.setGeometry(QRect(0, 90, 411, 30))
-        self.filepathBox.setMinimumSize(QSize(0, 30))
-        self.filepathBox.setStyleSheet(u"background-color: rgb(33, 37, 43);")
-        self.fileBrowserTree = QTreeView(self.filespace)
-        self.fileBrowserTree.setObjectName(u"fileBrowserTree")
-        self.fileBrowserTree.setGeometry(QRect(0, 90, 951, 281))
-        self.goToDefault = QPushButton(self.filespace)
-        self.goToDefault.setObjectName(u"goToDefault")
-        self.goToDefault.setGeometry(QRect(640, 380, 191, 30))
-        self.goToDefault.setMinimumSize(QSize(150, 30))
-        self.goToDefault.setFont(font)
-        self.goToDefault.setCursor(QCursor(Qt.PointingHandCursor))
-        self.goToDefault.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.filepathBox_2 = QLineEdit(self.filespace)
+        self.filepathBox_2.setObjectName(u"filepathBox_2")
+        self.filepathBox_2.setGeometry(QRect(360, 190, 451, 30))
+        self.filepathBox_2.setMinimumSize(QSize(0, 30))
+        self.filepathBox_2.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.encryptButton_2 = QPushButton(self.filespace)
+        self.encryptButton_2.setObjectName(u"encryptButton_2")
+        self.encryptButton_2.setGeometry(QRect(360, 260, 221, 30))
+        self.encryptButton_2.setMinimumSize(QSize(150, 30))
+        self.encryptButton_2.setFont(font)
+        self.encryptButton_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.encryptButton_2.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         icon8 = QIcon()
-        icon8.addFile(u":/icons/images/icons/cil-house.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.goToDefault.setIcon(icon8)
-        self.openDirectory = QPushButton(self.filespace)
-        self.openDirectory.setObjectName(u"openDirectory")
-        self.openDirectory.setGeometry(QRect(220, 380, 191, 30))
-        self.openDirectory.setMinimumSize(QSize(150, 30))
-        self.openDirectory.setFont(font)
-        self.openDirectory.setCursor(QCursor(Qt.PointingHandCursor))
-        self.openDirectory.setStyleSheet(u"background-color: rgb(52, 59, 72);")
-        self.openDirectory.setIcon(icon6)
-        self.defaultLocation = QPushButton(self.filespace)
-        self.defaultLocation.setObjectName(u"defaultLocation")
-        self.defaultLocation.setGeometry(QRect(430, 380, 191, 30))
-        self.defaultLocation.setMinimumSize(QSize(150, 30))
-        self.defaultLocation.setFont(font)
-        self.defaultLocation.setCursor(QCursor(Qt.PointingHandCursor))
-        self.defaultLocation.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        icon8.addFile(u":/icons/images/icons/cil-lock-locked.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.encryptButton_2.setIcon(icon8)
+        self.decryptButton_2 = QPushButton(self.filespace)
+        self.decryptButton_2.setObjectName(u"decryptButton_2")
+        self.decryptButton_2.setGeometry(QRect(590, 260, 221, 30))
+        self.decryptButton_2.setMinimumSize(QSize(150, 30))
+        self.decryptButton_2.setFont(font)
+        self.decryptButton_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.decryptButton_2.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         icon9 = QIcon()
-        icon9.addFile(u":/icons/images/icons/cil-star.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.defaultLocation.setIcon(icon9)
-        self.driveInfo = QLabel(self.filespace)
-        self.driveInfo.setObjectName(u"driveInfo")
-        self.driveInfo.setGeometry(QRect(960, 210, 211, 161))
-        self.driveInfo.setStyleSheet(u"color: rgb(113, 126, 149);")
-        self.driveInfo.setLineWidth(1)
-        self.driveInfo.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.driveInfo.setWordWrap(False)
-        self.parentDriveTitle = QLabel(self.filespace)
-        self.parentDriveTitle.setObjectName(u"parentDriveTitle")
-        self.parentDriveTitle.setGeometry(QRect(960, 120, 131, 21))
-        self.parentDriveTitle.setStyleSheet(u"color: rgb(113, 126, 149);")
-        self.parentDriveTitle.setLineWidth(1)
-        self.parentDriveTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.driveInfoTitle = QLabel(self.filespace)
-        self.driveInfoTitle.setObjectName(u"driveInfoTitle")
-        self.driveInfoTitle.setGeometry(QRect(960, 180, 131, 19))
-        self.driveInfoTitle.setStyleSheet(u"color: rgb(113, 126, 149);")
-        self.driveInfoTitle.setLineWidth(1)
-        self.driveInfoTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.parentDriveSpace = QProgressBar(self.filespace)
-        self.parentDriveSpace.setObjectName(u"parentDriveSpace")
-        self.parentDriveSpace.setGeometry(QRect(960, 150, 211, 16))
-        self.parentDriveSpace.setStyleSheet(u"QProgressBar {\n"
+        icon9.addFile(u":/icons/images/icons/cil-lock-unlocked.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.decryptButton_2.setIcon(icon9)
+        self.openFilepathButton_2 = QPushButton(self.filespace)
+        self.openFilepathButton_2.setObjectName(u"openFilepathButton_2")
+        self.openFilepathButton_2.setGeometry(QRect(360, 220, 451, 30))
+        self.openFilepathButton_2.setMinimumSize(QSize(150, 30))
+        self.openFilepathButton_2.setFont(font)
+        self.openFilepathButton_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.openFilepathButton_2.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.openFilepathButton_2.setIcon(icon6)
+        self.selectFileToEncryptText = QLabel(self.filespace)
+        self.selectFileToEncryptText.setObjectName(u"selectFileToEncryptText")
+        self.selectFileToEncryptText.setGeometry(QRect(360, 160, 411, 21))
+        sizePolicy2.setHeightForWidth(self.selectFileToEncryptText.sizePolicy().hasHeightForWidth())
+        self.selectFileToEncryptText.setSizePolicy(sizePolicy2)
+        self.selectFileToEncryptText.setMaximumSize(QSize(16777215, 45))
+        self.selectFileToEncryptText.setFont(font)
+        self.selectFileToEncryptText.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.multiviewCheckbox_1 = QCheckBox(self.filespace)
+        self.multiviewCheckbox_1.setObjectName(u"multiviewCheckbox_1")
+        self.multiviewCheckbox_1.setGeometry(QRect(960, 150, 131, 31))
+        self.multiviewCheckbox_1.setAutoFillBackground(False)
+        self.multiviewCheckbox_1.setStyleSheet(u"")
+        self.multiviewCheckbox_1.setChecked(False)
+        self.multiviewCheckbox_1.setTristate(False)
+        self.currentDirectory_2 = QLabel(self.filespace)
+        self.currentDirectory_2.setObjectName(u"currentDirectory_2")
+        self.currentDirectory_2.setGeometry(QRect(280, 130, 601, 21))
+        self.currentDirectory_2.setStyleSheet(u"color: rgb(113, 126, 149);\n"
+"")
+        self.currentDirectory_2.setFrameShape(QFrame.NoFrame)
+        self.currentDirectory_2.setLineWidth(1)
+        self.currentDirectory_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.fileBrowserTree_2 = QTreeView(self.filespace)
+        self.fileBrowserTree_2.setObjectName(u"fileBrowserTree_2")
+        self.fileBrowserTree_2.setGeometry(QRect(40, 150, 851, 271))
+        self.fileBrowserTree_2.setStyleSheet(u"background-color: rgb(52, 59, 72);\n"
+"")
+        self.fileBrowserTree_2.setFrameShape(QFrame.NoFrame)
+        self.selectFileToEncryptText_2 = QLabel(self.filespace)
+        self.selectFileToEncryptText_2.setObjectName(u"selectFileToEncryptText_2")
+        self.selectFileToEncryptText_2.setGeometry(QRect(910, 130, 231, 21))
+        sizePolicy2.setHeightForWidth(self.selectFileToEncryptText_2.sizePolicy().hasHeightForWidth())
+        self.selectFileToEncryptText_2.setSizePolicy(sizePolicy2)
+        self.selectFileToEncryptText_2.setMaximumSize(QSize(16777215, 45))
+        self.selectFileToEncryptText_2.setFont(font)
+        self.selectFileToEncryptText_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.parentDriveTitle_2 = QLabel(self.filespace)
+        self.parentDriveTitle_2.setObjectName(u"parentDriveTitle_2")
+        self.parentDriveTitle_2.setGeometry(QRect(920, 200, 211, 21))
+        self.parentDriveTitle_2.setStyleSheet(u"color: rgb(113, 126, 149);")
+        self.parentDriveTitle_2.setLineWidth(1)
+        self.parentDriveTitle_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.driveInfoTitle_2 = QLabel(self.filespace)
+        self.driveInfoTitle_2.setObjectName(u"driveInfoTitle_2")
+        self.driveInfoTitle_2.setGeometry(QRect(920, 260, 211, 19))
+        self.driveInfoTitle_2.setStyleSheet(u"color: rgb(113, 126, 149);")
+        self.driveInfoTitle_2.setLineWidth(1)
+        self.driveInfoTitle_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.driveInfo_2 = QLabel(self.filespace)
+        self.driveInfo_2.setObjectName(u"driveInfo_2")
+        self.driveInfo_2.setGeometry(QRect(920, 310, 211, 161))
+        self.driveInfo_2.setStyleSheet(u"color: rgb(113, 126, 149);")
+        self.driveInfo_2.setLineWidth(1)
+        self.driveInfo_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.driveInfo_2.setWordWrap(False)
+        self.parentDriveSpace_2 = QProgressBar(self.filespace)
+        self.parentDriveSpace_2.setObjectName(u"parentDriveSpace_2")
+        self.parentDriveSpace_2.setGeometry(QRect(920, 230, 211, 16))
+        self.parentDriveSpace_2.setStyleSheet(u"QProgressBar {\n"
 "background-color: rgb(98, 114, 164);\n"
-"color: rgb(200, 200, 200);\n"
+"color: rgb(0, 0, 0);\n"
 "border-style: none;\n"
 "border-radius: 10px;\n"
 "text-align: center;\n"
 "}\n"
 "QProgressBar::chunk{\n"
 "border-radius: 10px;\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(189, 147, 249, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0,94,217, 255), stop:1 rgba(6,51,110, 255));\n"
 "}")
-        self.parentDriveSpace.setValue(0)
-        self.parentDrive = QLabel(self.filespace)
-        self.parentDrive.setObjectName(u"parentDrive")
-        self.parentDrive.setGeometry(QRect(960, 90, 131, 19))
-        self.parentDrive.setStyleSheet(u"color: rgb(113, 126, 149);")
-        self.parentDrive.setLineWidth(1)
-        self.parentDrive.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.multiviewCheckbox = QCheckBox(self.filespace)
-        self.multiviewCheckbox.setObjectName(u"multiviewCheckbox")
-        self.multiviewCheckbox.setGeometry(QRect(0, 30, 131, 31))
-        self.multiviewCheckbox.setAutoFillBackground(False)
-        self.multiviewCheckbox.setStyleSheet(u"")
-        self.multiviewCheckbox.setChecked(False)
-        self.multiviewCheckbox.setTristate(False)
-        self.processingTime = QLabel(self.filespace)
-        self.processingTime.setObjectName(u"processingTime")
-        self.processingTime.setGeometry(QRect(10, 510, 381, 19))
-        self.processingTime.setStyleSheet(u"color: rgb(113, 126, 149);")
-        self.processingTime.setLineWidth(1)
-        self.processingTime.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.cryptoFeedbackTitle = QLabel(self.filespace)
-        self.cryptoFeedbackTitle.setObjectName(u"cryptoFeedbackTitle")
-        self.cryptoFeedbackTitle.setGeometry(QRect(10, 470, 391, 41))
-        self.cryptoFeedbackTitle.setStyleSheet(u"color: rgb(189, 147, 249);\n"
-"font: 18pt \"Segoe UI\" bold;")
-        self.cryptoFeedbackTitle.setLineWidth(1)
-        self.cryptoFeedbackTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.processingSize = QLabel(self.filespace)
-        self.processingSize.setObjectName(u"processingSize")
-        self.processingSize.setGeometry(QRect(10, 530, 381, 19))
-        self.processingSize.setStyleSheet(u"color: rgb(113, 126, 149);")
-        self.processingSize.setLineWidth(1)
-        self.processingSize.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.cryptoWarningTitle = QLabel(self.filespace)
-        self.cryptoWarningTitle.setObjectName(u"cryptoWarningTitle")
-        self.cryptoWarningTitle.setGeometry(QRect(0, 550, 761, 19))
-        self.cryptoWarningTitle.setStyleSheet(u"color: rgb(255, 0, 0);")
-        self.cryptoWarningTitle.setLineWidth(1)
-        self.cryptoWarningTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.encryptButton = QPushButton(self.filespace)
-        self.encryptButton.setObjectName(u"encryptButton")
-        self.encryptButton.setGeometry(QRect(10, 130, 191, 30))
-        self.encryptButton.setMinimumSize(QSize(150, 30))
-        self.encryptButton.setFont(font)
-        self.encryptButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.encryptButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.parentDriveSpace_2.setValue(0)
+        self.parentDrive_2 = QLabel(self.filespace)
+        self.parentDrive_2.setObjectName(u"parentDrive_2")
+        self.parentDrive_2.setGeometry(QRect(920, 290, 131, 21))
+        self.parentDrive_2.setStyleSheet(u"color: rgb(113, 126, 149);")
+        self.parentDrive_2.setLineWidth(1)
+        self.parentDrive_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.openDirectory_2 = QPushButton(self.filespace)
+        self.openDirectory_2.setObjectName(u"openDirectory_2")
+        self.openDirectory_2.setGeometry(QRect(140, 130, 131, 19))
+        self.openDirectory_2.setMinimumSize(QSize(10, 10))
+        self.openDirectory_2.setMaximumSize(QSize(16777215, 19))
+        self.openDirectory_2.setFont(font)
+        self.openDirectory_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.openDirectory_2.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.openDirectory_2.setIcon(icon6)
+        self.goToDefault_2 = QPushButton(self.filespace)
+        self.goToDefault_2.setObjectName(u"goToDefault_2")
+        self.goToDefault_2.setGeometry(QRect(30, 450, 201, 30))
+        self.goToDefault_2.setMinimumSize(QSize(150, 30))
+        self.goToDefault_2.setFont(font)
+        self.goToDefault_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.goToDefault_2.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         icon10 = QIcon()
-        icon10.addFile(u":/icons/images/icons/cil-lock-locked.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.encryptButton.setIcon(icon10)
-        self.decryptButton = QPushButton(self.filespace)
-        self.decryptButton.setObjectName(u"decryptButton")
-        self.decryptButton.setGeometry(QRect(210, 130, 191, 30))
-        self.decryptButton.setMinimumSize(QSize(150, 30))
-        self.decryptButton.setFont(font)
-        self.decryptButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.decryptButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        icon10.addFile(u":/icons/images/icons/cil-house.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.goToDefault_2.setIcon(icon10)
+        self.defaultLocation_2 = QPushButton(self.filespace)
+        self.defaultLocation_2.setObjectName(u"defaultLocation_2")
+        self.defaultLocation_2.setGeometry(QRect(250, 450, 201, 30))
+        self.defaultLocation_2.setMinimumSize(QSize(150, 30))
+        self.defaultLocation_2.setFont(font)
+        self.defaultLocation_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.defaultLocation_2.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         icon11 = QIcon()
-        icon11.addFile(u":/icons/images/icons/cil-lock-unlocked.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.decryptButton.setIcon(icon11)
-        self.goBackButton = QPushButton(self.filespace)
-        self.goBackButton.setObjectName(u"goBackButton")
-        self.goBackButton.setGeometry(QRect(10, 380, 191, 30))
-        self.goBackButton.setMinimumSize(QSize(150, 30))
-        self.goBackButton.setFont(font)
-        self.goBackButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.goBackButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        icon11.addFile(u":/icons/images/icons/cil-star.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.defaultLocation_2.setIcon(icon11)
+        self.goBackButton_2 = QPushButton(self.filespace)
+        self.goBackButton_2.setObjectName(u"goBackButton_2")
+        self.goBackButton_2.setGeometry(QRect(30, 130, 111, 19))
+        self.goBackButton_2.setMinimumSize(QSize(10, 10))
+        self.goBackButton_2.setMaximumSize(QSize(16777215, 19))
+        self.goBackButton_2.setFont(font)
+        self.goBackButton_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.goBackButton_2.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         icon12 = QIcon()
         icon12.addFile(u":/icons/images/icons/cil-arrow-circle-left.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.goBackButton.setIcon(icon12)
-        self.currentDirectory = QLabel(self.filespace)
-        self.currentDirectory.setObjectName(u"currentDirectory")
-        self.currentDirectory.setGeometry(QRect(0, 70, 951, 21))
-        self.currentDirectory.setStyleSheet(u"color: rgb(113, 126, 149);")
-        self.currentDirectory.setFrameShape(QFrame.StyledPanel)
-        self.currentDirectory.setLineWidth(1)
-        self.currentDirectory.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.goBackButton_2.setIcon(icon12)
+        self.multiviewDetailsBox = QLabel(self.filespace)
+        self.multiviewDetailsBox.setObjectName(u"multiviewDetailsBox")
+        self.multiviewDetailsBox.setGeometry(QRect(910, 190, 231, 251))
+        self.multiviewDetailsBox.setStyleSheet(u"color: rgb(113, 126, 149);\n"
+"background-color: rgb(52, 59, 72);\n"
+"border-top-left-radius :7px;\n"
+"border-top-right-radius :7px;\n"
+"border-bottom-left-radius :7px;\n"
+"border-bottom-right-radius :7px;")
+        self.multiviewDetailsBox.setFrameShape(QFrame.NoFrame)
+        self.multiviewDetailsBox.setLineWidth(1)
+        self.multiviewDetailsBox.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.currentDirectoryText = QLabel(self.filespace)
+        self.currentDirectoryText.setObjectName(u"currentDirectoryText")
+        self.currentDirectoryText.setGeometry(QRect(40, 130, 851, 21))
+        sizePolicy2.setHeightForWidth(self.currentDirectoryText.sizePolicy().hasHeightForWidth())
+        self.currentDirectoryText.setSizePolicy(sizePolicy2)
+        self.currentDirectoryText.setMaximumSize(QSize(16777215, 45))
+        self.currentDirectoryText.setFont(font)
+        self.currentDirectoryText.setStyleSheet(u"color: rgb(113, 126, 149);\n"
+"background-color: rgb(52, 59, 72);\n"
+"border-top-left-radius :7px;\n"
+"border-top-right-radius :7px;")
+        self.currentDirectoryText.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.announceBox = QLabel(self.filespace)
+        self.announceBox.setObjectName(u"announceBox")
+        self.announceBox.setGeometry(QRect(70, 540, 1031, 31))
+        self.announceBox.setStyleSheet(u"background-color: rgb(206, 55, 8);border-top-left-radius :10px;border-top-right-radius :10px;border-bottom-left-radius :10px;border-bottom-right-radius :10px;")
+        self.announceBox.setFrameShape(QFrame.Panel)
+        self.announceBox.setFrameShadow(QFrame.Raised)
+        self.announceBox.setLineWidth(0)
+        self.announceBox.setTextFormat(Qt.RichText)
+        self.announceBox.setScaledContents(False)
+        self.announceBox.setAlignment(Qt.AlignCenter)
+        self.announceBox.setWordWrap(False)
+        self.border1 = QLabel(self.filespace)
+        self.border1.setObjectName(u"border1")
+        self.border1.setGeometry(QRect(40, 420, 851, 21))
+        sizePolicy2.setHeightForWidth(self.border1.sizePolicy().hasHeightForWidth())
+        self.border1.setSizePolicy(sizePolicy2)
+        self.border1.setMaximumSize(QSize(16777215, 45))
+        self.border1.setFont(font)
+        self.border1.setStyleSheet(u"color: rgb(113, 126, 149);\n"
+"background-color: rgb(52, 59, 72);\n"
+"border-bottom-left-radius :7px;\n"
+"border-bottom-right-radius :7px;")
+        self.border1.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.border2 = QLabel(self.filespace)
+        self.border2.setObjectName(u"border2")
+        self.border2.setGeometry(QRect(30, 130, 20, 311))
+        sizePolicy2.setHeightForWidth(self.border2.sizePolicy().hasHeightForWidth())
+        self.border2.setSizePolicy(sizePolicy2)
+        self.border2.setMaximumSize(QSize(16777215, 1000))
+        self.border2.setFont(font)
+        self.border2.setStyleSheet(u"color: rgb(113, 126, 149);\n"
+"background-color: rgb(52, 59, 72);\n"
+"border-bottom-left-radius :7px;\n"
+"border-top-left-radius :7px;")
+        self.border2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.encryptButton_3 = QPushButton(self.filespace)
+        self.encryptButton_3.setObjectName(u"encryptButton_3")
+        self.encryptButton_3.setGeometry(QRect(470, 450, 201, 30))
+        self.encryptButton_3.setMinimumSize(QSize(150, 30))
+        self.encryptButton_3.setFont(font)
+        self.encryptButton_3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.encryptButton_3.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.encryptButton_3.setIcon(icon8)
+        self.decryptButton_3 = QPushButton(self.filespace)
+        self.decryptButton_3.setObjectName(u"decryptButton_3")
+        self.decryptButton_3.setGeometry(QRect(690, 450, 201, 30))
+        self.decryptButton_3.setMinimumSize(QSize(150, 30))
+        self.decryptButton_3.setFont(font)
+        self.decryptButton_3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.decryptButton_3.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.decryptButton_3.setIcon(icon9)
+        self.closePopup = QPushButton(self.filespace)
+        self.closePopup.setObjectName(u"closePopup")
+        self.closePopup.setGeometry(QRect(1070, 540, 31, 31))
+        self.closePopup.setMinimumSize(QSize(30, 30))
+        self.closePopup.setFont(font)
+        self.closePopup.setCursor(QCursor(Qt.PointingHandCursor))
+        self.closePopup.setStyleSheet(u"border: none;")
+        icon13 = QIcon()
+        icon13.addFile(u":/icons/images/icons/cil-x-circle.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.closePopup.setIcon(icon13)
+        self.closePopup.setFlat(False)
         self.stackedWidget.addWidget(self.filespace)
-        self.page3 = QWidget()
-        self.page3.setObjectName(u"page3")
-        self.stackedWidget.addWidget(self.page3)
-        self.page4 = QWidget()
-        self.page4.setObjectName(u"page4")
-        self.stackedWidget.addWidget(self.page4)
+        self.fileBrowserTree_2.raise_()
+        self.border2.raise_()
+        self.border1.raise_()
+        self.currentDirectoryText.raise_()
+        self.currentDirectory_2.raise_()
+        self.multiviewDetailsBox.raise_()
+        self.decryptButton_2.raise_()
+        self.openFilepathButton_2.raise_()
+        self.selectFileToEncryptText.raise_()
+        self.filepathBox_2.raise_()
+        self.encryptButton_2.raise_()
+        self.filespaceTitle.raise_()
+        self.multiviewCheckbox_1.raise_()
+        self.selectFileToEncryptText_2.raise_()
+        self.parentDriveTitle_2.raise_()
+        self.driveInfoTitle_2.raise_()
+        self.driveInfo_2.raise_()
+        self.parentDriveSpace_2.raise_()
+        self.parentDrive_2.raise_()
+        self.openDirectory_2.raise_()
+        self.goToDefault_2.raise_()
+        self.defaultLocation_2.raise_()
+        self.goBackButton_2.raise_()
+        self.announceBox.raise_()
+        self.encryptButton_3.raise_()
+        self.decryptButton_3.raise_()
+        self.closePopup.raise_()
+        self.Security = QWidget()
+        self.Security.setObjectName(u"Security")
+        self.dashboardTitle_10 = QLabel(self.Security)
+        self.dashboardTitle_10.setObjectName(u"dashboardTitle_10")
+        self.dashboardTitle_10.setGeometry(QRect(0, 0, 1171, 51))
+        self.dashboardTitle_10.setStyleSheet(u"color: rgb(0,94,217);\n"
+"font: 18pt \"Segoe UI\" bold;")
+        self.dashboardTitle_10.setLineWidth(1)
+        self.dashboardTitle_10.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.dashboardTitle_11 = QLabel(self.Security)
+        self.dashboardTitle_11.setObjectName(u"dashboardTitle_11")
+        self.dashboardTitle_11.setGeometry(QRect(690, 460, 111, 31))
+        self.dashboardTitle_11.setStyleSheet(u"font: 14pt \"Segoe UI\" bold;\n"
+"color: rgb(255, 0, 0);")
+        self.dashboardTitle_11.setLineWidth(1)
+        self.dashboardTitle_11.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.dangerBorder = QLabel(self.Security)
+        self.dangerBorder.setObjectName(u"dangerBorder")
+        self.dangerBorder.setGeometry(QRect(680, 450, 491, 121))
+        self.dangerBorder.setStyleSheet(u"border: 2px double;\n"
+"border-color: qradialgradient(spread:repeat, cx:0.5, cy:0.5, radius:0.077, fx:0.5, fy:0.5, stop:0.420455 rgba(255, 0, 0, 200), stop:0.497326 rgba(0, 0, 0, 147), stop:0.795455 rgba(0, 0, 0, 200))")
+        self.dangerBorder.setLineWidth(1)
+        self.dangerBorder.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.regenkeysWidget = QWidget(self.Security)
+        self.regenkeysWidget.setObjectName(u"regenkeysWidget")
+        self.regenkeysWidget.setGeometry(QRect(690, 500, 151, 21))
+        self.changeBitLength = QWidget(self.Security)
+        self.changeBitLength.setObjectName(u"changeBitLength")
+        self.changeBitLength.setGeometry(QRect(690, 530, 151, 21))
+        self.stackedWidget.addWidget(self.Security)
+        self.dangerBorder.raise_()
+        self.dashboardTitle_10.raise_()
+        self.dashboardTitle_11.raise_()
+        self.regenkeysWidget.raise_()
+        self.changeBitLength.raise_()
+        self.Account = QWidget()
+        self.Account.setObjectName(u"Account")
+        self.stackedWidget.addWidget(self.Account)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
 
@@ -1790,11 +1895,11 @@ class Ui_MainWindow(object):
         self.creditsLabel = QLabel(self.bottomBar)
         self.creditsLabel.setObjectName(u"creditsLabel")
         self.creditsLabel.setMaximumSize(QSize(16777215, 16))
-        font5 = QFont()
-        font5.setFamilies([u"Segoe UI"])
-        font5.setBold(False)
-        font5.setItalic(False)
-        self.creditsLabel.setFont(font5)
+        font3 = QFont()
+        font3.setFamilies([u"Segoe UI"])
+        font3.setBold(False)
+        font3.setItalic(False)
+        self.creditsLabel.setFont(font3)
         self.creditsLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.horizontalLayout_5.addWidget(self.creditsLabel)
@@ -1825,11 +1930,10 @@ class Ui_MainWindow(object):
 
         MainWindow.setCentralWidget(self.styleSheet)
 
-        self.appMargins.addWidget(self.bgApp)
-
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(3)
+        self.closePopup.setDefault(False)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1837,12 +1941,10 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"EasyRSA", None))
-        self.titleLeftApp.setText(QCoreApplication.translate("MainWindow", u"EasyRSA", None))
-        self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"Dashboard", None))
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.btn_filespace.setText(QCoreApplication.translate("MainWindow", u"Drive", None))
-        self.btn_passwords.setText(QCoreApplication.translate("MainWindow", u"Passwords", None))
+        self.btn_security.setText(QCoreApplication.translate("MainWindow", u"Passwords", None))
         self.btn_account.setText(QCoreApplication.translate("MainWindow", u"Account", None))
         self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Log out", None))
         self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
@@ -1858,11 +1960,11 @@ class Ui_MainWindow(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Credit</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#bd93f9;\">Theme by: Zeno Rocha</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#bd93f9;\">UI framework by: Wanderson M. Pimenta</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ffd579;\">Credit</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffb379;\">Theme by: Zeno Rocha</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffb379;\">UI framework by: Wanderson M. Pimenta</span></p>\n"
 "<p align=\"center\" style=\" "
-                        "margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Developers</span></p>\n"
+                        "margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ffd579;\">Developers</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">Leigh | Developer</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">Bartosz | Developer</span></p></body></html>", None))
         self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"EasyRSA", None))
@@ -1882,15 +1984,16 @@ class Ui_MainWindow(object):
         self.closeAppBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
-        self.dashboardTitle.setText(QCoreApplication.translate("MainWindow", u"Dashboard", None))
-        self.publicKeyTitle.setText(QCoreApplication.translate("MainWindow", u"Public Key", None))
-        self.privateKeyTitle.setText(QCoreApplication.translate("MainWindow", u"Private Key", None))
+        self.dashboardTitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Welcome to your EasyRSA Dashboard</p></body></html>", None))
 #if QT_CONFIG(whatsthis)
         self.warningMessage.setWhatsThis("")
 #endif // QT_CONFIG(whatsthis)
-        self.warningMessage.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ff0000;\">DANGER: </span><span style=\" color:#ff0000;\">Your private key is not to be shared. Doing so will allow </span><span style=\" font-weight:600; text-decoration: underline; color:#ff0000;\">anybody</span><span style=\" color:#ff0000;\"> to decrypt your data. Use this feature is at your own risk.</span></p></body></html>", None))
+        self.warningMessage.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" color:#ff0000;\">DANGER: Your private key is not to be shared. Doing so will allow </span><span style=\" font-weight:600; text-decoration: underline; color:#ff0000;\">anybody</span><span style=\" color:#ff0000;\"> to decrypt your data. Use this feature is at your own risk.</span></p></body></html>", None))
         self.privateKeyCheckbox.setText(QCoreApplication.translate("MainWindow", u"Show Private Key", None))
-        self.copyPrivateKeyButton.setText(QCoreApplication.translate("MainWindow", u"Copy Key", None))
+        self.copyPrivateKeyButton.setText(QCoreApplication.translate("MainWindow", u"Copy Private Key", None))
+        self.dashboardTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Your Public Key</span></p></body></html>", None))
+        self.dashboardTitle_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Your Private Key</span></p></body></html>", None))
+        self.copyPublicKeyButton.setText(QCoreApplication.translate("MainWindow", u"Copy Public Key", None))
         self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Open", None))
         self.labelVersion_3.setText(QCoreApplication.translate("MainWindow", u"Label description", None))
@@ -1957,26 +2060,35 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Line", None));
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
-        self.filespaceTitle.setText(QCoreApplication.translate("MainWindow", u"Filespace", None))
-        self.openFilepathButton.setText(QCoreApplication.translate("MainWindow", u"Open", None))
-        self.filepathBox.setText("")
-        self.filepathBox.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
-        self.goToDefault.setText(QCoreApplication.translate("MainWindow", u"Go To Default Location", None))
-        self.openDirectory.setText(QCoreApplication.translate("MainWindow", u"Open Directory", None))
-        self.defaultLocation.setText(QCoreApplication.translate("MainWindow", u"Change Default Location", None))
-        self.driveInfo.setText("")
-        self.parentDriveTitle.setText(QCoreApplication.translate("MainWindow", u"Drive Usage:", None))
-        self.driveInfoTitle.setText(QCoreApplication.translate("MainWindow", u"Drive Information:", None))
-        self.parentDrive.setText(QCoreApplication.translate("MainWindow", u"Parent Drive:", None))
-        self.multiviewCheckbox.setText(QCoreApplication.translate("MainWindow", u"Multiview", None))
-        self.processingTime.setText("")
-        self.cryptoFeedbackTitle.setText("")
-        self.processingSize.setText("")
-        self.cryptoWarningTitle.setText("")
-        self.encryptButton.setText(QCoreApplication.translate("MainWindow", u"Encrypt", None))
-        self.decryptButton.setText(QCoreApplication.translate("MainWindow", u"Decrypt", None))
-        self.goBackButton.setText(QCoreApplication.translate("MainWindow", u"Go Back..", None))
-        self.currentDirectory.setText("")
+        self.filespaceTitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">EasyRSA Filespace</p></body></html>", None))
+        self.filepathBox_2.setText("")
+        self.filepathBox_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
+        self.encryptButton_2.setText(QCoreApplication.translate("MainWindow", u"Encrypt", None))
+        self.decryptButton_2.setText(QCoreApplication.translate("MainWindow", u"Decrypt", None))
+        self.openFilepathButton_2.setText(QCoreApplication.translate("MainWindow", u"Select File", None))
+        self.selectFileToEncryptText.setText(QCoreApplication.translate("MainWindow", u"Select file to encrypt:", None))
+        self.multiviewCheckbox_1.setText(QCoreApplication.translate("MainWindow", u" Enable Multiview", None))
+        self.currentDirectory_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><br/></p></body></html>", None))
+        self.selectFileToEncryptText_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Want a more advanced view?</p></body></html>", None))
+        self.parentDriveTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Drive Usage</p></body></html>", None))
+        self.driveInfoTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Drive Information</p></body></html>", None))
+        self.driveInfo_2.setText("")
+        self.parentDrive_2.setText(QCoreApplication.translate("MainWindow", u"Parent Drive:", None))
+        self.openDirectory_2.setText(QCoreApplication.translate("MainWindow", u"Open Directory", None))
+        self.goToDefault_2.setText(QCoreApplication.translate("MainWindow", u"Go To Default Location", None))
+        self.defaultLocation_2.setText(QCoreApplication.translate("MainWindow", u"Change Default Location", None))
+        self.goBackButton_2.setText(QCoreApplication.translate("MainWindow", u"Go Back..", None))
+        self.multiviewDetailsBox.setText("")
+        self.currentDirectoryText.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><br/></p></body></html>", None))
+        self.announceBox.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" color:#d80a14;\">ErrorBox</span></p></body></html>", None))
+        self.border1.setText("")
+        self.border2.setText("")
+        self.encryptButton_3.setText(QCoreApplication.translate("MainWindow", u"Encrypt Selected File", None))
+        self.decryptButton_3.setText(QCoreApplication.translate("MainWindow", u"Decrypt Selected File", None))
+        self.closePopup.setText("")
+        self.dashboardTitle_10.setText(QCoreApplication.translate("MainWindow", u"Security Centre", None))
+        self.dashboardTitle_11.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt;\">Danger Zone</span></p></body></html>", None))
+        self.dangerBorder.setText("")
         self.btn_help.setText(QCoreApplication.translate("MainWindow", u"Help", None))
         self.btn_report.setText(QCoreApplication.translate("MainWindow", u"Report Issue", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
