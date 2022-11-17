@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1276, 687)
+        MainWindow.resize(1274, 693)
         MainWindow.setMinimumSize(QSize(940, 560))
         icon = QIcon()
         icon.addFile(u":/images/images/images/RSA.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -52,7 +52,7 @@ class Ui_MainWindow(object):
 "Tooltip */\n"
 "QToolTip {\n"
 "	color: #ffffff;\n"
-"	background-color: rgba(35,35,38, 180);\n"
+"	background-color: rgba(35, 36, 42, 180);\n"
 "	border: 1px solid rgb(35,35,38);\n"
 "	background-image: none;\n"
 "	background-position: left center;\n"
@@ -67,24 +67,24 @@ class Ui_MainWindow(object):
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Bg App */\n"
 "#bgApp {\n"
-"	background-color: rgb(11,11,11);\n"
+"	background-color: rgb(35, 36, 42);\n"
 "	border: 1px solid rgb(35,35,38);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Left Menu */\n"
 "#leftMenuBg {\n"
-"	background-color: rgb(35,35,38);\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0,"
+                        " x2:1, y2:1, stop:0 rgba(97, 67, 133, 255), stop:1 rgba(81, 99, 149, 255));\n"
 "}\n"
 "#topLogo {\n"
-"	ba"
-                        "ckground-color: rgb(35,35,38);\n"
+"	background-color: transparent;\n"
 "	background-image: url(:/images/images/images/RSA30x30.png);\n"
 "	background-position: center;\n"
 "	background-repeat: no-repeat;\n"
 "}\n"
-"#titleLeftApp { font: 63 12pt \"Segoe UI Semibold\"; }\n"
-"#titleLeftDescription { font: 8pt \"Segoe UI\"; color: rgb(32, 124, 245); }\n"
+"#titleLeftApp { font: 81 12pt \"Raleway ExtraBold\"; }\n"
+"#titleLeftDescription { font: 8pt \"Segoe UI\"; color: #aa63ff; }\n"
 "\n"
 "/* MENUS */\n"
 "#topMenu .QPushButton {\n"
@@ -97,31 +97,31 @@ class Ui_MainWindow(object):
 "	padding-left: 44px;\n"
 "}\n"
 "#topMenu .QPushButton:hover {\n"
-"	background-color: rgb(11,11,11);\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
 "#topMenu .QPushButton:pressed {\n"
-"	background-color: rgb(32, 124, 245);\n"
-"	color: rgb(255, 255, 255);\n"
+"	background-color: #aa63ff;\n"
+"	color: #fff;\n"
 "}\n"
 "#bottomMenu .QPushButton {\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
 "	border-left: 20px solid transparent;\n"
-"	background-color:transparent;\n"
+"	ba"
+                        "ckground-color:transparent;\n"
 "	text-align: left;\n"
-"	padding-left"
-                        ": 44px;\n"
+"	padding-left: 44px;\n"
 "}\n"
 "#bottomMenu .QPushButton:hover {\n"
-"	background-color: rgb(11,11,11);\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
 "#bottomMenu .QPushButton:pressed {\n"
-"	background-color: rgb(32, 124, 245);\n"
-"	color: rgb(255, 255, 255);\n"
+"	background-color: #aa63ff;\n"
+"	color: #fff;\n"
 "}\n"
 "#leftMenuFrame{\n"
-"	border-top: 3px solid rgb(35,35,38);\n"
+"	border-top: solid rgb(35,35,38);\n"
 "}\n"
 "\n"
 "/* Toggle Button */\n"
@@ -130,7 +130,7 @@ class Ui_MainWindow(object):
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
 "	border-left: 20px solid transparent;\n"
-"	background-color: rgb(37, 41, 48);\n"
+"	background-color: #23242a;\n"
 "	text-align: left;\n"
 "	padding-left: 44px;\n"
 "	color: rgb(113, 126, 149);\n"
@@ -138,8 +138,8 @@ class Ui_MainWindow(object):
 "#toggleButton:hover {\n"
 "	background-color: rgb(11,11,11);\n"
 "}\n"
-"#toggleButton:pressed {\n"
-"	background-color: rgb(32, 124, 245);\n"
+"#toggleButton:pressed { \n"
+"	background-color: #fff;\n"
 "}\n"
 "\n"
 "/* Title Menu */\n"
@@ -150,10 +150,10 @@ class Ui_MainWindow(object):
 "Extra Tab */\n"
 "#extraLeftBox {\n"
 "	background-color: rgb(35,35,38);\n"
-"}\n"
-"#extraTopBg {\n"
 ""
-                        "	background-color: rgb(32, 124, 245);\n"
+                        "}\n"
+"#extraTopBg {\n"
+"	background-color: #aa63ff;\n"
 "}\n"
 "\n"
 "/* Icon */\n"
@@ -168,12 +168,12 @@ class Ui_MainWindow(object):
 "\n"
 "/* Btn Close */\n"
 "#extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
-"#extraCloseColumnBtn:hover { background-color: rgb(87, 156, 247); border-style: solid; border-radius: 4px; }\n"
-"#extraCloseColumnBtn:pressed { background-color: rgb(46, 130, 240); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:hover { background-color: rgb(35,35,38); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:pressed { background-color: #aa63ff; border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Extra Content */\n"
 "#extraContent{\n"
-"	border-top: 3px solid rgb(11,11,11);\n"
+"	border-top: 3px solid rgb(35,35,38);\n"
 "}\n"
 "\n"
 "/* Extra Top Menus */\n"
@@ -188,17 +188,17 @@ class Ui_MainWindow(object):
                         "44px;\n"
 "}\n"
 "#extraTopMenu .QPushButton:hover {\n"
-"	background-color: rgb(11,11,11);\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
 "#extraTopMenu .QPushButton:pressed {\n"
-"	background-color: rgb(32, 124, 245);\n"
-"	color: rgb(255, 255, 255);\n"
+"	background-color: #aa63ff;\n"
+"	color: #fff;\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Content App */\n"
 "#contentTopBg{\n"
-"	background-color: rgb(35,35,38);\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(97, 67, 133, 255), stop:1 rgba(81, 99, 149, 255));\n"
 "}\n"
 "#contentBottom{\n"
 "	border-top: 3px solid rgb(35,35,38);\n"
@@ -207,15 +207,15 @@ class Ui_MainWindow(object):
 "/* Top Buttons */\n"
 "#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
 "#rightButtons .QPushButton:hover { background-color: rgb(44, 49, 57); border-style: solid; border-radius: 4px; }\n"
-"#rightButtons .QPushButton:pressed { background-color: rgb(23, 26, 30); border-style: solid; border-radius: 4px; }\n"
+"#rightButtons .QPushButton:pressed { background-color: #aa63ff; border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Theme Settings */\n"
 "#extraRightBox { background-color: rgb(35,35,38); }\n"
-"#themeSettingsTopDetail { background-color: rgb(32, 124, 245); }\n"
+"#themeSettingsTo"
+                        "pDetail { background-color: #aa63ff; }\n"
 "\n"
-"/* Bottom "
-                        "Bar */\n"
-"#bottomBar { background-color: rgb(35,35,38); }\n"
+"/* Bottom Bar */\n"
+"#bottomBar { background-color: qlineargradient(spread:pad, x1:1, y1:0.511, x2:0, y2:0.517, stop:0 rgba(97, 67, 133, 255), stop:1 rgba(81, 99, 149, 255)); }\n"
 "#bottomBar QLabel { font-size: 11px; color: rgb(113, 126, 149); padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }\n"
 "\n"
 "/* CONTENT SETTINGS */\n"
@@ -230,23 +230,23 @@ class Ui_MainWindow(object):
 "	padding-left: 44px;\n"
 "}\n"
 "#contentSettings .QPushButton:hover {\n"
-"	background-color: rgb(11,11,11);\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
 "#contentSettings .QPushButton:pressed {\n"
-"	background-color: rgb(32, 124, 245);\n"
+"	background-color: #aa63ff;\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "QTableWidget */\n"
 "QTableWidget {\n"
-"	background-color: transparent;\n"
+"	bac"
+                        "kground-color: transparent;\n"
 "	padding: 10px;\n"
 "	border-radius: 5px;\n"
 "	gridline-color: rgb(35,35,38);\n"
 "	border-bottom: 1px solid rgb(44, 49, 60);\n"
-""
-                        "}\n"
+"}\n"
 "QTableWidget::item{\n"
 "	border-color: rgb(44, 49, 60);\n"
 "	padding-left: 5px;\n"
@@ -254,7 +254,7 @@ class Ui_MainWindow(object):
 "	gridline-color: rgb(44, 49, 60);\n"
 "}\n"
 "QTableWidget::item:selected{\n"
-"	background-color: rgb(32, 124, 245);\n"
+"	background-color: #aa63ff;\n"
 "}\n"
 "QHeaderView::section{\n"
 "	background-color: rgb(35,35,38);\n"
@@ -278,18 +278,18 @@ class Ui_MainWindow(object):
 "QHeaderView::section:vertical\n"
 "{\n"
 "    border: 1px solid rgb(44, 49, 60);\n"
-"}\n"
+""
+                        "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "LineEdit */\n"
 "QLineEdit {\n"
-"	"
-                        "background-color: rgb(35,35,38);\n"
+"	background-color: rgb(35,35,38);\n"
 "	border-radius: 5px;\n"
 "	border: 2px solid rgb(35,35,38);\n"
 "	padding-left: 10px;\n"
 "	selection-color: rgb(255, 255, 255);\n"
-"	selection-background-color: rgb(0,94,217);\n"
+"	selection-background-color: #aa63ff;\n"
 "}\n"
 "QLineEdit:hover {\n"
 "	border: 2px solid rgb(64, 71, 88);\n"
@@ -314,14 +314,14 @@ class Ui_MainWindow(object):
 "    height: 8px;\n"
 " }\n"
 "QPlainTextEdit:hover {\n"
-"	border: 2px solid rgb(64, 71, 88);\n"
+"	border: 2px solid rgb"
+                        "(64, 71, 88);\n"
 "}\n"
 "QPlainTextEdit:focus {\n"
 "	border: 2px solid rgb(91, 101, 124);\n"
 "}\n"
 "\n"
-"/* ////////////////////////////////////"
-                        "/////////////////////////////////////////////////////////////\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "ScrollBars */\n"
 "QScrollBar:horizontal {\n"
 "    border: none;\n"
@@ -331,7 +331,7 @@ class Ui_MainWindow(object):
 "	border-radius: 0px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
-"    background: rgb(32, 124, 245);\n"
+"    background: #aa63ff;\n"
 "    min-width: 25px;\n"
 "	border-radius: 4px;\n"
 "}\n"
@@ -351,12 +351,12 @@ class Ui_MainWindow(object):
 "	border-top-left-radius: 4px;\n"
 "    border-bottom-left-radius: 4px;\n"
 "    subcontrol-position: left;\n"
-"    subcontrol-origin: margin;\n"
+"    sub"
+                        "control-origin: margin;\n"
 "}\n"
 "QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal\n"
 "{\n"
-"     background: none;"
-                        "\n"
+"     background: none;\n"
 "}\n"
 "QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal\n"
 "{\n"
@@ -370,7 +370,7 @@ class Ui_MainWindow(object):
 "	border-radius: 0px;\n"
 " }\n"
 " QScrollBar::handle:vertical {\n"
-"	background: rgb(32, 124, 245);\n"
+"	background: #aa63ff;\n"
 "    min-height: 25px;\n"
 "	border-radius: 4px;\n"
 " }\n"
@@ -389,12 +389,12 @@ class Ui_MainWindow(object):
 "     height: 20px;\n"
 "	border-top-left-radius: 4px;\n"
 "    border-top-right-radius: 4px;\n"
-"     subcontrol-position: top;\n"
+"     subcontrol-posit"
+                        "ion: top;\n"
 "     subcontrol-origin: margin;\n"
 " }\n"
 " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-""
-                        "     background: none;\n"
+"     background: none;\n"
 " }\n"
 "\n"
 " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
@@ -422,14 +422,14 @@ class Ui_MainWindow(object):
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "RadioButton */\n"
 "QRadioButton::indicator {\n"
-"    border: 3px solid rgb(52, 59, 72);\n"
+"    border: 3px so"
+                        "lid rgb(52, 59, 72);\n"
 "	width: 15px;\n"
 "	height: 15px;\n"
 "	border-radius: 10px;\n"
 "    background: rgb(44, 49, 60);\n"
 "}\n"
-""
-                        "QRadioButton::indicator:hover {\n"
+"QRadioButton::indicator:hover {\n"
 "    border: 3px solid rgb(58, 66, 81);\n"
 "}\n"
 "QRadioButton::indicator:checked {\n"
@@ -458,13 +458,13 @@ class Ui_MainWindow(object):
 "	border-left-style: solid;\n"
 "	border-top-right-radius: 3px;\n"
 "	border-bottom-right-radius: 3px;\n"
-"	background-image: url(:/icons/images/icons/cil-arrow-bottom.png);\n"
+"	background-image: u"
+                        "rl(:/icons/images/icons/cil-arrow-bottom.png);\n"
 "	background-position: center;\n"
 "	background-repeat: no-repeat;\n"
 " }\n"
-"QCom"
-                        "boBox QAbstractItemView {\n"
-"	color: rgb(0,94,217);\n"
+"QComboBox QAbstractItemView {\n"
+"	color: #aa63ff;\n"
 "	background-color: rgb(35,35,38);\n"
 "	padding: 10px;\n"
 "	selection-background-color: rgb(39, 44, 54);\n"
@@ -482,7 +482,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(55, 62, 76);\n"
 "}\n"
 "QSlider::handle:horizontal {\n"
-"    background-color: rgb(32, 124, 245);\n"
+"    background-color: #aa63ff;\n"
 "    border: none;\n"
 "    height: 10px;\n"
 "    width: 10px;\n"
@@ -490,24 +490,24 @@ class Ui_MainWindow(object):
 "	border-radius: 5px;\n"
 "}\n"
 "QSlider::handle:horizontal:hover {\n"
-"    background-color: rgb(255, 212, 155);\n"
+"    background-color: #aa63ff;\n"
 "}\n"
 "QSlider::handle:horizontal:pressed {\n"
-"    background-color: rgb(0,94,217);\n"
+"    background-color: #aa63ff;\n"
 "}\n"
 "\n"
-"QSlider::groove:vertical {\n"
+"QSlider::groove:vert"
+                        "ical {\n"
 "    border-radius: 5px;\n"
 "    width: 10px;\n"
 "    margin: 0px;\n"
-"	background-color"
-                        ": rgb(52, 59, 72);\n"
+"	background-color: rgb(52, 59, 72);\n"
 "}\n"
 "QSlider::groove:vertical:hover {\n"
 "	background-color: rgb(55, 62, 76);\n"
 "}\n"
 "QSlider::handle:vertical {\n"
-"    background-color: rgb(32, 124, 245);\n"
+"    background-color: #aa63ff;\n"
 "	border: none;\n"
 "    height: 10px;\n"
 "    width: 10px;\n"
@@ -515,30 +515,30 @@ class Ui_MainWindow(object):
 "	border-radius: 5px;\n"
 "}\n"
 "QSlider::handle:vertical:hover {\n"
-"    background-color: rgb(255, 212, 155);\n"
+"    background-color: #aa63ff;\n"
 "}\n"
 "QSlider::handle:vertical:pressed {\n"
-"    background-color: rgb(0,94,217);\n"
+"    background-color: #aa63ff;\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "CommandLinkButton */\n"
 "QCommandLinkButton {\n"
-"	color: rgb(0,94,217);\n"
+"	color: #aa63ff;\n"
 "	border-radius: 5px;\n"
 "	padding: 5px;\n"
 "}\n"
 "QCommandLinkButton:hover {\n"
-"	color: rgb(255, 170, 255);\n"
+"	color: #fff;\n"
 "	background-color: rgb(44, 49, 60);\n"
 "}\n"
 "QCommandLinkButton:pressed {\n"
-"	color: rgb(32, 124, 245);\n"
+"	color: #aa63ff;\n"
 "	background-color: rgb(52, 58, 71);\n"
 "}\n"
 "\n"
-"/* ////////////////////////////////////////////////////////////////////////////////////"
-                        "/////////////\n"
+"/* ///////////////////////////////////////////"
+                        "//////////////////////////////////////////////////////\n"
 "Button */\n"
 "#pagesContainer QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
@@ -553,6 +553,10 @@ class Ui_MainWindow(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
+        self.appMargins = QVBoxLayout(self.styleSheet)
+        self.appMargins.setSpacing(0)
+        self.appMargins.setObjectName(u"appMargins")
+        self.appMargins.setContentsMargins(10, 10, 10, 10)
         self.bgApp = QFrame(self.styleSheet)
         self.bgApp.setObjectName(u"bgApp")
         self.bgApp.setGeometry(QRect(10, 10, 1260, 668))
@@ -581,9 +585,63 @@ class Ui_MainWindow(object):
         self.verticalMenuLayout.setSpacing(0)
         self.verticalMenuLayout.setObjectName(u"verticalMenuLayout")
         self.verticalMenuLayout.setContentsMargins(0, 0, 0, 0)
+        self.topLogoInfo_2 = QFrame(self.leftMenuFrame)
+        self.topLogoInfo_2.setObjectName(u"topLogoInfo_2")
+        self.topLogoInfo_2.setMinimumSize(QSize(0, 50))
+        self.topLogoInfo_2.setMaximumSize(QSize(16777215, 50))
+        self.topLogoInfo_2.setFrameShape(QFrame.NoFrame)
+        self.topLogoInfo_2.setFrameShadow(QFrame.Raised)
+        self.topLogo_2 = QFrame(self.topLogoInfo_2)
+        self.topLogo_2.setObjectName(u"topLogo_2")
+        self.topLogo_2.setGeometry(QRect(10, 10, 42, 42))
+        self.topLogo_2.setMinimumSize(QSize(42, 42))
+        self.topLogo_2.setMaximumSize(QSize(42, 42))
+        self.topLogo_2.setStyleSheet(u"background-image: url(:/images/images/images/icon40.png);\n"
+"background-position: center;\n"
+"background-repeat: no-repeat;")
+        self.topLogo_2.setFrameShape(QFrame.NoFrame)
+        self.topLogo_2.setFrameShadow(QFrame.Raised)
+        self.topLogo = QFrame(self.topLogo_2)
+        self.topLogo.setObjectName(u"topLogo")
+        self.topLogo.setGeometry(QRect(0, 0, 42, 42))
+        self.topLogo.setMinimumSize(QSize(42, 42))
+        self.topLogo.setMaximumSize(QSize(42, 42))
+        self.topLogo.setSizeIncrement(QSize(0, 0))
+        self.topLogo.setAutoFillBackground(False)
+        self.topLogo.setStyleSheet(u"background-image: url(:/images/images/images/RSA30x30.png);\n"
+"background-position: center;\n"
+"background-color: transparent;")
+        self.topLogo.setFrameShape(QFrame.NoFrame)
+        self.topLogo.setFrameShadow(QFrame.Raised)
+        self.titleLeftApp = QLabel(self.topLogoInfo_2)
+        self.titleLeftApp.setObjectName(u"titleLeftApp")
+        self.titleLeftApp.setGeometry(QRect(70, 8, 160, 20))
+        font1 = QFont()
+        font1.setFamilies([u"Raleway ExtraBold"])
+        font1.setPointSize(12)
+        font1.setBold(False)
+        font1.setItalic(False)
+        self.titleLeftApp.setFont(font1)
+        self.titleLeftApp.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.titleLeftDescription = QLabel(self.topLogoInfo_2)
+        self.titleLeftDescription.setObjectName(u"titleLeftDescription")
+        self.titleLeftDescription.setGeometry(QRect(70, 27, 160, 16))
+        self.titleLeftDescription.setMaximumSize(QSize(16777215, 16))
+        font2 = QFont()
+        font2.setFamilies([u"Raleway Medium"])
+        font2.setPointSize(10)
+        font2.setBold(False)
+        font2.setItalic(False)
+        self.titleLeftDescription.setFont(font2)
+        self.titleLeftDescription.setStyleSheet(u"font: 57 10pt \"Raleway Medium\";")
+        self.titleLeftDescription.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+
+        self.verticalMenuLayout.addWidget(self.topLogoInfo_2)
+
         self.toggleBox = QFrame(self.leftMenuFrame)
         self.toggleBox.setObjectName(u"toggleBox")
         self.toggleBox.setMaximumSize(QSize(16777215, 45))
+        self.toggleBox.setStyleSheet(u"")
         self.toggleBox.setFrameShape(QFrame.NoFrame)
         self.toggleBox.setFrameShadow(QFrame.Raised)
         self.verticalLayout_4 = QVBoxLayout(self.toggleBox)
@@ -602,7 +660,7 @@ class Ui_MainWindow(object):
         self.toggleButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.toggleButton.setLayoutDirection(Qt.LeftToRight)
         self.toggleButton.setStyleSheet(u"background-image: url(:/icons/images/icons/icon_menu.png);\n"
-"background-color: rgb(35, 35, 38);")
+"background-color: transparent;")
 
         self.verticalLayout_4.addWidget(self.toggleButton)
 
@@ -866,6 +924,7 @@ class Ui_MainWindow(object):
         self.contentTopBg.setObjectName(u"contentTopBg")
         self.contentTopBg.setMinimumSize(QSize(0, 50))
         self.contentTopBg.setMaximumSize(QSize(16777215, 50))
+        self.contentTopBg.setStyleSheet(u"")
         self.contentTopBg.setFrameShape(QFrame.NoFrame)
         self.contentTopBg.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.contentTopBg)
@@ -879,25 +938,13 @@ class Ui_MainWindow(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.leftBox.sizePolicy().hasHeightForWidth())
         self.leftBox.setSizePolicy(sizePolicy1)
+        self.leftBox.setStyleSheet(u"")
         self.leftBox.setFrameShape(QFrame.NoFrame)
         self.leftBox.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_3 = QHBoxLayout(self.leftBox)
         self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.topLogo = QFrame(self.leftBox)
-        self.topLogo.setObjectName(u"topLogo")
-        self.topLogo.setMinimumSize(QSize(42, 42))
-        self.topLogo.setMaximumSize(QSize(42, 42))
-        self.topLogo.setSizeIncrement(QSize(0, 0))
-        self.topLogo.setAutoFillBackground(False)
-        self.topLogo.setStyleSheet(u"background-image: url(:/images/images/images/RSA30x30.png);\n"
-"background-position: center;")
-        self.topLogo.setFrameShape(QFrame.NoFrame)
-        self.topLogo.setFrameShadow(QFrame.Raised)
-
-        self.horizontalLayout_3.addWidget(self.topLogo)
-
         self.titleRightInfo = QLabel(self.leftBox)
         self.titleRightInfo.setObjectName(u"titleRightInfo")
         sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
@@ -907,7 +954,13 @@ class Ui_MainWindow(object):
         self.titleRightInfo.setSizePolicy(sizePolicy2)
         self.titleRightInfo.setMinimumSize(QSize(10000, 0))
         self.titleRightInfo.setMaximumSize(QSize(16777215, 45))
-        self.titleRightInfo.setFont(font)
+        font3 = QFont()
+        font3.setFamilies([u"Raleway ExtraBold"])
+        font3.setPointSize(10)
+        font3.setBold(False)
+        font3.setItalic(False)
+        self.titleRightInfo.setFont(font3)
+        self.titleRightInfo.setStyleSheet(u"font: 81 10pt \"Raleway ExtraBold\";")
         self.titleRightInfo.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.horizontalLayout_3.addWidget(self.titleRightInfo)
@@ -952,13 +1005,13 @@ class Ui_MainWindow(object):
         self.maximizeRestoreAppBtn.setObjectName(u"maximizeRestoreAppBtn")
         self.maximizeRestoreAppBtn.setMinimumSize(QSize(28, 28))
         self.maximizeRestoreAppBtn.setMaximumSize(QSize(28, 28))
-        font1 = QFont()
-        font1.setFamilies([u"Segoe UI"])
-        font1.setPointSize(10)
-        font1.setBold(False)
-        font1.setItalic(False)
-        font1.setStyleStrategy(QFont.PreferDefault)
-        self.maximizeRestoreAppBtn.setFont(font1)
+        font4 = QFont()
+        font4.setFamilies([u"Segoe UI"])
+        font4.setPointSize(10)
+        font4.setBold(False)
+        font4.setItalic(False)
+        font4.setStyleStrategy(QFont.PreferDefault)
+        self.maximizeRestoreAppBtn.setFont(font4)
         self.maximizeRestoreAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon4 = QIcon()
         icon4.addFile(u":/icons/images/icons/icon_maximize.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -1018,9 +1071,9 @@ class Ui_MainWindow(object):
 "background-repeat: no-repeat;")
         self.dashboardTitle = QLabel(self.home)
         self.dashboardTitle.setObjectName(u"dashboardTitle")
-        self.dashboardTitle.setGeometry(QRect(0, 40, 1171, 31))
-        self.dashboardTitle.setStyleSheet(u"color: rgb(0,94,217);\n"
-"font: 18pt \"Segoe UI\" bold;")
+        self.dashboardTitle.setGeometry(QRect(0, 40, 1171, 41))
+        self.dashboardTitle.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"font: 57 18pt \"Raleway Medium\";")
         self.dashboardTitle.setLineWidth(1)
         self.dashboardTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.publicKeySA = QScrollArea(self.home)
@@ -1094,46 +1147,51 @@ class Ui_MainWindow(object):
         self.privateKeyDisplay.setReadOnly(True)
         self.privateKeyCheckbox = QCheckBox(self.home)
         self.privateKeyCheckbox.setObjectName(u"privateKeyCheckbox")
-        self.privateKeyCheckbox.setGeometry(QRect(900, 380, 131, 31))
+        self.privateKeyCheckbox.setGeometry(QRect(900, 380, 141, 31))
         self.privateKeyCheckbox.setAutoFillBackground(False)
-        self.privateKeyCheckbox.setStyleSheet(u"")
+        self.privateKeyCheckbox.setStyleSheet(u"font: 57 10pt \"Raleway Medium\";")
         self.privateKeyCheckbox.setChecked(False)
         self.privateKeyCheckbox.setTristate(False)
         self.copyPrivateKeyButton = QPushButton(self.home)
         self.copyPrivateKeyButton.setObjectName(u"copyPrivateKeyButton")
         self.copyPrivateKeyButton.setGeometry(QRect(650, 380, 241, 30))
         self.copyPrivateKeyButton.setMinimumSize(QSize(150, 30))
-        self.copyPrivateKeyButton.setFont(font)
+        font5 = QFont()
+        font5.setFamilies([u"Raleway SemiBold"])
+        font5.setPointSize(10)
+        font5.setBold(False)
+        font5.setItalic(False)
+        self.copyPrivateKeyButton.setFont(font5)
         self.copyPrivateKeyButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.copyPrivateKeyButton.setStyleSheet(u"background-color: rgb(52, 59, 72);\n"
 "border-top-left-radius :0px;\n"
-"border-top-right-radius :0px;")
+"border-top-right-radius :0px;\n"
+"font: 63 10pt \"Raleway SemiBold\";")
         icon5 = QIcon()
         icon5.addFile(u":/icons/images/icons/cil-clone.png", QSize(), QIcon.Normal, QIcon.Off)
         self.copyPrivateKeyButton.setIcon(icon5)
         self.dashboardTitle_2 = QLabel(self.home)
         self.dashboardTitle_2.setObjectName(u"dashboardTitle_2")
         self.dashboardTitle_2.setGeometry(QRect(140, 120, 381, 21))
-        self.dashboardTitle_2.setStyleSheet(u"color: rgb(0,60,240);\n"
-"font: 18pt \"Segoe UI\" bold;")
+        self.dashboardTitle_2.setStyleSheet(u"font: 57 18pt \"Raleway Bold\";")
         self.dashboardTitle_2.setLineWidth(1)
         self.dashboardTitle_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.dashboardTitle_3 = QLabel(self.home)
         self.dashboardTitle_3.setObjectName(u"dashboardTitle_3")
         self.dashboardTitle_3.setGeometry(QRect(650, 120, 381, 21))
-        self.dashboardTitle_3.setStyleSheet(u"color: rgb(0,60,240);\n"
-"font: 18pt \"Segoe UI\" bold;")
+        self.dashboardTitle_3.setStyleSheet(u"font: 57 18pt \"Raleway Bold\";")
         self.dashboardTitle_3.setLineWidth(1)
         self.dashboardTitle_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.copyPublicKeyButton = QPushButton(self.home)
         self.copyPublicKeyButton.setObjectName(u"copyPublicKeyButton")
         self.copyPublicKeyButton.setGeometry(QRect(140, 380, 381, 30))
         self.copyPublicKeyButton.setMinimumSize(QSize(150, 30))
-        self.copyPublicKeyButton.setFont(font)
+        self.copyPublicKeyButton.setFont(font5)
         self.copyPublicKeyButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.copyPublicKeyButton.setStyleSheet(u"background-color: rgb(52, 59, 72);\n"
 "border-top-left-radius :0px;\n"
-"border-top-right-radius :0px;")
+"border-top-right-radius :0px;\n"
+"font: 63 10pt \"Raleway SemiBold\";")
         self.copyPublicKeyButton.setIcon(icon5)
         self.topLogoInfo = QFrame(self.home)
         self.topLogoInfo.setObjectName(u"topLogoInfo")
@@ -1148,13 +1206,14 @@ class Ui_MainWindow(object):
         sizePolicy2.setHeightForWidth(self.backer1_3.sizePolicy().hasHeightForWidth())
         self.backer1_3.setSizePolicy(sizePolicy2)
         self.backer1_3.setMaximumSize(QSize(16777215, 1000))
-        self.backer1_3.setFont(font)
-        self.backer1_3.setStyleSheet(u"color: rgb(113, 126, 149);\n"
+        self.backer1_3.setFont(font3)
+        self.backer1_3.setStyleSheet(u"color: rgb(255, 255, 255);\n"
 "background-color: rgb(255, 0, 0);\n"
 "border-top-left-radius :14px;\n"
 "border-bottom-left-radius :14px;\n"
 "border-top-right-radius :14px;\n"
-"border-bottom-right-radius :14px;")
+"border-bottom-right-radius :14px;\n"
+"font: 81 10pt \"Raleway ExtraBold\";")
         self.backer1_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.backer1_3.setWordWrap(True)
         self.stackedWidget.addWidget(self.home)
@@ -1299,7 +1358,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 353, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1388,10 +1447,10 @@ class Ui_MainWindow(object):
         self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         if (self.tableWidget.rowCount() < 16):
             self.tableWidget.setRowCount(16)
-        font2 = QFont()
-        font2.setFamilies([u"Segoe UI"])
+        font6 = QFont()
+        font6.setFamilies([u"Segoe UI"])
         __qtablewidgetitem4 = QTableWidgetItem()
-        __qtablewidgetitem4.setFont(font2);
+        __qtablewidgetitem4.setFont(font6);
         self.tableWidget.setVerticalHeaderItem(0, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
         self.tableWidget.setVerticalHeaderItem(1, __qtablewidgetitem5)
@@ -1495,9 +1554,9 @@ class Ui_MainWindow(object):
         self.filespace.setObjectName(u"filespace")
         self.filespaceTitle = QLabel(self.filespace)
         self.filespaceTitle.setObjectName(u"filespaceTitle")
-        self.filespaceTitle.setGeometry(QRect(0, 40, 1171, 31))
-        self.filespaceTitle.setStyleSheet(u"color: rgb(0,94,217);\n"
-"font: 18pt \"Segoe UI\" bold;")
+        self.filespaceTitle.setGeometry(QRect(0, 40, 1171, 51))
+        self.filespaceTitle.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"font: 57 18pt \"Raleway Medium\";")
         self.filespaceTitle.setLineWidth(1)
         self.filespaceTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.filepathBox_2 = QLineEdit(self.filespace)
@@ -1508,19 +1567,21 @@ class Ui_MainWindow(object):
 "border-bottom-left-radius :0px;\n"
 "border-bottom-right-radius :0px;\n"
 "border-color :rgb(51, 51, 56);\n"
-"border-bottom:none;")
+"border-bottom:none;\n"
+"font: 57 10pt \"Raleway Medium\";")
         self.encryptButton_2 = QPushButton(self.filespace)
         self.encryptButton_2.setObjectName(u"encryptButton_2")
         self.encryptButton_2.setGeometry(QRect(370, 280, 221, 30))
         self.encryptButton_2.setMinimumSize(QSize(150, 30))
-        self.encryptButton_2.setFont(font)
+        self.encryptButton_2.setFont(font2)
         self.encryptButton_2.setCursor(QCursor(Qt.PointingHandCursor))
         self.encryptButton_2.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
 "border-top-right-radius :0px;\n"
 "border-bottom-right-radius :0px;\n"
 "border-top-left-radius :14px;\n"
 "border-bottom-left-radius :14px;\n"
-"border-color :rgb(51, 51, 56);")
+"border-color :rgb(51, 51, 56);\n"
+"font: 57 10pt \"Raleway Medium\";")
         icon8 = QIcon()
         icon8.addFile(u":/icons/images/icons/cil-lock-locked.png", QSize(), QIcon.Normal, QIcon.Off)
         self.encryptButton_2.setIcon(icon8)
@@ -1528,14 +1589,15 @@ class Ui_MainWindow(object):
         self.decryptButton_2.setObjectName(u"decryptButton_2")
         self.decryptButton_2.setGeometry(QRect(590, 280, 221, 30))
         self.decryptButton_2.setMinimumSize(QSize(150, 30))
-        self.decryptButton_2.setFont(font)
+        self.decryptButton_2.setFont(font2)
         self.decryptButton_2.setCursor(QCursor(Qt.PointingHandCursor))
         self.decryptButton_2.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
 "border-top-left-radius :0px;\n"
 "border-bottom-left-radius :0px;\n"
 "border-top-right-radius :14px;\n"
 "border-bottom-right-radius :14px;\n"
-"border-color :rgb(51, 51, 56);")
+"border-color :rgb(51, 51, 56);\n"
+"font: 57 10pt \"Raleway Medium\";")
         icon9 = QIcon()
         icon9.addFile(u":/icons/images/icons/cil-lock-unlocked.png", QSize(), QIcon.Normal, QIcon.Off)
         self.decryptButton_2.setIcon(icon9)
@@ -1543,12 +1605,13 @@ class Ui_MainWindow(object):
         self.openFilepathButton_2.setObjectName(u"openFilepathButton_2")
         self.openFilepathButton_2.setGeometry(QRect(360, 220, 461, 41))
         self.openFilepathButton_2.setMinimumSize(QSize(150, 30))
-        self.openFilepathButton_2.setFont(font)
+        self.openFilepathButton_2.setFont(font2)
         self.openFilepathButton_2.setCursor(QCursor(Qt.PointingHandCursor))
         self.openFilepathButton_2.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
 "border-top-left-radius :0px;\n"
 "border-top-right-radius :0px;\n"
-"border-color :rgb(51, 51, 56);")
+"border-color :rgb(51, 51, 56);\n"
+"font: 57 10pt \"Raleway Medium\";")
         self.openFilepathButton_2.setIcon(icon6)
         self.selectFileToEncryptText = QLabel(self.filespace)
         self.selectFileToEncryptText.setObjectName(u"selectFileToEncryptText")
@@ -1560,15 +1623,16 @@ class Ui_MainWindow(object):
         self.selectFileToEncryptText.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.multiviewCheckbox_1 = QCheckBox(self.filespace)
         self.multiviewCheckbox_1.setObjectName(u"multiviewCheckbox_1")
-        self.multiviewCheckbox_1.setGeometry(QRect(960, 140, 131, 31))
+        self.multiviewCheckbox_1.setGeometry(QRect(960, 140, 141, 31))
         self.multiviewCheckbox_1.setAutoFillBackground(False)
-        self.multiviewCheckbox_1.setStyleSheet(u"")
+        self.multiviewCheckbox_1.setStyleSheet(u"font: 57 10pt \"Raleway Medium\";")
         self.multiviewCheckbox_1.setChecked(False)
         self.multiviewCheckbox_1.setTristate(False)
         self.currentDirectory_2 = QLabel(self.filespace)
         self.currentDirectory_2.setObjectName(u"currentDirectory_2")
         self.currentDirectory_2.setGeometry(QRect(290, 110, 581, 41))
-        self.currentDirectory_2.setStyleSheet(u"color: rgb(220, 220, 220);")
+        self.currentDirectory_2.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+"font: 57 10pt \"Raleway Medium\";")
         self.currentDirectory_2.setFrameShape(QFrame.NoFrame)
         self.currentDirectory_2.setLineWidth(1)
         self.currentDirectory_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
@@ -1589,20 +1653,20 @@ class Ui_MainWindow(object):
         self.parentDriveTitle_2 = QLabel(self.filespace)
         self.parentDriveTitle_2.setObjectName(u"parentDriveTitle_2")
         self.parentDriveTitle_2.setGeometry(QRect(920, 200, 211, 21))
-        self.parentDriveTitle_2.setStyleSheet(u"color: rgb(220, 220, 220);\n"
-"")
+        self.parentDriveTitle_2.setStyleSheet(u"")
         self.parentDriveTitle_2.setLineWidth(1)
         self.parentDriveTitle_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.driveInfoTitle_2 = QLabel(self.filespace)
         self.driveInfoTitle_2.setObjectName(u"driveInfoTitle_2")
         self.driveInfoTitle_2.setGeometry(QRect(920, 260, 211, 19))
-        self.driveInfoTitle_2.setStyleSheet(u"color: rgb(220, 220, 220);")
+        self.driveInfoTitle_2.setStyleSheet(u"")
         self.driveInfoTitle_2.setLineWidth(1)
         self.driveInfoTitle_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.driveInfo_2 = QLabel(self.filespace)
         self.driveInfo_2.setObjectName(u"driveInfo_2")
         self.driveInfo_2.setGeometry(QRect(920, 310, 211, 161))
-        self.driveInfo_2.setStyleSheet(u"color: rgb(220, 220, 220);")
+        self.driveInfo_2.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+"font: 57 10pt \"Raleway Medium\";")
         self.driveInfo_2.setLineWidth(1)
         self.driveInfo_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.driveInfo_2.setWordWrap(False)
@@ -1611,20 +1675,22 @@ class Ui_MainWindow(object):
         self.parentDriveSpace_2.setGeometry(QRect(920, 230, 211, 16))
         self.parentDriveSpace_2.setStyleSheet(u"QProgressBar {\n"
 "background-color: rgb(98, 114, 164);\n"
-"color: rgb(220, 220, 220);\n"
+"	color: rgb(170, 99, 255);\n"
 "border-style: none;\n"
 "border-radius: 10px;\n"
 "text-align: center;\n"
+"	font: 57 10pt \"Raleway Medium\";\n"
 "}\n"
 "QProgressBar::chunk{\n"
 "border-radius: 10px;\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0,94,217, 255), stop:1 rgba(6,51,110, 255));\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(81, 99, 149, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "}")
         self.parentDriveSpace_2.setValue(0)
         self.parentDrive_2 = QLabel(self.filespace)
         self.parentDrive_2.setObjectName(u"parentDrive_2")
         self.parentDrive_2.setGeometry(QRect(920, 290, 131, 21))
-        self.parentDrive_2.setStyleSheet(u"color: rgb(220, 220, 220);")
+        self.parentDrive_2.setStyleSheet(u"color: rgb(220, 220, 220);\n"
+"font: 57 10pt \"Raleway Medium\";")
         self.parentDrive_2.setLineWidth(1)
         self.parentDrive_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.openDirectory_2 = QPushButton(self.filespace)
@@ -1632,24 +1698,26 @@ class Ui_MainWindow(object):
         self.openDirectory_2.setGeometry(QRect(140, 110, 131, 41))
         self.openDirectory_2.setMinimumSize(QSize(10, 10))
         self.openDirectory_2.setMaximumSize(QSize(16777215, 50))
-        self.openDirectory_2.setFont(font)
+        self.openDirectory_2.setFont(font2)
         self.openDirectory_2.setCursor(QCursor(Qt.PointingHandCursor))
         self.openDirectory_2.setStyleSheet(u"color: rgb(220, 220, 220);\n"
 "background-color: rgb(35, 35, 38);\n"
-"border: none;")
+"border: none;\n"
+"font: 57 10pt \"Raleway Medium\";")
         self.openDirectory_2.setIcon(icon6)
         self.goToDefault_2 = QPushButton(self.filespace)
         self.goToDefault_2.setObjectName(u"goToDefault_2")
         self.goToDefault_2.setGeometry(QRect(50, 450, 191, 30))
         self.goToDefault_2.setMinimumSize(QSize(150, 30))
-        self.goToDefault_2.setFont(font)
+        self.goToDefault_2.setFont(font2)
         self.goToDefault_2.setCursor(QCursor(Qt.PointingHandCursor))
         self.goToDefault_2.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
 "border-bottom-left-radius :14px;\n"
 "border-top-left-radius :14px;\n"
 "border-top-right-radius :14px;\n"
 "border-bottom-right-radius :14px;\n"
-"border-color :rgb(51, 51, 56);")
+"border-color :rgb(51, 51, 56);\n"
+"font: 57 10pt \"Raleway Medium\";")
         icon10 = QIcon()
         icon10.addFile(u":/icons/images/icons/cil-house.png", QSize(), QIcon.Normal, QIcon.Off)
         self.goToDefault_2.setIcon(icon10)
@@ -1657,14 +1725,15 @@ class Ui_MainWindow(object):
         self.defaultLocation_2.setObjectName(u"defaultLocation_2")
         self.defaultLocation_2.setGeometry(QRect(260, 450, 191, 30))
         self.defaultLocation_2.setMinimumSize(QSize(150, 30))
-        self.defaultLocation_2.setFont(font)
+        self.defaultLocation_2.setFont(font2)
         self.defaultLocation_2.setCursor(QCursor(Qt.PointingHandCursor))
         self.defaultLocation_2.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
 "border-top-left-radius :14px;\n"
 "border-bottom-left-radius :14px;\n"
 "border-top-right-radius :14px;\n"
 "border-bottom-right-radius :14px;\n"
-"border-color :rgb(51, 51, 56);")
+"border-color :rgb(51, 51, 56);\n"
+"font: 57 10pt \"Raleway Medium\";")
         icon11 = QIcon()
         icon11.addFile(u":/icons/images/icons/cil-star.png", QSize(), QIcon.Normal, QIcon.Off)
         self.defaultLocation_2.setIcon(icon11)
@@ -1673,11 +1742,12 @@ class Ui_MainWindow(object):
         self.goBackButton_2.setGeometry(QRect(30, 110, 111, 41))
         self.goBackButton_2.setMinimumSize(QSize(10, 10))
         self.goBackButton_2.setMaximumSize(QSize(16777215, 50))
-        self.goBackButton_2.setFont(font)
+        self.goBackButton_2.setFont(font2)
         self.goBackButton_2.setCursor(QCursor(Qt.PointingHandCursor))
         self.goBackButton_2.setStyleSheet(u"color: rgb(220, 220, 220);\n"
 "background-color: rgb(35, 35, 38);\n"
-"border: none;")
+"border: none;\n"
+"font: 57 10pt \"Raleway Medium\";")
         icon12 = QIcon()
         icon12.addFile(u":/icons/images/icons/cil-arrow-circle-left.png", QSize(), QIcon.Normal, QIcon.Off)
         self.goBackButton_2.setIcon(icon12)
@@ -1709,7 +1779,8 @@ class Ui_MainWindow(object):
         self.announceBox = QLabel(self.filespace)
         self.announceBox.setObjectName(u"announceBox")
         self.announceBox.setGeometry(QRect(70, 540, 1031, 31))
-        self.announceBox.setStyleSheet(u"background-color: rgb(206, 55, 8);border-top-left-radius :15px;border-top-right-radius :15px;border-bottom-left-radius :15px;border-bottom-right-radius :15px;")
+        self.announceBox.setStyleSheet(u"background-color: rgb(206, 55, 8);border-top-left-radius :15px;border-top-right-radius :15px;border-bottom-left-radius :15px;border-bottom-right-radius :15px;\n"
+"font: 81 10pt \"Raleway ExtraBold\";")
         self.announceBox.setFrameShape(QFrame.Panel)
         self.announceBox.setFrameShadow(QFrame.Raised)
         self.announceBox.setLineWidth(0)
@@ -1745,27 +1816,29 @@ class Ui_MainWindow(object):
         self.encryptButton_3.setObjectName(u"encryptButton_3")
         self.encryptButton_3.setGeometry(QRect(470, 450, 191, 30))
         self.encryptButton_3.setMinimumSize(QSize(150, 30))
-        self.encryptButton_3.setFont(font)
+        self.encryptButton_3.setFont(font2)
         self.encryptButton_3.setCursor(QCursor(Qt.PointingHandCursor))
         self.encryptButton_3.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
 "border-bottom-left-radius :14px;\n"
 "border-top-left-radius :14px;\n"
 "border-top-right-radius :14px;\n"
 "border-bottom-right-radius :14px;\n"
-"border-color :rgb(51, 51, 56);")
+"border-color :rgb(51, 51, 56);\n"
+"font: 57 10pt \"Raleway Medium\";")
         self.encryptButton_3.setIcon(icon8)
         self.decryptButton_3 = QPushButton(self.filespace)
         self.decryptButton_3.setObjectName(u"decryptButton_3")
         self.decryptButton_3.setGeometry(QRect(680, 450, 191, 30))
         self.decryptButton_3.setMinimumSize(QSize(150, 30))
-        self.decryptButton_3.setFont(font)
+        self.decryptButton_3.setFont(font2)
         self.decryptButton_3.setCursor(QCursor(Qt.PointingHandCursor))
         self.decryptButton_3.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
 "border-bottom-left-radius :14px;\n"
 "border-top-left-radius :14px;\n"
 "border-top-right-radius :14px;\n"
 "border-bottom-right-radius :14px;\n"
-"border-color :rgb(51, 51, 56);")
+"border-color :rgb(51, 51, 56);\n"
+"font: 57 10pt \"Raleway Medium\";")
         self.decryptButton_3.setIcon(icon9)
         self.closePopup = QPushButton(self.filespace)
         self.closePopup.setObjectName(u"closePopup")
@@ -1863,16 +1936,14 @@ class Ui_MainWindow(object):
         self.Security.setObjectName(u"Security")
         self.dashboardTitle_10 = QLabel(self.Security)
         self.dashboardTitle_10.setObjectName(u"dashboardTitle_10")
-        self.dashboardTitle_10.setGeometry(QRect(0, 0, 1171, 51))
-        self.dashboardTitle_10.setStyleSheet(u"color: rgb(0,94,217);\n"
-"font: 18pt \"Segoe UI\" bold;")
+        self.dashboardTitle_10.setGeometry(QRect(0, 40, 1171, 41))
+        self.dashboardTitle_10.setStyleSheet(u"font: 57 18pt \"Raleway Medium\";")
         self.dashboardTitle_10.setLineWidth(1)
-        self.dashboardTitle_10.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.dashboardTitle_10.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
         self.dashboardTitle_11 = QLabel(self.Security)
         self.dashboardTitle_11.setObjectName(u"dashboardTitle_11")
-        self.dashboardTitle_11.setGeometry(QRect(690, 460, 111, 31))
-        self.dashboardTitle_11.setStyleSheet(u"font: 14pt \"Segoe UI\" bold;\n"
-"color: rgb(255, 0, 0);")
+        self.dashboardTitle_11.setGeometry(QRect(690, 460, 121, 31))
+        self.dashboardTitle_11.setStyleSheet(u"font: 81 14pt \"Raleway ExtraBold\";")
         self.dashboardTitle_11.setLineWidth(1)
         self.dashboardTitle_11.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.dangerBorder = QLabel(self.Security)
@@ -1998,17 +2069,20 @@ class Ui_MainWindow(object):
         self.creditsLabel = QLabel(self.bottomBar)
         self.creditsLabel.setObjectName(u"creditsLabel")
         self.creditsLabel.setMaximumSize(QSize(16777215, 16))
-        font3 = QFont()
-        font3.setFamilies([u"Segoe UI"])
-        font3.setBold(False)
-        font3.setItalic(False)
-        self.creditsLabel.setFont(font3)
+        font7 = QFont()
+        font7.setFamilies([u"Raleway SemiBold"])
+        font7.setPointSize(8)
+        font7.setBold(False)
+        font7.setItalic(False)
+        self.creditsLabel.setFont(font7)
+        self.creditsLabel.setStyleSheet(u"font: 63 8pt \"Raleway SemiBold\";")
         self.creditsLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.horizontalLayout_5.addWidget(self.creditsLabel)
 
         self.version = QLabel(self.bottomBar)
         self.version.setObjectName(u"version")
+        self.version.setStyleSheet(u"font: 63 8pt \"Raleway SemiBold\";")
         self.version.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.horizontalLayout_5.addWidget(self.version)
@@ -2033,6 +2107,8 @@ class Ui_MainWindow(object):
 
         MainWindow.setCentralWidget(self.styleSheet)
 
+        self.appMargins.addWidget(self.bgApp)
+
         self.retranslateUi(MainWindow)
 
         self.stackedWidget.setCurrentIndex(2)
@@ -2044,6 +2120,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"EasyRSA", None))
+        self.titleLeftApp.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">EasyRSA</span></p></body></html>", None))
+        self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#aa63ff;\">RSA D.M.E.</span></p></body></html>", None))
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.btn_filespace.setText(QCoreApplication.translate("MainWindow", u"Drive", None))
@@ -2090,10 +2168,10 @@ class Ui_MainWindow(object):
         self.dashboardTitle.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Welcome to your EasyRSA Dashboard</span></p></body></html>", None))
         self.privateKeyCheckbox.setText(QCoreApplication.translate("MainWindow", u"Show Private Key", None))
         self.copyPrivateKeyButton.setText(QCoreApplication.translate("MainWindow", u"Copy Private Key", None))
-        self.dashboardTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600;\">Your Public Key</span></p></body></html>", None))
-        self.dashboardTitle_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600;\">Your Private Key</span></p></body></html>", None))
+        self.dashboardTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#aa63ff;\">Your Public Key</span></p></body></html>", None))
+        self.dashboardTitle_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#aa63ff;\">Your Private Key</span></p></body></html>", None))
         self.copyPublicKeyButton.setText(QCoreApplication.translate("MainWindow", u"Copy Public Key", None))
-        self.backer1_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#181818;\">DANGER:</span><span style=\" color:#181818;\"> Your private key is not to be shared. Doing so will allow anybody to decrypt your data. Use this feature is at your own risk.</span></p></body></html>", None))
+        self.backer1_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#ffffff;\">DANGER:</span><span style=\" color:#ffffff;\"> Your private key is not to be shared. Doing so will allow anybody to decrypt your data. Use this feature is at your own risk.</span></p></body></html>", None))
         self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Open", None))
         self.labelVersion_3.setText(QCoreApplication.translate("MainWindow", u"Label description", None))
@@ -2166,12 +2244,12 @@ class Ui_MainWindow(object):
         self.encryptButton_2.setText(QCoreApplication.translate("MainWindow", u"Encrypt File", None))
         self.decryptButton_2.setText(QCoreApplication.translate("MainWindow", u"Decrypt File", None))
         self.openFilepathButton_2.setText(QCoreApplication.translate("MainWindow", u"Browse Files", None))
-        self.selectFileToEncryptText.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#005ed9;\">Select file to encrypt</span></p></body></html>", None))
+        self.selectFileToEncryptText.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#aa63ff;\">Select file to encrypt</span></p></body></html>", None))
         self.multiviewCheckbox_1.setText(QCoreApplication.translate("MainWindow", u" Enable Multiview", None))
         self.currentDirectory_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>aaaaa</p></body></html>", None))
-        self.selectFileToEncryptText_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#005ed9;\">Want a more advanced view?</span></p></body></html>", None))
-        self.parentDriveTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#005ed9;\">Drive Usage</span></p></body></html>", None))
-        self.driveInfoTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#005ed9;\">Drive Information</span></p></body></html>", None))
+        self.selectFileToEncryptText_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#aa63ff;\">Want a more advanced view?</span></p></body></html>", None))
+        self.parentDriveTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#aa63ff;\">Drive Usage</span></p></body></html>", None))
+        self.driveInfoTitle_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:600; color:#aa63ff;\">Drive Information</span></p></body></html>", None))
         self.driveInfo_2.setText("")
         self.parentDrive_2.setText(QCoreApplication.translate("MainWindow", u"Parent Drive:", None))
         self.openDirectory_2.setText(QCoreApplication.translate("MainWindow", u" Open Directory", None))
@@ -2191,12 +2269,12 @@ class Ui_MainWindow(object):
         self.backer1.setText("")
         self.multiviewDetailsBox_2.setText("")
         self.dashboardTitle_10.setText(QCoreApplication.translate("MainWindow", u"Security Centre", None))
-        self.dashboardTitle_11.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:14pt;\">Danger Zone</span></p></body></html>", None))
+        self.dashboardTitle_11.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ff0000;\">Danger Zone</span></p></body></html>", None))
         self.dangerBorder.setText("")
         self.btn_help.setText(QCoreApplication.translate("MainWindow", u"Help", None))
         self.btn_report.setText(QCoreApplication.translate("MainWindow", u"Report Issue", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
-        self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"Group 1", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.4</p></body></html>", None))
+        self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:8pt; color:#ffffff;\">Group 1</span></p></body></html>", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-weight:600; color:#ffffff;\">Version</span><span style=\" color:#ffffff;\"> 0.0.4</span></p></body></html>", None))
     # retranslateUi
 

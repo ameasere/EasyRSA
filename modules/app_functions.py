@@ -24,22 +24,22 @@ from main import *
 
 class AppFunctions(MainWindow):
     def setThemeHack(self):
-        Settings.BTN_LEFT_BOX_COLOR = "background-color: #495474;"
-        Settings.BTN_RIGHT_BOX_COLOR = "background-color: #495474;"
-        Settings.MENU_SELECTED_STYLESHEET = MENU_SELECTED_STYLESHEET = """
-        border-left: 22px solid qlineargradient(spread:pad, x1:0.034, y1:0, x2:0.216, y2:0, stop:0.499 rgba(87, 158, 250, 255), stop:0.5 rgba(85, 170, 255, 0));
-        background-color: #566388;
+        Settings.BTN_LEFT_BOX_COLOR = "background-color: #aa63ff;"
+        Settings.BTN_RIGHT_BOX_COLOR = "background-color: #aa63ff;"
+        Settings.MENU_SELECTED_STYLESHEET = """
+        border-left: 22px solid qlineargradient(spread:pad, x1:0.034, y1:0, x2:0.216, y2:0, stop:0.499 rgba(170, 99, 255, 255), stop:0.5 rgba(85, 170, 255, 0));
+        background-color: rgb(35, 35, 38);
         """
 
         # SET MANUAL STYLES
-        self.ui.lineEdit.setStyleSheet("background-color: #6272a4;") if self.ui.lineEdit else None
-        self.ui.pushButton.setStyleSheet("background-color: #6272a4;") if self.ui.pushButton else None
-        self.ui.plainTextEdit.setStyleSheet("background-color: #6272a4;") if self.ui.plainTextEdit else None
+        self.ui.lineEdit.setStyleSheet("background-color: #aa63ff;") if self.ui.lineEdit else None
+        self.ui.pushButton.setStyleSheet("background-color: #aa63ff;") if self.ui.pushButton else None
+        self.ui.plainTextEdit.setStyleSheet("background-color: #aa63ff;") if self.ui.plainTextEdit else None
         self.ui.tableWidget.setStyleSheet(
-            "QScrollBar:vertical { background: #6272a4; } QScrollBar:horizontal { background: #6272a4; }") if self.ui.tableWidget else None
+            "QScrollBar:vertical { background: #aa63ff; } QScrollBar:horizontal { background: #aa63ff; }") if self.ui.tableWidget else None
         self.ui.scrollArea.setStyleSheet(
-            "QScrollBar:vertical { background: #6272a4; } QScrollBar:horizontal { background: #6272a4; }") if self.ui.scrollArea else None
-        self.ui.comboBox.setStyleSheet("background-color: #6272a4;") if self.ui.comboBox else None
-        self.ui.horizontalScrollBar.setStyleSheet("background-color: #6272a4;") if self.ui.horizontalScrollBar else None
-        self.ui.verticalScrollBar.setStyleSheet("background-color: #6272a4;") if self.ui.verticalScrollBar else None
-        self.ui.commandLinkButton.setStyleSheet("color: #ff79c6;") if self.ui.commandLinkButton else None
+            "QScrollBar:vertical { background: #aa63ff; } QScrollBar:horizontal { background: #aa63ff; }") if self.ui.scrollArea else None
+        self.ui.comboBox.setStyleSheet("background-color: #aa63ff;") if self.ui.comboBox else None
+        self.ui.horizontalScrollBar.setStyleSheet("background-color: #aa63ff;") if self.ui.horizontalScrollBar else None
+        self.ui.verticalScrollBar.setStyleSheet("background-color: #aa63ff;") if self.ui.verticalScrollBar else None
+        self.ui.commandLinkButton.setStyleSheet("color: #aa63ff;") if self.ui.commandLinkButton else None

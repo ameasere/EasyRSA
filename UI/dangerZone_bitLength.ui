@@ -46,7 +46,7 @@ QWidget{
 Tooltip */
 QToolTip {
 	color: #ffffff;
-	background-color: rgba(35,35,38, 180);
+	background-color: rgba(35, 36, 42, 180);
 	border: 1px solid rgb(35,35,38);
 	background-image: none;
 	background-position: left center;
@@ -61,23 +61,23 @@ QToolTip {
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 Bg App */
 #bgApp {
-	background-color: rgb(11,11,11);
+	background-color: rgb(35, 36, 42);
 	border: 1px solid rgb(35,35,38);
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 Left Menu */
 #leftMenuBg {
-	background-color: rgb(35,35,38);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(97, 67, 133, 255), stop:1 rgba(81, 99, 149, 255));
 }
 #topLogo {
-	background-color: rgb(35,35,38);
+	background-color: transparent;
 	background-image: url(:/images/images/images/RSA30x30.png);
 	background-position: center;
 	background-repeat: no-repeat;
 }
-#titleLeftApp { font: 63 12pt &quot;Segoe UI Semibold&quot;; }
-#titleLeftDescription { font: 8pt &quot;Segoe UI&quot;; color: rgb(32, 124, 245); }
+#titleLeftApp { font: 81 12pt &quot;Raleway ExtraBold&quot;; }
+#titleLeftDescription { font: 8pt &quot;Segoe UI&quot;; color: #aa63ff; }
 
 /* MENUS */
 #topMenu .QPushButton {
@@ -90,11 +90,11 @@ Left Menu */
 	padding-left: 44px;
 }
 #topMenu .QPushButton:hover {
-	background-color: rgb(11,11,11);
+	background-color: rgb(35,35,38);
 }
 #topMenu .QPushButton:pressed {
-	background-color: rgb(32, 124, 245);
-	color: rgb(255, 255, 255);
+	background-color: #aa63ff;
+	color: #fff;
 }
 #bottomMenu .QPushButton {
 	background-position: left center;
@@ -106,11 +106,11 @@ Left Menu */
 	padding-left: 44px;
 }
 #bottomMenu .QPushButton:hover {
-	background-color: rgb(11,11,11);
+	background-color: rgb(35,35,38);
 }
 #bottomMenu .QPushButton:pressed {
-	background-color: rgb(32, 124, 245);
-	color: rgb(255, 255, 255);
+	background-color: #aa63ff;
+	color: #fff;
 }
 #leftMenuFrame{
 	border-top: 3px solid rgb(35,35,38);
@@ -122,7 +122,7 @@ Left Menu */
     background-repeat: no-repeat;
 	border: none;
 	border-left: 20px solid transparent;
-	background-color: rgb(37, 41, 48);
+	background-color: #23242a;
 	text-align: left;
 	padding-left: 44px;
 	color: rgb(113, 126, 149);
@@ -130,8 +130,8 @@ Left Menu */
 #toggleButton:hover {
 	background-color: rgb(11,11,11);
 }
-#toggleButton:pressed {
-	background-color: rgb(32, 124, 245);
+#toggleButton:pressed { 
+	background-color: #fff;
 }
 
 /* Title Menu */
@@ -144,7 +144,7 @@ Extra Tab */
 	background-color: rgb(35,35,38);
 }
 #extraTopBg {
-	background-color: rgb(32, 124, 245);
+	background-color: #aa63ff;
 }
 
 /* Icon */
@@ -159,12 +159,12 @@ Extra Tab */
 
 /* Btn Close */
 #extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }
-#extraCloseColumnBtn:hover { background-color: rgb(87, 156, 247); border-style: solid; border-radius: 4px; }
-#extraCloseColumnBtn:pressed { background-color: rgb(46, 130, 240); border-style: solid; border-radius: 4px; }
+#extraCloseColumnBtn:hover { background-color: rgb(35,35,38); border-style: solid; border-radius: 4px; }
+#extraCloseColumnBtn:pressed { background-color: #aa63ff; border-style: solid; border-radius: 4px; }
 
 /* Extra Content */
 #extraContent{
-	border-top: 3px solid rgb(11,11,11);
+	border-top: 3px solid rgb(35,35,38);
 }
 
 /* Extra Top Menus */
@@ -178,17 +178,17 @@ background-position: left center;
 	padding-left: 44px;
 }
 #extraTopMenu .QPushButton:hover {
-	background-color: rgb(11,11,11);
+	background-color: rgb(35,35,38);
 }
 #extraTopMenu .QPushButton:pressed {
-	background-color: rgb(32, 124, 245);
-	color: rgb(255, 255, 255);
+	background-color: #aa63ff;
+	color: #fff;
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 Content App */
 #contentTopBg{
-	background-color: rgb(35,35,38);
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(97, 67, 133, 255), stop:1 rgba(81, 99, 149, 255));
 }
 #contentBottom{
 	border-top: 3px solid rgb(35,35,38);
@@ -197,14 +197,14 @@ Content App */
 /* Top Buttons */
 #rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }
 #rightButtons .QPushButton:hover { background-color: rgb(44, 49, 57); border-style: solid; border-radius: 4px; }
-#rightButtons .QPushButton:pressed { background-color: rgb(23, 26, 30); border-style: solid; border-radius: 4px; }
+#rightButtons .QPushButton:pressed { background-color: #aa63ff; border-style: solid; border-radius: 4px; }
 
 /* Theme Settings */
 #extraRightBox { background-color: rgb(35,35,38); }
-#themeSettingsTopDetail { background-color: rgb(32, 124, 245); }
+#themeSettingsTopDetail { background-color: #aa63ff; }
 
 /* Bottom Bar */
-#bottomBar { background-color: rgb(35,35,38); }
+#bottomBar { background-color: qlineargradient(spread:pad, x1:1, y1:0.511, x2:0, y2:0.517, stop:0 rgba(97, 67, 133, 255), stop:1 rgba(81, 99, 149, 255)); }
 #bottomBar QLabel { font-size: 11px; color: rgb(113, 126, 149); padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }
 
 /* CONTENT SETTINGS */
@@ -219,10 +219,10 @@ Content App */
 	padding-left: 44px;
 }
 #contentSettings .QPushButton:hover {
-	background-color: rgb(11,11,11);
+	background-color: rgb(35,35,38);
 }
 #contentSettings .QPushButton:pressed {
-	background-color: rgb(32, 124, 245);
+	background-color: #aa63ff;
 	color: rgb(255, 255, 255);
 }
 
@@ -242,7 +242,7 @@ QTableWidget::item{
 	gridline-color: rgb(44, 49, 60);
 }
 QTableWidget::item:selected{
-	background-color: rgb(32, 124, 245);
+	background-color: #aa63ff;
 }
 QHeaderView::section{
 	background-color: rgb(35,35,38);
@@ -276,7 +276,7 @@ QLineEdit {
 	border: 2px solid rgb(35,35,38);
 	padding-left: 10px;
 	selection-color: rgb(255, 255, 255);
-	selection-background-color: rgb(0,94,217);
+	selection-background-color: #aa63ff;
 }
 QLineEdit:hover {
 	border: 2px solid rgb(64, 71, 88);
@@ -317,7 +317,7 @@ QScrollBar:horizontal {
 	border-radius: 0px;
 }
 QScrollBar::handle:horizontal {
-    background: rgb(32, 124, 245);
+    background: #aa63ff;
     min-width: 25px;
 	border-radius: 4px;
 }
@@ -355,7 +355,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 	border-radius: 0px;
  }
  QScrollBar::handle:vertical {
-	background: rgb(32, 124, 245);
+	background: #aa63ff;
     min-height: 25px;
 	border-radius: 4px;
  }
@@ -446,7 +446,7 @@ QComboBox::drop-down {
 	background-repeat: no-repeat;
  }
 QComboBox QAbstractItemView {
-	color: rgb(0,94,217);
+	color: #aa63ff;
 	background-color: rgb(35,35,38);
 	padding: 10px;
 	selection-background-color: rgb(39, 44, 54);
@@ -464,7 +464,7 @@ QSlider::groove:horizontal:hover {
 	background-color: rgb(55, 62, 76);
 }
 QSlider::handle:horizontal {
-    background-color: rgb(32, 124, 245);
+    background-color: #aa63ff;
     border: none;
     height: 10px;
     width: 10px;
@@ -472,10 +472,10 @@ QSlider::handle:horizontal {
 	border-radius: 5px;
 }
 QSlider::handle:horizontal:hover {
-    background-color: rgb(255, 212, 155);
+    background-color: #aa63ff;
 }
 QSlider::handle:horizontal:pressed {
-    background-color: rgb(0,94,217);
+    background-color: #aa63ff;
 }
 
 QSlider::groove:vertical {
@@ -488,7 +488,7 @@ QSlider::groove:vertical:hover {
 	background-color: rgb(55, 62, 76);
 }
 QSlider::handle:vertical {
-    background-color: rgb(32, 124, 245);
+    background-color: #aa63ff;
 	border: none;
     height: 10px;
     width: 10px;
@@ -496,25 +496,25 @@ QSlider::handle:vertical {
 	border-radius: 5px;
 }
 QSlider::handle:vertical:hover {
-    background-color: rgb(255, 212, 155);
+    background-color: #aa63ff;
 }
 QSlider::handle:vertical:pressed {
-    background-color: rgb(0,94,217);
+    background-color: #aa63ff;
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 CommandLinkButton */
 QCommandLinkButton {
-	color: rgb(0,94,217);
+	color: #aa63ff;
 	border-radius: 5px;
 	padding: 5px;
 }
 QCommandLinkButton:hover {
-	color: rgb(255, 170, 255);
+	color: #fff;
 	background-color: rgb(44, 49, 60);
 }
 QCommandLinkButton:pressed {
-	color: rgb(32, 124, 245);
+	color: #aa63ff;
 	background-color: rgb(52, 58, 71);
 }
 
@@ -777,12 +777,15 @@ background-repeat: no-repeat;</string>
                   </property>
                   <property name="font">
                    <font>
-                    <family>Segoe UI</family>
+                    <family>Raleway ExtraBold</family>
                     <pointsize>10</pointsize>
-                    <weight>50</weight>
+                    <weight>10</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                   </property>
                   <property name="text">
                    <string>EasyRSA</string>
@@ -1043,7 +1046,7 @@ background-repeat: no-repeat;</string>
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">font: 14pt &quot;Segoe UI&quot;; color: rgb(0,94,217);</string>
+                        <string notr="true">font: 57 14pt &quot;Raleway Medium&quot;;</string>
                        </property>
                        <property name="lineWidth">
                         <number>1</number>
@@ -1078,18 +1081,18 @@ background-repeat: no-repeat;</string>
                        </property>
                        <property name="font">
                         <font>
-                         <family>Segoe UI</family>
+                         <family>Raleway Light</family>
                          <pointsize>14</pointsize>
-                         <weight>50</weight>
+                         <weight>3</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
+                        <string notr="true">font: 25 14pt &quot;Raleway Light&quot;;</string>
                        </property>
                        <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Choose from the options below:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#aa63ff;&quot;&gt;Choose from the options below:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                        </property>
                        <property name="alignment">
                         <set>Qt::AlignCenter</set>
@@ -1115,9 +1118,9 @@ background-repeat: no-repeat;</string>
                        </property>
                        <property name="font">
                         <font>
-                         <family>Segoe UI</family>
+                         <family>Raleway SemiBold</family>
                          <pointsize>10</pointsize>
-                         <weight>50</weight>
+                         <weight>7</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -1126,7 +1129,8 @@ background-repeat: no-repeat;</string>
                         <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgb(52, 59, 72);</string>
+                        <string notr="true">background-color: rgb(52, 59, 72);
+font: 63 10pt &quot;Raleway SemiBold&quot;;</string>
                        </property>
                        <property name="text">
                         <string>Confirm</string>
@@ -1149,9 +1153,9 @@ background-repeat: no-repeat;</string>
                        </property>
                        <property name="font">
                         <font>
-                         <family>Segoe UI</family>
+                         <family>Raleway SemiBold</family>
                          <pointsize>10</pointsize>
-                         <weight>50</weight>
+                         <weight>7</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -1160,7 +1164,8 @@ background-repeat: no-repeat;</string>
                         <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgb(52, 59, 72);</string>
+                        <string notr="true">background-color: rgb(52, 59, 72);
+font: 63 10pt &quot;Raleway SemiBold&quot;;</string>
                        </property>
                        <property name="text">
                         <string>Cancel</string>
@@ -1177,9 +1182,9 @@ background-repeat: no-repeat;</string>
                        </property>
                        <property name="font">
                         <font>
-                         <family>Segoe UI</family>
-                         <pointsize>10</pointsize>
-                         <weight>50</weight>
+                         <family>Raleway Light</family>
+                         <pointsize>12</pointsize>
+                         <weight>3</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -1188,7 +1193,8 @@ background-repeat: no-repeat;</string>
                         <bool>false</bool>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgb(33, 37, 43);</string>
+                        <string notr="true">background-color: rgb(33, 37, 43);
+font: 25 12pt &quot;Raleway Light&quot;;</string>
                        </property>
                        <property name="iconSize">
                         <size>
@@ -1299,15 +1305,15 @@ background-repeat: no-repeat;</string>
                        </property>
                        <property name="font">
                         <font>
-                         <family>Segoe UI</family>
+                         <family>Raleway Light</family>
                          <pointsize>14</pointsize>
-                         <weight>50</weight>
+                         <weight>3</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
+                        <string notr="true">font: 25 14pt &quot;Raleway Light&quot;;</string>
                        </property>
                        <property name="text">
                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;512-bit keys are incredibly insecure. Please choose a higher bit length key for higher security.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -1410,15 +1416,18 @@ background-repeat: no-repeat;</string>
                   </property>
                   <property name="font">
                    <font>
-                    <family>Segoe UI</family>
-                    <pointsize>-1</pointsize>
-                    <weight>50</weight>
+                    <family>Raleway SemiBold</family>
+                    <pointsize>8</pointsize>
+                    <weight>7</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
                   </property>
+                  <property name="styleSheet">
+                   <string notr="true">font: 63 8pt &quot;Raleway SemiBold&quot;;</string>
+                  </property>
                   <property name="text">
-                   <string>By: enigmapr0ject</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Group 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1427,8 +1436,11 @@ background-repeat: no-repeat;</string>
                 </item>
                 <item>
                  <widget class="QLabel" name="version">
+                  <property name="styleSheet">
+                   <string notr="true">font: 63 8pt &quot;Raleway SemiBold&quot;;</string>
+                  </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Version&lt;/span&gt; 0.0.4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Version&lt;/span&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt; 0.0.4&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
