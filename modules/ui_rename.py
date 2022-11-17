@@ -48,13 +48,13 @@ class Ui_RenameWindow(object):
 "Tooltip */\n"
 "QToolTip {\n"
 "	color: #ffffff;\n"
-"	background-color: rgba(33, 37, 43, 180);\n"
-"	border: 1px solid rgb(44, 49, 58);\n"
+"	background-color: rgba(35, 36, 42, 180);\n"
+"	border: 1px solid rgb(35,35,38);\n"
 "	background-image: none;\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
-"	border-left: 2px solid rgb(255, 166, 121);\n"
+"	border-left: 2px solid rgb(0,94,217);\n"
 "	text-align: left;\n"
 "	padding-left: 8px;\n"
 "	margin: 0px;\n"
@@ -62,28 +62,28 @@ class Ui_RenameWindow(object):
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Bg App */\n"
-"#bgApp {	\n"
-"	background-color: rgb(40, 44, 52);\n"
-"	border: 1px solid rgb(44, 49, 58);\n"
+"#bgApp {\n"
+"	background-color: rgb(35, 36, 42);\n"
+"	border: 1px solid rgb(35,35,38);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Left Menu */\n"
-"#leftMenuBg {	\n"
-"	background-color: rgb(33, 37, 43);\n"
+"#leftMenuBg {\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0,"
+                        " x2:1, y2:1, stop:0 rgba(97, 67, 133, 255), stop:1 rgba(81, 99, 149, 255));\n"
 "}\n"
-"#"
-                        "topLogo {\n"
-"	background-color: rgb(33, 37, 43);\n"
+"#topLogo {\n"
+"	background-color: transparent;\n"
 "	background-image: url(:/images/images/images/RSA30x30.png);\n"
 "	background-position: center;\n"
 "	background-repeat: no-repeat;\n"
 "}\n"
-"#titleLeftApp { font: 63 12pt \"Segoe UI Semibold\"; }\n"
-"#titleLeftDescription { font: 8pt \"Segoe UI\"; color: rgb(249, 203, 147); }\n"
+"#titleLeftApp { font: 81 12pt \"Raleway ExtraBold\"; }\n"
+"#titleLeftDescription { font: 8pt \"Segoe UI\"; color: #aa63ff; }\n"
 "\n"
 "/* MENUS */\n"
-"#topMenu .QPushButton {	\n"
+"#topMenu .QPushButton {\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
@@ -93,31 +93,31 @@ class Ui_RenameWindow(object):
 "	padding-left: 44px;\n"
 "}\n"
 "#topMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
-"#topMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(249, 203, 147);\n"
-"	color: rgb(255, 255, 255);\n"
+"#topMenu .QPushButton:pressed {\n"
+"	background-color: #aa63ff;\n"
+"	color: #fff;\n"
 "}\n"
-"#bottomMenu .QPushButton {	\n"
+"#bottomMenu .QPushButton {\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
 "	border-left: 20px solid transparent;\n"
-"	background-color:transparent;\n"
-"	text-alig"
-                        "n: left;\n"
+"	ba"
+                        "ckground-color:transparent;\n"
+"	text-align: left;\n"
 "	padding-left: 44px;\n"
 "}\n"
 "#bottomMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
-"#bottomMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(249, 203, 147);\n"
-"	color: rgb(255, 255, 255);\n"
+"#bottomMenu .QPushButton:pressed {\n"
+"	background-color: #aa63ff;\n"
+"	color: #fff;\n"
 "}\n"
 "#leftMenuFrame{\n"
-"	border-top: 3px solid rgb(44, 49, 58);\n"
+"	border-top: 3px solid rgb(35,35,38);\n"
 "}\n"
 "\n"
 "/* Toggle Button */\n"
@@ -126,16 +126,16 @@ class Ui_RenameWindow(object):
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
 "	border-left: 20px solid transparent;\n"
-"	background-color: rgb(37, 41, 48);\n"
+"	background-color: #23242a;\n"
 "	text-align: left;\n"
 "	padding-left: 44px;\n"
 "	color: rgb(113, 126, 149);\n"
 "}\n"
 "#toggleButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(11,11,11);\n"
 "}\n"
-"#toggleButton:pressed {\n"
-"	background-color: rgb(249, 203, 147);\n"
+"#toggleButton:pressed { \n"
+"	background-color: #fff;\n"
 "}\n"
 "\n"
 "/* Title Menu */\n"
@@ -144,12 +144,12 @@ class Ui_RenameWindow(object):
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Extra Tab */\n"
-"#extraLeftBox {	\n"
-"	background-color: rgb"
-                        "(44, 49, 58);\n"
-"}\n"
+"#extraLeftBox {\n"
+"	background-color: rgb(35,35,38);\n"
+""
+                        "}\n"
 "#extraTopBg {\n"
-"	background-color: rgb(249, 203, 147);\n"
+"	background-color: #aa63ff;\n"
 "}\n"
 "\n"
 "/* Icon */\n"
@@ -164,12 +164,12 @@ class Ui_RenameWindow(object):
 "\n"
 "/* Btn Close */\n"
 "#extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
-"#extraCloseColumnBtn:hover { background-color: rgb(249, 217, 161); border-style: solid; border-radius: 4px; }\n"
-"#extraCloseColumnBtn:pressed { background-color: rgb(238, 183, 141); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:hover { background-color: rgb(35,35,38); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:pressed { background-color: #aa63ff; border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Extra Content */\n"
 "#extraContent{\n"
-"	border-top: 3px solid rgb(40, 44, 52);\n"
+"	border-top: 3px solid rgb(35,35,38);\n"
 "}\n"
 "\n"
 "/* Extra Top Menus */\n"
@@ -178,45 +178,45 @@ class Ui_RenameWindow(object):
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
 "	border-left: 22px solid transparent;\n"
-"	background-color:transpar"
-                        "ent;\n"
+"	background-color:transparent;\n"
 "	text-align: left;\n"
-"	padding-left: 44px;\n"
+"	padding-left: "
+                        "44px;\n"
 "}\n"
 "#extraTopMenu .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
-"#extraTopMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(249, 203, 147);\n"
-"	color: rgb(255, 255, 255);\n"
+"#extraTopMenu .QPushButton:pressed {\n"
+"	background-color: #aa63ff;\n"
+"	color: #fff;\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Content App */\n"
-"#contentTopBg{	\n"
-"	background-color: rgb(33, 37, 43);\n"
+"#contentTopBg{\n"
+"	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(97, 67, 133, 255), stop:1 rgba(81, 99, 149, 255));\n"
 "}\n"
 "#contentBottom{\n"
-"	border-top: 3px solid rgb(44, 49, 58);\n"
+"	border-top: 3px solid rgb(35,35,38);\n"
 "}\n"
 "\n"
 "/* Top Buttons */\n"
 "#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
 "#rightButtons .QPushButton:hover { background-color: rgb(44, 49, 57); border-style: solid; border-radius: 4px; }\n"
-"#rightButtons .QPushButton:pressed { background-color: rgb(23, 26, 30); border-style: solid; border-radius: 4px; }\n"
+"#rightButtons .QPushButton:pressed { background-color: #aa63ff; border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Theme Settings */\n"
-"#extraRightBox { background-color: rgb(44, 49, 58); }\n"
-"#themeSettingsTopDetail { "
-                        "background-color: rgb(249, 203, 147); }\n"
+"#extraRightBox { background-color: rgb(35,35,38); }\n"
+"#themeSettingsTo"
+                        "pDetail { background-color: #aa63ff; }\n"
 "\n"
 "/* Bottom Bar */\n"
-"#bottomBar { background-color: rgb(44, 49, 58); }\n"
+"#bottomBar { background-color: qlineargradient(spread:pad, x1:1, y1:0.511, x2:0, y2:0.517, stop:0 rgba(97, 67, 133, 255), stop:1 rgba(81, 99, 149, 255)); }\n"
 "#bottomBar QLabel { font-size: 11px; color: rgb(113, 126, 149); padding-left: 10px; padding-right: 10px; padding-bottom: 2px; }\n"
 "\n"
 "/* CONTENT SETTINGS */\n"
 "/* MENUS */\n"
-"#contentSettings .QPushButton {	\n"
+"#contentSettings .QPushButton {\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
@@ -226,21 +226,21 @@ class Ui_RenameWindow(object):
 "	padding-left: 44px;\n"
 "}\n"
 "#contentSettings .QPushButton:hover {\n"
-"	background-color: rgb(40, 44, 52);\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
-"#contentSettings .QPushButton:pressed {	\n"
-"	background-color: rgb(249, 203, 147);\n"
+"#contentSettings .QPushButton:pressed {\n"
+"	background-color: #aa63ff;\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "QTableWidget */\n"
-"QTableWidget {	\n"
-"	background-color: transparent;\n"
+"QTableWidget {\n"
+"	bac"
+                        "kground-color: transparent;\n"
 "	padding: 10px;\n"
 "	border-radius: 5px;\n"
-"	gridline-co"
-                        "lor: rgb(44, 49, 58);\n"
+"	gridline-color: rgb(35,35,38);\n"
 "	border-bottom: 1px solid rgb(44, 49, 60);\n"
 "}\n"
 "QTableWidget::item{\n"
@@ -250,23 +250,23 @@ class Ui_RenameWindow(object):
 "	gridline-color: rgb(44, 49, 60);\n"
 "}\n"
 "QTableWidget::item:selected{\n"
-"	background-color: rgb(249, 203, 147);\n"
+"	background-color: #aa63ff;\n"
 "}\n"
 "QHeaderView::section{\n"
-"	background-color: rgb(33, 37, 43);\n"
+"	background-color: rgb(35,35,38);\n"
 "	max-width: 30px;\n"
-"	border: 1px solid rgb(44, 49, 58);\n"
+"	border: 1px solid rgb(35,35,38);\n"
 "	border-style: none;\n"
 "    border-bottom: 1px solid rgb(44, 49, 60);\n"
 "    border-right: 1px solid rgb(44, 49, 60);\n"
 "}\n"
-"QTableWidget::horizontalHeader {	\n"
-"	background-color: rgb(33, 37, 43);\n"
+"QTableWidget::horizontalHeader {\n"
+"	background-color: rgb(35,35,38);\n"
 "}\n"
 "QHeaderView::section:horizontal\n"
 "{\n"
-"    border: 1px solid rgb(33, 37, 43);\n"
-"	background-color: rgb(33, 37, 43);\n"
+"    border: 1px solid rgb(35,35,38);\n"
+"	background-color: rgb(35,35,38);\n"
 "	padding: 3px;\n"
 "	border-top-left-radius: 7px;\n"
 "    border-top-right-radius: 7px;\n"
@@ -274,18 +274,18 @@ class Ui_RenameWindow(object):
 "QHeaderView::section:vertical\n"
 "{\n"
 "    border: 1px solid rgb(44, 49, 60);\n"
-"}\n"
+""
+                        "}\n"
 "\n"
-"/* //////////////////////////////////////////////////"
-                        "///////////////////////////////////////////////\n"
+"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "LineEdit */\n"
 "QLineEdit {\n"
-"	background-color: rgb(33, 37, 43);\n"
+"	background-color: rgb(35,35,38);\n"
 "	border-radius: 5px;\n"
-"	border: 2px solid rgb(33, 37, 43);\n"
+"	border: 2px solid rgb(35,35,38);\n"
 "	padding-left: 10px;\n"
 "	selection-color: rgb(255, 255, 255);\n"
-"	selection-background-color: rgb(255, 166, 121);\n"
+"	selection-background-color: #aa63ff;\n"
 "}\n"
 "QLineEdit:hover {\n"
 "	border: 2px solid rgb(64, 71, 88);\n"
@@ -301,7 +301,7 @@ class Ui_RenameWindow(object):
 "	border-radius: 5px;\n"
 "	padding: 10px;\n"
 "	selection-color: rgb(255, 255, 255);\n"
-"	selection-background-color: rgb(255, 166, 121);\n"
+"	selection-background-color: rgb(0,94,217);\n"
 "}\n"
 "QPlainTextEdit  QScrollBar:vertical {\n"
 "    width: 8px;\n"
@@ -310,10 +310,10 @@ class Ui_RenameWindow(object):
 "    height: 8px;\n"
 " }\n"
 "QPlainTextEdit:hover {\n"
-"	border: 2px solid rgb(64, 71, 88);\n"
+"	border: 2px solid rgb"
+                        "(64, 71, 88);\n"
 "}\n"
-"QPlainTextEdit:focus"
-                        " {\n"
+"QPlainTextEdit:focus {\n"
 "	border: 2px solid rgb(91, 101, 124);\n"
 "}\n"
 "\n"
@@ -327,7 +327,7 @@ class Ui_RenameWindow(object):
 "	border-radius: 0px;\n"
 "}\n"
 "QScrollBar::handle:horizontal {\n"
-"    background: rgb(249, 203, 147);\n"
+"    background: #aa63ff;\n"
 "    min-width: 25px;\n"
 "	border-radius: 4px;\n"
 "}\n"
@@ -347,10 +347,10 @@ class Ui_RenameWindow(object):
 "	border-top-left-radius: 4px;\n"
 "    border-bottom-left-radius: 4px;\n"
 "    subcontrol-position: left;\n"
-"    subcontrol-origin: margin;\n"
+"    sub"
+                        "control-origin: margin;\n"
 "}\n"
-""
-                        "QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal\n"
+"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal\n"
 "{\n"
 "     background: none;\n"
 "}\n"
@@ -365,8 +365,8 @@ class Ui_RenameWindow(object):
 "    margin: 21px 0 21px 0;\n"
 "	border-radius: 0px;\n"
 " }\n"
-" QScrollBar::handle:vertical {	\n"
-"	background: rgb(249, 203, 147);\n"
+" QScrollBar::handle:vertical {\n"
+"	background: #aa63ff;\n"
 "    min-height: 25px;\n"
 "	border-radius: 4px;\n"
 " }\n"
@@ -385,9 +385,9 @@ class Ui_RenameWindow(object):
 "     height: 20px;\n"
 "	border-top-left-radius: 4px;\n"
 "    border-top-right-radius: 4px;\n"
-"     subcontrol-position: top;\n"
-"     sub"
-                        "control-origin: margin;\n"
+"     subcontrol-posit"
+                        "ion: top;\n"
+"     subcontrol-origin: margin;\n"
 " }\n"
 " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
 "     background: none;\n"
@@ -411,16 +411,16 @@ class Ui_RenameWindow(object):
 "}\n"
 "QCheckBox::indicator:checked {\n"
 "    background: 3px solid rgb(52, 59, 72);\n"
-"	border: 3px solid rgb(52, 59, 72);	\n"
+"	border: 3px solid rgb(52, 59, 72);\n"
 "	background-image: url(:/icons/images/icons/cil-check-alt.png);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "RadioButton */\n"
 "QRadioButton::indicator {\n"
-"    border: 3px solid rgb(52, 59, 72);\n"
-""
-                        "	width: 15px;\n"
+"    border: 3px so"
+                        "lid rgb(52, 59, 72);\n"
+"	width: 15px;\n"
 "	height: 15px;\n"
 "	border-radius: 10px;\n"
 "    background: rgb(44, 49, 60);\n"
@@ -430,7 +430,7 @@ class Ui_RenameWindow(object):
 "}\n"
 "QRadioButton::indicator:checked {\n"
 "    background: 3px solid rgb(94, 106, 130);\n"
-"	border: 3px solid rgb(52, 59, 72);	\n"
+"	border: 3px solid rgb(52, 59, 72);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
@@ -438,7 +438,7 @@ class Ui_RenameWindow(object):
 "QComboBox{\n"
 "	background-color: rgb(27, 29, 35);\n"
 "	border-radius: 5px;\n"
-"	border: 2px solid rgb(33, 37, 43);\n"
+"	border: 2px solid rgb(35,35,38);\n"
 "	padding: 5px;\n"
 "	padding-left: 10px;\n"
 "}\n"
@@ -448,20 +448,20 @@ class Ui_RenameWindow(object):
 "QComboBox::drop-down {\n"
 "	subcontrol-origin: padding;\n"
 "	subcontrol-position: top right;\n"
-"	width: 25px; \n"
+"	width: 25px;\n"
 "	border-left-width: 3px;\n"
 "	border-left-color: rgba(39, 44, 54, 150);\n"
 "	border-left-style: solid;\n"
 "	border-top-right-radius: 3px;\n"
-"	border-bottom-right-radius: 3px;	\n"
-"	background-image: url(:/icons/images/ic"
-                        "ons/cil-arrow-bottom.png);\n"
+"	border-bottom-right-radius: 3px;\n"
+"	background-image: u"
+                        "rl(:/icons/images/icons/cil-arrow-bottom.png);\n"
 "	background-position: center;\n"
 "	background-repeat: no-repeat;\n"
 " }\n"
 "QComboBox QAbstractItemView {\n"
-"	color: rgb(255, 166, 121);\n"
-"	background-color: rgb(33, 37, 43);\n"
+"	color: #aa63ff;\n"
+"	background-color: rgb(35,35,38);\n"
 "	padding: 10px;\n"
 "	selection-background-color: rgb(39, 44, 54);\n"
 "}\n"
@@ -478,7 +478,7 @@ class Ui_RenameWindow(object):
 "	background-color: rgb(55, 62, 76);\n"
 "}\n"
 "QSlider::handle:horizontal {\n"
-"    background-color: rgb(249, 203, 147);\n"
+"    background-color: #aa63ff;\n"
 "    border: none;\n"
 "    height: 10px;\n"
 "    width: 10px;\n"
@@ -486,14 +486,14 @@ class Ui_RenameWindow(object):
 "	border-radius: 5px;\n"
 "}\n"
 "QSlider::handle:horizontal:hover {\n"
-"    background-color: rgb(255, 212, 155);\n"
+"    background-color: #aa63ff;\n"
 "}\n"
 "QSlider::handle:horizontal:pressed {\n"
-"    background-color: rgb(255, 166, 121);\n"
+"    background-color: #aa63ff;\n"
 "}\n"
-""
-                        "\n"
-"QSlider::groove:vertical {\n"
+"\n"
+"QSlider::groove:vert"
+                        "ical {\n"
 "    border-radius: 5px;\n"
 "    width: 10px;\n"
 "    margin: 0px;\n"
@@ -503,7 +503,7 @@ class Ui_RenameWindow(object):
 "	background-color: rgb(55, 62, 76);\n"
 "}\n"
 "QSlider::handle:vertical {\n"
-"    background-color: rgb(249, 203, 147);\n"
+"    background-color: #aa63ff;\n"
 "	border: none;\n"
 "    height: 10px;\n"
 "    width: 10px;\n"
@@ -511,48 +511,44 @@ class Ui_RenameWindow(object):
 "	border-radius: 5px;\n"
 "}\n"
 "QSlider::handle:vertical:hover {\n"
-"    background-color: rgb(255, 212, 155);\n"
+"    background-color: #aa63ff;\n"
 "}\n"
 "QSlider::handle:vertical:pressed {\n"
-"    background-color: rgb(255, 166, 121);\n"
+"    background-color: #aa63ff;\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "CommandLinkButton */\n"
-"QCommandLinkButton {	\n"
-"	color: rgb(255, 166, 121);\n"
+"QCommandLinkButton {\n"
+"	color: #aa63ff;\n"
 "	border-radius: 5px;\n"
 "	padding: 5px;\n"
 "}\n"
-"QCommandLinkButton:hover {	\n"
-"	color: rgb(255, 170, 255);\n"
+"QCommandLinkButton:hover {\n"
+"	color: #fff;\n"
 "	background-color: rgb(44, 49, 60);\n"
 "}\n"
-"QCommandLinkButton:pressed {	\n"
-"	color: rgb(249, 203, 147);\n"
-""
-                        "	background-color: rgb(52, 58, 71);\n"
+"QCommandLinkButton:pressed {\n"
+"	color: #aa63ff;\n"
+"	background-color: rgb(52, 58, 71);\n"
 "}\n"
 "\n"
-"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"/* ///////////////////////////////////////////"
+                        "//////////////////////////////////////////////////////\n"
 "Button */\n"
 "#pagesContainer QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
-"	border-radius: 5px;	\n"
+"	border-radius: 5px;\n"
 "	background-color: rgb(52, 59, 72);\n"
 "}\n"
 "#pagesContainer QPushButton:hover {\n"
 "	background-color: rgb(57, 65, 80);\n"
 "	border: 2px solid rgb(61, 70, 86);\n"
 "}\n"
-"#pagesContainer QPushButton:pressed {	\n"
+"#pagesContainer QPushButton:pressed {\n"
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
-"}\n"
-"\n"
-"\n"
-"\n"
-"")
+"}")
         self.appMargins = QVBoxLayout(self.styleSheet)
         self.appMargins.setSpacing(0)
         self.appMargins.setObjectName(u"appMargins")
@@ -637,7 +633,13 @@ class Ui_RenameWindow(object):
         sizePolicy1.setHeightForWidth(self.titleRightInfo.sizePolicy().hasHeightForWidth())
         self.titleRightInfo.setSizePolicy(sizePolicy1)
         self.titleRightInfo.setMaximumSize(QSize(16777215, 45))
-        self.titleRightInfo.setFont(font)
+        font1 = QFont()
+        font1.setFamilies([u"Raleway ExtraBold"])
+        font1.setPointSize(10)
+        font1.setBold(False)
+        font1.setItalic(False)
+        self.titleRightInfo.setFont(font1)
+        self.titleRightInfo.setStyleSheet(u"font: 81 10pt \"Raleway ExtraBold\";")
         self.titleRightInfo.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.horizontalLayout_3.addWidget(self.titleRightInfo)
@@ -670,13 +672,13 @@ class Ui_RenameWindow(object):
         self.maximizeRestoreAppBtn.setObjectName(u"maximizeRestoreAppBtn")
         self.maximizeRestoreAppBtn.setMinimumSize(QSize(28, 28))
         self.maximizeRestoreAppBtn.setMaximumSize(QSize(28, 28))
-        font1 = QFont()
-        font1.setFamilies([u"Segoe UI"])
-        font1.setPointSize(10)
-        font1.setBold(False)
-        font1.setItalic(False)
-        font1.setStyleStrategy(QFont.PreferDefault)
-        self.maximizeRestoreAppBtn.setFont(font1)
+        font2 = QFont()
+        font2.setFamilies([u"Segoe UI"])
+        font2.setPointSize(10)
+        font2.setBold(False)
+        font2.setItalic(False)
+        font2.setStyleStrategy(QFont.PreferDefault)
+        self.maximizeRestoreAppBtn.setFont(font2)
         self.maximizeRestoreAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon2 = QIcon()
         icon2.addFile(u":/icons/images/icons/icon_maximize.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -736,8 +738,8 @@ class Ui_RenameWindow(object):
         self.home.setStyleSheet(u"")
         self.logintitle = QLabel(self.home)
         self.logintitle.setObjectName(u"logintitle")
-        self.logintitle.setGeometry(QRect(190, 0, 71, 41))
-        self.logintitle.setStyleSheet(u"font: 14pt \"Segoe UI\"; color: rgb(255, 166, 121);")
+        self.logintitle.setGeometry(QRect(190, 0, 81, 41))
+        self.logintitle.setStyleSheet(u"font: 57 14pt \"Raleway Medium\";")
         self.logintitle.setLineWidth(1)
         self.logintitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.usertitle = QLabel(self.home)
@@ -746,41 +748,54 @@ class Ui_RenameWindow(object):
         sizePolicy1.setHeightForWidth(self.usertitle.sizePolicy().hasHeightForWidth())
         self.usertitle.setSizePolicy(sizePolicy1)
         self.usertitle.setMaximumSize(QSize(16777215, 45))
-        font2 = QFont()
-        font2.setFamilies([u"Segoe UI"])
-        font2.setPointSize(11)
-        font2.setBold(False)
-        font2.setItalic(False)
-        self.usertitle.setFont(font2)
-        self.usertitle.setStyleSheet(u"font: 11pt \"Segoe UI\";")
+        font3 = QFont()
+        font3.setFamilies([u"Raleway Medium"])
+        font3.setPointSize(11)
+        font3.setBold(False)
+        font3.setItalic(False)
+        self.usertitle.setFont(font3)
+        self.usertitle.setStyleSheet(u"font: 57 11pt \"Raleway Medium\";")
         self.usertitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.confirmButton = QPushButton(self.home)
         self.confirmButton.setObjectName(u"confirmButton")
         self.confirmButton.setGeometry(QRect(140, 230, 150, 30))
         self.confirmButton.setMinimumSize(QSize(150, 30))
-        self.confirmButton.setFont(font)
+        font4 = QFont()
+        font4.setFamilies([u"Raleway SemiBold"])
+        font4.setPointSize(10)
+        font4.setBold(False)
+        font4.setItalic(False)
+        self.confirmButton.setFont(font4)
         self.confirmButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.confirmButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.confirmButton.setStyleSheet(u"background-color: rgb(52, 59, 72);\n"
+"font: 63 10pt \"Raleway SemiBold\";")
         self.cancelButton = QPushButton(self.home)
         self.cancelButton.setObjectName(u"cancelButton")
         self.cancelButton.setGeometry(QRect(300, 230, 150, 30))
         self.cancelButton.setMinimumSize(QSize(150, 30))
-        self.cancelButton.setFont(font)
+        self.cancelButton.setFont(font4)
         self.cancelButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.cancelButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
+        self.cancelButton.setStyleSheet(u"background-color: rgb(52, 59, 72);\n"
+"font: 63 10pt \"Raleway SemiBold\";")
         self.fileNameBox = QLineEdit(self.home)
         self.fileNameBox.setObjectName(u"fileNameBox")
         self.fileNameBox.setGeometry(QRect(80, 110, 271, 30))
         self.fileNameBox.setMinimumSize(QSize(0, 30))
         self.fileNameBox.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"color: rgb(255, 166, 121);")
+"color: rgb(170, 99, 255);\n"
+"font: 63 10pt \"Raleway SemiBold\";")
         self.responseTitle = QLabel(self.home)
         self.responseTitle.setObjectName(u"responseTitle")
         self.responseTitle.setGeometry(QRect(80, 150, 261, 61))
         sizePolicy1.setHeightForWidth(self.responseTitle.sizePolicy().hasHeightForWidth())
         self.responseTitle.setSizePolicy(sizePolicy1)
         self.responseTitle.setMaximumSize(QSize(16777215, 100))
-        self.responseTitle.setFont(font2)
+        font5 = QFont()
+        font5.setFamilies([u"Segoe UI"])
+        font5.setPointSize(11)
+        font5.setBold(False)
+        font5.setItalic(False)
+        self.responseTitle.setFont(font5)
         self.responseTitle.setStyleSheet(u"font: 11pt \"Segoe UI\";\n"
 "color: rgb(240, 38, 24);")
         self.responseTitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
@@ -827,17 +842,20 @@ class Ui_RenameWindow(object):
         self.creditsLabel = QLabel(self.bottomBar)
         self.creditsLabel.setObjectName(u"creditsLabel")
         self.creditsLabel.setMaximumSize(QSize(16777215, 16))
-        font3 = QFont()
-        font3.setFamilies([u"Segoe UI"])
-        font3.setBold(False)
-        font3.setItalic(False)
-        self.creditsLabel.setFont(font3)
+        font6 = QFont()
+        font6.setFamilies([u"Raleway SemiBold"])
+        font6.setPointSize(8)
+        font6.setBold(False)
+        font6.setItalic(False)
+        self.creditsLabel.setFont(font6)
+        self.creditsLabel.setStyleSheet(u"font: 63 8pt \"Raleway SemiBold\";")
         self.creditsLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.horizontalLayout_5.addWidget(self.creditsLabel)
 
         self.version = QLabel(self.bottomBar)
         self.version.setObjectName(u"version")
+        self.version.setStyleSheet(u"font: 63 8pt \"Raleway SemiBold\";")
         self.version.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.horizontalLayout_5.addWidget(self.version)
@@ -896,7 +914,7 @@ class Ui_RenameWindow(object):
         self.fileNameBox.setPlaceholderText(QCoreApplication.translate("RenameWindow", u"Type here", None))
         self.responseTitle.setText("")
         self.label.setText(QCoreApplication.translate("RenameWindow", u"NEW PAGE TEST", None))
-        self.creditsLabel.setText(QCoreApplication.translate("RenameWindow", u"Group 1", None))
-        self.version.setText(QCoreApplication.translate("RenameWindow", u"<html><head/><body><p><span style=\" font-weight:600;\">Version</span> 0.0.4</p></body></html>", None))
+        self.creditsLabel.setText(QCoreApplication.translate("RenameWindow", u"<html><head/><body><p><span style=\" font-size:8pt; color:#ffffff;\">Group 1</span></p></body></html>", None))
+        self.version.setText(QCoreApplication.translate("RenameWindow", u"<html><head/><body><p><span style=\" font-weight:600; color:#ffffff;\">Version</span><span style=\" color:#ffffff;\"> 0.0.4</span></p></body></html>", None))
     # retranslateUi
 

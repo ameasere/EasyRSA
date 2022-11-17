@@ -8,11 +8,11 @@ class Settings():
     TIME_ANIMATION = 500
 
     # BTNS LEFT AND RIGHT BOX COLORS
-    BTN_LEFT_BOX_COLOR = "background-color: rgb(44, 49, 58);"
-    BTN_RIGHT_BOX_COLOR = "background-color: #ff79c6;"
+    BTN_LEFT_BOX_COLOR = "background-color: rgb(170, 99, 255);"
+    BTN_RIGHT_BOX_COLOR = "background-color: #aa63ff;"
 
     # MENU SELECTED STYLESHEET
     MENU_SELECTED_STYLESHEET = """
-    border-left: 22px solid qlineargradient(spread:pad, x1:0.034, y1:0, x2:0.216, y2:0, stop:0.499 rgba(0,94,217, 255), stop:0.5 rgba(85, 170, 255, 0));
-    background-color: rgb(40, 44, 52);
+    border-left: 22px solid qlineargradient(spread:pad, x1:0.034, y1:0, x2:0.216, y2:0, stop:0.499 rgba(170, 99, 255, 255), stop:0.5 rgba(85, 170, 255, 0));
+    background-color: rgb(35, 35, 38);
     """
