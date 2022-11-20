@@ -68,7 +68,14 @@ from Custom_Widgets.Widgets import *
 # warnings.filterwarnings('ignore')
 # os.environ['QT_DEBUG_PLUGINS'] = "1"
 # FIX Problem for High DPI and Scale above 100%
-os.environ["QT_FONT_DPI"] = "96"
+# Check for High DPI or Scale above 100%, and set os.environ["QT_FONT_DPI"] accordingly
+if platform.system() == "Windows":
+    import ctypes
+
+    if ctypes.windll.shcore.GetScaleFactorForDevice(0) > 100:
+        os.environ["QT_FONT_DPI"] = str(ctypes.windll.shcore.GetScaleFactorForDevice(0) * 96 / 72)
+    else:
+        os.environ["QT_FONT_DPI"] = "96"
 title = "EasyRSA"
 description = "RSA made simple."
 
@@ -205,15 +212,16 @@ class MainWindow(QMainWindow):
         else:
             self.__sessionToken = None
             self.__username = None
+
             # Check if the directory exists
             def generateKeys():
                 """
                 Generate keys
                 :return:
                 """
-                (__publicKey, __privateKey) = rsa.newkeys(2048, poolsize=psutil.cpu_count())
+                (__publicKey, __privateKey) = rsa.newkeys(2048,
+                                                          poolsize=psutil.cpu_count() if psutil.cpu_count() > 3 else 1)
                 if not os.path.exists(os.getcwd() + "/.keys") or len(os.listdir(os.getcwd() + "/.keys")) == 0:
-
                     if not os.path.exists(os.getcwd() + "/.keys"):
                         os.mkdir(os.getcwd() + "/.keys")
                     # Export the keys to files and place them in ".keys" folder
@@ -232,6 +240,7 @@ class MainWindow(QMainWindow):
                         __privateKey = rsa.PrivateKey.load_pkcs1(f.read())
                         f.close()
                 # Check if the .keys folder exists and has 2 keys in it
+
             if os.path.exists(os.getcwd() + "/.keys") and len(os.listdir(os.getcwd() + "/.keys")) == 2:
                 # Read the keys from the files
                 with open(".keys/public.pem", "rb") as f:
@@ -308,8 +317,14 @@ class MainWindow(QMainWindow):
         # Search for config file
         stem = os.getcwd()
         stem += "/config/config.json"
-        if not os.path.exists(stem):
+        if not os.path.exists(os.getcwd()+"/config"):
             # Create JSON object
+            try:
+                os.mkdir(os.getcwd() + "/config")
+            except FileExistsError:
+                pass
+            except OSError:
+                pass
             data = {"defaultSDLocation": os.getcwd(), "defaultBitLength": 2048}
             with open(stem, "w") as f:
                 json.dump(data, f)
@@ -350,7 +365,8 @@ class MainWindow(QMainWindow):
         self.changeBitLength.setObjectAnimateOn("hover")
         applyAnimationThemeStyle(self.changeBitLength, 12)
 
-        self.ui.publicKeyDisplay.setPlainText(str(self.__publicKey) if self.__publicKey is not None else "Generating keys...")
+        self.ui.publicKeyDisplay.setPlainText(
+            str(self.__publicKey) if self.__publicKey is not None else "Generating keys...")
         self.ui.privateKeyDisplay.setPlainText("PrivateKey(***********)")
 
         # Private Key Checkbox Tick
@@ -393,8 +409,10 @@ class MainWindow(QMainWindow):
         self.ui.closePopup.hide()
         self.ui.border1_2.hide()
         self.ui.border1_3.hide()
+
     def result(self):
         pass
+
     def generateFinished(self):
         with open(".keys/public.pem", "rb") as f:
             self.__publicKey = rsa.PublicKey.load_pkcs1(f.read())
@@ -407,7 +425,6 @@ class MainWindow(QMainWindow):
         # Update the UI
         self.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
         self.ui.privateKeyDisplay.setPlainText("PrivateKey(***********)")
-
 
     def dangerZone_changeBitLength(self):
         self.DZ_changeBitLength = BitLengthWindow()
@@ -523,7 +540,8 @@ class MainWindow(QMainWindow):
                                           "border-bottom-left-radius :10px;"
                                           "border-bottom-right-radius :10px;")
         self.ui.announceBox.setText("Encryption Complete! | Time taken: " + str(round(end - start, 2)) + " seconds | "
-                                    "Filesize: " + str(round(os.stat(new_filepath).st_size / 1000000, 2)) + " MB")
+                                                                                                         "Filesize: " + str(
+            round(os.stat(new_filepath).st_size / 1000000, 2)) + " MB")
         self.ui.announceBox.show()
         self.ui.closePopup.show()
         return True
@@ -622,7 +640,8 @@ class MainWindow(QMainWindow):
                                           "border-bottom-left-radius :10px;"
                                           "border-bottom-right-radius :10px;")
         self.ui.announceBox.setText("Decryption Complete! | Time taken: " + str(round(end - start, 2)) + " seconds | "
-                                    "Filesize: " + str(round(os.stat(new_filepath).st_size / 1000000, 2)) + " MB")
+                                                                                                         "Filesize: " + str(
+            round(os.stat(new_filepath).st_size / 1000000, 2)) + " MB")
         self.ui.announceBox.show()
         self.ui.closePopup.show()
         return True
@@ -958,7 +977,8 @@ class MainWindow(QMainWindow):
         :return:
         """
         if self.ui.privateKeyCheckbox.isChecked():
-            self.ui.privateKeyDisplay.setPlainText(str(self.__privateKey) if self.__privateKey else "Generating keys...")
+            self.ui.privateKeyDisplay.setPlainText(
+                str(self.__privateKey) if self.__privateKey else "Generating keys...")
         else:
             self.ui.privateKeyDisplay.setPlainText("PrivateKey(***********)")
 
@@ -1339,7 +1359,7 @@ class RegisterWindow(QMainWindow):
         Register
         """
         emailaddress = self.ui.emailbox.text()
-        publicKey, privateKey = rsa.newkeys(2048, poolsize=psutil.cpu_count())
+        publicKey, privateKey = rsa.newkeys(2048, poolsize=psutil.cpu_count() if psutil.cpu_count() > 3 else 1)
         # Encrypt the public key
         cipher = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
         ciphertext = cipher.encrypt(base64.b64encode(publicKey.save_pkcs1()))
@@ -1550,7 +1570,8 @@ class RegenerateKeysWindow(QMainWindow):
                 config = json.load(f)
                 defaultBitLength = config["defaultBitLength"]
                 f.close()
-            (self.__publicKey, self.__privateKey) = rsa.newkeys(int(defaultBitLength), poolsize=psutil.cpu_count())
+            (self.__publicKey, self.__privateKey) = rsa.newkeys(int(defaultBitLength),
+                                                                poolsize=psutil.cpu_count() if psutil.cpu_count() > 3 else 1)
             if self.anonymous:
                 # Delete the keys
                 os.remove(".keys/public.pem")
