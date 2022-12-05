@@ -1359,17 +1359,23 @@ class RegisterWindow(QMainWindow):
         Register
         """
         emailaddress = self.ui.emailbox.text()
-        publicKey, privateKey = rsa.newkeys(2048, poolsize=psutil.cpu_count() if psutil.cpu_count() > 3 else 1)
-        # Encrypt the public key
-        cipher = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
-        ciphertext = cipher.encrypt(base64.b64encode(publicKey.save_pkcs1()))
-        # Encrypt the private key
-        cipher2 = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
-        ciphertext2 = cipher2.encrypt(base64.b64encode(privateKey.save_pkcs1()))
-        postData = {"Email": emailaddress, "pub": base64.b64encode(ciphertext), "prv": base64.b64encode(ciphertext2)}
+        postData = {"Email": emailaddress}
         response = requests.post("https://enigmapr0ject.tech/api/easyrsa/register.php", data=postData).content.decode(
             'utf-8')
-        self.ui.responsetitle.setText(response)
+        if response == "Error: Email already registered." or response == "Failed to enter data. Please try again":
+            self.ui.responsetitle.setText(response)
+        else:
+            publicKey, privateKey = rsa.newkeys(2048, poolsize=psutil.cpu_count() if psutil.cpu_count() > 3 else 1)
+            # Encrypt the public key
+            cipher = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
+            ciphertext = cipher.encrypt(base64.b64encode(publicKey.save_pkcs1()))
+            # Encrypt the private key
+            cipher2 = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
+            ciphertext2 = cipher2.encrypt(base64.b64encode(privateKey.save_pkcs1()))
+            postData = {"Email": emailaddress, "pub": base64.b64encode(ciphertext), "prv": base64.b64encode(ciphertext2)}
+            response = requests.post("https://enigmapr0ject.tech/api/easyrsa/register.php", data=postData).content.decode(
+                'utf-8')
+            self.ui.responsetitle.setText(response)
 
     def fade(self):
         """

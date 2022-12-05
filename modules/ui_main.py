@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'newMain.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.0
+## Created by: Qt User Interface Compiler version 6.2.4
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -23,7 +23,6 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QSlider, QStackedWidget, QTableWidget, QTableWidgetItem,
     QTextEdit, QTreeView, QVBoxLayout, QWidget)
 from .resources_rc import *
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -553,10 +552,6 @@ class Ui_MainWindow(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        self.appMargins = QVBoxLayout(self.styleSheet)
-        self.appMargins.setSpacing(0)
-        self.appMargins.setObjectName(u"appMargins")
-        self.appMargins.setContentsMargins(10, 10, 10, 10)
         self.bgApp = QFrame(self.styleSheet)
         self.bgApp.setObjectName(u"bgApp")
         self.bgApp.setGeometry(QRect(10, 10, 1260, 668))
@@ -1942,31 +1937,234 @@ class Ui_MainWindow(object):
         self.dashboardTitle_10.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
         self.dashboardTitle_11 = QLabel(self.Security)
         self.dashboardTitle_11.setObjectName(u"dashboardTitle_11")
-        self.dashboardTitle_11.setGeometry(QRect(690, 460, 121, 31))
+        self.dashboardTitle_11.setGeometry(QRect(690, 450, 121, 41))
         self.dashboardTitle_11.setStyleSheet(u"font: 81 14pt \"Raleway ExtraBold\";")
         self.dashboardTitle_11.setLineWidth(1)
         self.dashboardTitle_11.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.dangerBorder = QLabel(self.Security)
         self.dangerBorder.setObjectName(u"dangerBorder")
         self.dangerBorder.setGeometry(QRect(680, 450, 491, 121))
-        self.dangerBorder.setStyleSheet(u"border: 2px double;\n"
-"border-color: qradialgradient(spread:repeat, cx:0.5, cy:0.5, radius:0.077, fx:0.5, fy:0.5, stop:0.420455 rgba(255, 0, 0, 200), stop:0.497326 rgba(0, 0, 0, 147), stop:0.795455 rgba(0, 0, 0, 200))")
+        self.dangerBorder.setStyleSheet(u"border: 1px double;\n"
+"border-color: rgb(255, 0, 0);")
         self.dangerBorder.setLineWidth(1)
         self.dangerBorder.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.regenkeysWidget = QWidget(self.Security)
         self.regenkeysWidget.setObjectName(u"regenkeysWidget")
-        self.regenkeysWidget.setGeometry(QRect(690, 500, 151, 21))
+        self.regenkeysWidget.setGeometry(QRect(690, 480, 151, 21))
         self.changeBitLength = QWidget(self.Security)
         self.changeBitLength.setObjectName(u"changeBitLength")
-        self.changeBitLength.setGeometry(QRect(690, 530, 151, 21))
+        self.changeBitLength.setGeometry(QRect(690, 510, 151, 21))
+        self.signAndVerify = QPushButton(self.Security)
+        self.signAndVerify.setObjectName(u"signAndVerify")
+        self.signAndVerify.setGeometry(QRect(20, 120, 191, 30))
+        self.signAndVerify.setMinimumSize(QSize(150, 30))
+        self.signAndVerify.setFont(font2)
+        self.signAndVerify.setCursor(QCursor(Qt.PointingHandCursor))
+        self.signAndVerify.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
+"border-bottom-left-radius :14px;\n"
+"border-top-left-radius :14px;\n"
+"border-top-right-radius :14px;\n"
+"border-bottom-right-radius :14px;\n"
+"border-color :rgb(51, 51, 56);\n"
+"font: 57 10pt \"Raleway Medium\";")
+        icon14 = QIcon()
+        icon14.addFile(u":/icons/images/icons/cil-fingerprint.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.signAndVerify.setIcon(icon14)
+        self.signFile = QPushButton(self.Security)
+        self.signFile.setObjectName(u"signFile")
+        self.signFile.setGeometry(QRect(60, 160, 150, 30))
+        self.signFile.setMinimumSize(QSize(150, 30))
+        self.signFile.setFont(font2)
+        self.signFile.setCursor(QCursor(Qt.PointingHandCursor))
+        self.signFile.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
+"border-bottom-left-radius :14px;\n"
+"border-top-left-radius :14px;\n"
+"border-top-right-radius :14px;\n"
+"border-bottom-right-radius :14px;\n"
+"border-color :rgb(51, 51, 56);\n"
+"font: 57 10pt \"Raleway Medium\";")
+        self.signFile.setIcon(icon14)
+        self.verifySignature = QPushButton(self.Security)
+        self.verifySignature.setObjectName(u"verifySignature")
+        self.verifySignature.setGeometry(QRect(60, 200, 150, 30))
+        self.verifySignature.setMinimumSize(QSize(150, 30))
+        self.verifySignature.setFont(font2)
+        self.verifySignature.setCursor(QCursor(Qt.PointingHandCursor))
+        self.verifySignature.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
+"border-bottom-left-radius :14px;\n"
+"border-top-left-radius :14px;\n"
+"border-top-right-radius :14px;\n"
+"border-bottom-right-radius :14px;\n"
+"border-color :rgb(51, 51, 56);\n"
+"font: 57 10pt \"Raleway Medium\";")
+        icon15 = QIcon()
+        icon15.addFile(u":/icons/images/icons/cil-check-circle.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.verifySignature.setIcon(icon15)
+        self.line = QFrame(self.Security)
+        self.line.setObjectName(u"line")
+        self.line.setGeometry(QRect(30, 150, 16, 31))
+        self.line.setStyleSheet(u"color: rgb(170, 99, 255);")
+        self.line.setFrameShadow(QFrame.Plain)
+        self.line.setLineWidth(5)
+        self.line.setFrameShape(QFrame.VLine)
+        self.line_2 = QFrame(self.Security)
+        self.line_2.setObjectName(u"line_2")
+        self.line_2.setGeometry(QRect(40, 170, 21, 16))
+        self.line_2.setStyleSheet(u"color: rgb(170, 99, 255);")
+        self.line_2.setFrameShadow(QFrame.Plain)
+        self.line_2.setLineWidth(5)
+        self.line_2.setFrameShape(QFrame.HLine)
+        self.line_3 = QFrame(self.Security)
+        self.line_3.setObjectName(u"line_3")
+        self.line_3.setGeometry(QRect(30, 180, 16, 41))
+        self.line_3.setStyleSheet(u"color: rgb(170, 99, 255);")
+        self.line_3.setFrameShadow(QFrame.Plain)
+        self.line_3.setLineWidth(5)
+        self.line_3.setFrameShape(QFrame.VLine)
+        self.line_4 = QFrame(self.Security)
+        self.line_4.setObjectName(u"line_4")
+        self.line_4.setGeometry(QRect(40, 210, 21, 16))
+        self.line_4.setStyleSheet(u"color: rgb(170, 99, 255);")
+        self.line_4.setFrameShadow(QFrame.Plain)
+        self.line_4.setLineWidth(5)
+        self.line_4.setFrameShape(QFrame.HLine)
+        self.dangerZone3Widget = QWidget(self.Security)
+        self.dangerZone3Widget.setObjectName(u"dangerZone3Widget")
+        self.dangerZone3Widget.setGeometry(QRect(690, 540, 151, 21))
+        self.generateChecksum = QPushButton(self.Security)
+        self.generateChecksum.setObjectName(u"generateChecksum")
+        self.generateChecksum.setGeometry(QRect(240, 120, 191, 30))
+        self.generateChecksum.setMinimumSize(QSize(150, 30))
+        self.generateChecksum.setFont(font2)
+        self.generateChecksum.setCursor(QCursor(Qt.PointingHandCursor))
+        self.generateChecksum.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
+"border-bottom-left-radius :14px;\n"
+"border-top-left-radius :14px;\n"
+"border-top-right-radius :14px;\n"
+"border-bottom-right-radius :14px;\n"
+"border-color :rgb(51, 51, 56);\n"
+"font: 57 10pt \"Raleway Medium\";")
+        icon16 = QIcon()
+        icon16.addFile(u":/icons/images/icons/cil-tags.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.generateChecksum.setIcon(icon16)
+        self.line_5 = QFrame(self.Security)
+        self.line_5.setObjectName(u"line_5")
+        self.line_5.setGeometry(QRect(250, 180, 16, 41))
+        self.line_5.setStyleSheet(u"color: rgb(4, 239, 188)")
+        self.line_5.setFrameShadow(QFrame.Plain)
+        self.line_5.setLineWidth(5)
+        self.line_5.setFrameShape(QFrame.VLine)
+        self.line_6 = QFrame(self.Security)
+        self.line_6.setObjectName(u"line_6")
+        self.line_6.setGeometry(QRect(260, 210, 21, 16))
+        self.line_6.setStyleSheet(u"color: rgb(4, 239, 188)")
+        self.line_6.setFrameShadow(QFrame.Plain)
+        self.line_6.setLineWidth(5)
+        self.line_6.setFrameShape(QFrame.HLine)
+        self.line_7 = QFrame(self.Security)
+        self.line_7.setObjectName(u"line_7")
+        self.line_7.setGeometry(QRect(250, 150, 16, 31))
+        self.line_7.setStyleSheet(u"color: rgb(4, 239, 188)")
+        self.line_7.setFrameShadow(QFrame.Plain)
+        self.line_7.setLineWidth(5)
+        self.line_7.setFrameShape(QFrame.VLine)
+        self.line_8 = QFrame(self.Security)
+        self.line_8.setObjectName(u"line_8")
+        self.line_8.setGeometry(QRect(260, 170, 21, 16))
+        self.line_8.setStyleSheet(u"color: rgb(4, 239, 188)")
+        self.line_8.setFrameShadow(QFrame.Plain)
+        self.line_8.setLineWidth(5)
+        self.line_8.setFrameShape(QFrame.HLine)
+        self.sha256 = QPushButton(self.Security)
+        self.sha256.setObjectName(u"sha256")
+        self.sha256.setGeometry(QRect(280, 160, 150, 30))
+        self.sha256.setMinimumSize(QSize(150, 30))
+        self.sha256.setFont(font2)
+        self.sha256.setCursor(QCursor(Qt.PointingHandCursor))
+        self.sha256.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
+"border-bottom-left-radius :14px;\n"
+"border-top-left-radius :14px;\n"
+"border-top-right-radius :14px;\n"
+"border-bottom-right-radius :14px;\n"
+"border-color :rgb(51, 51, 56);\n"
+"font: 57 10pt \"Raleway Medium\";")
+        icon17 = QIcon()
+        icon17.addFile(u":/icons/images/icons/cil-file.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.sha256.setIcon(icon17)
+        self.sha384 = QPushButton(self.Security)
+        self.sha384.setObjectName(u"sha384")
+        self.sha384.setGeometry(QRect(280, 200, 150, 30))
+        self.sha384.setMinimumSize(QSize(150, 30))
+        self.sha384.setFont(font2)
+        self.sha384.setCursor(QCursor(Qt.PointingHandCursor))
+        self.sha384.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
+"border-bottom-left-radius :14px;\n"
+"border-top-left-radius :14px;\n"
+"border-top-right-radius :14px;\n"
+"border-bottom-right-radius :14px;\n"
+"border-color :rgb(51, 51, 56);\n"
+"font: 57 10pt \"Raleway Medium\";")
+        self.sha384.setIcon(icon17)
+        self.sha512 = QPushButton(self.Security)
+        self.sha512.setObjectName(u"sha512")
+        self.sha512.setGeometry(QRect(280, 240, 150, 30))
+        self.sha512.setMinimumSize(QSize(150, 30))
+        self.sha512.setFont(font2)
+        self.sha512.setCursor(QCursor(Qt.PointingHandCursor))
+        self.sha512.setStyleSheet(u"background-color: rgb(35, 35, 38);\n"
+"border-bottom-left-radius :14px;\n"
+"border-top-left-radius :14px;\n"
+"border-top-right-radius :14px;\n"
+"border-bottom-right-radius :14px;\n"
+"border-color :rgb(51, 51, 56);\n"
+"font: 57 10pt \"Raleway Medium\";")
+        self.sha512.setIcon(icon17)
+        self.line_9 = QFrame(self.Security)
+        self.line_9.setObjectName(u"line_9")
+        self.line_9.setGeometry(QRect(250, 220, 16, 41))
+        self.line_9.setStyleSheet(u"color: rgb(4, 239, 188)")
+        self.line_9.setFrameShadow(QFrame.Plain)
+        self.line_9.setLineWidth(5)
+        self.line_9.setFrameShape(QFrame.VLine)
+        self.line_10 = QFrame(self.Security)
+        self.line_10.setObjectName(u"line_10")
+        self.line_10.setGeometry(QRect(260, 250, 21, 16))
+        self.line_10.setStyleSheet(u"color: rgb(4, 239, 188)")
+        self.line_10.setFrameShadow(QFrame.Plain)
+        self.line_10.setLineWidth(5)
+        self.line_10.setFrameShape(QFrame.HLine)
         self.stackedWidget.addWidget(self.Security)
         self.dangerBorder.raise_()
         self.dashboardTitle_10.raise_()
         self.dashboardTitle_11.raise_()
         self.regenkeysWidget.raise_()
         self.changeBitLength.raise_()
+        self.signAndVerify.raise_()
+        self.signFile.raise_()
+        self.verifySignature.raise_()
+        self.line.raise_()
+        self.line_2.raise_()
+        self.line_3.raise_()
+        self.line_4.raise_()
+        self.dangerZone3Widget.raise_()
+        self.generateChecksum.raise_()
+        self.line_5.raise_()
+        self.line_6.raise_()
+        self.line_7.raise_()
+        self.line_8.raise_()
+        self.sha256.raise_()
+        self.sha384.raise_()
+        self.sha512.raise_()
+        self.line_9.raise_()
+        self.line_10.raise_()
         self.Account = QWidget()
         self.Account.setObjectName(u"Account")
+        self.dashboardTitle_12 = QLabel(self.Account)
+        self.dashboardTitle_12.setObjectName(u"dashboardTitle_12")
+        self.dashboardTitle_12.setGeometry(QRect(0, 40, 1171, 41))
+        self.dashboardTitle_12.setStyleSheet(u"font: 57 18pt \"Raleway Medium\";")
+        self.dashboardTitle_12.setLineWidth(1)
+        self.dashboardTitle_12.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
         self.stackedWidget.addWidget(self.Account)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
@@ -2107,11 +2305,9 @@ class Ui_MainWindow(object):
 
         MainWindow.setCentralWidget(self.styleSheet)
 
-        self.appMargins.addWidget(self.bgApp)
-
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(3)
         self.closePopup.setDefault(False)
 
 
@@ -2271,6 +2467,14 @@ class Ui_MainWindow(object):
         self.dashboardTitle_10.setText(QCoreApplication.translate("MainWindow", u"Security Centre", None))
         self.dashboardTitle_11.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ff0000;\">Danger Zone</span></p></body></html>", None))
         self.dangerBorder.setText("")
+        self.signAndVerify.setText(QCoreApplication.translate("MainWindow", u"Sign and Verify file", None))
+        self.signFile.setText(QCoreApplication.translate("MainWindow", u"Sign File", None))
+        self.verifySignature.setText(QCoreApplication.translate("MainWindow", u"Verify Signature", None))
+        self.generateChecksum.setText(QCoreApplication.translate("MainWindow", u"Generate Checksum", None))
+        self.sha256.setText(QCoreApplication.translate("MainWindow", u"SHA256", None))
+        self.sha384.setText(QCoreApplication.translate("MainWindow", u"SHA384", None))
+        self.sha512.setText(QCoreApplication.translate("MainWindow", u"SHA512", None))
+        self.dashboardTitle_12.setText(QCoreApplication.translate("MainWindow", u"Account Settings", None))
         self.btn_help.setText(QCoreApplication.translate("MainWindow", u"Help", None))
         self.btn_report.setText(QCoreApplication.translate("MainWindow", u"Report Issue", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))

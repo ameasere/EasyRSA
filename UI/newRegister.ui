@@ -8,7 +8,7 @@
     <x>0</x>
     <y>0</y>
     <width>600</width>
-    <height>693</height>
+    <height>685</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -1362,10 +1362,10 @@ background-repeat: no-repeat;</string>
                       <widget class="QLabel" name="responsetitle">
                        <property name="geometry">
                         <rect>
-                         <x>290</x>
-                         <y>220</y>
-                         <width>211</width>
-                         <height>41</height>
+                         <x>130</x>
+                         <y>360</y>
+                         <width>221</width>
+                         <height>31</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
@@ -1408,7 +1408,7 @@ background-repeat: no-repeat;</string>
                         <rect>
                          <x>10</x>
                          <y>450</y>
-                         <width>131</width>
+                         <width>121</width>
                          <height>41</height>
                         </rect>
                        </property>
@@ -1446,7 +1446,8 @@ background-repeat: no-repeat;</string>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">background-color: rgb(33, 37, 43);
-font: 12pt &quot;Segoe UI&quot;; color: rgb(6, 51, 110)</string>
+font: 57 10pt &quot;Raleway Medium&quot;;
+color: rgb(170, 99, 255)</string>
                        </property>
                        <property name="text">
                         <string/>
@@ -1576,7 +1577,8 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;</string>
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">font: 8pt &quot;Segoe UI&quot;; color: rgb(255, 166, 121);</string>
+                        <string notr="true">font: 63 10pt &quot;Raleway SemiBold&quot;;
+color: rgb(170, 99, 255)</string>
                        </property>
                        <property name="lineWidth">
                         <number>1</number>
