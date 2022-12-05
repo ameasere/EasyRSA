@@ -2,7 +2,7 @@
 
 QWidget{
 	color: rgb(221, 221, 221);
-	font: 10pt "Segoe UI";
+	font: 10pt "Raleway SemiBold";
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -40,7 +40,7 @@ Left Menu */
 	background-repeat: no-repeat;
 }
 #titleLeftApp { font: 81 12pt "Raleway ExtraBold"; }
-#titleLeftDescription { font: 8pt "Segoe UI"; color: #aa63ff; }
+#titleLeftDescription { font: 8pt "Raleway SemiBold"; color: #aa63ff; }
 
 /* MENUS */
 #topMenu .QPushButton {

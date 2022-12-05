@@ -1389,14 +1389,15 @@ background-repeat: no-repeat;</string>
                       <widget class="QLabel" name="responsetitle">
                        <property name="geometry">
                         <rect>
-                         <x>290</x>
-                         <y>220</y>
-                         <width>331</width>
-                         <height>41</height>
+                         <x>130</x>
+                         <y>420</y>
+                         <width>221</width>
+                         <height>31</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">font: 8pt &quot;Segoe UI&quot;; color: rgb(255, 166, 121); </string>
+                        <string notr="true">font: 63 10pt &quot;Raleway SemiBold&quot;;
+color: rgb(170, 99, 255)</string>
                        </property>
                        <property name="lineWidth">
                         <number>1</number>
@@ -1461,7 +1462,8 @@ background-repeat: no-repeat;</string>
                         </font>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">font: 63 10pt &quot;Raleway SemiBold&quot;;</string>
+                        <string notr="true">font: 63 10pt &quot;Raleway SemiBold&quot;;
+color: rgb(170, 99, 255)</string>
                        </property>
                        <property name="text">
                         <string>Email Address</string>
@@ -1555,7 +1557,8 @@ color: rgb(170, 99, 255);</string>
                         </font>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">font: 63 10pt &quot;Raleway SemiBold&quot;;</string>
+                        <string notr="true">font: 63 10pt &quot;Raleway SemiBold&quot;;
+color: rgb(170, 99, 255)</string>
                        </property>
                        <property name="text">
                         <string>Password</string>
@@ -1697,8 +1700,8 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;
                        <property name="geometry">
                         <rect>
                          <x>10</x>
-                         <y>450</y>
-                         <width>131</width>
+                         <y>460</y>
+                         <width>121</width>
                          <height>41</height>
                         </rect>
                        </property>
@@ -1706,7 +1709,7 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;
                         <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">font: 63 10pt &quot;Raleway SemiBold&quot;;</string>
+                        <string notr="true">font: 63 8pt &quot;Raleway SemiBold&quot;;</string>
                        </property>
                        <property name="text">
                         <string>Need Support?</string>

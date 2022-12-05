@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'newRegister.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.0
+## Created by: Qt User Interface Compiler version 6.2.4
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -20,12 +20,11 @@ from PySide6.QtWidgets import (QApplication, QCommandLinkButton, QFrame, QGridLa
     QPushButton, QSizePolicy, QStackedWidget, QTextEdit,
     QVBoxLayout, QWidget)
 from .resources_rc import *
-
 class Ui_RegisterWindow(object):
     def setupUi(self, RegisterWindow):
         if not RegisterWindow.objectName():
             RegisterWindow.setObjectName(u"RegisterWindow")
-        RegisterWindow.resize(600, 693)
+        RegisterWindow.resize(600, 685)
         RegisterWindow.setMinimumSize(QSize(600, 560))
         icon = QIcon()
         icon.addFile(u":/images/images/images/RSA.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -865,7 +864,7 @@ class Ui_RegisterWindow(object):
         self.home.setStyleSheet(u"")
         self.responsetitle = QLabel(self.home)
         self.responsetitle.setObjectName(u"responsetitle")
-        self.responsetitle.setGeometry(QRect(290, 220, 211, 41))
+        self.responsetitle.setGeometry(QRect(130, 360, 221, 31))
         self.responsetitle.setStyleSheet(u"font: 8pt \"Segoe UI\"; color: rgb(255, 166, 121);")
         self.responsetitle.setLineWidth(1)
         self.responsetitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
@@ -877,7 +876,7 @@ class Ui_RegisterWindow(object):
         self.logintitle_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.supportButton = QCommandLinkButton(self.home)
         self.supportButton.setObjectName(u"supportButton")
-        self.supportButton.setGeometry(QRect(10, 450, 131, 41))
+        self.supportButton.setGeometry(QRect(10, 450, 121, 41))
         self.supportButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.supportButton.setStyleSheet(u"font: 63 8pt \"Raleway SemiBold\";")
         icon4 = QIcon()
@@ -888,7 +887,8 @@ class Ui_RegisterWindow(object):
         self.emailbox.setGeometry(QRect(130, 230, 221, 30))
         self.emailbox.setMinimumSize(QSize(0, 30))
         self.emailbox.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"font: 12pt \"Segoe UI\"; color: rgb(6, 51, 110)")
+"font: 57 10pt \"Raleway Medium\";\n"
+"color: rgb(170, 99, 255)")
         self.emailtitle = QLabel(self.home)
         self.emailtitle.setObjectName(u"emailtitle")
         self.emailtitle.setGeometry(QRect(130, 210, 91, 21))
@@ -923,7 +923,8 @@ class Ui_RegisterWindow(object):
         self.responsetitle_2 = QLabel(self.home)
         self.responsetitle_2.setObjectName(u"responsetitle_2")
         self.responsetitle_2.setGeometry(QRect(90, 370, 301, 41))
-        self.responsetitle_2.setStyleSheet(u"font: 8pt \"Segoe UI\"; color: rgb(255, 166, 121);")
+        self.responsetitle_2.setStyleSheet(u"font: 63 10pt \"Raleway SemiBold\";\n"
+"color: rgb(170, 99, 255)")
         self.responsetitle_2.setLineWidth(1)
         self.responsetitle_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.stackedWidget.addWidget(self.home)

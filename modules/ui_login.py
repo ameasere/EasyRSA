@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'loginNew.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.0
+## Created by: Qt User Interface Compiler version 6.2.4
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -20,7 +20,6 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QCommandLinkButton, QFra
     QMainWindow, QPushButton, QSizePolicy, QStackedWidget,
     QTextEdit, QVBoxLayout, QWidget)
 from .resources_rc import *
-
 class Ui_LoginWindow(object):
     def setupUi(self, LoginWindow):
         if not LoginWindow.objectName():
@@ -870,8 +869,9 @@ class Ui_LoginWindow(object):
         self.home.setStyleSheet(u"")
         self.responsetitle = QLabel(self.home)
         self.responsetitle.setObjectName(u"responsetitle")
-        self.responsetitle.setGeometry(QRect(290, 220, 331, 41))
-        self.responsetitle.setStyleSheet(u"font: 8pt \"Segoe UI\"; color: rgb(255, 166, 121); ")
+        self.responsetitle.setGeometry(QRect(130, 420, 221, 31))
+        self.responsetitle.setStyleSheet(u"font: 63 10pt \"Raleway SemiBold\";\n"
+"color: rgb(170, 99, 255)")
         self.responsetitle.setLineWidth(1)
         self.responsetitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.logintitle = QLabel(self.home)
@@ -892,7 +892,8 @@ class Ui_LoginWindow(object):
         font3.setBold(False)
         font3.setItalic(False)
         self.usertitle.setFont(font3)
-        self.usertitle.setStyleSheet(u"font: 63 10pt \"Raleway SemiBold\";")
+        self.usertitle.setStyleSheet(u"font: 63 10pt \"Raleway SemiBold\";\n"
+"color: rgb(170, 99, 255)")
         self.usertitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.userbox = QLineEdit(self.home)
         self.userbox.setObjectName(u"userbox")
@@ -915,7 +916,8 @@ class Ui_LoginWindow(object):
         self.passtitle.setSizePolicy(sizePolicy2)
         self.passtitle.setMaximumSize(QSize(16777215, 45))
         self.passtitle.setFont(font3)
-        self.passtitle.setStyleSheet(u"font: 63 10pt \"Raleway SemiBold\";")
+        self.passtitle.setStyleSheet(u"font: 63 10pt \"Raleway SemiBold\";\n"
+"color: rgb(170, 99, 255)")
         self.passtitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.showpassword = QCheckBox(self.home)
         self.showpassword.setObjectName(u"showpassword")
@@ -952,9 +954,9 @@ class Ui_LoginWindow(object):
         self.anonMode.setIcon(icon4)
         self.supportButton = QCommandLinkButton(self.home)
         self.supportButton.setObjectName(u"supportButton")
-        self.supportButton.setGeometry(QRect(10, 450, 131, 41))
+        self.supportButton.setGeometry(QRect(10, 460, 121, 41))
         self.supportButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.supportButton.setStyleSheet(u"font: 63 10pt \"Raleway SemiBold\";")
+        self.supportButton.setStyleSheet(u"font: 63 8pt \"Raleway SemiBold\";")
         icon5 = QIcon()
         icon5.addFile(u":/icons/images/icons/cil-link.png", QSize(), QIcon.Normal, QIcon.Off)
         self.supportButton.setIcon(icon5)
