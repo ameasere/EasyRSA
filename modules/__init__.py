@@ -27,6 +27,7 @@ from .ui_register import Ui_RegisterWindow
 from .ui_anonymous import Ui_Anonymous
 from .ui_DZregenKeys import Ui_RegenerateKeysWindow
 from .ui_DZbitLength import Ui_BitLengthWindow
+from .ui_2fa import Ui_TwoFactorWindow
 
 # APP SETTINGS
 from . app_settings import Settings

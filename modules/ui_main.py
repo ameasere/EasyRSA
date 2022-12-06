@@ -23,6 +23,7 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QSlider, QStackedWidget, QTableWidget, QTableWidgetItem,
     QTextEdit, QTreeView, QVBoxLayout, QWidget)
 from .resources_rc import *
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -2165,6 +2166,18 @@ class Ui_MainWindow(object):
         self.dashboardTitle_12.setStyleSheet(u"font: 57 18pt \"Raleway Medium\";")
         self.dashboardTitle_12.setLineWidth(1)
         self.dashboardTitle_12.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
+        self.enable2fa = QPushButton(self.Account)
+        self.enable2fa.setObjectName(u"enable2fa")
+        self.enable2fa.setGeometry(QRect(20, 120, 151, 31))
+        self.enable2fa.setMinimumSize(QSize(150, 30))
+        self.enable2fa.setFont(font5)
+        self.enable2fa.setCursor(QCursor(Qt.PointingHandCursor))
+        self.enable2fa.setStyleSheet(u"background-color: #aa63ff;\n"
+"font: 63 10pt \"Raleway SemiBold\";\n"
+"")
+        icon18 = QIcon()
+        icon18.addFile(u"images/icons/cil-mobile.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.enable2fa.setIcon(icon18)
         self.stackedWidget.addWidget(self.Account)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
@@ -2307,7 +2320,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(4)
         self.closePopup.setDefault(False)
 
 
@@ -2475,6 +2488,7 @@ class Ui_MainWindow(object):
         self.sha384.setText(QCoreApplication.translate("MainWindow", u"SHA384", None))
         self.sha512.setText(QCoreApplication.translate("MainWindow", u"SHA512", None))
         self.dashboardTitle_12.setText(QCoreApplication.translate("MainWindow", u"Account Settings", None))
+        self.enable2fa.setText(QCoreApplication.translate("MainWindow", u"Enable 2 Factor", None))
         self.btn_help.setText(QCoreApplication.translate("MainWindow", u"Help", None))
         self.btn_report.setText(QCoreApplication.translate("MainWindow", u"Report Issue", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))

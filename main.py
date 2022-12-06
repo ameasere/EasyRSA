@@ -64,6 +64,7 @@ from modules import *
 from PySide6.QtCore import *
 import traceback
 from Custom_Widgets.Widgets import *
+import pyqrcode
 
 # warnings.filterwarnings('ignore')
 # os.environ['QT_DEBUG_PLUGINS'] = "1"
@@ -349,6 +350,7 @@ class MainWindow(QMainWindow):
         self.ui.encryptButton_3.clicked.connect(self.buttonClick)
         self.ui.decryptButton_3.clicked.connect(self.buttonClick)
         self.ui.closePopup.clicked.connect(self.buttonClick)
+        self.ui.enable2fa.clicked.connect(self.buttonClick)
 
         # Add custom buttons in the danger zone label
         self.regenerateKeys = QCustomQPushButton(self.ui.regenkeysWidget)
@@ -954,6 +956,16 @@ class MainWindow(QMainWindow):
                 self.ui.fileBrowserTree_2.setRootIndex(
                     self.model.index(self.filepath))
                 self.ui.currentDirectory_2.setText(self.filepath)
+            case "enable2fa":
+                cipher = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
+                ciphertext = cipher.encrypt(base64.b64encode(self.__privateKey.save_pkcs1()))
+                encryptedKey = base64.b64encode(ciphertext)
+                postData = {"Email": self.__username, "token": self.__sessionToken, "prv": encryptedKey}
+                farequest = requests.post("https://enigmapr0ject.tech/api/easyrsa/2fa/registerTOTP.php", postData)
+                response = farequest.content.decode("utf-8")
+                # Generate QR code
+                self.qrwindow = TwoFactorAuthWindow(response, encryptedKey, self.__username, self.__sessionToken)
+                self.qrwindow.show()
             case _:
                 print("%s button not found." % btnName)
 
@@ -1135,6 +1147,139 @@ class MainWindow(QMainWindow):
         """
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPosition().toPoint()
+
+class TwoFactorAuthWindow(QMainWindow):
+    """
+    Rename File Window
+    """
+
+    def __init__(self, uri, encryptedKey, email, token):
+        super().__init__()
+        # SET AS GLOBAL WIDGETS
+        # ///////////////////////////////////////////////////////////////
+        self.dragPos = None
+        self.ui = Ui_TwoFactorWindow()
+        self.ui.setupUi(self)
+        self.URI = uri
+        self.encryptedKey = encryptedKey
+        self.email = email
+        self.token = token
+        widgets = self.ui
+        # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
+        # ///////////////////////////////////////////////////////////////
+        Settings.ENABLE_CUSTOM_TITLE_BAR = titleBarFlag
+
+        # TOGGLE MENU
+        # ///////////////////////////////////////////////////////////////
+        # widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
+        # SET UI DEFINITIONS
+        # ///////////////////////////////////////////////////////////////
+        UIFunctions.uiDefinitions(self)
+        # SHOW APP
+        # ///////////////////////////////////////////////////////////////
+        self.show()
+        widgets.confirmButton.clicked.connect(self.confirm)
+        widgets.closeAppBtn.clicked.connect(self.close)
+        widgets.codebox.hide()
+        widgets.announceBox.hide()
+        # SET CUSTOM THEME
+        # ///////////////////////////////////////////////////////////////
+        themeFile = "themes/EasyRSA.qss"
+
+        # SET THEME AND HACKS
+        UIFunctions.theme(self, themeFile, True)
+
+        # SET HOME PAGE AND SELECT MENU
+        # ///////////////////////////////////////////////////////////////
+        widgets.stackedWidget.setCurrentWidget(widgets.home)
+        # widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
+        qrcode = pyqrcode.create(self.URI)
+        qrcode.png("qrcode.png", scale=6)
+        pixmap = QPixmap("qrcode.png")
+        widgets.qrcode.setPixmap(pixmap)
+
+    def confirm(self):
+        self.ui.codebox.show()
+        self.ui.dashboardTitle_2.setText("Please enter the code from your authenticator app below to confirm.")
+        self.ui.confirmButton.setText("Confirm")
+        self.ui.confirmButton.clicked.connect(self.confirm2)
+
+    def confirm2(self):
+        code = self.ui.codebox.text()
+        if code == "" or len(code) != 6:
+            self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                              "border-top-left-radius :10px;"
+                                              "border-top-right-radius :10px;"
+                                              "border-bottom-left-radius :10px;"
+                                              "border-bottom-right-radius :10px;")
+            self.ui.announceBox.setText("Please enter a valid code.")
+            self.ui.announceBox.show()
+        else:
+            postData = {"Email": self.email, "token": self.token, "code": code, "prv": self.encryptedKey}
+            faenable = requests.post("https://enigmapr0ject.tech/api/easyrsa/2fa/registerTOTP.php", data=postData)
+            if faenable.content.decode('utf-8') == "2FA Enabled.":
+                self.ui.announceBox.setStyleSheet("background-color: rgb(0, 255, 0);"
+                                                  "border-top-left-radius :10px;"
+                                                  "border-top-right-radius :10px;"
+                                                  "border-bottom-left-radius :10px;"
+                                                  "border-bottom-right-radius :10px;")
+                self.ui.announceBox.setText("2FA has been enabled.")
+                self.ui.announceBox.show()
+                self.ui.confirmButton.setText("Close")
+                self.ui.confirmButton.clicked.connect(self.close)
+                self.ui.codebox.hide()
+            elif faenable.content.decode('utf-8') == "Too many tries.":
+                self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                  "border-top-left-radius :10px;"
+                                                  "border-top-right-radius :10px;"
+                                                  "border-bottom-left-radius :10px;"
+                                                  "border-bottom-right-radius :10px;")
+                self.ui.announceBox.setText("Too many tries. Please try again later.")
+                self.ui.announceBox.show()
+            else:
+                self.ui.announceBox.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                  "border-top-left-radius :10px;"
+                                                  "border-top-right-radius :10px;"
+                                                  "border-bottom-left-radius :10px;"
+                                                  "border-bottom-right-radius :10px;")
+                self.ui.announceBox.setText(faenable.content.decode("utf-8"))
+                self.ui.announceBox.show()
+                print(faenable.content.decode("utf-8"))
+    def fade(self):
+        """
+        Fade window out slowly
+        """
+        for i in range(10):
+            i /= 10
+            self.setWindowOpacity(1 - i)
+            time.sleep(0.02)
+        self.close()
+
+    # RESIZE EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def resizeEvent(self, event):
+        """
+        Resize event
+        :param event:
+        """
+        # Update Size Grips
+        UIFunctions.resize_grips(self)
+
+    # MOUSE CLICK EVENTS
+    # ///////////////////////////////////////////////////////////////
+    def mousePressEvent(self, event):
+        """
+        Mouse press event
+        :param event:
+        """
+        # SET DRAG POS WINDOW
+        self.dragPos = event.globalPosition().toPoint()
+
+    def exitHandler(self):
+        """
+        Exit handler
+        """
+        self.fade()
 
 
 class LoginWindow(QMainWindow):
