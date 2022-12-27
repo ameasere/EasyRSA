@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'newRegister.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.4
+## Created by: Qt User Interface Compiler version 6.4.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -862,12 +862,6 @@ class Ui_RegisterWindow(object):
         self.home = QWidget()
         self.home.setObjectName(u"home")
         self.home.setStyleSheet(u"")
-        self.responsetitle = QLabel(self.home)
-        self.responsetitle.setObjectName(u"responsetitle")
-        self.responsetitle.setGeometry(QRect(130, 360, 221, 31))
-        self.responsetitle.setStyleSheet(u"font: 8pt \"Segoe UI\"; color: rgb(255, 166, 121);")
-        self.responsetitle.setLineWidth(1)
-        self.responsetitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.logintitle_2 = QLabel(self.home)
         self.logintitle_2.setObjectName(u"logintitle_2")
         self.logintitle_2.setGeometry(QRect(160, 110, 161, 41))
@@ -920,13 +914,14 @@ class Ui_RegisterWindow(object):
         self.cancelRegisterButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.cancelRegisterButton.setStyleSheet(u"background-color: rgb(52, 59, 72);\n"
 "font: 63 10pt \"Raleway SemiBold\";")
-        self.responsetitle_2 = QLabel(self.home)
-        self.responsetitle_2.setObjectName(u"responsetitle_2")
-        self.responsetitle_2.setGeometry(QRect(90, 370, 301, 41))
-        self.responsetitle_2.setStyleSheet(u"font: 63 10pt \"Raleway SemiBold\";\n"
+        self.responsetitle = QLabel(self.home)
+        self.responsetitle.setObjectName(u"responsetitle")
+        self.responsetitle.setGeometry(QRect(90, 370, 301, 41))
+        self.responsetitle.setStyleSheet(u"font: 63 10pt \"Raleway SemiBold\";\n"
 "color: rgb(170, 99, 255)")
-        self.responsetitle_2.setLineWidth(1)
-        self.responsetitle_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.responsetitle.setLineWidth(1)
+        self.responsetitle.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.responsetitle.setWordWrap(True)
         self.stackedWidget.addWidget(self.home)
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
@@ -1134,7 +1129,6 @@ class Ui_RegisterWindow(object):
         self.closeAppBtn.setToolTip(QCoreApplication.translate("RegisterWindow", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
-        self.responsetitle.setText("")
         self.logintitle_2.setText(QCoreApplication.translate("RegisterWindow", u"<html><head/><body><p align=\"center\">EasyRSA Register</p></body></html>", None))
         self.supportButton.setText(QCoreApplication.translate("RegisterWindow", u"Need Support?", None))
         self.supportButton.setDescription("")
@@ -1143,7 +1137,7 @@ class Ui_RegisterWindow(object):
         self.emailtitle.setText(QCoreApplication.translate("RegisterWindow", u"Email Address", None))
         self.registerButton.setText(QCoreApplication.translate("RegisterWindow", u"Create Account", None))
         self.cancelRegisterButton.setText(QCoreApplication.translate("RegisterWindow", u"Cancel", None))
-        self.responsetitle_2.setText("")
+        self.responsetitle.setText("")
         self.label.setText(QCoreApplication.translate("RegisterWindow", u"NEW PAGE TEST", None))
         self.btn_message.setText(QCoreApplication.translate("RegisterWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("RegisterWindow", u"Print", None))
