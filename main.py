@@ -7,18 +7,9 @@ import base64
 #
 # BY: WANDERSON M.PIMENTA
 # PROJECT MADE WITH: Qt Designer and PySide6
-# V: 0.0.2
-#
-# This project can be used freely for all uses, as long as they maintain the
-# respective credits only in the Python scripts, any information in the visual
-# interface (GUI) can be modified without any implication.
-#
-# There are limitations on Qt licenses if you want to use your products
-# commercially, I recommend reading them on the official website:
-# https://doc.qt.io/qtforpython/licenses.html
-#
+# V: 0.0.5
 # ///////////////////////////////////////////////////////////////
-# Made by Bartosz Rzepka (DevPanada), Leighton Brooks (enigmapr0ject)
+# Developed by Bartosz Rzepka (DevPanada), Leighton Brooks (enigmapr0ject)
 # 21477187 / 21472005
 # Theme by Zeno Rocha: https://zenorocha.com/
 # noinspection PyUnresolvedReferences
@@ -37,7 +28,6 @@ import sys
 import webbrowser
 # noinspection PyUnresolvedReferences
 import shutil
-
 # noinspection PyUnresolvedReferences
 if platform.system() == "Windows":
     import winreg
@@ -1305,6 +1295,7 @@ class LoginWindow(QMainWindow):
         widgets.showpassword.stateChanged.connect(self.showPassword)
         widgets.loginButton.clicked.connect(self.login)
         widgets.registerButton.clicked.connect(self.register)
+        widgets.fasubmit.clicked.connect(self.fasubmit)
         # widgets.cancelbutton.clicked.connect(self.register)
         # widgets.submitbutton.clicked.connect(self.login)
         widgets.anonMode.clicked.connect(self.anonymousMode)
@@ -1370,7 +1361,7 @@ class LoginWindow(QMainWindow):
         postData = {"Email": self.username, "Password": self.password}
         response = requests.post("https://enigmapr0ject.tech/api/easyrsa/login.php",
                                  data=postData).content.decode('utf-8')
-        if len(response) > 0 and response != "Email or Password incorrect." and response != "Field/s empty" and response != "User is not verified.":
+        if len(response) > 0 and response != "Email or Password incorrect." and response != "Field/s empty" and response != "User is not verified." and response != "2FA":
             self.__sessionToken = response
             request = requests.post("https://enigmapr0ject.tech/api/easyrsa/keys.php", data=postData)
             response = request.content.decode('utf-8')
@@ -1392,6 +1383,8 @@ class LoginWindow(QMainWindow):
                                          username=self.username)
             self.mainWindow.ui.extraLabel.setText(self.username)
             self.mainWindow.show()
+        elif response == "2FA":
+            self.ui.stackedWidget.setCurrentWidget(self.ui.twofactor)
         else:
             self.ui.responsetitle.setText(response)
 
@@ -1402,6 +1395,36 @@ class LoginWindow(QMainWindow):
         self.fade()
         self.main = RegisterWindow()
         self.main.show()
+    def fasubmit(self):
+        self.authcode = self.ui.codebox.text()
+        postData = {"Email": self.username, "Password": self.password, "code": self.authcode}
+        response = requests.post("https://enigmapr0ject.tech/api/easyrsa/2fa/verify.php", data=postData).content.decode('utf-8')
+        if response != "Failed":
+            self.__sessionToken = response
+            request = requests.post("https://enigmapr0ject.tech/api/easyrsa/keys.php", data=postData)
+            response = request.content.decode('utf-8')
+            publickey = base64.b64decode(response.split("\n")[0])
+            privatekey = base64.b64decode(response.split("\n")[1])
+            cipher = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
+            # Decrypt public key
+            publickey = cipher.decrypt(publickey)
+            cipher2 = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
+            # Decrypt private key
+            privatekey = cipher2.decrypt(privatekey)
+            # Decode from base 64
+            publickey = base64.b64decode(publickey)
+            privatekey = base64.b64decode(privatekey)
+            publickey = rsa.PublicKey.load_pkcs1(publickey)
+            privatekey = rsa.PrivateKey.load_pkcs1(privatekey)
+            self.close()
+            self.mainWindow = MainWindow(publickey=publickey, privatekey=privatekey,
+                                        sessionToken=self.__sessionToken,
+                                        username=self.username)
+            self.mainWindow.ui.extraLabel.setText(self.username)
+            self.mainWindow.show()
+        else:
+            self.ui.responsetitle.setText("Incorrect code.")
+
 
     def fade(self):
         """
@@ -1453,6 +1476,7 @@ class RegisterWindow(QMainWindow):
         self.dragPos = None
         self.ui = Ui_RegisterWindow()
         self.ui.setupUi(self)
+        self.threadpool = QThreadPool()
         widgets = self.ui
         widgets.cancelRegisterButton.clicked.connect(self.login)
         widgets.registerButton.clicked.connect(self.register)
@@ -1500,9 +1524,12 @@ class RegisterWindow(QMainWindow):
         self.login.show()
 
     def register(self):
-        """
-        Register
-        """
+        self.ui.responsetitle.setText("Registering...")
+        worker = Worker(self.registerThread)
+        worker.signals.result.connect(self.result)
+        worker.signals.finished.connect(self.genFinished)
+        self.threadpool.start(worker)
+    def registerThread(self):
         emailaddress = self.ui.emailbox.text()
         postData = {"Email": emailaddress}
         response = requests.post("https://enigmapr0ject.tech/api/easyrsa/register.php", data=postData).content.decode(
@@ -1517,10 +1544,17 @@ class RegisterWindow(QMainWindow):
             # Encrypt the private key
             cipher2 = AES.new(aeskey, AES.MODE_EAX, nonce=nonce)
             ciphertext2 = cipher2.encrypt(base64.b64encode(privateKey.save_pkcs1()))
-            postData = {"Email": emailaddress, "pub": base64.b64encode(ciphertext), "prv": base64.b64encode(ciphertext2)}
-            response = requests.post("https://enigmapr0ject.tech/api/easyrsa/register.php", data=postData).content.decode(
+            postData = {"Email": emailaddress, "pub": base64.b64encode(ciphertext),
+                        "prv": base64.b64encode(ciphertext2)}
+            response = requests.post("https://enigmapr0ject.tech/api/easyrsa/register.php",
+                                     data=postData).content.decode(
                 'utf-8')
             self.ui.responsetitle.setText(response)
+    def result(self):
+        pass
+    def genFinished(self):
+        pass
+        #self.ui.responsetitle.setText("Link sent to your email address. Please check your spam folder if you don't see it in your inbox.")
 
     def fade(self):
         """

@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'loginNew.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.4
+## Created by: Qt User Interface Compiler version 6.4.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -20,6 +20,7 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QCommandLinkButton, QFra
     QMainWindow, QPushButton, QSizePolicy, QStackedWidget,
     QTextEdit, QVBoxLayout, QWidget)
 from .resources_rc import *
+
 class Ui_LoginWindow(object):
     def setupUi(self, LoginWindow):
         if not LoginWindow.objectName():
@@ -965,10 +966,44 @@ class Ui_LoginWindow(object):
         self.twofactor.setObjectName(u"twofactor")
         self.twofactoresponse = QLabel(self.twofactor)
         self.twofactoresponse.setObjectName(u"twofactoresponse")
-        self.twofactoresponse.setGeometry(QRect(340, 250, 261, 41))
+        self.twofactoresponse.setGeometry(QRect(0, 350, 471, 91))
         self.twofactoresponse.setStyleSheet(u"font: 8pt \"Segoe UI\"; color: rgb(189, 147, 249); ")
         self.twofactoresponse.setLineWidth(1)
         self.twofactoresponse.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.twofactoresponse.setWordWrap(True)
+        self.logintitle_2 = QLabel(self.twofactor)
+        self.logintitle_2.setObjectName(u"logintitle_2")
+        self.logintitle_2.setGeometry(QRect(0, 0, 471, 41))
+        self.logintitle_2.setStyleSheet(u"font: 57 14pt \"Raleway Medium\";")
+        self.logintitle_2.setLineWidth(1)
+        self.logintitle_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.logintitle_3 = QLabel(self.twofactor)
+        self.logintitle_3.setObjectName(u"logintitle_3")
+        self.logintitle_3.setGeometry(QRect(0, 70, 471, 111))
+        self.logintitle_3.setStyleSheet(u"color: #aa63ff;\n"
+"font: 57 14pt \"Raleway SemiBold\";")
+        self.logintitle_3.setLineWidth(1)
+        self.logintitle_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.logintitle_3.setWordWrap(True)
+        self.codebox = QLineEdit(self.twofactor)
+        self.codebox.setObjectName(u"codebox")
+        self.codebox.setGeometry(QRect(130, 210, 211, 30))
+        self.codebox.setMinimumSize(QSize(0, 30))
+        self.codebox.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"font: 57 10pt \"Raleway Medium\";\n"
+"color: rgb(170, 99, 255)")
+        self.fasubmit = QPushButton(self.twofactor)
+        self.fasubmit.setObjectName(u"fasubmit")
+        self.fasubmit.setGeometry(QRect(160, 270, 151, 31))
+        self.fasubmit.setMinimumSize(QSize(150, 30))
+        self.fasubmit.setFont(font3)
+        self.fasubmit.setCursor(QCursor(Qt.PointingHandCursor))
+        self.fasubmit.setStyleSheet(u"background-color: #aa63ff;\n"
+"font: 63 10pt \"Raleway SemiBold\";\n"
+"")
+        icon6 = QIcon()
+        icon6.addFile(u"images/icons/cil-mobile.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.fasubmit.setIcon(icon6)
         self.stackedWidget.addWidget(self.twofactor)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
@@ -1114,7 +1149,7 @@ class Ui_LoginWindow(object):
 
         self.retranslateUi(LoginWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(LoginWindow)
@@ -1172,6 +1207,11 @@ class Ui_LoginWindow(object):
         self.supportButton.setText(QCoreApplication.translate("LoginWindow", u"Need Support?", None))
         self.supportButton.setDescription("")
         self.twofactoresponse.setText("")
+        self.logintitle_2.setText(QCoreApplication.translate("LoginWindow", u"<html><head/><body><p align=\"center\">Two Factor Enabled</p></body></html>", None))
+        self.logintitle_3.setText(QCoreApplication.translate("LoginWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Two factor authentication (2FA) has been enabled on your account. Please enter the 6 digit code from your Authenticator app below to continue.</span></p></body></html>", None))
+        self.codebox.setText("")
+        self.codebox.setPlaceholderText(QCoreApplication.translate("LoginWindow", u"Code here...", None))
+        self.fasubmit.setText(QCoreApplication.translate("LoginWindow", u"Submit Code", None))
         self.btn_message.setText(QCoreApplication.translate("LoginWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("LoginWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("LoginWindow", u"Logout", None))
