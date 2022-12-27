@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'newMain.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.4
+## Created by: Qt User Interface Compiler version 6.4.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -23,7 +23,6 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QSlider, QStackedWidget, QTableWidget, QTableWidgetItem,
     QTextEdit, QTreeView, QVBoxLayout, QWidget)
 from .resources_rc import *
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -58,7 +57,7 @@ class Ui_MainWindow(object):
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
-"	border-left: 2px solid rgb(0,94,217);\n"
+"	border-left: 2px solid rgb(97, 67, 133);\n"
 "	text-align: left;\n"
 "	padding-left: 8px;\n"
 "	margin: 0px;\n"
@@ -74,8 +73,8 @@ class Ui_MainWindow(object):
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Left Menu */\n"
 "#leftMenuBg {\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0,"
-                        " x2:1, y2:1, stop:0 rgba(97, 67, 133, 255), stop:1 rgba(81, 99, 149, 255));\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1"
+                        ":0, x2:1, y2:1, stop:0 rgba(97, 67, 133, 255), stop:1 rgba(81, 99, 149, 255));\n"
 "}\n"
 "#topLogo {\n"
 "	background-color: transparent;\n"
@@ -108,8 +107,8 @@ class Ui_MainWindow(object):
 "    background-repeat: no-repeat;\n"
 "	border: none;\n"
 "	border-left: 20px solid transparent;\n"
-"	ba"
-                        "ckground-color:transparent;\n"
+""
+                        "	background-color:transparent;\n"
 "	text-align: left;\n"
 "	padding-left: 44px;\n"
 "}\n"
@@ -1354,7 +1353,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 353, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1938,23 +1937,23 @@ class Ui_MainWindow(object):
         self.dashboardTitle_10.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
         self.dashboardTitle_11 = QLabel(self.Security)
         self.dashboardTitle_11.setObjectName(u"dashboardTitle_11")
-        self.dashboardTitle_11.setGeometry(QRect(690, 450, 121, 41))
+        self.dashboardTitle_11.setGeometry(QRect(680, 120, 121, 41))
         self.dashboardTitle_11.setStyleSheet(u"font: 81 14pt \"Raleway ExtraBold\";")
         self.dashboardTitle_11.setLineWidth(1)
         self.dashboardTitle_11.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.dangerBorder = QLabel(self.Security)
         self.dangerBorder.setObjectName(u"dangerBorder")
-        self.dangerBorder.setGeometry(QRect(680, 450, 491, 121))
+        self.dangerBorder.setGeometry(QRect(670, 120, 491, 121))
         self.dangerBorder.setStyleSheet(u"border: 1px double;\n"
 "border-color: rgb(255, 0, 0);")
         self.dangerBorder.setLineWidth(1)
         self.dangerBorder.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.regenkeysWidget = QWidget(self.Security)
         self.regenkeysWidget.setObjectName(u"regenkeysWidget")
-        self.regenkeysWidget.setGeometry(QRect(690, 480, 151, 21))
+        self.regenkeysWidget.setGeometry(QRect(680, 150, 151, 21))
         self.changeBitLength = QWidget(self.Security)
         self.changeBitLength.setObjectName(u"changeBitLength")
-        self.changeBitLength.setGeometry(QRect(690, 510, 151, 21))
+        self.changeBitLength.setGeometry(QRect(680, 180, 151, 21))
         self.signAndVerify = QPushButton(self.Security)
         self.signAndVerify.setObjectName(u"signAndVerify")
         self.signAndVerify.setGeometry(QRect(20, 120, 191, 30))
@@ -2031,7 +2030,7 @@ class Ui_MainWindow(object):
         self.line_4.setFrameShape(QFrame.HLine)
         self.dangerZone3Widget = QWidget(self.Security)
         self.dangerZone3Widget.setObjectName(u"dangerZone3Widget")
-        self.dangerZone3Widget.setGeometry(QRect(690, 540, 151, 21))
+        self.dangerZone3Widget.setGeometry(QRect(680, 210, 151, 21))
         self.generateChecksum = QPushButton(self.Security)
         self.generateChecksum.setObjectName(u"generateChecksum")
         self.generateChecksum.setGeometry(QRect(240, 120, 191, 30))
@@ -2134,6 +2133,18 @@ class Ui_MainWindow(object):
         self.line_10.setFrameShadow(QFrame.Plain)
         self.line_10.setLineWidth(5)
         self.line_10.setFrameShape(QFrame.HLine)
+        self.announceBox2 = QLabel(self.Security)
+        self.announceBox2.setObjectName(u"announceBox2")
+        self.announceBox2.setGeometry(QRect(70, 540, 1031, 31))
+        self.announceBox2.setStyleSheet(u"background-color: rgb(206, 55, 8);border-top-left-radius :15px;border-top-right-radius :15px;border-bottom-left-radius :15px;border-bottom-right-radius :15px;\n"
+"font: 81 10pt \"Raleway ExtraBold\";")
+        self.announceBox2.setFrameShape(QFrame.Panel)
+        self.announceBox2.setFrameShadow(QFrame.Raised)
+        self.announceBox2.setLineWidth(0)
+        self.announceBox2.setTextFormat(Qt.RichText)
+        self.announceBox2.setScaledContents(False)
+        self.announceBox2.setAlignment(Qt.AlignCenter)
+        self.announceBox2.setWordWrap(False)
         self.stackedWidget.addWidget(self.Security)
         self.dangerBorder.raise_()
         self.dashboardTitle_10.raise_()
@@ -2158,6 +2169,7 @@ class Ui_MainWindow(object):
         self.sha512.raise_()
         self.line_9.raise_()
         self.line_10.raise_()
+        self.announceBox2.raise_()
         self.Account = QWidget()
         self.Account.setObjectName(u"Account")
         self.dashboardTitle_12 = QLabel(self.Account)
@@ -2168,7 +2180,7 @@ class Ui_MainWindow(object):
         self.dashboardTitle_12.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
         self.enable2fa = QPushButton(self.Account)
         self.enable2fa.setObjectName(u"enable2fa")
-        self.enable2fa.setGeometry(QRect(20, 120, 151, 31))
+        self.enable2fa.setGeometry(QRect(20, 120, 191, 31))
         self.enable2fa.setMinimumSize(QSize(150, 30))
         self.enable2fa.setFont(font5)
         self.enable2fa.setCursor(QCursor(Qt.PointingHandCursor))
@@ -2178,6 +2190,23 @@ class Ui_MainWindow(object):
         icon18 = QIcon()
         icon18.addFile(u"images/icons/cil-mobile.png", QSize(), QIcon.Normal, QIcon.Off)
         self.enable2fa.setIcon(icon18)
+        self.enable2fa.setFlat(False)
+        self.tooltip1 = QLabel(self.Account)
+        self.tooltip1.setObjectName(u"tooltip1")
+        self.tooltip1.setGeometry(QRect(220, 130, 16, 16))
+        self.tooltip1.setStyleSheet(u"font: 57 18pt \"Raleway Medium\";")
+        self.tooltip1.setLineWidth(1)
+        self.tooltip1.setPixmap(QPixmap(u":/icons/images/icons/information.png"))
+        self.tooltip1.setScaledContents(True)
+        self.tooltip1.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
+        self.disabledText1 = QLabel(self.Account)
+        self.disabledText1.setObjectName(u"disabledText1")
+        self.disabledText1.setGeometry(QRect(20, 160, 221, 21))
+        self.disabledText1.setStyleSheet(u"font: 57 10pt \"Raleway Medium\";")
+        self.disabledText1.setLineWidth(1)
+        self.disabledText1.setPixmap(QPixmap(u":/icons/images/icons/information.png"))
+        self.disabledText1.setScaledContents(True)
+        self.disabledText1.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
         self.stackedWidget.addWidget(self.Account)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
@@ -2320,7 +2349,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(3)
         self.closePopup.setDefault(False)
 
 
@@ -2487,8 +2516,17 @@ class Ui_MainWindow(object):
         self.sha256.setText(QCoreApplication.translate("MainWindow", u"SHA256", None))
         self.sha384.setText(QCoreApplication.translate("MainWindow", u"SHA384", None))
         self.sha512.setText(QCoreApplication.translate("MainWindow", u"SHA512", None))
+        self.announceBox2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" color:#d80a14;\">ErrorBox</span></p></body></html>", None))
         self.dashboardTitle_12.setText(QCoreApplication.translate("MainWindow", u"Account Settings", None))
-        self.enable2fa.setText(QCoreApplication.translate("MainWindow", u"Enable 2 Factor", None))
+        self.enable2fa.setText(QCoreApplication.translate("MainWindow", u"Enable 2 Factor/Get Seed", None))
+#if QT_CONFIG(tooltip)
+        self.tooltip1.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:11pt; color:#ffffff;\">This will send a code to you every time you log in. <br>Click this if you have also lost the seed you require to add this account to your Authenticator app.</span></p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.tooltip1.setText("")
+#if QT_CONFIG(tooltip)
+        self.disabledText1.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:11pt; color:#ffffff;\">This will send a code to you every time you log in. <br>Click this if you have also lost the seed you require to add this account to your Authenticator app.</span></p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.disabledText1.setText(QCoreApplication.translate("MainWindow", u"2 Factor Authentication Disabled", None))
         self.btn_help.setText(QCoreApplication.translate("MainWindow", u"Help", None))
         self.btn_report.setText(QCoreApplication.translate("MainWindow", u"Report Issue", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))

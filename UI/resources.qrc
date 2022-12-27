@@ -9,6 +9,7 @@
     <file>../images/images/RSA.png</file>
   </qresource>
   <qresource prefix="icons">
+    <file>images/icons/information.png</file>
     <file>images/icons/cil_error.png</file>
     <file>images/icons/cil-3d.png</file>
     <file>images/icons/cil-4k.png</file>
