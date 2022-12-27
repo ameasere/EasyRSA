@@ -55,6 +55,7 @@ from PySide6.QtCore import *
 import traceback
 from Custom_Widgets.Widgets import *
 import pyqrcode
+import faulthandler
 
 # warnings.filterwarnings('ignore')
 # os.environ['QT_DEBUG_PLUGINS'] = "1"
@@ -195,6 +196,14 @@ class MainWindow(QMainWindow):
         self.threadpool = QThreadPool()
         self.__publicKey = None
         self.__privateKey = None
+        if anonymous:
+            self.ui.enable2fa.setEnabled(False)
+            self.ui.tooltip1.setToolTip('<html><head/><body><p><span style=" font-size:11pt; color:#ffffff;">2 Factor Authentication is disabled for anonymous users.</span></p></body></html>')
+            self.ui.enable2fa.setStyleSheet('background-color: #6a6d75; font: 63 10pt "Raleway SemiBold";')
+            self.ui.disabledText1.show()
+        else:
+            self.ui.disabledText1.hide()
+
         if publickey and privatekey and sessionToken and username:
             self.__publicKey = publickey
             self.__privateKey = privatekey
@@ -401,6 +410,14 @@ class MainWindow(QMainWindow):
         self.ui.closePopup.hide()
         self.ui.border1_2.hide()
         self.ui.border1_3.hide()
+
+        self.ui.signFile.clicked.connect(self.buttonClick)
+        self.ui.verifySignature.clicked.connect(self.buttonClick)
+        self.ui.sha256.clicked.connect(self.buttonClick)
+        self.ui.sha384.clicked.connect(self.buttonClick)
+        self.ui.sha512.clicked.connect(self.buttonClick)
+        self.ui.announceBox2.hide()
+
 
     def result(self):
         pass
@@ -956,8 +973,138 @@ class MainWindow(QMainWindow):
                 # Generate QR code
                 self.qrwindow = TwoFactorAuthWindow(response, encryptedKey, self.__username, self.__sessionToken)
                 self.qrwindow.show()
+            case "signFile":
+                # Open file dialog
+                self.filepath = QFileDialog.getOpenFileName(self, "Select file to sign", self.configArray['defaultSDLocation'], "All Files (*)")[0]
+                if self.filepath == "":
+                    self.ui.announceBox2.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                        "border-top-left-radius :10px;"
+                                                        "border-top-right-radius :10px;"
+                                                        "border-bottom-left-radius :10px;"
+                                                        "border-bottom-right-radius :10px;")
+                    self.ui.announceBox2.setText("No file has been selected.")
+                    self.ui.announceBox2.show()
+                    self.ui.closePopup.show()
+                    return
+                self.ui.announceBox2.setStyleSheet("background-color: rgb(255, 159, 25);"
+                                                   "border-top-left-radius :10px;"
+                                                   "border-top-right-radius :10px;"
+                                                   "border-bottom-left-radius :10px;"
+                                                   "border-bottom-right-radius :10px;")
+                self.ui.announceBox2.setText("Signing file...")
+                self.ui.announceBox2.show()
+                self.ui.closePopup.show()
+                worker = Worker(self.signFile, self.filepath)
+                worker.signals.result.connect(self.sendToNull)
+                worker.signals.finished.connect(self.sendToNull)
+                self.threadpool.start(worker)
+            case "verifySignature":
+                # Open file dialog
+                self.filepath = \
+                QFileDialog.getOpenFileName(self, "Select file to sign", self.configArray['defaultSDLocation'],
+                                            "All Files (*)")[0]
+                if self.filepath == "":
+                    self.ui.announceBox2.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                       "border-top-left-radius :10px;"
+                                                       "border-top-right-radius :10px;"
+                                                       "border-bottom-left-radius :10px;"
+                                                       "border-bottom-right-radius :10px;")
+                    self.ui.announceBox2.setText("No file has been selected.")
+                    self.ui.announceBox2.show()
+                    self.ui.closePopup.show()
+                    return
+                self.ui.announceBox2.setStyleSheet("background-color: rgb(255, 159, 25);"
+                                                   "border-top-left-radius :10px;"
+                                                   "border-top-right-radius :10px;"
+                                                   "border-bottom-left-radius :10px;"
+                                                   "border-bottom-right-radius :10px;")
+                self.ui.announceBox2.setText("Signing file...")
+                self.ui.announceBox2.show()
+                self.ui.closePopup.show()
+                worker = Worker(self.verifySignature, self.filepath)
+                worker.signals.result.connect(self.sendToNull)
+                worker.signals.finished.connect(self.sendToNull)
+                self.threadpool.start(worker)
             case _:
                 print("%s button not found." % btnName)
+        self.ui.signAndVerify.setEnabled(False)
+        self.ui.generateChecksum.setEnabled(False)
+
+    def sendToNull(self):
+        pass
+
+    def signFile(self, filepath):
+        if isinstance(filepath, str):
+            self.filepath = filepath
+        # Read file
+        try:
+            with open(self.filepath, "rb") as f:
+                data = f.read()
+                f.close()
+            # Sign file
+            start = time.time()
+            hash = rsa.compute_hash(data, "SHA-1")
+            signature = rsa.sign(hash, self.__privateKey, "SHA-1")
+            end = time.time()
+            # Write signature to file
+            with open(self.filepath + ".sig", "wb") as f:
+                f.write(signature)
+                f.close()
+            timetaken = end - start
+            self.ui.announceBox2.setStyleSheet("""background-color: rgb(30, 200, 84);
+                                                  border-top-left-radius :10px;
+                                                  border-top-right-radius :10px;
+                                                  border-bottom-left-radius :10px;
+                                                  border-bottom-right-radius :10px;""")
+            self.ui.announceBox2.setText("File signed successfully in: %s seconds. | Saved to: %s" % (round(timetaken, 2), self.filepath + ".sig"))
+            self.ui.announceBox2.show()
+            self.ui.closePopup.show()
+        except Exception as e:
+            self.ui.announceBox2.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                               "border-top-left-radius :10px;"
+                                               "border-top-right-radius :10px;"
+                                               "border-bottom-left-radius :10px;"
+                                               "border-bottom-right-radius :10px;")
+            self.ui.announceBox2.setText("Failed to sign file.")
+            self.ui.announceBox2.show()
+            self.ui.closePopup.show()
+
+
+    def verifySignature(self, filepath):
+        if isinstance(filepath, str):
+            self.filepath = filepath
+        with open(self.filepath.replace(".sig", ""), "rb") as f:
+            data = f.read()
+            f.close()
+        with open(self.filepath, "rb") as f:
+            signature = f.read()
+            f.close()
+        start = time.time()
+        hash = rsa.compute_hash(data, "SHA-1")
+        try:
+            rsa.verify(hash, signature, self.__publicKey)
+            end = time.time()
+            timetaken = end - start
+            self.ui.announceBox2.setStyleSheet("""background-color: rgb(30, 200, 84);
+                                                              border-top-left-radius :10px;
+                                                              border-top-right-radius :10px;
+                                                              border-bottom-left-radius :10px;
+                                                              border-bottom-right-radius :10px;""")
+            self.ui.announceBox2.setText("Signature verified in: %s seconds" % (
+            round(timetaken, 2)))
+            self.ui.announceBox2.show()
+            self.ui.closePopup.show()
+        except rsa.pkcs1.VerificationError:
+            self.ui.announceBox2.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                               "border-top-left-radius :10px;"
+                                               "border-top-right-radius :10px;"
+                                               "border-bottom-left-radius :10px;"
+                                               "border-bottom-right-radius :10px;")
+            self.ui.announceBox2.setText("File signature is invalid.")
+            self.ui.announceBox2.show()
+            self.ui.closePopup.show()
+            return
+
 
     # Multiview drive statistics
 
@@ -1208,7 +1355,7 @@ class TwoFactorAuthWindow(QMainWindow):
             postData = {"Email": self.email, "token": self.token, "code": code, "prv": self.encryptedKey}
             faenable = requests.post("https://enigmapr0ject.tech/api/easyrsa/2fa/registerTOTP.php", data=postData)
             if faenable.content.decode('utf-8') == "2FA Enabled.":
-                self.ui.announceBox.setStyleSheet("background-color: rgb(0, 255, 0);"
+                self.ui.announceBox.setStyleSheet("background-color: rgb(30, 200, 84);"
                                                   "border-top-left-radius :10px;"
                                                   "border-top-right-radius :10px;"
                                                   "border-bottom-left-radius :10px;"
@@ -2294,6 +2441,7 @@ class MoveFile(QMainWindow):
 
 
 if __name__ == "__main__":
+    faulthandler.enable()
     match platform.system():  # Check the OS
         case "Windows":  # If Windows
             import ctypes  # Windows exclusive library

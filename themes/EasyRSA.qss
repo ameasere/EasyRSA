@@ -15,7 +15,7 @@ QToolTip {
 	background-position: left center;
     background-repeat: no-repeat;
 	border: none;
-	border-left: 2px solid rgb(0,94,217);
+	border-left: 2px solid rgb(97, 67, 133);
 	text-align: left;
 	padding-left: 8px;
 	margin: 0px;
