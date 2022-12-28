@@ -1,8 +1,6 @@
 """
 Main Driver Code for EasyRSA
 """
-# noinspection PyUnresolvedReferences
-import base64
 # ///////////////////////////////////////////////////////////////
 #
 # BY: WANDERSON M.PIMENTA
@@ -12,57 +10,38 @@ import base64
 # Developed by Bartosz Rzepka (DevPanada), Leighton Brooks (enigmapr0ject)
 # 21477187 / 21472005
 # Theme by Zeno Rocha: https://zenorocha.com/
-# noinspection PyUnresolvedReferences
+import base64
 import json
-# noinspection PyUnresolvedReferences
 import os
-# noinspection PyUnresolvedReferences
 import platform
-# noinspection PyUnresolvedReferences
 import random
-# noinspection PyUnresolvedReferences
 import string
-# noinspection PyUnresolvedReferences
 import sys
-# noinspection PyUnresolvedReferences
 import webbrowser
-# noinspection PyUnresolvedReferences
 import shutil
-# noinspection PyUnresolvedReferences
-if platform.system() == "Windows":
-    import winreg
-# noinspection PyUnresolvedReferences
 from Cryptodome.Cipher import AES
-# noinspection PyUnresolvedReferences
 import pyperclip
-# noinspection PyUnresolvedReferences
 import requests
-# noinspection PyUnresolvedReferences
 import rsa
-# noinspection PyUnresolvedReferences
 import time
-# noinspection PyUnresolvedReferences
 import ntpath
-# noinspection PyUnresolvedReferences
 from threading import *
-# noinspection PyUnresolvedReferences
 from PySide6 import QtGui, QtWidgets, QtCore
-# noinspection PyUnresolvedReferences
 from PySide6.QtWidgets import QMainWindow
-# noinspection PyUnresolvedReferences
 from modules import *
 from PySide6.QtCore import *
 import traceback
 from Custom_Widgets.Widgets import *
 import pyqrcode
 import faulthandler
-
+import hashlib
 # warnings.filterwarnings('ignore')
 # os.environ['QT_DEBUG_PLUGINS'] = "1"
 # FIX Problem for High DPI and Scale above 100%
 # Check for High DPI or Scale above 100%, and set os.environ["QT_FONT_DPI"] accordingly
 if platform.system() == "Windows":
     import ctypes
+    import winreg
 
     if ctypes.windll.shcore.GetScaleFactorForDevice(0) > 100:
         os.environ["QT_FONT_DPI"] = str(ctypes.windll.shcore.GetScaleFactorForDevice(0) * 96 / 72)
@@ -1025,6 +1004,86 @@ class MainWindow(QMainWindow):
                 worker.signals.result.connect(self.sendToNull)
                 worker.signals.finished.connect(self.sendToNull)
                 self.threadpool.start(worker)
+            case "sha384":
+                # Open file dialog
+                self.filepath = \
+                QFileDialog.getOpenFileName(self, "Select file to generate checksum", self.configArray['defaultSDLocation'], "All Files (*)")[0]
+                if self.filepath == "":
+                    self.ui.announceBox2.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                          "border-top-left-radius :10px;"
+                                                         "border-top-right-radius :10px;"
+                                                         "border-bottom-left-radius :10px;"
+                                                         "border-bottom-right-radius :10px;")
+                    self.ui.announceBox2.setText("No file has been selected.")
+                    self.ui.announceBox2.show()
+                    self.ui.closePopup.show()
+                    return
+                self.ui.announceBox2.setStyleSheet("background-color: rgb(255, 159, 25);"
+                                                    "border-top-left-radius :10px;"
+                                                    "border-top-right-radius :10px;"
+                                                    "border-bottom-left-radius :10px;"
+                                                    "border-bottom-right-radius :10px;")
+                self.ui.announceBox2.setText("Generating SHA384 checksum...")
+                self.ui.announceBox2.show()
+                self.ui.closePopup.show()
+                worker = Worker(self.SHA, self.filepath, "sha384")
+                worker.signals.result.connect(self.sendToNull)
+                worker.signals.finished.connect(self.sendToNull)
+                self.threadpool.start(worker)
+            case "sha512":
+                # Open file dialog
+                self.filepath = \
+                    QFileDialog.getOpenFileName(self, "Select file to generate checksum",
+                                                self.configArray['defaultSDLocation'], "All Files (*)")[0]
+                if self.filepath == "":
+                    self.ui.announceBox2.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                       "border-top-left-radius :10px;"
+                                                       "border-top-right-radius :10px;"
+                                                       "border-bottom-left-radius :10px;"
+                                                       "border-bottom-right-radius :10px;")
+                    self.ui.announceBox2.setText("No file has been selected.")
+                    self.ui.announceBox2.show()
+                    self.ui.closePopup.show()
+                    return
+                self.ui.announceBox2.setStyleSheet("background-color: rgb(255, 159, 25);"
+                                                   "border-top-left-radius :10px;"
+                                                   "border-top-right-radius :10px;"
+                                                   "border-bottom-left-radius :10px;"
+                                                   "border-bottom-right-radius :10px;")
+                self.ui.announceBox2.setText("Generating SHA384 checksum...")
+                self.ui.announceBox2.show()
+                self.ui.closePopup.show()
+                worker = Worker(self.SHA, self.filepath, "sha512")
+                worker.signals.result.connect(self.sendToNull)
+                worker.signals.finished.connect(self.sendToNull)
+                self.threadpool.start(worker)
+            case "sha256":
+                # Open file dialog
+                self.filepath = \
+                    QFileDialog.getOpenFileName(self, "Select file to generate checksum",
+                                                self.configArray['defaultSDLocation'], "All Files (*)")[0]
+                if self.filepath == "":
+                    self.ui.announceBox2.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                       "border-top-left-radius :10px;"
+                                                       "border-top-right-radius :10px;"
+                                                       "border-bottom-left-radius :10px;"
+                                                       "border-bottom-right-radius :10px;")
+                    self.ui.announceBox2.setText("No file has been selected.")
+                    self.ui.announceBox2.show()
+                    self.ui.closePopup.show()
+                    return
+                self.ui.announceBox2.setStyleSheet("background-color: rgb(255, 159, 25);"
+                                                   "border-top-left-radius :10px;"
+                                                   "border-top-right-radius :10px;"
+                                                   "border-bottom-left-radius :10px;"
+                                                   "border-bottom-right-radius :10px;")
+                self.ui.announceBox2.setText("Generating SHA384 checksum...")
+                self.ui.announceBox2.show()
+                self.ui.closePopup.show()
+                worker = Worker(self.SHA, self.filepath, "sha256")
+                worker.signals.result.connect(self.sendToNull)
+                worker.signals.finished.connect(self.sendToNull)
+                self.threadpool.start(worker)
             case _:
                 print("%s button not found." % btnName)
         self.ui.signAndVerify.setEnabled(False)
@@ -1032,6 +1091,51 @@ class MainWindow(QMainWindow):
 
     def sendToNull(self):
         pass
+
+    def SHA(self, filepath, hashType: str):
+        if isinstance(filepath, str):
+            self.filepath = filepath
+
+        try:
+            with open(self.filepath, "rb") as f:
+                fileContent = f.read()
+                f.close()
+            match hashType:
+                case "sha384":
+                    start = time.time()
+                    checksum = hashlib.sha384(fileContent).hexdigest()
+                    end = time.time()
+                case "sha512":
+                    start = time.time()
+                    checksum = hashlib.sha512(fileContent).hexdigest()
+                    end = time.time()
+                case "sha256":
+                    start = time.time()
+                    checksum = hashlib.sha256(fileContent).hexdigest()
+                    end = time.time()
+                case _:
+                    raise Exception("Hash type not supported.")
+
+            with open(self.filepath + "." + hashType, "w") as f:
+                f.write(checksum)
+                f.close()
+            self.ui.announceBox2.setStyleSheet("background-color: rgb(30, 200, 84);"
+                                                  "border-top-left-radius :10px;"
+                                                    "border-top-right-radius :10px;"
+                                                    "border-bottom-left-radius :10px;"
+                                                    "border-bottom-right-radius :10px;")
+            self.ui.announceBox2.setText("Checksum generated successfully in: %s seconds. | %s " % (str(round(end - start, 2)), checksum))
+            self.ui.announceBox2.show()
+            self.ui.closePopup.show()
+        except Exception as e:
+            self.ui.announceBox2.setStyleSheet("background-color: rgb(206, 55, 8);"
+                                                  "border-top-left-radius :10px;"
+                                                    "border-top-right-radius :10px;"
+                                                    "border-bottom-left-radius :10px;"
+                                                    "border-bottom-right-radius :10px;")
+            self.ui.announceBox2.setText("Failed to generate checksum: %s" % repr(e))
+            self.ui.announceBox2.show()
+            self.ui.closePopup.show()
 
     def signFile(self, filepath):
         if isinstance(filepath, str):
@@ -1236,8 +1340,8 @@ class MainWindow(QMainWindow):
         """
         menu = QtWidgets.QMenu()
         menu.setStyleSheet(
-            "QMenu {background-color: rgb(33, 37, 43); font: 8pt \"Segoe UI\"; color: rgb(189, 147, 249);}"
-            "QMenu::item:selected {color: rgb(255, 255, 255); background-color: rgb(254, 120, 198); border-style: "
+            "QMenu {background-color: rgb(33, 37, 43); font: 8pt \"Raleway SemiBold\"; color: rgb(170, 99, 255); text-align: center}"
+            "QMenu::item:selected {color: rgb(255, 255, 255); background-color: rgb(170, 99, 255); border-style: "
             "solid; border-radius: 4px;} "
             "QMenu::item {color: rgb(254, 120, 198); background-color: rgb(40, 44, 52; border-style: solid; "
             "border-radius: 4px;}")
@@ -1334,6 +1438,7 @@ class TwoFactorAuthWindow(QMainWindow):
         qrcode.png("qrcode.png", scale=6)
         pixmap = QPixmap("qrcode.png")
         widgets.qrcode.setPixmap(pixmap)
+        os.remove("qrcode.png")
 
     def confirm(self):
         self.ui.codebox.show()

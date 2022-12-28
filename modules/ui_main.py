@@ -1353,7 +1353,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 353, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -2144,7 +2144,7 @@ class Ui_MainWindow(object):
         self.announceBox2.setTextFormat(Qt.RichText)
         self.announceBox2.setScaledContents(False)
         self.announceBox2.setAlignment(Qt.AlignCenter)
-        self.announceBox2.setWordWrap(False)
+        self.announceBox2.setWordWrap(True)
         self.stackedWidget.addWidget(self.Security)
         self.dangerBorder.raise_()
         self.dashboardTitle_10.raise_()
@@ -2349,7 +2349,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(4)
         self.closePopup.setDefault(False)
 
 
@@ -2526,7 +2526,7 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(tooltip)
         self.disabledText1.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:11pt; color:#ffffff;\">This will send a code to you every time you log in. <br>Click this if you have also lost the seed you require to add this account to your Authenticator app.</span></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.disabledText1.setText(QCoreApplication.translate("MainWindow", u"2 Factor Authentication Disabled", None))
+        self.disabledText1.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-family:'Medium'; font-size:11pt; font-weight:400; font-style:italic;\">2 Factor Authentication Disabled</span></p></body></html>", None))
         self.btn_help.setText(QCoreApplication.translate("MainWindow", u"Help", None))
         self.btn_report.setText(QCoreApplication.translate("MainWindow", u"Report Issue", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))

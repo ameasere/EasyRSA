@@ -1931,7 +1931,7 @@ p, li { white-space: pre-wrap; }
                     <string notr="true">background: transparent;</string>
                    </property>
                    <property name="currentIndex">
-                    <number>3</number>
+                    <number>4</number>
                    </property>
                    <widget class="QWidget" name="home">
                     <property name="styleSheet">
@@ -2637,7 +2637,7 @@ font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>353</width>
+                               <width>218</width>
                                <height>218</height>
                               </rect>
                              </property>
@@ -4977,7 +4977,7 @@ font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                       <set>Qt::AlignCenter</set>
                      </property>
                      <property name="wordWrap">
-                      <bool>false</bool>
+                      <bool>true</bool>
                      </property>
                     </widget>
                     <zorder>dangerBorder</zorder>
@@ -5121,7 +5121,7 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;
                       <number>1</number>
                      </property>
                      <property name="text">
-                      <string>2 Factor Authentication Disabled</string>
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Medium'; font-size:11pt; font-weight:400; font-style:italic;&quot;&gt;2 Factor Authentication Disabled&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                      </property>
                      <property name="pixmap">
                       <pixmap resource="resources.qrc">:/icons/images/icons/information.png</pixmap>
