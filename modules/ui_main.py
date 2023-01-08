@@ -23,6 +23,7 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QSlider, QStackedWidget, QTableWidget, QTableWidgetItem,
     QTextEdit, QTreeView, QVBoxLayout, QWidget)
 from .resources_rc import *
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -552,6 +553,10 @@ class Ui_MainWindow(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
+        self.appMargins = QVBoxLayout(self.styleSheet)
+        self.appMargins.setSpacing(0)
+        self.appMargins.setObjectName(u"appMargins")
+        self.appMargins.setContentsMargins(10, 10, 10, 10)
         self.bgApp = QFrame(self.styleSheet)
         self.bgApp.setObjectName(u"bgApp")
         self.bgApp.setGeometry(QRect(10, 10, 1260, 668))
@@ -2204,9 +2209,34 @@ class Ui_MainWindow(object):
         self.disabledText1.setGeometry(QRect(20, 160, 221, 21))
         self.disabledText1.setStyleSheet(u"font: 57 10pt \"Raleway Medium\";")
         self.disabledText1.setLineWidth(1)
-        self.disabledText1.setPixmap(QPixmap(u":/icons/images/icons/information.png"))
         self.disabledText1.setScaledContents(True)
         self.disabledText1.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.changePw = QPushButton(self.Account)
+        self.changePw.setObjectName(u"changePw")
+        self.changePw.setGeometry(QRect(20, 200, 191, 31))
+        self.changePw.setMinimumSize(QSize(150, 30))
+        self.changePw.setFont(font5)
+        self.changePw.setCursor(QCursor(Qt.PointingHandCursor))
+        self.changePw.setStyleSheet(u"background-color: #aa63ff;\n"
+"font: 63 10pt \"Raleway SemiBold\";\n"
+"")
+        self.changePw.setIcon(icon8)
+        self.changePw.setFlat(False)
+        self.disabledText2 = QLabel(self.Account)
+        self.disabledText2.setObjectName(u"disabledText2")
+        self.disabledText2.setGeometry(QRect(20, 240, 221, 21))
+        self.disabledText2.setStyleSheet(u"font: 57 10pt \"Raleway Medium\";")
+        self.disabledText2.setLineWidth(1)
+        self.disabledText2.setScaledContents(True)
+        self.disabledText2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.tooltip2 = QLabel(self.Account)
+        self.tooltip2.setObjectName(u"tooltip2")
+        self.tooltip2.setGeometry(QRect(220, 210, 16, 16))
+        self.tooltip2.setStyleSheet(u"font: 57 18pt \"Raleway Medium\";")
+        self.tooltip2.setLineWidth(1)
+        self.tooltip2.setPixmap(QPixmap(u":/icons/images/icons/information.png"))
+        self.tooltip2.setScaledContents(True)
+        self.tooltip2.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
         self.stackedWidget.addWidget(self.Account)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
@@ -2345,6 +2375,8 @@ class Ui_MainWindow(object):
 
         self.appLayout.addWidget(self.contentBox)
 
+        self.appMargins.addWidget(self.bgApp)
+
         MainWindow.setCentralWidget(self.styleSheet)
 
         self.retranslateUi(MainWindow)
@@ -2379,11 +2411,11 @@ class Ui_MainWindow(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ffd579;\">Credit</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffb379;\">Theme by: Zeno Rocha</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffb379;\">UI framework by: Wanderson M. Pimenta</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#614385;\">Credit</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#516395;\">Theme by: Zeno Rocha</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#516395;\">UI framework by: Wanderson M. Pimenta</span></p>\n"
 "<p align=\"center\" style=\" "
-                        "margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ffd579;\">Developers</span></p>\n"
+                        "margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#614385;\">Developers</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">Leigh | Developer</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">Bartosz | Developer</span></p></body></html>", None))
         self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"EasyRSA", None))
@@ -2526,7 +2558,16 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(tooltip)
         self.disabledText1.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:11pt; color:#ffffff;\">This will send a code to you every time you log in. <br>Click this if you have also lost the seed you require to add this account to your Authenticator app.</span></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.disabledText1.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-family:'Medium'; font-size:11pt; font-weight:400; font-style:italic;\">2 Factor Authentication Disabled</span></p></body></html>", None))
+        self.disabledText1.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-style:italic;\">2 Factor Authentication Disabled</span></p></body></html>", None))
+        self.changePw.setText(QCoreApplication.translate("MainWindow", u"Change Account Password", None))
+#if QT_CONFIG(tooltip)
+        self.disabledText2.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:11pt; color:#ffffff;\">This will send a code to you every time you log in. <br>Click this if you have also lost the seed you require to add this account to your Authenticator app.</span></p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.disabledText2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-style:italic;\">Account Password Disabled</span></p></body></html>", None))
+#if QT_CONFIG(tooltip)
+        self.tooltip2.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:11pt; color:#ffffff;\">This will take you to our API to change your account password. You can only do this action once every 24 hours.</span></p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.tooltip2.setText("")
         self.btn_help.setText(QCoreApplication.translate("MainWindow", u"Help", None))
         self.btn_report.setText(QCoreApplication.translate("MainWindow", u"Report Issue", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
