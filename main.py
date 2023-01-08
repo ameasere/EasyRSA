@@ -33,7 +33,7 @@ from PySide6.QtCore import *
 import traceback
 from Custom_Widgets.Widgets import *
 import pyqrcode
-import faulthandler
+#import faulthandler
 import hashlib
 # warnings.filterwarnings('ignore')
 # os.environ['QT_DEBUG_PLUGINS'] = "1"
@@ -180,8 +180,14 @@ class MainWindow(QMainWindow):
             self.ui.tooltip1.setToolTip('<html><head/><body><p><span style=" font-size:11pt; color:#ffffff;">2 Factor Authentication is disabled for anonymous users.</span></p></body></html>')
             self.ui.enable2fa.setStyleSheet('background-color: #6a6d75; font: 63 10pt "Raleway SemiBold";')
             self.ui.disabledText1.show()
+
+            self.ui.changePw.setEnabled(False)
+            self.ui.tooltip2.setToolTip('<html><head/><body><p><span style=" font-size:11pt; color:#ffffff;">Changing account password is disabled for anonymous users.</span></p></body></html>')
+            self.ui.changePw.setStyleSheet('background-color: #6a6d75; font: 63 10pt "Raleway SemiBold";')
+            self.ui.disabledText2.show()
         else:
             self.ui.disabledText1.hide()
+            self.ui.disabledText2.hide()
 
         if publickey and privatekey and sessionToken and username:
             self.__publicKey = publickey
@@ -329,6 +335,7 @@ class MainWindow(QMainWindow):
         self.ui.decryptButton_3.clicked.connect(self.buttonClick)
         self.ui.closePopup.clicked.connect(self.buttonClick)
         self.ui.enable2fa.clicked.connect(self.buttonClick)
+        self.ui.changePw.clicked.connect(self.buttonClick)
 
         # Add custom buttons in the danger zone label
         self.regenerateKeys = QCustomQPushButton(self.ui.regenkeysWidget)
@@ -715,11 +722,11 @@ class MainWindow(QMainWindow):
                 else:
                     self.ui.credits.hide()
             case "btn_help":
-                webbrowser.get().open("https://github.com/enigmapr0ject/EasyRSA")
+                webbrowser.get().open("https://enigmapr0ject.tech/easyrsa#faq")
             case "btn_report":
                 support()
             case "btn_more":
-                webbrowser.get().open("https://github.com/enigmapr0ject")
+                webbrowser.get().open("https://enigmapr0ject.tech/")
             case "copyPrivateKeyButton":
                 pyperclip.copy(self.ui.privateKeyDisplay.toPlainText())
             case "copyPublicKeyButton":
@@ -1084,6 +1091,8 @@ class MainWindow(QMainWindow):
                 worker.signals.result.connect(self.sendToNull)
                 worker.signals.finished.connect(self.sendToNull)
                 self.threadpool.start(worker)
+            case "changePw":
+                webbrowser.get().open("https://enigmapr0ject.tech/api/easyrsa/chngPw.php")
             case _:
                 print("%s button not found." % btnName)
         self.ui.signAndVerify.setEnabled(False)
@@ -2546,7 +2555,7 @@ class MoveFile(QMainWindow):
 
 
 if __name__ == "__main__":
-    faulthandler.enable()
+    #faulthandler.enable()
     match platform.system():  # Check the OS
         case "Windows":  # If Windows
             import ctypes  # Windows exclusive library
