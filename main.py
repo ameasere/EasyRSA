@@ -290,8 +290,6 @@ class MainWindow(QMainWindow):
         widgets.closeAppBtn.clicked.connect(self.buttonClick)
         if self.anonymous:
             widgets.extraLabel.setText("Anonymous")
-        else:
-            pass
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -337,10 +335,11 @@ class MainWindow(QMainWindow):
                 pass
             except OSError:
                 pass
-            data = {"defaultSDLocation": os.getcwd(), "defaultBitLength": 2048}
-            with open(stem, "w") as f:
-                json.dump(data, f)
-                f.close()
+            if not os.path.exists(stem):
+                data = {"defaultSDLocation": os.getcwd(), "defaultBitLength": 2048}
+                with open(stem, "w") as f:
+                    json.dump(data, f)
+                    f.close()
         else:
             with open(stem, "r") as f:
                 self.configArray = json.load(f)
@@ -445,7 +444,7 @@ class MainWindow(QMainWindow):
         self.__publicKey = str(self.__publicKey) # Private elements.
         self.__privateKey = str(self.__privateKey) # Private elements.
         # Update the UI
-        self.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
+        self.ui.publicKeyDisplay.setPlainText(self.__publicKey)
         self.ui.privateKeyDisplay.setPlainText("PrivateKey(***********)")
 
     def dangerZone_changeBitLength(self):
