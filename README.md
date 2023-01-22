@@ -63,6 +63,8 @@ To use EasyRSA, there are 2 options:
   - Clone this repository via the Command Line with `git clone https://github.com/enigmapr0ject/EasyRSA`, or download via the website.
   - Install [Python <3.11](https://python.org) for your OS/Architecture, and add to your PATH.
   - Install the project requirements via the Command Line: `pip install -r requirements.txt`.
+  - Edit the `iconify` library so that all imports are done via `PySide6`, remove type checking and everything else.
+  - Remove PySide2 and PyQt5 that is installed along with `QT-PyQt-PySide-Custom-Widgets`.
   - Execute the `main.py` file via the Command Line with `python main.py`, or using an IDE.
     - We highly recommend [PyCharm](https://www.jetbrains.com/pycharm/), that is how we developed EasyRSA!
 
