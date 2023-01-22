@@ -96,9 +96,9 @@ class Worker(QRunnable):
 
     @Slot()  # QtCore.Slot
     def run(self):
-        '''
+        """
         Initialise the runner function with passed args, kwargs.
-        '''
+        """
 
         # Retrieve args/kwargs here; and fire processing using them
         try:
@@ -163,6 +163,9 @@ class MainWindow(QMainWindow):
     def __init__(self, anonymous=False, publickey=None, privatekey=None, sessionToken=None, username=None):
         # Call to QMainWindow as super
         super(MainWindow, self).__init__()
+        self.loginWindow = None
+        self.DZ_changeBitLength = None
+        self.qrwindow = None
         self.regenKeysWindow = None
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -226,14 +229,38 @@ class MainWindow(QMainWindow):
                         f.close()
                 # Check if the .keys folder exists and has 2 keys in it
 
-            if os.path.exists(os.getcwd() + "/.keys") and len(os.listdir(os.getcwd() + "/.keys")) == 2:
-                # Read the keys from the files
-                with open(".keys/public.pem", "rb") as f:
-                    self.__publicKey = rsa.PublicKey.load_pkcs1(f.read())
-                    f.close()
-                with open(".keys/private.pem", "rb") as f:
-                    self.__privateKey = rsa.PrivateKey.load_pkcs1(f.read())
-                    f.close()
+            if os.path.exists(os.getcwd() + "/.keys") and len(os.listdir(os.getcwd() + "/.keys")) > 2:
+                # Breadth first search
+                def bfs():
+                    """
+                    Breadth first search
+                    :return:
+                    """
+                    queue = []
+                    visited = []
+                    queue.append(os.getcwd() + "/.keys")
+                    while queue:
+                        s = queue.pop(0)
+                        if s not in visited:
+                            visited.append(s)
+                            if os.path.isdir(s):
+                                for i in os.listdir(s):
+                                    queue.append(os.path.join(s, i))
+                    return visited
+                # BFS for the key files
+                try:
+                    for i in bfs():
+                        if i.endswith(".pem"):
+                            with open(i, "rb") as f:
+                                if i.endswith("public.pem"):
+                                    self.__publicKey = rsa.PublicKey.load_pkcs1(f.read())
+                                else:
+                                    self.__privateKey = rsa.PrivateKey.load_pkcs1(f.read())
+                                f.close()
+                    if not self.__publicKey or not self.__privateKey:
+                        generateKeys()
+                except Exception as e:
+                    generateKeys()
             else:
                 worker = Worker(generateKeys)
                 worker.signals.result.connect(self.result)
@@ -263,8 +290,6 @@ class MainWindow(QMainWindow):
         widgets.closeAppBtn.clicked.connect(self.buttonClick)
         if self.anonymous:
             widgets.extraLabel.setText("Anonymous")
-        else:
-            pass
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -310,10 +335,11 @@ class MainWindow(QMainWindow):
                 pass
             except OSError:
                 pass
-            data = {"defaultSDLocation": os.getcwd(), "defaultBitLength": 2048}
-            with open(stem, "w") as f:
-                json.dump(data, f)
-                f.close()
+            if not os.path.exists(stem):
+                data = {"defaultSDLocation": os.getcwd(), "defaultBitLength": 2048}
+                with open(stem, "w") as f:
+                    json.dump(data, f)
+                    f.close()
         else:
             with open(stem, "r") as f:
                 self.configArray = json.load(f)
@@ -405,7 +431,7 @@ class MainWindow(QMainWindow):
         self.ui.announceBox2.hide()
 
 
-    def result(self):
+    def result(self): # Connector is blank, used solely for connecting from the Worker.
         pass
 
     def generateFinished(self):
@@ -415,10 +441,10 @@ class MainWindow(QMainWindow):
         with open(".keys/private.pem", "rb") as f:
             self.__privateKey = rsa.PrivateKey.load_pkcs1(f.read())
             f.close()
-        self.__publicKey = str(self.__publicKey)
-        self.__privateKey = str(self.__privateKey)
+        self.__publicKey = str(self.__publicKey) # Private elements.
+        self.__privateKey = str(self.__privateKey) # Private elements.
         # Update the UI
-        self.ui.publicKeyDisplay.setPlainText(str(self.__publicKey))
+        self.ui.publicKeyDisplay.setPlainText(self.__publicKey)
         self.ui.privateKeyDisplay.setPlainText("PrivateKey(***********)")
 
     def dangerZone_changeBitLength(self):
@@ -1542,6 +1568,7 @@ class LoginWindow(QMainWindow):
         # SET AS GLOBAL WIDGETS
         # ///////////////////////////////////////////////////////////////
         super().__init__()
+        self.authcode = None
         self.__sessionToken = None
         self.dragPos = None
         self.ui = Ui_LoginWindow()
@@ -1734,6 +1761,7 @@ class RegisterWindow(QMainWindow):
 
         # SET AS GLOBAL WIDGETS
         # ///////////////////////////////////////////////////////////////
+        self.login = None
         self.dragPos = None
         self.ui = Ui_RegisterWindow()
         self.ui.setupUi(self)
@@ -1970,6 +1998,8 @@ class RegenerateKeysWindow(QMainWindow):
         super().__init__()
         # SET AS GLOBAL WIDGETS
         # ///////////////////////////////////////////////////////////////
+        self.__privateKey = None
+        self.__publicKey = None
         self.dragPos = None
         self.ui = Ui_RegenerateKeysWindow()
         self.ui.setupUi(self)
