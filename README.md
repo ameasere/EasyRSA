@@ -38,7 +38,7 @@
 
 ## Key Features
 
-* Live-update - Your keys will update live when generated and D.M.E will update when files are manipulated.
+* Live-update - Your keys will update live when generated and D.M.E will update when files are manipulated or system changes are detected.
   - Watch your actions as they happen!
 * D.M.E - Drive Management Engine, used for your cryptographical and file manipulation needs.
   - Encrypt, decrypt, everything you ever need in your very own file browser!
@@ -84,6 +84,9 @@ This software uses the following open-source packages:
 - [Python](https://python.org/)
 - [Python-RSA](https://github.com/sybrenstuvel/python-rsa)
 - [pycryptodomex](https://pypi.org/project/pycryptodomex/)
+- [QT-PyQt-PySide-Custom-Widgets](https://github.com/KhamisiKibet/QT-PyQt-PySide-Custom-Widgets)
+- [PyQRCode](https://pypi.org/project/PyQRCode/)
+- [psutil](https://pypi.org/project/psutil/)
 - [Qt](https://qt.io)
 - [Nuitka](https://nuitka.net)
 - [PHP](https://php.net)
