@@ -11,8 +11,7 @@
 
 <p align="center">
   <a href="https://github.com/enigmapr0ject/EasyRSA/releases">
-    <img src="https://img.shields.io/github/v/release/enigmapr0ject/EasyRSA?label=Release&logo=GitHub&sort=semver&style=for-the-badge"
-         alt="Badge1">
+    <img src="https://img.shields.io/github/v/release/enigmapr0ject/EasyRSA?label=Release&logo=GitHub&sort=semver&style=for-the-badge">
   </a>
   <a href="https://github.com/enigmapr0ject/EasyRSA/branches"><img src="https://img.shields.io/github/last-commit/enigmapr0ject/EasyRSA?logo=GitHub&style=for-the-badge"></a>
   <a href="https://github.com/enigmapr0ject/EasyRSA/releases/tag/0.0.5">
