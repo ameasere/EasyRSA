@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'renameFile.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.0
+## Created by: Qt User Interface Compiler version 6.4.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -915,6 +915,6 @@ class Ui_RenameWindow(object):
         self.responseTitle.setText("")
         self.label.setText(QCoreApplication.translate("RenameWindow", u"NEW PAGE TEST", None))
         self.creditsLabel.setText(QCoreApplication.translate("RenameWindow", u"<html><head/><body><p><span style=\" font-size:8pt; color:#ffffff;\">Group 1</span></p></body></html>", None))
-        self.version.setText(QCoreApplication.translate("RenameWindow", u"<html><head/><body><p><span style=\" font-weight:600; color:#ffffff;\">Version</span><span style=\" color:#ffffff;\"> 0.0.4</span></p></body></html>", None))
+        self.version.setText(QCoreApplication.translate("RenameWindow", u"<html><head/><body><p><span style=\" font-weight:600; color:#ffffff;\">Version</span><span style=\" color:#ffffff;\"> 0.0.5</span></p></body></html>", None))
     # retranslateUi
 

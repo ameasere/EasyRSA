@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'confirmAnonymous.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.0
+## Created by: Qt User Interface Compiler version 6.4.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -904,6 +904,6 @@ class Ui_Anonymous(object):
         self.acceptBox.setText(QCoreApplication.translate("Anonymous", u"I accept this risk and the responsibility that comes with it.", None))
         self.label.setText(QCoreApplication.translate("Anonymous", u"NEW PAGE TEST", None))
         self.creditsLabel.setText(QCoreApplication.translate("Anonymous", u"<html><head/><body><p><span style=\" color:#ffffff;\">Group 1</span></p></body></html>", None))
-        self.version.setText(QCoreApplication.translate("Anonymous", u"<html><head/><body><p><span style=\" font-weight:600; color:#ffffff;\">Version</span><span style=\" color:#ffffff;\"> 0.0.4</span></p></body></html>", None))
+        self.version.setText(QCoreApplication.translate("Anonymous", u"<html><head/><body><p><span style=\" font-weight:600; color:#ffffff;\">Version</span><span style=\" color:#ffffff;\"> 0.0.5</span></p></body></html>", None))
     # retranslateUi
 

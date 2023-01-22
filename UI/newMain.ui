@@ -21,7 +21,7 @@
    <string>EasyRSA</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="resources.qrc">
     <normaloff>:/images/images/images/RSA.png</normaloff>:/images/images/images/RSA.png</iconset>
   </property>
   <widget class="QWidget" name="styleSheet">
@@ -29,7 +29,6 @@
     <font>
      <family>Segoe UI</family>
      <pointsize>10</pointsize>
-     <weight>50</weight>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -736,7 +735,6 @@ background-color: transparent;</string>
                <font>
                 <family>Raleway ExtraBold</family>
                 <pointsize>12</pointsize>
-                <weight>10</weight>
                 <italic>false</italic>
                 <bold>false</bold>
                </font>
@@ -767,7 +765,6 @@ background-color: transparent;</string>
                <font>
                 <family>Raleway Medium</family>
                 <pointsize>10</pointsize>
-                <weight>7</weight>
                 <italic>false</italic>
                 <bold>false</bold>
                </font>
@@ -835,7 +832,6 @@ background-color: transparent;</string>
                  <font>
                   <family>Segoe UI</family>
                   <pointsize>10</pointsize>
-                  <weight>50</weight>
                   <italic>false</italic>
                   <bold>false</bold>
                  </font>
@@ -900,7 +896,6 @@ background-color: transparent;</string>
                  <font>
                   <family>Segoe UI</family>
                   <pointsize>10</pointsize>
-                  <weight>50</weight>
                   <italic>false</italic>
                   <bold>false</bold>
                  </font>
@@ -937,7 +932,6 @@ background-color: transparent;</string>
                  <font>
                   <family>Segoe UI</family>
                   <pointsize>10</pointsize>
-                  <weight>50</weight>
                   <italic>false</italic>
                   <bold>false</bold>
                  </font>
@@ -974,7 +968,6 @@ background-color: transparent;</string>
                  <font>
                   <family>Segoe UI</family>
                   <pointsize>10</pointsize>
-                  <weight>50</weight>
                   <italic>false</italic>
                   <bold>false</bold>
                  </font>
@@ -1011,7 +1004,6 @@ background-color: transparent;</string>
                  <font>
                   <family>Segoe UI</family>
                   <pointsize>10</pointsize>
-                  <weight>50</weight>
                   <italic>false</italic>
                   <bold>false</bold>
                  </font>
@@ -1048,7 +1040,6 @@ background-color: transparent;</string>
                  <font>
                   <family>Segoe UI</family>
                   <pointsize>10</pointsize>
-                  <weight>50</weight>
                   <italic>false</italic>
                   <bold>false</bold>
                  </font>
@@ -1112,7 +1103,6 @@ background-color: transparent;</string>
                  <font>
                   <family>Segoe UI</family>
                   <pointsize>10</pointsize>
-                  <weight>50</weight>
                   <italic>false</italic>
                   <bold>false</bold>
                  </font>
@@ -1288,7 +1278,7 @@ background-color: transparent;</string>
                 <string/>
                </property>
                <property name="icon">
-                <iconset>
+                <iconset resource="resources.qrc">
                  <normaloff>:/icons/images/icons/icon_close.png</normaloff>:/icons/images/icons/icon_close.png</iconset>
                </property>
                <property name="iconSize">
@@ -1370,7 +1360,6 @@ background-color: transparent;</string>
                  <font>
                   <family>Segoe UI</family>
                   <pointsize>10</pointsize>
-                  <weight>50</weight>
                   <italic>false</italic>
                   <bold>false</bold>
                  </font>
@@ -1407,7 +1396,6 @@ background-color: transparent;</string>
                  <font>
                   <family>Segoe UI</family>
                   <pointsize>10</pointsize>
-                  <weight>50</weight>
                   <italic>false</italic>
                   <bold>false</bold>
                  </font>
@@ -1444,7 +1432,6 @@ background-color: transparent;</string>
                  <font>
                   <family>Segoe UI</family>
                   <pointsize>10</pointsize>
-                  <weight>50</weight>
                   <italic>false</italic>
                   <bold>false</bold>
                  </font>
@@ -1494,8 +1481,11 @@ background-color: transparent;</string>
                 </property>
                 <property name="html">
                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#614385;&quot;&gt;Credit&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#516395;&quot;&gt;Theme by: Zeno Rocha&lt;/span&gt;&lt;/p&gt;
@@ -1645,7 +1635,6 @@ p, li { white-space: pre-wrap; }
                  <font>
                   <family>Raleway ExtraBold</family>
                   <pointsize>10</pointsize>
-                  <weight>10</weight>
                   <italic>false</italic>
                   <bold>false</bold>
                  </font>
@@ -1718,7 +1707,7 @@ p, li { white-space: pre-wrap; }
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset>
+                 <iconset resource="resources.qrc">
                   <normaloff>:/icons/images/icons/icon_settings.png</normaloff>:/icons/images/icons/icon_settings.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -1753,7 +1742,7 @@ p, li { white-space: pre-wrap; }
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset>
+                 <iconset resource="resources.qrc">
                   <normaloff>:/icons/images/icons/icon_minimize.png</normaloff>:/icons/images/icons/icon_minimize.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -1782,7 +1771,6 @@ p, li { white-space: pre-wrap; }
                  <font>
                   <family>Segoe UI</family>
                   <pointsize>10</pointsize>
-                  <weight>50</weight>
                   <italic>false</italic>
                   <bold>false</bold>
                   <stylestrategy>PreferDefault</stylestrategy>
@@ -1798,7 +1786,7 @@ p, li { white-space: pre-wrap; }
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset>
+                 <iconset resource="resources.qrc">
                   <normaloff>:/icons/images/icons/icon_maximize.png</normaloff>:/icons/images/icons/icon_maximize.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -1833,7 +1821,7 @@ p, li { white-space: pre-wrap; }
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset>
+                 <iconset resource="resources.qrc">
                   <normaloff>:/icons/images/icons/icon_close.png</normaloff>:/icons/images/icons/icon_close.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -2155,7 +2143,6 @@ border-bottom-left-radius :0px;</string>
                       <font>
                        <family>Raleway SemiBold</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -2173,7 +2160,7 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;</string>
                       <string>Copy Private Key</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-clone.png</normaloff>:/icons/images/icons/cil-clone.png</iconset>
                      </property>
                     </widget>
@@ -2240,7 +2227,6 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;</string>
                       <font>
                        <family>Raleway SemiBold</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -2258,7 +2244,7 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;</string>
                       <string>Copy Public Key</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-clone.png</normaloff>:/icons/images/icons/cil-clone.png</iconset>
                      </property>
                     </widget>
@@ -2315,7 +2301,6 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;</string>
                       <font>
                        <family>Raleway ExtraBold</family>
                        <pointsize>10</pointsize>
-                       <weight>10</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -2441,7 +2426,6 @@ font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                                  <font>
                                   <family>Segoe UI</family>
                                   <pointsize>10</pointsize>
-                                  <weight>50</weight>
                                   <italic>false</italic>
                                   <bold>false</bold>
                                  </font>
@@ -2483,7 +2467,6 @@ font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                                    <font>
                                     <family>Segoe UI</family>
                                     <pointsize>10</pointsize>
-                                    <weight>50</weight>
                                     <italic>false</italic>
                                     <bold>false</bold>
                                    </font>
@@ -2498,7 +2481,7 @@ font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                                    <string>Open</string>
                                   </property>
                                   <property name="icon">
-                                   <iconset>
+                                   <iconset resource="resources.qrc">
                                     <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
                                   </property>
                                  </widget>
@@ -2637,7 +2620,7 @@ font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>353</width>
+                               <width>218</width>
                                <height>218</height>
                               </rect>
                              </property>
@@ -2674,7 +2657,6 @@ font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                              <font>
                               <family>Segoe UI</family>
                               <pointsize>10</pointsize>
-                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -2740,7 +2722,7 @@ font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                              <string>Link Button</string>
                             </property>
                             <property name="icon">
-                             <iconset>
+                             <iconset resource="resources.qrc">
                               <normaloff>:/icons/images/icons/cil-link.png</normaloff>:/icons/images/icons/cil-link.png</iconset>
                             </property>
                             <property name="description">
@@ -2858,6 +2840,15 @@ font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                                </color>
                               </brush>
                              </colorrole>
+                             <colorrole role="PlaceholderText">
+                              <brush brushstyle="SolidPattern">
+                               <color alpha="128">
+                                <red>221</red>
+                                <green>221</green>
+                                <blue>221</blue>
+                               </color>
+                              </brush>
+                             </colorrole>
                             </active>
                             <inactive>
                              <colorrole role="WindowText">
@@ -2914,6 +2905,15 @@ font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                                </color>
                               </brush>
                              </colorrole>
+                             <colorrole role="PlaceholderText">
+                              <brush brushstyle="SolidPattern">
+                               <color alpha="128">
+                                <red>221</red>
+                                <green>221</green>
+                                <blue>221</blue>
+                               </color>
+                              </brush>
+                             </colorrole>
                             </inactive>
                             <disabled>
                              <colorrole role="WindowText">
@@ -2967,6 +2967,15 @@ font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                                 <red>0</red>
                                 <green>0</green>
                                 <blue>0</blue>
+                               </color>
+                              </brush>
+                             </colorrole>
+                             <colorrole role="PlaceholderText">
+                              <brush brushstyle="SolidPattern">
+                               <color alpha="128">
+                                <red>221</red>
+                                <green>221</green>
+                                <blue>221</blue>
                                </color>
                               </brush>
                              </colorrole>
@@ -3229,7 +3238,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Raleway Medium</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -3250,7 +3258,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Encrypt File</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-lock-locked.png</normaloff>:/icons/images/icons/cil-lock-locked.png</iconset>
                      </property>
                     </widget>
@@ -3273,7 +3281,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Raleway Medium</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -3294,7 +3301,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Decrypt File</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-lock-unlocked.png</normaloff>:/icons/images/icons/cil-lock-unlocked.png</iconset>
                      </property>
                     </widget>
@@ -3317,7 +3324,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Raleway Medium</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -3336,7 +3342,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Browse Files</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
                      </property>
                     </widget>
@@ -3365,7 +3371,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Segoe UI</family>
                        <pointsize>10</pointsize>
-                       <weight>50</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -3470,7 +3475,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Segoe UI</family>
                        <pointsize>10</pointsize>
-                       <weight>50</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -3627,7 +3631,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Raleway Medium</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -3645,7 +3648,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string> Open Directory</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
                      </property>
                     </widget>
@@ -3668,7 +3671,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Raleway Medium</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -3689,7 +3691,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Go To Default Location</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-house.png</normaloff>:/icons/images/icons/cil-house.png</iconset>
                      </property>
                     </widget>
@@ -3712,7 +3714,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Raleway Medium</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -3733,7 +3734,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Change Default Location</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-star.png</normaloff>:/icons/images/icons/cil-star.png</iconset>
                      </property>
                     </widget>
@@ -3762,7 +3763,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Raleway Medium</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -3780,7 +3780,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string> Go Back..</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-arrow-circle-left.png</normaloff>:/icons/images/icons/cil-arrow-circle-left.png</iconset>
                      </property>
                     </widget>
@@ -3845,7 +3845,6 @@ border-bottom-right-radius :7px;</string>
                       <font>
                        <family>Segoe UI</family>
                        <pointsize>10</pointsize>
-                       <weight>50</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -3926,7 +3925,6 @@ font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                       <font>
                        <family>Segoe UI</family>
                        <pointsize>10</pointsize>
-                       <weight>50</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -3969,7 +3967,6 @@ border-bottom-right-radius :7px;</string>
                       <font>
                        <family>Segoe UI</family>
                        <pointsize>10</pointsize>
-                       <weight>50</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -4006,7 +4003,6 @@ border-top-left-radius :7px;</string>
                       <font>
                        <family>Raleway Medium</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -4027,7 +4023,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Encrypt Selected File</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-lock-locked.png</normaloff>:/icons/images/icons/cil-lock-locked.png</iconset>
                      </property>
                     </widget>
@@ -4050,7 +4046,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Raleway Medium</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -4071,7 +4066,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Decrypt Selected File</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-lock-unlocked.png</normaloff>:/icons/images/icons/cil-lock-unlocked.png</iconset>
                      </property>
                     </widget>
@@ -4094,7 +4089,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Segoe UI</family>
                        <pointsize>10</pointsize>
-                       <weight>50</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -4109,7 +4103,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string/>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-x-circle.png</normaloff>:/icons/images/icons/cil-x-circle.png</iconset>
                      </property>
                      <property name="default">
@@ -4144,7 +4138,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Segoe UI</family>
                        <pointsize>10</pointsize>
-                       <weight>50</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -4192,7 +4185,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Segoe UI</family>
                        <pointsize>10</pointsize>
-                       <weight>50</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -4234,7 +4226,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Segoe UI</family>
                        <pointsize>10</pointsize>
-                       <weight>50</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -4423,7 +4414,6 @@ border-color: rgb(255, 0, 0);</string>
                       <font>
                        <family>Raleway Medium</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -4444,7 +4434,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Sign and Verify file</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-fingerprint.png</normaloff>:/icons/images/icons/cil-fingerprint.png</iconset>
                      </property>
                     </widget>
@@ -4467,7 +4457,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Raleway Medium</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -4488,7 +4477,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Sign File</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-fingerprint.png</normaloff>:/icons/images/icons/cil-fingerprint.png</iconset>
                      </property>
                     </widget>
@@ -4511,7 +4500,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Raleway Medium</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -4532,7 +4520,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Verify Signature</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-check-circle.png</normaloff>:/icons/images/icons/cil-check-circle.png</iconset>
                      </property>
                     </widget>
@@ -4653,7 +4641,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Raleway Medium</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -4674,7 +4661,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Generate Checksum</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-tags.png</normaloff>:/icons/images/icons/cil-tags.png</iconset>
                      </property>
                     </widget>
@@ -4785,7 +4772,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Raleway Medium</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -4806,7 +4792,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>SHA256</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-file.png</normaloff>:/icons/images/icons/cil-file.png</iconset>
                      </property>
                     </widget>
@@ -4829,7 +4815,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Raleway Medium</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -4850,7 +4835,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>SHA384</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-file.png</normaloff>:/icons/images/icons/cil-file.png</iconset>
                      </property>
                     </widget>
@@ -4873,7 +4858,6 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <font>
                        <family>Raleway Medium</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -4894,7 +4878,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>SHA512</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-file.png</normaloff>:/icons/images/icons/cil-file.png</iconset>
                      </property>
                     </widget>
@@ -5047,7 +5031,6 @@ font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                       <font>
                        <family>Raleway SemiBold</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -5093,7 +5076,7 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;
                       <string/>
                      </property>
                      <property name="pixmap">
-                      <pixmap>:/icons/images/icons/information.png</pixmap>
+                      <pixmap resource="resources.qrc">:/icons/images/icons/information.png</pixmap>
                      </property>
                      <property name="scaledContents">
                       <bool>true</bool>
@@ -5149,7 +5132,6 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;
                       <font>
                        <family>Raleway SemiBold</family>
                        <pointsize>10</pointsize>
-                       <weight>7</weight>
                        <italic>false</italic>
                        <bold>false</bold>
                       </font>
@@ -5166,7 +5148,7 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;
                       <string>Change Account Password</string>
                      </property>
                      <property name="icon">
-                      <iconset>
+                      <iconset resource="resources.qrc">
                        <normaloff>:/icons/images/icons/cil-lock-locked.png</normaloff>:/icons/images/icons/cil-lock-locked.png</iconset>
                      </property>
                      <property name="flat">
@@ -5223,7 +5205,7 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;
                       <string/>
                      </property>
                      <property name="pixmap">
-                      <pixmap>:/icons/images/icons/information.png</pixmap>
+                      <pixmap resource="resources.qrc">:/icons/images/icons/information.png</pixmap>
                      </property>
                      <property name="scaledContents">
                       <bool>true</bool>
@@ -5356,7 +5338,6 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;
                           <font>
                            <family>Segoe UI</family>
                            <pointsize>10</pointsize>
-                           <weight>50</weight>
                            <italic>false</italic>
                            <bold>false</bold>
                           </font>
@@ -5393,7 +5374,6 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;
                           <font>
                            <family>Segoe UI</family>
                            <pointsize>10</pointsize>
-                           <weight>50</weight>
                            <italic>false</italic>
                            <bold>false</bold>
                           </font>
@@ -5430,7 +5410,6 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;
                           <font>
                            <family>Segoe UI</family>
                            <pointsize>10</pointsize>
-                           <weight>50</weight>
                            <italic>false</italic>
                            <bold>false</bold>
                           </font>
@@ -5509,7 +5488,6 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;
                  <font>
                   <family>Raleway SemiBold</family>
                   <pointsize>8</pointsize>
-                  <weight>7</weight>
                   <italic>false</italic>
                   <bold>false</bold>
                  </font>
@@ -5531,7 +5509,7 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;
                  <string notr="true">font: 63 8pt &quot;Raleway SemiBold&quot;;</string>
                 </property>
                 <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Version&lt;/span&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt; 0.0.4&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Version&lt;/span&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt; 0.0.5&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

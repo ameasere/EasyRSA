@@ -29,7 +29,6 @@
     <font>
      <family>Segoe UI</family>
      <pointsize>10</pointsize>
-     <weight>50</weight>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -810,7 +809,6 @@ Button */
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
-                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -847,7 +845,6 @@ Button */
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
-                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -884,7 +881,6 @@ Button */
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
-                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -934,8 +930,11 @@ Button */
                   </property>
                   <property name="html">
                    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff79c6;&quot;&gt;PyDracula&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;An interface created using Python and PySide (support for PyQt), and with colors based on the Dracula theme created by Zeno Rocha.&lt;/span&gt;&lt;/p&gt;
@@ -1102,7 +1101,6 @@ background-repeat: no-repeat;</string>
                    <font>
                     <family>Raleway ExtraBold</family>
                     <pointsize>10</pointsize>
-                    <weight>10</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -1204,7 +1202,6 @@ background-repeat: no-repeat;</string>
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
-                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                     <stylestrategy>PreferDefault</stylestrategy>
@@ -1459,7 +1456,6 @@ color: rgb(170, 99, 255)</string>
                         <font>
                          <family>Raleway SemiBold</family>
                          <pointsize>10</pointsize>
-                         <weight>7</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -1494,7 +1490,6 @@ color: rgb(170, 99, 255)</string>
                         <font>
                          <family>Raleway SemiBold</family>
                          <pointsize>10</pointsize>
-                         <weight>7</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -1529,7 +1524,6 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;</string>
                         <font>
                          <family>Raleway SemiBold</family>
                          <pointsize>10</pointsize>
-                         <weight>7</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -1731,7 +1725,6 @@ color: rgb(170, 99, 255)</string>
                             <font>
                              <family>Segoe UI</family>
                              <pointsize>10</pointsize>
-                             <weight>50</weight>
                              <italic>false</italic>
                              <bold>false</bold>
                             </font>
@@ -1768,7 +1761,6 @@ color: rgb(170, 99, 255)</string>
                             <font>
                              <family>Segoe UI</family>
                              <pointsize>10</pointsize>
-                             <weight>50</weight>
                              <italic>false</italic>
                              <bold>false</bold>
                             </font>
@@ -1805,7 +1797,6 @@ color: rgb(170, 99, 255)</string>
                             <font>
                              <family>Segoe UI</family>
                              <pointsize>10</pointsize>
-                             <weight>50</weight>
                              <italic>false</italic>
                              <bold>false</bold>
                             </font>
@@ -1884,7 +1875,6 @@ color: rgb(170, 99, 255)</string>
                    <font>
                     <family>Raleway SemiBold</family>
                     <pointsize>8</pointsize>
-                    <weight>7</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -1906,7 +1896,7 @@ color: rgb(170, 99, 255)</string>
                    <string notr="true">font: 63 8pt &quot;Raleway SemiBold&quot;;</string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Version&lt;/span&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt; 0.0.4&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Version&lt;/span&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt; 0.0.5&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

@@ -29,7 +29,6 @@
     <font>
      <family>Segoe UI</family>
      <pointsize>10</pointsize>
-     <weight>50</weight>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -779,7 +778,6 @@ background-repeat: no-repeat;</string>
                    <font>
                     <family>Raleway ExtraBold</family>
                     <pointsize>10</pointsize>
-                    <weight>10</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -881,7 +879,6 @@ background-repeat: no-repeat;</string>
                    <font>
                     <family>Segoe UI</family>
                     <pointsize>10</pointsize>
-                    <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                     <stylestrategy>PreferDefault</stylestrategy>
@@ -1083,7 +1080,6 @@ background-repeat: no-repeat;</string>
                         <font>
                          <family>Raleway Light</family>
                          <pointsize>14</pointsize>
-                         <weight>3</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -1120,7 +1116,6 @@ background-repeat: no-repeat;</string>
                         <font>
                          <family>Raleway SemiBold</family>
                          <pointsize>10</pointsize>
-                         <weight>7</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -1155,7 +1150,6 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;</string>
                         <font>
                          <family>Raleway SemiBold</family>
                          <pointsize>10</pointsize>
-                         <weight>7</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -1184,7 +1178,6 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;</string>
                         <font>
                          <family>Raleway Light</family>
                          <pointsize>12</pointsize>
-                         <weight>3</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -1255,7 +1248,6 @@ font: 25 12pt &quot;Raleway Light&quot;;</string>
                         <font>
                          <family>Segoe UI</family>
                          <pointsize>14</pointsize>
-                         <weight>50</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -1307,7 +1299,6 @@ font: 25 12pt &quot;Raleway Light&quot;;</string>
                         <font>
                          <family>Raleway Light</family>
                          <pointsize>14</pointsize>
-                         <weight>3</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -1418,7 +1409,6 @@ font: 25 12pt &quot;Raleway Light&quot;;</string>
                    <font>
                     <family>Raleway SemiBold</family>
                     <pointsize>8</pointsize>
-                    <weight>7</weight>
                     <italic>false</italic>
                     <bold>false</bold>
                    </font>
@@ -1440,7 +1430,7 @@ font: 25 12pt &quot;Raleway Light&quot;;</string>
                    <string notr="true">font: 63 8pt &quot;Raleway SemiBold&quot;;</string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Version&lt;/span&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt; 0.0.4&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Version&lt;/span&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt; 0.0.5&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

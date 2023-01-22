@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'newConfirmDelete.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.0
+## Created by: Qt User Interface Compiler version 6.4.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -893,6 +893,6 @@ class Ui_ConfirmDeleteWindow(object):
         self.usertitle.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">File deletion is </span><span style=\" font-size:12pt; color:#ff0000;\">irreversible</span><span style=\" font-size:12pt;\"> and this action cannot be undone.</span></p></body></html>", None))
         self.label.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"NEW PAGE TEST", None))
         self.creditsLabel.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Group 1</span></p></body></html>", None))
-        self.version.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"<html><head/><body><p><span style=\" font-weight:600; color:#ffffff;\">Version</span><span style=\" color:#ffffff;\"> 0.0.4</span></p></body></html>", None))
+        self.version.setText(QCoreApplication.translate("ConfirmDeleteWindow", u"<html><head/><body><p><span style=\" font-weight:600; color:#ffffff;\">Version</span><span style=\" color:#ffffff;\"> 0.0.5</span></p></body></html>", None))
     # retranslateUi
 

@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'twofactor.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.4
+## Created by: Qt User Interface Compiler version 6.4.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -923,6 +923,6 @@ class Ui_TwoFactorWindow(object):
         self.announceBox.setText(QCoreApplication.translate("TwoFactorWindow", u"<html><head/><body><p align=\"center\"><span style=\" color:#d80a14;\">ErrorBox</span></p></body></html>", None))
         self.label.setText(QCoreApplication.translate("TwoFactorWindow", u"NEW PAGE TEST", None))
         self.creditsLabel.setText(QCoreApplication.translate("TwoFactorWindow", u"<html><head/><body><p><span style=\" font-size:8pt; color:#ffffff;\">Group 1</span></p></body></html>", None))
-        self.version.setText(QCoreApplication.translate("TwoFactorWindow", u"<html><head/><body><p><span style=\" font-weight:600; color:#ffffff;\">Version</span><span style=\" color:#ffffff;\"> 0.0.4</span></p></body></html>", None))
+        self.version.setText(QCoreApplication.translate("TwoFactorWindow", u"<html><head/><body><p><span style=\" font-weight:600; color:#ffffff;\">Version</span><span style=\" color:#ffffff;\"> 0.0.5</span></p></body></html>", None))
     # retranslateUi
 
