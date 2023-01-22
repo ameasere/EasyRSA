@@ -2406,7 +2406,7 @@ class Ui_MainWindow(object):
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.btn_filespace.setText(QCoreApplication.translate("MainWindow", u"Drive", None))
-        self.btn_security.setText(QCoreApplication.translate("MainWindow", u"Passwords", None))
+        self.btn_security.setText(QCoreApplication.translate("MainWindow", u"Security", None))
         self.btn_account.setText(QCoreApplication.translate("MainWindow", u"Account", None))
         self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Log out", None))
         self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"Settings", None))

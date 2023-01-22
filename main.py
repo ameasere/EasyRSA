@@ -320,6 +320,7 @@ class MainWindow(QMainWindow):
         # SHOW APP
         self.show()
         widgets.btn_more.clicked.connect(self.buttonClick)
+        self.ui.titleLeftDescription.setText("Dashboard")
 
         themeFile = "themes/EasyRSA.qss"
 
@@ -699,21 +700,25 @@ class MainWindow(QMainWindow):
                 btn.setStyleSheet(
                     UIFunctions.selectMenu(
                         btn.styleSheet()))  # SELECT MENU
+                self.ui.titleLeftDescription.setText("Dashboard")
             case "btn_filespace":
                 # self.ui.titleLeftDescription.setText("Filespace")
                 self.ui.stackedWidget.setCurrentWidget(self.ui.filespace)
                 UIFunctions.resetStyle(self, btnName)
                 btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+                self.ui.titleLeftDescription.setText("D.M.E")
             case "btn_security":
                 # self.ui.titleLeftDescription.setText("Security")
                 self.ui.stackedWidget.setCurrentWidget(self.ui.Security)
                 UIFunctions.resetStyle(self, btnName)
                 btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+                self.ui.titleLeftDescription.setText("Security")
             case "btn_account":
                 # self.ui.titleLeftDescription.setText("Account")
                 self.ui.stackedWidget.setCurrentWidget(self.ui.Account)
                 UIFunctions.resetStyle(self, btnName)
                 btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+                self.ui.titleLeftDescription.setText("Account")
             case "btn_exit":
                 self.__privateKey = None
                 self.__publicKey = None

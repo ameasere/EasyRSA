@@ -982,7 +982,7 @@ background-color: transparent;</string>
                  <string notr="true">background-image: url(:/icons/images/icons/cil-lock-locked.png);</string>
                 </property>
                 <property name="text">
-                 <string>Passwords</string>
+                 <string>Security</string>
                 </property>
                </widget>
               </item>
