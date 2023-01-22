@@ -21,7 +21,7 @@
    <string>EasyRSA</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resources.qrc">
+   <iconset>
     <normaloff>:/images/images/images/RSA.png</normaloff>:/images/images/images/RSA.png</iconset>
   </property>
   <widget class="QWidget" name="styleSheet">
@@ -1288,7 +1288,7 @@ background-color: transparent;</string>
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resources.qrc">
+                <iconset>
                  <normaloff>:/icons/images/icons/icon_close.png</normaloff>:/icons/images/icons/icon_close.png</iconset>
                </property>
                <property name="iconSize">
@@ -1718,7 +1718,7 @@ p, li { white-space: pre-wrap; }
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="resources.qrc">
+                 <iconset>
                   <normaloff>:/icons/images/icons/icon_settings.png</normaloff>:/icons/images/icons/icon_settings.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -1753,7 +1753,7 @@ p, li { white-space: pre-wrap; }
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="resources.qrc">
+                 <iconset>
                   <normaloff>:/icons/images/icons/icon_minimize.png</normaloff>:/icons/images/icons/icon_minimize.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -1798,7 +1798,7 @@ p, li { white-space: pre-wrap; }
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="resources.qrc">
+                 <iconset>
                   <normaloff>:/icons/images/icons/icon_maximize.png</normaloff>:/icons/images/icons/icon_maximize.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -1833,7 +1833,7 @@ p, li { white-space: pre-wrap; }
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="resources.qrc">
+                 <iconset>
                   <normaloff>:/icons/images/icons/icon_close.png</normaloff>:/icons/images/icons/icon_close.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -1931,7 +1931,7 @@ p, li { white-space: pre-wrap; }
                     <string notr="true">background: transparent;</string>
                    </property>
                    <property name="currentIndex">
-                    <number>4</number>
+                    <number>3</number>
                    </property>
                    <widget class="QWidget" name="home">
                     <property name="styleSheet">
@@ -2173,7 +2173,7 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;</string>
                       <string>Copy Private Key</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-clone.png</normaloff>:/icons/images/icons/cil-clone.png</iconset>
                      </property>
                     </widget>
@@ -2258,7 +2258,7 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;</string>
                       <string>Copy Public Key</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-clone.png</normaloff>:/icons/images/icons/cil-clone.png</iconset>
                      </property>
                     </widget>
@@ -2498,7 +2498,7 @@ font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                                    <string>Open</string>
                                   </property>
                                   <property name="icon">
-                                   <iconset resource="resources.qrc">
+                                   <iconset>
                                     <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
                                   </property>
                                  </widget>
@@ -2637,7 +2637,7 @@ font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                               <rect>
                                <x>0</x>
                                <y>0</y>
-                               <width>218</width>
+                               <width>353</width>
                                <height>218</height>
                               </rect>
                              </property>
@@ -2740,7 +2740,7 @@ font: 81 10pt &quot;Raleway ExtraBold&quot;;</string>
                              <string>Link Button</string>
                             </property>
                             <property name="icon">
-                             <iconset resource="resources.qrc">
+                             <iconset>
                               <normaloff>:/icons/images/icons/cil-link.png</normaloff>:/icons/images/icons/cil-link.png</iconset>
                             </property>
                             <property name="description">
@@ -3250,7 +3250,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Encrypt File</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-lock-locked.png</normaloff>:/icons/images/icons/cil-lock-locked.png</iconset>
                      </property>
                     </widget>
@@ -3294,7 +3294,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Decrypt File</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-lock-unlocked.png</normaloff>:/icons/images/icons/cil-lock-unlocked.png</iconset>
                      </property>
                     </widget>
@@ -3336,7 +3336,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Browse Files</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
                      </property>
                     </widget>
@@ -3645,7 +3645,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string> Open Directory</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-folder-open.png</normaloff>:/icons/images/icons/cil-folder-open.png</iconset>
                      </property>
                     </widget>
@@ -3689,7 +3689,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Go To Default Location</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-house.png</normaloff>:/icons/images/icons/cil-house.png</iconset>
                      </property>
                     </widget>
@@ -3733,7 +3733,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Change Default Location</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-star.png</normaloff>:/icons/images/icons/cil-star.png</iconset>
                      </property>
                     </widget>
@@ -3780,7 +3780,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string> Go Back..</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-arrow-circle-left.png</normaloff>:/icons/images/icons/cil-arrow-circle-left.png</iconset>
                      </property>
                     </widget>
@@ -4027,7 +4027,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Encrypt Selected File</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-lock-locked.png</normaloff>:/icons/images/icons/cil-lock-locked.png</iconset>
                      </property>
                     </widget>
@@ -4071,7 +4071,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Decrypt Selected File</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-lock-unlocked.png</normaloff>:/icons/images/icons/cil-lock-unlocked.png</iconset>
                      </property>
                     </widget>
@@ -4109,7 +4109,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string/>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-x-circle.png</normaloff>:/icons/images/icons/cil-x-circle.png</iconset>
                      </property>
                      <property name="default">
@@ -4444,7 +4444,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Sign and Verify file</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-fingerprint.png</normaloff>:/icons/images/icons/cil-fingerprint.png</iconset>
                      </property>
                     </widget>
@@ -4488,7 +4488,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Sign File</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-fingerprint.png</normaloff>:/icons/images/icons/cil-fingerprint.png</iconset>
                      </property>
                     </widget>
@@ -4532,7 +4532,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Verify Signature</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-check-circle.png</normaloff>:/icons/images/icons/cil-check-circle.png</iconset>
                      </property>
                     </widget>
@@ -4674,7 +4674,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>Generate Checksum</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-tags.png</normaloff>:/icons/images/icons/cil-tags.png</iconset>
                      </property>
                     </widget>
@@ -4806,7 +4806,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>SHA256</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-file.png</normaloff>:/icons/images/icons/cil-file.png</iconset>
                      </property>
                     </widget>
@@ -4850,7 +4850,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>SHA384</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-file.png</normaloff>:/icons/images/icons/cil-file.png</iconset>
                      </property>
                     </widget>
@@ -4894,7 +4894,7 @@ font: 57 10pt &quot;Raleway Medium&quot;;</string>
                       <string>SHA512</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-file.png</normaloff>:/icons/images/icons/cil-file.png</iconset>
                      </property>
                     </widget>
@@ -5093,7 +5093,7 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;
                       <string/>
                      </property>
                      <property name="pixmap">
-                      <pixmap resource="resources.qrc">:/icons/images/icons/information.png</pixmap>
+                      <pixmap>:/icons/images/icons/information.png</pixmap>
                      </property>
                      <property name="scaledContents">
                       <bool>true</bool>
@@ -5166,7 +5166,7 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;
                       <string>Change Account Password</string>
                      </property>
                      <property name="icon">
-                      <iconset resource="resources.qrc">
+                      <iconset>
                        <normaloff>:/icons/images/icons/cil-lock-locked.png</normaloff>:/icons/images/icons/cil-lock-locked.png</iconset>
                      </property>
                      <property name="flat">
@@ -5223,7 +5223,7 @@ font: 63 10pt &quot;Raleway SemiBold&quot;;
                       <string/>
                      </property>
                      <property name="pixmap">
-                      <pixmap resource="resources.qrc">:/icons/images/icons/information.png</pixmap>
+                      <pixmap>:/icons/images/icons/information.png</pixmap>
                      </property>
                      <property name="scaledContents">
                       <bool>true</bool>

@@ -229,32 +229,34 @@ class MainWindow(QMainWindow):
                         f.close()
                 # Check if the .keys folder exists and has 2 keys in it
 
-            if os.path.exists(os.getcwd() + "/.keys") and len(os.listdir(os.getcwd() + "/.keys")) > 2:
-                # Breadth first search
-                def bfs():
-                    """
-                    Breadth first search
-                    :return:
-                    """
-                    queue = []
-                    visited = []
-                    queue.append(os.getcwd() + "/.keys")
-                    while queue:
-                        s = queue.pop(0)
-                        if s not in visited:
-                            visited.append(s)
-                            if os.path.isdir(s):
-                                for i in os.listdir(s):
-                                    queue.append(os.path.join(s, i))
-                    return visited
-                # BFS for the key files
-                try:
-                    for i in bfs():
-                        if i.endswith(".pem"):
-                            with open(i, "rb") as f:
-                                if i.endswith("public.pem"):
-                                    self.__publicKey = rsa.PublicKey.load_pkcs1(f.read())
+            if os.path.exists(os.getcwd() + "/.keys") and len(os.listdir(os.getcwd() + "/.keys")) == 2:
+                # BFS
+                def breadthFirstFileScan(root):
+                    dirs = [root]
+                    # while we has dirs to scan
+                    while len(dirs):
+                        nextDirs = []
+                        for parent in dirs:
+                            # scan each dir
+                            for f in os.listdir(parent):
+                                # if there is a dir, then save for next ittr
+                                # if it  is a file then yield it (we'll return later)
+                                ff = os.path.join(parent, f)
+                                if os.path.isdir(ff):
+                                    nextDirs.append(ff)
                                 else:
+                                    yield ff
+                        # once we've done all the current dirs then
+                        # we set up the next itter as the child dirs
+                        # from the current itter.
+                        dirs = nextDirs
+                try:
+                    for file in breadthFirstFileScan(os.getcwd() + "/.keys"):
+                        if file.endswith(".pem"):
+                            with open(file, "rb") as f:
+                                if file.endswith("public.pem"):
+                                    self.__publicKey = rsa.PublicKey.load_pkcs1(f.read())
+                                elif file.endswith("private.pem"):
                                     self.__privateKey = rsa.PrivateKey.load_pkcs1(f.read())
                                 f.close()
                     if not self.__publicKey or not self.__privateKey:
