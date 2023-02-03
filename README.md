@@ -18,7 +18,7 @@
       <img src="https://img.shields.io/github/repo-size/enigmapr0ject/EasyRSA?logo=GitHub&style=for-the-badge">
   </a>
   <a href="https://github.com/enigmapr0ject/EasyRSA/blob/main/main.py">
-    <img src="https://img.shields.io/tokei/lines/github/enigmapr0ject/EasyRSA?logo=Python&style=for-the-badge">
+    <img src="https://img.shields.io/github/license/enigmapr0ject/EasyRSA?style=for-the-badge">
   </a>
 </p>
 
