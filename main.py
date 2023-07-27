@@ -7,7 +7,7 @@ Main Driver Code for EasyRSA
 # PROJECT MADE WITH: Qt Designer and PySide6
 # V: 0.0.5
 # ///////////////////////////////////////////////////////////////
-# Developed by Bartosz Rzepka (DevPanada), Leighton Brooks (enigmapr0ject)
+# Developed by Bartosz Rzepka (DevPanada), Leighton Brooks (ameasere)
 # 21477187 / 21472005
 # Theme by Zeno Rocha: https://zenorocha.com/
 import base64
@@ -152,7 +152,7 @@ def support():
     Open support page
     :return:
     """
-    webbrowser.get().open("https://github.com/enigmapr0ject/EasyRSA/issues")
+    webbrowser.get().open("https://github.com/ameasere/EasyRSA/issues")
 
 
 class MainWindow(QMainWindow):
@@ -755,11 +755,11 @@ class MainWindow(QMainWindow):
                 else:
                     self.ui.credits.hide()
             case "btn_help":
-                webbrowser.get().open("https://enigmapr0ject.tech/easyrsa#faq")
+                webbrowser.get().open("https://ameasere.com/easyrsa#faq")
             case "btn_report":
                 support()
             case "btn_more":
-                webbrowser.get().open("https://enigmapr0ject.tech/")
+                webbrowser.get().open("https://ameasere.com/")
             case "copyPrivateKeyButton":
                 pyperclip.copy(self.ui.privateKeyDisplay.toPlainText())
             case "copyPublicKeyButton":
@@ -987,7 +987,7 @@ class MainWindow(QMainWindow):
                 ciphertext = cipher.encrypt(base64.b64encode(self.__privateKey.save_pkcs1()))
                 encryptedKey = base64.b64encode(ciphertext)
                 postData = {"Email": self.__username, "token": self.__sessionToken, "prv": encryptedKey}
-                farequest = requests.post("https://api.enigmapr0ject.tech/easyrsa/2fa/registerTOTP.php", postData)
+                farequest = requests.post("https://ameasere.com.ameasere.com/easyrsa/2fa/registerTOTP.php", postData)
                 response = farequest.content.decode("utf-8")
                 # Generate QR code
                 self.qrwindow = TwoFactorAuthWindow(response, encryptedKey, self.__username, self.__sessionToken)
@@ -1125,7 +1125,7 @@ class MainWindow(QMainWindow):
                 worker.signals.finished.connect(self.sendToNull)
                 self.threadpool.start(worker)
             case "changePw":
-                webbrowser.get().open("https://api.enigmapr0ject.tech/easyrsa/chngPw.php")
+                webbrowser.get().open("https://ameasere.com.ameasere.com/easyrsa/chngPw.php")
             case _:
                 print("%s button not found." % btnName)
         self.ui.signAndVerify.setEnabled(False)
@@ -1500,7 +1500,7 @@ class TwoFactorAuthWindow(QMainWindow):
             self.ui.announceBox.show()
         else:
             postData = {"Email": self.email, "token": self.token, "code": code, "prv": self.encryptedKey}
-            faenable = requests.post("https://api.enigmapr0ject.tech/easyrsa/2fa/registerTOTP.php", data=postData)
+            faenable = requests.post("https://ameasere.com.ameasere.com/easyrsa/2fa/registerTOTP.php", data=postData)
             if faenable.content.decode('utf-8') == "2FA Enabled.":
                 self.ui.announceBox.setStyleSheet("background-color: rgb(30, 200, 84);"
                                                   "border-top-left-radius :10px;"
@@ -1654,11 +1654,11 @@ class LoginWindow(QMainWindow):
         self.username = self.ui.userbox.text()
         self.password = self.ui.passbox.text()
         postData = {"Email": self.username, "Password": self.password}
-        response = requests.post("https://api.enigmapr0ject.tech/easyrsa/login.php",
+        response = requests.post("https://ameasere.com.ameasere.com/easyrsa/login.php",
                                  data=postData).content.decode('utf-8')
         if len(response) > 0 and response != "Email or Password incorrect." and response != "Field/s empty" and response != "User is not verified." and response != "2FA":
             self.__sessionToken = response
-            request = requests.post("https://api.enigmapr0ject.tech/easyrsa/keys.php", data=postData)
+            request = requests.post("https://api.ameasere.com/easyrsa/keys.php", data=postData)
             response = request.content.decode('utf-8')
             publickey = base64.b64decode(response.split("\n")[0])
             privatekey = base64.b64decode(response.split("\n")[1])
@@ -1693,10 +1693,10 @@ class LoginWindow(QMainWindow):
     def fasubmit(self):
         self.authcode = self.ui.codebox.text()
         postData = {"Email": self.username, "Password": self.password, "code": self.authcode}
-        response = requests.post("https://api.enigmapr0ject.tech/easyrsa/2fa/verify.php", data=postData).content.decode('utf-8')
+        response = requests.post("https://api.ameasere.com/easyrsa/2fa/verify.php", data=postData).content.decode('utf-8')
         if response != "Failed":
             self.__sessionToken = response
-            request = requests.post("https://api.enigmapr0ject.tech/easyrsa/keys.php", data=postData)
+            request = requests.post("https://api.ameasere.com/easyrsa/keys.php", data=postData)
             response = request.content.decode('utf-8')
             publickey = base64.b64decode(response.split("\n")[0])
             privatekey = base64.b64decode(response.split("\n")[1])
@@ -1828,7 +1828,7 @@ class RegisterWindow(QMainWindow):
     def registerThread(self):
         emailaddress = self.ui.emailbox.text()
         postData = {"Email": emailaddress}
-        response = requests.post("https://api.enigmapr0ject.tech/easyrsa/register.php", data=postData).content.decode(
+        response = requests.post("https://api.ameasere.com/easyrsa/register.php", data=postData).content.decode(
             'utf-8')
         if response == "Error: Email already registered." or response == "Failed to enter data. Please try again":
             self.ui.responsetitle.setText(response)
@@ -1842,7 +1842,7 @@ class RegisterWindow(QMainWindow):
             ciphertext2 = cipher2.encrypt(base64.b64encode(privateKey.save_pkcs1()))
             postData = {"Email": emailaddress, "pub": base64.b64encode(ciphertext),
                         "prv": base64.b64encode(ciphertext2)}
-            response = requests.post("https://api.enigmapr0ject.tech/easyrsa/register.php",
+            response = requests.post("https://api.ameasere.com/easyrsa/register.php",
                                      data=postData).content.decode(
                 'utf-8')
             self.ui.responsetitle.setText(response)
@@ -2080,7 +2080,7 @@ class RegenerateKeysWindow(QMainWindow):
                 data = {"Email": self.__username, "SessionToken": self.__sessionToken, "pub": ciphertext,
                         "prv": ciphertext2}
                 # Send to server
-                r = requests.post("https://api.enigmapr0ject.tech/easyrsa/updateKeys.php", data=data)
+                r = requests.post("https://api.ameasere.com/easyrsa/updateKeys.php", data=data)
                 # Check if the request was successful
                 if r.text == "200":
                     pass
